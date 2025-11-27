@@ -103,12 +103,15 @@ completion of the closest possible implementation is the main priority of the pr
 Mention KVM and QEMU to run Red Hat
 
 The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_1989} is a security model that prevents information from conflicts of interest (CoI) groups being spread. 
-As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down", the Chinese Wall model allows for information flow freely until a user / process (subject) attempts to read
-from a CoI piece of information (object), then dynamically revokes their write access. \cite{capozucca_brewer-nash_2024}
+As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down" \cite{bell_secure_1973}, the Chinese Wall model allows for information flow freely until a subject (process) attempts to read
+from a CoI object (piece of information), then dynamically revokes their write access.
 This model is commonly used in the financial sector, but has potential in security and systems engineering. Conversely, Security Enhanced Linux implements a mandatory access control system extended of the classic
 discretionary access control system that UNIX based systems use. Discretionary access control (DAC) is simple, such that objects and their privileges are managed by whoever made them, and root can access anything.
-This approach will fail if a user was infiltrated somehow, or more complex security measures were desired. Mandatory access control (MAC) uses labels such that only subjects of the same label can perform operations 
-on the object, so an object of type httpd\_t can only be operated on by a subject of type httpd\_t.
+This approach will fail to protect a system if a user was infiltrated, or more complex security measures were desired. Mandatory access control (MAC) uses labels such that only subjects of the same label can perform operations 
+on the object. For instance, an object of type httpd\_t can only be operated on by a subject of type httpd\_t and not user\_home\_t. This provides strong mitigation against broken access control damages, as subjects can only access
+materials that they should, and are unable to change the policy controls. SELinux is based off of the Flask security architecture for flexible nondiscretionary access controls, where the architecture is split into policy enforcement 
+and policy decision-making. It includes an active vector cache (AVC) to cache policy decisions made by the security server, minimizing the overhead created by SELinux.
+
 
 approximately 5 pages
 \clearpage

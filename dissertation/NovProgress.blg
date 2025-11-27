@@ -1,49 +1,50 @@
-This is BibTeX, Version 0.99d (TeX Live 2026/dev/Arch Linux)
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: NovProgress.aux
 The style file: abbrv.bst
 Database file #1: bibliography.bib
+Warning--empty journal in bell_secure_1973
+Warning--empty year in bell_secure_1973
 Warning--empty year in brewer_chinese_1989
-Warning--empty year in capozucca_brewer-nash_2024
 You've used 2 entries,
             2118 wiz_defined-function locations,
-            509 strings with 4170 characters,
-and the built_in function-call counts, 1011 in all, are:
-= -- 103
-> -- 36
-< -- 2
-+ -- 15
-- -- 12
-* -- 64
-:= -- 146
-add.period$ -- 8
+            507 strings with 4016 characters,
+and the built_in function-call counts, 732 in all, are:
+= -- 73
+> -- 26
+< -- 1
++ -- 11
+- -- 8
+* -- 44
+:= -- 116
+add.period$ -- 7
 call.type$ -- 2
-change.case$ -- 12
+change.case$ -- 10
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 46
-empty$ -- 83
-format.name$ -- 12
-if$ -- 228
+cite$ -- 5
+duplicate$ -- 33
+empty$ -- 59
+format.name$ -- 8
+if$ -- 158
 int.to.chr$ -- 0
 int.to.str$ -- 2
 missing$ -- 2
-newline$ -- 14
+newline$ -- 13
 num.names$ -- 4
-pop$ -- 20
+pop$ -- 17
 preamble$ -- 1
-purify$ -- 10
+purify$ -- 8
 quote$ -- 0
-skip$ -- 38
+skip$ -- 26
 stack$ -- 0
-substring$ -- 75
-swap$ -- 22
-text.length$ -- 2
+substring$ -- 43
+swap$ -- 11
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 8
-warning$ -- 2
-while$ -- 10
+warning$ -- 3
+while$ -- 7
 width$ -- 3
-write$ -- 25
-(There were 2 warnings)
+write$ -- 22
+(There were 3 warnings)
