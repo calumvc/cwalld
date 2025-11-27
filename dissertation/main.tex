@@ -1,0 +1,123 @@
+% \RequirePackage[hyphens]{url}
+\documentclass[11pt,titlepage,dvipsnames,table,xcdraw]{article}
+\usepackage{strath-dissertation}
+\usepackage{setspace}
+
+
+\usepackage{babel}
+\usepackage{lipsum} % For demonstration only.
+
+%--------------------------------
+% Degree settings
+%--------------------------------
+\newcommand{\degreename}{Bachelor of Science}
+\newcommand{\coursename}{CS408: Individual Project}
+\newcommand{\deptname}{Computer and Information Sciences}
+
+\begin{document}
+
+%--------------------------------
+% Title page.
+%--------------------------------
+\begin{titlepage}
+\vspace*{5mm}
+\titletext{Implementing a Chinese Wall Security Daemon in SELinux}
+\vspace{10mm}
+\authortext{Calum Cardownie}
+\vspace{15mm}
+\degreetext{\degreename}{\coursename}
+\vspace{40mm}
+\centredcrest
+\vspace{5mm}
+\depttext{\deptname}
+\vspace{5mm}
+\datetext{August, 2021}
+\end{titlepage}
+
+%--------------------------------
+% Front matter numbering.
+%--------------------------------
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+%--------------------------------
+% Setting counter depth.
+%--------------------------------
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+%--------------------------------
+% The front matter.
+%--------------------------------
+\setstretch{1.2} % 1.5 line spacing. 
+
+%Abstract
+
+%    Introduction
+%    Background Literature
+%    Specification & Design
+%    Implementation
+%    Evaluation
+%    Results
+%    Discussion & Reflection
+%    Future Work
+%    Conclusion
+
+%References
+%Appendices
+
+\input{sections/abstract}
+
+%\input{sections/declaration}
+\clearpage
+\input{sections/acknowledgements}  % Uncomment to include this page.
+
+%--------------------------------
+% Tables of contents.
+%--------------------------------
+\setstretch{1.0} % 1.0 line spacing.  
+\clearpage
+\tableofcontents
+%\listoffigures   % Uncomment for a list of figures.
+%\listoftables    % Uncomment for a list of tables.
+\clearpage
+
+%--------------------------------
+% The body of the document.
+%--------------------------------
+\pagenumbering{arabic} % Page numbering for rest of document.
+\setstretch{1.5} % 1.5 line spacing. 
+\input{sections/introduction} % Add one file per section.
+\clearpage
+\input{sections/background-literature} % Add one file per section.
+\clearpage
+\input{sections/process} % Add one file per section.
+\clearpage
+\input{sections/product} % Add one file per section.
+\clearpage
+
+\input{sections/results} 
+\clearpage
+\input{sections/reflection} 
+\clearpage
+\input{sections/conclusion}
+
+
+%--------------------------------
+% Bibliography
+%--------------------------------
+\clearpage
+\setstretch{1.0}  % 1.0 line spacing. 
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+% add references to the file called bibliography.bib
+\clearpage
+
+%--------------------------------
+% Appendices
+%--------------------------------
+\appendix
+\setstretch{1.5} % 1.5 line spacing.
+\input{sections/appendix} % Add one file per appendix
+
+\end{document}

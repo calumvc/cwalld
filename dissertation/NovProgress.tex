@@ -1,0 +1,224 @@
+\RequirePackage[hyphens]{url}
+\documentclass[11pt,titlepage,dvipsnames,table,xcdraw]{article}
+\usepackage{strath-dissertation}
+\usepackage{setspace}
+
+
+\usepackage{babel}
+\usepackage{lipsum} % For demonstration only.
+\usepackage{subfigure}
+
+
+%--------------------------------
+% Degree settings
+%--------------------------------
+\newcommand{\degreename}{Bachelor of Science}
+\newcommand{\coursename}{CS408: Individual Project}
+\newcommand{\deptname}{Computer and Information Sciences}
+
+\begin{document}
+
+%--------------------------------
+% Title page.
+%--------------------------------
+\begin{titlepage}
+\vspace*{5mm}
+\titletext{Implementing the Chinese Wall security policy in Security Enhanced Linux}
+\vspace{10mm}
+\authortext{Calum Cardownie}
+\vspace{15mm}
+\centering{\Large{\textbf{Progress Report}}}
+\vspace{40mm}
+\centredcrest
+\vspace{5mm}
+\depttext{\deptname}
+\vspace{5mm}
+\datetext{November, 2025}
+\end{titlepage}
+
+%--------------------------------
+% Front matter numbering.
+%--------------------------------
+\pagenumbering{roman}
+\setcounter{page}{2}
+
+%--------------------------------
+% Setting counter depth.
+%--------------------------------
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+%--------------------------------
+% The front matter.
+%--------------------------------
+\setstretch{1.2} % 1.5 line spacing. 
+
+
+
+
+%--------------------------------
+% Tables of contents.
+%--------------------------------
+\setstretch{1.0} % 1.0 line spacing.  
+\clearpage
+\tableofcontents
+%\listoffigures   % Uncomment for a list of figures.
+%\listoftables    % Uncomment for a list of tables.
+\clearpage
+
+%--------------------------------
+% The body of the document.
+%--------------------------------
+\pagenumbering{arabic} % Page numbering for rest of document.
+\setstretch{1.5} % 1.5 line spacing. 
+
+
+\section{Aims and Objectives}
+
+The aim of this project is to define and attempt to implement a Chinese Wall Security policy system in Security Enhanced Linux.
+As a Chinese Wall in SELinux has never been documented before, this project will document the creation and challenges of implementing the dynamic model in the generally static SELinux environment.
+As such, the objectives include:
+
+\begin{itemize}
+  \item Creating a suitable environment for SELinux
+  \item Understanding the principles of
+  \begin{itemize}
+    \item The Chinese Wall Security model
+    \item SELinux and its security capabilities
+  \end{itemize}
+  \item Creating a static implementation of the policy in SELinux
+  \item Creating a daemon that is capable of monitoring subjects and the objects they access
+  \item Adapting the daemon to dynamically update labels to achieve the complete Chinese Wall Security model
+  \item Analyze the difficulties that arose from development and conclude why research in this area has been lacklustre
+\end{itemize}
+
+As this implementation is new ground for SELinux, it must also be considered that it is not possible to implement. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
+completion of the closest possible implementation is the main priority of the project.
+% TODO: a bit more?
+
+\clearpage
+
+\section{Summary of Related Work}
+
+Mention KVM and QEMU to run Red Hat
+
+The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_1989} is a security model that prevents information from conflicts of interest (CoI) groups being spread. 
+As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down", the Chinese Wall model allows for information flow freely until a user / process (subject) attempts to read
+from a CoI piece of information (object), then dynamically revokes their write access. \cite{capozucca_brewer-nash_2024}
+This model is commonly used in the financial sector, but has potential in security and systems engineering. Conversely, Security Enhanced Linux implements a mandatory access control system extended of the classic
+discretionary access control system that UNIX based systems use. Discretionary access control (DAC) is simple, such that objects and their privileges are managed by whoever made them, and root can access anything.
+This approach will fail if a user was infiltrated somehow, or more complex security measures were desired. Mandatory access control (MAC) uses labels such that only subjects of the same label can perform operations 
+on the object, so an object of type httpd\_t can only be operated on by a subject of type httpd\_t.
+
+approximately 5 pages
+\clearpage
+
+\section{Project Specification}
+approximately 2 pages
+\clearpage
+
+\section{Project Plan including summary of progress}
+The project has 3 main phases. 
+\begin{itemize}
+  \item Phase 1. Developing a static Chinese Wall in SELinux
+  \item Phase 2. Achieving a dynamic Chinese Wall Security policy.
+  \item Phase 3. Analyzing the journey of the project and concluding why it has been void of attention
+\end{itemize}
+
+The setup for the first phase involves setting up an environment that can run SELinux. I have chosen Red Hat as the Linux distribution for this end. Red Hat Enterprise Linux (RHEL) is a popular SELinux distribution 
+that other distributions like Fedora and CentOS are forks and inspired by respectively. I run Arch Linux on my laptop, and use a combination of Kernal-based Virtual Machine (KVM) and Quick Emulator (QEMU) to run
+the virtual machine (VM). Virt manager, created by the same company as Red Hat, IBM, was chosen to act as an interface to run and interact with the VM.
+
+\begin{figure}[h]
+  \includegraphics[width=1\linewidth]{figs/specs.png}
+  \caption{Red Hat system specs}
+\end{figure}
+
+Once Red Hat was running, it was time to get into the terminal.
+The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. The plan for this phase involves scoping out the capabilities of SELinux's security
+system. So far, I have spent time completing a static Chinese Wall implementation. This involves a case where a user, called foo is unable to access a resource that another user called bar, has created, with foo
+and bar both having the same base privileges. In a UNIX environment, this can easily be implemented with the chmod (change moderation) command, however the dynamic Chinese Wall must be created with SELinux security 
+labels for properly enforced security. In pursuit of the static wall and pushing the limits of SELinux, I have learnt many things about SELinux systems, including:
+
+\begin{itemize}
+  \item Familiarization with SELinux libraries (SETroubleshoot, Policycoreutils, SETools-console)
+  \item Identification and modification of SELinux labels and object access
+  \item Creating and confining a simple daemon within an SELinux context 
+  \item Creating and installing SELinux type enforcement files
+\end{itemize}
+
+The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in C.
+
+\clearpage
+
+\section{Approach to Development}
+
+\subsection{Methodology}
+
+As mentioned earlier, the project has 3 phases. Each phase will refer to a different style of development methodology.
+The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. This phase is agile, as the needs of the phase will constantly be revisited 
+and contemplated. The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as chwalld. This phase will follow the waterfall principle. The daemon will have 
+a set of defined 
+goals, and all focus will be on developing the daemon to those ends. Regardless of success, phase 2 will end at with enough time for phase 3 to be addressed. Phase 3 will delve into the reasoning behind the lack 
+of Chinese Wall development in SELinux. Depending on the challenges of phase 2, it will be concluded that a Chinese Wall system in SELinux was simply unnecessary, or if phase 2 is a failure, why it was 
+not attainable to be completed. % FIXME: last line or so
+
+\subsection{Design}
+Commission 
+The design of the Chinese Wall security policy is such that once a subject reads from an object that is related to a conflict of interest group, their write access to other objects within that conflict of interest
+is revoked. This prevents information from one object to reach a competitor. 
+
+\begin{figure}[h!]
+  \centering
+  \begin{subfigure}{\linewidth}
+      \includegraphics[height=0.4\linewidth, angle=90]{figs/SELinux_diagram.jpg}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{\linewidth}
+      \includegraphics[height=0.4\linewidth, angle=90]{figs/chinese_wall_diagram.jpg}
+    \end{subfigure}
+    \caption{SELinux and Chinese Wall diagrams}
+\end{figure}
+
+SELinux is designed such that only subjects can only access objects if they have matching labels. In standard SELinux, these labels are all static and are only changed by the user under unique circumstances.
+Allowing dynamic policies would involve having type enforcement (.te) files edited and installed live, along with the labels of subjects to be edited live. This is where a system daemon is required. The daemon
+must be able to:
+\begin{itemize}
+  \item Run in the background surveying processes along with objects they access
+  \item Identify when a subject reads from an object in a CoI group
+  \item Create and assign a different label to the subject 
+  \item Create and install a policy module that will revoke writing access to the object in question
+\end{itemize}
+
+\subsection{Implementation and Technology ideas}
+
+The plan is to create a system daemon in C to run in the background and handle the dynamic policy changes. C was chosen to write the daemon, as it is the standard for kernel and OS level programming. C is a very
+low level language, even deeming that the programmer must allocate the memory in the heap for variables, it is also a language I have knowledge of, previously using it in CS210. Rust 
+is the only other viable alternative, but due to a lack of documentation (extensive, but nothing like C) and learning curve, it is less attractive for this use case.
+
+\subsection{Testing and Evaluation plans}
+
+Testing depends on the amount of time that remains once the daemon is complete, as it being operational will be a big bottleneck for the project. Once ready the daemon will be tested in efficiency, robustness
+security. The daemon's resource usage will be measured and compared to other system daemons. Measuring robustness and security, the daemon will be tested to operate on a huge amount of subjects and objects at once,
+and it will be noted if it was able to efficiently execute its operations without issue. The report will be evalutated based on the completion of the daemon, and it's ability to enforce the Chinese Wall security
+policy.
+
+
+
+\clearpage
+
+
+\clearpage
+
+%--------------------------------
+% Bibliography
+%--------------------------------
+\clearpage
+\setstretch{1.0}  % 1.0 line spacing. 
+\bibliographystyle{abbrv}
+\bibliography{bibliography}
+% add references to the file called bibliography.bib
+\clearpage
+
+
+\end{document}
