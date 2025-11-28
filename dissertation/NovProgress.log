@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.22)  27 NOV 2025 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.7.22)  28 NOV 2025 00:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,27 +470,35 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip67
 \subfig@bottom=\skip68
+) (/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip69
+\enit@outerparindent=\dimen270
+\enit@toks=\toks34
+\enit@inbox=\box67
+\enit@count@id=\count316
+\enitdp@description=\count317
 ) (./NovProgress.aux)
 \openout1 = `NovProgress.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -528,33 +536,33 @@ LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
-\scratchdimen=\dimen270
-\scratchbox=\box67
-\nofMPsegments=\count317
-\nofMParguments=\count318
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count319
-\MPscratchDim=\dimen271
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
-\everyMPtoPDFconversion=\toks35
+\scratchcounter=\count318
+\scratchdimen=\dimen271
+\scratchbox=\box68
+\nofMPsegments=\count319
+\nofMParguments=\count320
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count321
+\MPscratchDim=\dimen272
+\MPnumerator=\count322
+\makeMPintoPDFobject=\count323
+\everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 20.
  (./NovProgress.out) (./NovProgress.out)
 \@outlinefile=\write4
 \openout4 = `NovProgress.out'.
 
-\c@lstlisting=\count322
+\c@lstlisting=\count324
 <./images/strath_fullcolour.png, id=43, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
-Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 32.
+Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 33.
 (pdftex.def)             Requested size: 116.49718pt x 84.5544pt.
  [1
 
@@ -572,42 +580,46 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [2
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 83.
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
-File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
-)
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.99 \clearpage
-                [1
+l.101 \clearpage
+                 [1
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [2
+]
+
+LaTeX Warning: Citation `tsai_practical_2011' on page 2 undefined on input line 108.
+
+[2
 
 ] [3
 
 ]
-<figs/specs.png, id=83, 770.88pt x 338.26375pt>
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 131.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd
+File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+<figs/specs.png, id=91, 770.88pt x 338.26375pt>
 File: figs/specs.png Graphic file (type png)
 <use figs/specs.png>
-Package pdftex.def Info: figs/specs.png  used on input line 136.
+Package pdftex.def Info: figs/specs.png  used on input line 141.
 (pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
  [4
 
- <./figs/specs.png (PNG copy)>] [5]
-./NovProgress.tex:176: Missing number, treated as zero.
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figs/specs.png (PNG copy)>] [5]
+./NovProgress.tex:190: Missing number, treated as zero.
 <to be read again> 
                    }
-l.176   \begin{subfigure}{\linewidth}
+l.190   \begin{subfigure}{\linewidth}
                                      
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./NovProgress.tex:176: Illegal unit of measure (pt inserted).
+./NovProgress.tex:190: Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.176   \begin{subfigure}{\linewidth}
+l.190   \begin{subfigure}{\linewidth}
                                      
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -616,24 +628,24 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-<figs/SELinux_diagram.jpg, id=94, 3035.34pt x 4047.12pt>
+<figs/SELinux_diagram.jpg, id=103, 3035.34pt x 4047.12pt>
 File: figs/SELinux_diagram.jpg Graphic file (type jpg)
 <use figs/SELinux_diagram.jpg>
-Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 177.
+Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 191.
 (pdftex.def)             Requested size: 136.53809pt x 182.09486pt.
-./NovProgress.tex:180: Missing number, treated as zero.
+./NovProgress.tex:194: Missing number, treated as zero.
 <to be read again> 
                    }
-l.180     \begin{subfigure}{\linewidth}
+l.194     \begin{subfigure}{\linewidth}
                                        
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
 
-./NovProgress.tex:180: Illegal unit of measure (pt inserted).
+./NovProgress.tex:194: Illegal unit of measure (pt inserted).
 <to be read again> 
                    }
-l.180     \begin{subfigure}{\linewidth}
+l.194     \begin{subfigure}{\linewidth}
                                        
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -642,10 +654,10 @@ To recover gracefully from this error, it's best to
 delete the erroneous units; e.g., type `2' to delete
 two letters. (See Chapter 27 of The TeXbook.)
 
-<figs/chinese_wall_diagram.jpg, id=95, 3035.34pt x 4047.12pt>
+<figs/chinese_wall_diagram.jpg, id=104, 3035.34pt x 4047.12pt>
 File: figs/chinese_wall_diagram.jpg Graphic file (type jpg)
 <use figs/chinese_wall_diagram.jpg>
-Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 181.
+Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 195.
 (pdftex.def)             Requested size: 136.53809pt x 182.09486pt.
 [6
 
@@ -661,22 +673,26 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `NovProgress.out' has not changed.
 (rerunfilecheck)             Checksum: 6F5BEECE22FBD2E53FA5E868340A7FE8;1540.
  ) 
 Here is how much of TeX's memory you used:
- 22869 strings out of 474222
- 423455 string characters out of 5748733
- 1929975 words of memory out of 5000000
- 44735 multiletter control sequences out of 15000+600000
+ 23210 strings out of 474222
+ 429274 string characters out of 5748733
+ 1930975 words of memory out of 5000000
+ 45063 multiletter control sequences out of 15000+600000
  563898 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,124p,553b,498s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,11n,124p,553b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfss1095.pfb>
-Output written on NovProgress.pdf (10 pages, 6776773 bytes).
+Output written on NovProgress.pdf (10 pages, 6778601 bytes).
 PDF statistics:
- 142 PDF objects out of 1000 (max. 8388607)
- 115 compressed objects within 2 object streams
- 27 named destinations out of 1000 (max. 500000)
+ 152 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
  105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

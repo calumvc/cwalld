@@ -7,6 +7,7 @@
 \usepackage{babel}
 \usepackage{lipsum} % For demonstration only.
 \usepackage{subfigure}
+\usepackage{enumitem}
 
 
 %--------------------------------
@@ -75,43 +76,47 @@
 
 \section{Aims and Objectives}
 
-The aim of this project is to define and attempt to implement a Chinese Wall Security policy system in Security Enhanced Linux.
+The aim of this project is to understand, define and implement a Chinese Wall Security policy system in Security Enhanced Linux (SELinux).
 As a Chinese Wall in SELinux has never been documented before, this project will document the creation and challenges of implementing the dynamic model in the generally static SELinux environment.
 As such, the objectives include:
 
-\begin{itemize}
+\begin{enumerate}[label=1.\arabic*]
   \item Creating a suitable environment for SELinux
   \item Understanding the principles of
-  \begin{itemize}
+    \begin{enumerate}[label=1.2.\arabic*]
     \item The Chinese Wall Security model
     \item SELinux and its security capabilities
-  \end{itemize}
+  \end{enumerate}
+  \item Specifically define the Chinese Wall policy and its actions in response to CoI breaches
   \item Creating a static implementation of the policy in SELinux
   \item Creating a daemon that is capable of monitoring subjects and the objects they access
   \item Adapting the daemon to dynamically update labels to achieve the complete Chinese Wall Security model
   \item Analyze the difficulties that arose from development and conclude why research in this area has been lacklustre
-\end{itemize}
+\end{enumerate}
 
-As this implementation is new ground for SELinux, it must also be considered that it is not possible to implement. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
-completion of the closest possible implementation is the main priority of the project.
-% TODO: a bit more?
+As this implementation is new ground, it must also be considered that it is not possible to implement. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
+completion of the closest possible implementation is the main priority of the project. The basis for the Chinese Wall (Brewer Nash) policy is well defined, but not every angle is explored in the original paper.
+As such, I will have a definition for the policy based on other papers and my understanding of what will be achievable with SELinux.
 
 \clearpage
 
 \section{Summary of Related Work}
 
-Mention KVM and QEMU to run Red Hat
-
 The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_1989} is a security model that prevents information from conflicts of interest (CoI) groups being spread. 
 As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down" \cite{bell_secure_1973}, the Chinese Wall model allows for information flow freely until a subject (process) attempts to read
 from a CoI object (piece of information), then dynamically revokes their write access.
-This model is commonly used in the financial sector, but has potential in security and systems engineering. Conversely, Security Enhanced Linux implements a mandatory access control system extended of the classic
-discretionary access control system that UNIX based systems use. Discretionary access control (DAC) is simple, such that objects and their privileges are managed by whoever made them, and root can access anything.
-This approach will fail to protect a system if a user was infiltrated, or more complex security measures were desired. Mandatory access control (MAC) uses labels such that only subjects of the same label can perform operations 
+This model is commonly used in the financial sector, but has potential in security and systems engineering. The Chinese Wall model has also been successfully implemented in a cloud computing context \cite{tsai_practical_2011}. 
+In this case,
+there are many Virtual Machines (VMs) running on one system, with the virtual machine monitor, or "hypervisor" acting as the delegating force of the computers hardware. Each virtual machine is a seperate operating system, commonly 
+being completely independent from the other VMs on a machine. Inter-VM attacks can happen if a VM on the system is breached, and can lead to one infected VM spreading to the whole system. This is where the Chinese Wall was 
+created, to eliminate the possibility of inter-VM attacks from competitors. Once a VM is loaded onto a machine, other VMs in CoI groups are not allowed to work on the same machine.
+
+Security Enhanced Linux implements a mandatory access control system extended of the classic
+discretionary access control system that UNIX based systems use. Discretionary access control (DAC) is defined such that objects and their privileges are managed by whoever made them, and the root user can access and control anything.
+This approach will fail to protect a system if a user was infiltrated, or if more complex security measures were desired. Mandatory access control (MAC) uses labels such that only subjects of the same label can perform operations 
 on the object. For instance, an object of type httpd\_t can only be operated on by a subject of type httpd\_t and not user\_home\_t. This provides strong mitigation against broken access control damages, as subjects can only access
 materials that they should, and are unable to change the policy controls. SELinux is based off of the Flask security architecture for flexible nondiscretionary access controls, where the architecture is split into policy enforcement 
-and policy decision-making. It includes an active vector cache (AVC) to cache policy decisions made by the security server, minimizing the overhead created by SELinux.
-
+and policy decision-making. It includes an active vector cache (AVC) to cache policy decisions made by the security server, minimizing the overhead created by SELinux. 
 
 approximately 5 pages
 \clearpage
@@ -150,7 +155,17 @@ labels for properly enforced security. In pursuit of the static wall and pushing
   \item Creating and installing SELinux type enforcement files
 \end{itemize}
 
-The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in C.
+Currently I am just shy of completing the static wall. The policy modules are installed, and now just the subject label needs to be changed for the user for the policy to work.
+
+The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in C. This daemon will survey the system and modify security modules, designating the denial to the security server,
+but effectively marking the subjects to deny. 
+
+The final phase is simply analysing challenges that arose from creation of the wall. The main challenge so far has been a lack of documentation. While the Red Hat docs are fantastic and detailed, they only describe
+operations that a standard system admin would need, rather than anything more complex like custom policy modules. As such, finding accurate documentation is a challenge for this project, as SELinux has it's own policy
+module language (.te) with it's own syntax and logic system.
+
+
+GANTT CHART HERE
 
 \clearpage
 
@@ -160,14 +175,13 @@ The plan for the second phase primarily involves creation of the Chinese Wall da
 
 As mentioned earlier, the project has 3 phases. Each phase will refer to a different style of development methodology.
 The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. This phase is agile, as the needs of the phase will constantly be revisited 
-and contemplated. The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as chwalld. This phase will follow the waterfall principle. The daemon will have 
-a set of defined 
-goals, and all focus will be on developing the daemon to those ends. Regardless of success, phase 2 will end at with enough time for phase 3 to be addressed. Phase 3 will delve into the reasoning behind the lack 
-of Chinese Wall development in SELinux. Depending on the challenges of phase 2, it will be concluded that a Chinese Wall system in SELinux was simply unnecessary, or if phase 2 is a failure, why it was 
-not attainable to be completed. % FIXME: last line or so
+and analysed. It will allow me to alter the functional and non-functional requirements of the daemon as I scope the SELinux environment out. 
+The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as cwalld. This phase will follow the waterfall principle. By this phase, the daemon will have 
+a set of defined requirements, and all focus will be on developing the daemon to meet those ends. Regardless of phase 2's success, there will be enough time to approach phase 3. Phase 3 will delve into the reasoning behind the lack 
+of Chinese Wall development in SELinux.
 
 \subsection{Design}
-Commission 
+
 The design of the Chinese Wall security policy is such that once a subject reads from an object that is related to a conflict of interest group, their write access to other objects within that conflict of interest
 is revoked. This prevents information from one object to reach a competitor. 
 
@@ -197,7 +211,7 @@ must be able to:
 
 The plan is to create a system daemon in C to run in the background and handle the dynamic policy changes. C was chosen to write the daemon, as it is the standard for kernel and OS level programming. C is a very
 low level language, even deeming that the programmer must allocate the memory in the heap for variables, it is also a language I have knowledge of, previously using it in CS210. Rust 
-is the only other viable alternative, but due to a lack of documentation (extensive, but nothing like C) and learning curve, it is less attractive for this use case.
+is another viable alternative, but due to a lack of documentation (extensive, but nothing like C) and learning curve, it is less attractive for this use case.
 
 \subsection{Testing and Evaluation plans}
 
