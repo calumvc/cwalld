@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  28 NOV 2025 18:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  29 NOV 2025 16:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -477,35 +477,61 @@ Package: subfigure 2002/03/15 v2.1.5 subfigure package
 (/usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
 \subfig@top=\skip73
 \subfig@bottom=\skip74
+) (/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen271
+\captionmargin=\dimen272
+\caption@leftmargin=\dimen273
+\caption@rightmargin=\dimen274
+\caption@width=\dimen275
+\caption@indent=\dimen276
+\caption@parindent=\dimen277
+\caption@hangindent=\dimen278
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count325
+\c@continuedfloat=\count326
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: subfigure package is loaded.
+) (/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+LaTeX Info: Redefining \subref on input line 189.
+Package subcaption Info: The counter `subfigure' was already defined by
+(subcaption)             an unknown document class or package on input line 238.
+Package subcaption Info: The counter `subtable' was already defined by
+(subcaption)             an unknown document class or package on input line 238.
 ) (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip75
-\enit@outerparindent=\dimen271
+\enit@outerparindent=\dimen279
 \enit@toks=\toks35
 \enit@inbox=\box68
-\enit@count@id=\count325
-\enitdp@description=\count326
+\enit@count@id=\count327
+\enitdp@description=\count328
 ) (./NovProgress.aux)
 \openout1 = `NovProgress.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -543,16 +569,16 @@ LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
-\scratchdimen=\dimen272
+\scratchcounter=\count329
+\scratchdimen=\dimen280
 \scratchbox=\box69
-\nofMPsegments=\count328
-\nofMParguments=\count329
+\nofMPsegments=\count330
+\nofMParguments=\count331
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count330
-\MPscratchDim=\dimen273
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
+\MPscratchCnt=\count332
+\MPscratchDim=\dimen281
+\MPnumerator=\count333
+\makeMPintoPDFobject=\count334
 \everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -560,16 +586,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 22.
  (./NovProgress.out) (./NovProgress.out)
 \@outlinefile=\write4
 \openout4 = `NovProgress.out'.
 
-\c@lstlisting=\count333
-<./images/strath_fullcolour.png, id=7, 582.4962pt x 422.7795pt>
+\c@lstlisting=\count335
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+<./images/strath_fullcolour.png, id=55, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
-Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 32.
+Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 35.
 (pdftex.def)             Requested size: 116.49718pt x 84.5544pt.
 
 
@@ -596,20 +624,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 \clearpage
+l.103 \clearpage
                  [1
 
 ]
-
-LaTeX Warning: Citation `brewer_chinese_1989' on page 2 undefined on input line 105.
-
-
-LaTeX Warning: Citation `bell_secure_1973' on page 2 undefined on input line 106.
-
-
-LaTeX Warning: Citation `tsai_practical_2011' on page 2 undefined on input line 110.
-
-
 
 [2
 
@@ -621,147 +639,73 @@ LaTeX Warning: Citation `tsai_practical_2011' on page 2 undefined on input line 
 
 ]
 
-LaTeX Warning: Reference `redhat' on page 5 undefined on input line 149.
-
-
-
 [5
 
 ]
-<figs/ganttchart.png, id=77, 1033.8625pt x 634.37pt>
+<figs/ganttchart.png, id=121, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
-Package pdftex.def Info: figs/ganttchart.png  used on input line 176.
+Package pdftex.def Info: figs/ganttchart.png  used on input line 179.
 (pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
 
 
 [6 <./figs/ganttchart.png>]
-./NovProgress.tex:201: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.201   \begin{subfigure}{\linewidth}
-                                     
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./NovProgress.tex:201: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.201   \begin{subfigure}{\linewidth}
-                                     
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-<figs/SELinux_diagram.jpg, id=84, 3035.34pt x 4047.12pt>
+<figs/SELinux_diagram.jpg, id=128, 3035.34pt x 4047.12pt>
 File: figs/SELinux_diagram.jpg Graphic file (type jpg)
 <use figs/SELinux_diagram.jpg>
-Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 202.
-(pdftex.def)             Requested size: 136.53809pt x 182.09486pt.
-./NovProgress.tex:205: Missing number, treated as zero.
-<to be read again> 
-                   }
-l.205     \begin{subfigure}{\linewidth}
-                                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-./NovProgress.tex:205: Illegal unit of measure (pt inserted).
-<to be read again> 
-                   }
-l.205     \begin{subfigure}{\linewidth}
-                                       
-Dimensions can be in units of em, ex, in, pt, pc,
-cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
-I'll assume that you meant to say pt, for printer's points.
-To recover gracefully from this error, it's best to
-delete the erroneous units; e.g., type `2' to delete
-two letters. (See Chapter 27 of The TeXbook.)
-
-<figs/chinese_wall_diagram.jpg, id=85, 3035.34pt x 4047.12pt>
+Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 206.
+(pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
+<figs/chinese_wall_diagram.jpg, id=129, 3035.34pt x 4047.12pt>
 File: figs/chinese_wall_diagram.jpg Graphic file (type jpg)
 <use figs/chinese_wall_diagram.jpg>
-Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 206.
-(pdftex.def)             Requested size: 136.53809pt x 182.09486pt.
+Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 212.
+(pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 
 
 [7
 
  <./figs/SELinux_diagram.jpg> <./figs/chinese_wall_diagram.jpg>]
 
-[8] (./NovProgress.bbl)
-<figs/specs.png, id=97, 770.88pt x 338.26375pt>
-File: figs/specs.png Graphic file (type png)
-<use figs/specs.png>
-Package pdftex.def Info: figs/specs.png  used on input line 254.
-(pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
-
-
-./NovProgress.tex:258: LaTeX Error: \begin{document} ended by \end{section}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.258 \end{section}
-                   
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./NovProgress.tex:258: Extra \endgroup.
-\end  ...end#1\endcsname \@checkend {#1}\endgroup 
-                                                  \UseHook {env/#1/after}\if...
-l.258 \end{section}
-                   
-Things are pretty mixed up, but I think the worst is over.
-
-
+[8] (./NovProgress.bbl
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 11.
+)
 
 [9
 
 
 
+]
+<figs/specs.png, id=146, 770.88pt x 338.26375pt>
+File: figs/specs.png Graphic file (type png)
+<use figs/specs.png>
+Package pdftex.def Info: figs/specs.png  used on input line 260.
+(pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
+
+
+[10
 
  <./figs/specs.png (PNG copy)>] (./NovProgress.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `NovProgress.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `NovProgress.out':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  A93AA69EE52E8CF25D0D8C91B2C4928B;2118.
+Package rerunfilecheck Info: File `NovProgress.out' has not changed.
+(rerunfilecheck)             Checksum: A93AA69EE52E8CF25D0D8C91B2C4928B;2118.
  ) 
 Here is how much of TeX's memory you used:
- 23498 strings out of 475171
- 432561 string characters out of 5767094
- 912849 words of memory out of 5000000
- 46093 multiletter control sequences out of 15000+600000
- 564478 words of font info for 55 fonts, out of 8000000 for 9000
+ 24897 strings out of 475171
+ 459795 string characters out of 5767094
+ 937123 words of memory out of 5000000
+ 47480 multiletter control sequences out of 15000+600000
+ 564834 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,126p,553b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on NovProgress.pdf (11 pages, 6808880 bytes).
+ 99i,12n,126p,553b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on NovProgress.pdf (12 pages, 6823299 bytes).
 PDF statistics:
- 134 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 38 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 186 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 

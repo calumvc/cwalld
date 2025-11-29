@@ -238,6 +238,12 @@ INPUT /usr/share/texmf-dist/tex/latex/subfigure/subfigure.sty
 INPUT /usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg
 INPUT /usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg
 INPUT /usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg
+INPUT /usr/share/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
@@ -257,10 +263,10 @@ INPUT ./NovProgress.out
 INPUT ./NovProgress.out
 INPUT NovProgress.out
 INPUT NovProgress.out
+OUTPUT NovProgress.pdf
 INPUT ./NovProgress.out
 INPUT ./NovProgress.out
 OUTPUT NovProgress.out
-OUTPUT NovProgress.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssbx10.tfm
@@ -305,6 +311,7 @@ INPUT ./figs/chinese_wall_diagram.jpg
 INPUT ./NovProgress.bbl
 INPUT ./NovProgress.bbl
 INPUT NovProgress.bbl
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT ./figs/specs.png
 INPUT ./figs/specs.png
 INPUT ./figs/specs.png
@@ -316,4 +323,5 @@ INPUT ./NovProgress.out
 INPUT /home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb

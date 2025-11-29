@@ -5,7 +5,10 @@
 
 \usepackage{babel}
 \usepackage{lipsum} % For demonstration only.
+\usepackage{graphicx}
 \usepackage{subfigure}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{enumitem}
 
 
@@ -106,11 +109,11 @@ The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_
 As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down" \cite{bell_secure_1973}, the Chinese Wall model allows for information flow freely until a subject (process) attempts to read
 from a \verb_CoI_ object (piece of information), then dynamically revokes their write access.
 Chinese Walls are commonly used in the financial sector, such that even the financial conduct authority states that steps should be taken to manage conflicts of interests such as Chinese Walls being
-put in place % TODO: FIX CITATION\cite{fca_handbook}.
+put in place 
 The Chinese Wall model has also been successfully implemented in a cloud computing context \cite{tsai_practical_2011}. 
 In this case,
 there are many Virtual Machines (VMs) running on one system, with the virtual machine monitor, or "hypervisor" acting as the delegating force of the computers hardware. Each virtual machine is a seperate operating system, commonly 
-being completely independent from the other VMs on a machine. Inter-VM attacks can happen if a VM on the system is breached, and can lead to one infected VM spreading to the whole system. This is where the Chinese Wall was 
+being completely independent of the other VMs on a machine. Inter-VM attacks can happen if a VM on the system is breached, and can lead to one infected VM spreading to the whole system. This is where the Chinese Wall was 
 created, to eliminate the possibility of inter-VM attacks from competitors. Once a VM is loaded onto a machine, other VMs in \verb_CoI_ groups are not allowed to work on the same machine.
 
 \subsection{Security Enhanced Linux}
@@ -198,14 +201,17 @@ is revoked. This prevents information from one object to reach a competitor.
 
 \begin{figure}[h!]
   \centering
-  \begin{subfigure}{\linewidth}
-      \includegraphics[height=0.4\linewidth, angle=90]{figs/SELinux_diagram.jpg}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}{\linewidth}
-      \includegraphics[height=0.4\linewidth, angle=90]{figs/chinese_wall_diagram.jpg}
-    \end{subfigure}
-    \caption{SELinux and Chinese Wall diagrams}
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[height=1\textwidth, angle=90]{figs/SELinux_diagram.jpg}
+    \captionof{figure}{SELinux Diagram}  % Requires caption package
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[height=1\textwidth, angle=90]{figs/chinese_wall_diagram.jpg}
+    \captionof{figure}{Chinese Wall Diagram}
+  \end{minipage}
 \end{figure}
 
 SELinux is designed such that only subjects can only access objects if they have matching labels. In standard SELinux, these labels are all static and are only changed by the user under unique circumstances.
@@ -254,7 +260,5 @@ policy.
   \includegraphics[width=1\linewidth]{figs/specs.png}
   \caption{Red Hat system specs}\label{redhat}
 \end{figure}
-
-\end{section}
 
 \end{document}

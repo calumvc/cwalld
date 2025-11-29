@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{bell_secure_1973}
+D.~E. Bell and L.~J. Lapadula.
+\newblock Secure computer systems: Mathematical foundations.
+\newblock Number: {MTR}2547VOL1.
+
+\bibitem{brewer_chinese_1989}
+D.~Brewer and M.~Nash.
+\newblock The chinese wall security policy.
+\newblock In {\em Proceedings. 1989 {IEEE} Symposium on Security and Privacy}, pages 206--214. {IEEE} Comput. Soc. Press.
+
+\bibitem{tsai_practical_2011}
+T.-H. Tsai, Y.-C. Chen, H.-C. Huang, P.-M. Huang, and K.-S. Chou.
+\newblock A practical chinese wall security model in cloud computing.
+\newblock In {\em 2011 13th Asia-Pacific Network Operations and Management Symposium}, pages 1--4.
+
+\end{thebibliography}

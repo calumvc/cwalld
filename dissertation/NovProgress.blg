@@ -1,48 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2026/dev/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: NovProgress.aux
-I found no \citation commands---while reading file NovProgress.aux
-I found no \bibdata command---while reading file NovProgress.aux
-I found no \bibstyle command---while reading file NovProgress.aux
-You've used 0 entries,
-            0 wiz_defined-function locations,
-            83 strings with 496 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+The style file: abbrv.bst
+Database file #1: bibliography.bib
+Warning--empty journal in bell_secure_1973
+Warning--empty year in bell_secure_1973
+Warning--empty year in brewer_chinese_1989
+Warning--empty year in tsai_practical_2011
+You've used 3 entries,
+            2118 wiz_defined-function locations,
+            512 strings with 4257 characters,
+and the built_in function-call counts, 1203 in all, are:
+= -- 115
+> -- 54
+< -- 2
++ -- 23
+- -- 18
+* -- 79
+:= -- 188
+add.period$ -- 10
+call.type$ -- 3
+change.case$ -- 18
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
+cite$ -- 7
+duplicate$ -- 52
+empty$ -- 94
+format.name$ -- 18
+if$ -- 258
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+int.to.str$ -- 3
+missing$ -- 3
+newline$ -- 18
+num.names$ -- 6
+pop$ -- 30
+preamble$ -- 1
+purify$ -- 15
 quote$ -- 0
-skip$ -- 0
+skip$ -- 39
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 65
+swap$ -- 18
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+type$ -- 12
+warning$ -- 4
+while$ -- 12
+width$ -- 4
+write$ -- 32
+(There were 4 warnings)

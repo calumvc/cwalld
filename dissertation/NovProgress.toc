@@ -10,4 +10,4 @@
 \contentsline {subsection}{\numberline {5.2}Design}{7}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Implementation and Technology ideas}{8}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Testing and Evaluation plans}{8}{subsection.5.4}%
-\contentsline {section}{\numberline {A}Red Hat fastfetch}{9}{appendix.A}%
+\contentsline {section}{\numberline {A}Red Hat fastfetch}{10}{appendix.A}%
