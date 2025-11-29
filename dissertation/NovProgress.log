@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  29 NOV 2025 16:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  29 NOV 2025 19:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -594,7 +594,7 @@ Package hyperref Info: Link coloring ON on input line 22.
 \c@lstlisting=\count335
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<./images/strath_fullcolour.png, id=55, 582.4962pt x 422.7795pt>
+<./images/strath_fullcolour.png, id=71, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
 Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 35.
@@ -624,7 +624,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.103 \clearpage
+l.101 \clearpage
                  [1
 
 ]
@@ -634,56 +634,58 @@ l.103 \clearpage
 ]
 
 [3]
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 153.
+
 
 [4
 
 ]
 
-[5
+[5]
+
+[6
 
 ]
-<figs/ganttchart.png, id=121, 1033.8625pt x 634.37pt>
+<figs/ganttchart.png, id=146, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
-Package pdftex.def Info: figs/ganttchart.png  used on input line 179.
+Package pdftex.def Info: figs/ganttchart.png  used on input line 231.
 (pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
 
 
-[6 <./figs/ganttchart.png>]
-<figs/SELinux_diagram.jpg, id=128, 3035.34pt x 4047.12pt>
+[7 <./figs/ganttchart.png>]
+<figs/SELinux_diagram.jpg, id=154, 3035.34pt x 4047.12pt>
 File: figs/SELinux_diagram.jpg Graphic file (type jpg)
 <use figs/SELinux_diagram.jpg>
-Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 206.
+Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 257.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
-<figs/chinese_wall_diagram.jpg, id=129, 3035.34pt x 4047.12pt>
+<figs/chinese_wall_diagram.jpg, id=155, 3035.34pt x 4047.12pt>
 File: figs/chinese_wall_diagram.jpg Graphic file (type jpg)
 <use figs/chinese_wall_diagram.jpg>
-Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 212.
+Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 263.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 
 
-[7
+[8
 
  <./figs/SELinux_diagram.jpg> <./figs/chinese_wall_diagram.jpg>]
 
-[8] (./NovProgress.bbl
-LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 11.
-)
+[9] (./NovProgress.bbl)
 
-[9
+[10
 
 
 
 ]
-<figs/specs.png, id=146, 770.88pt x 338.26375pt>
+<figs/specs.png, id=170, 770.88pt x 338.26375pt>
 File: figs/specs.png Graphic file (type png)
 <use figs/specs.png>
-Package pdftex.def Info: figs/specs.png  used on input line 260.
+Package pdftex.def Info: figs/specs.png  used on input line 307.
 (pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
 
 
-[10
+[11
 
  <./figs/specs.png (PNG copy)>] (./NovProgress.aux)
  ***********
@@ -691,21 +693,21 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `NovProgress.out' has not changed.
-(rerunfilecheck)             Checksum: A93AA69EE52E8CF25D0D8C91B2C4928B;2118.
+(rerunfilecheck)             Checksum: BBC1429FE5B3BFA07A8FC407C910870D;2985.
  ) 
 Here is how much of TeX's memory you used:
- 24897 strings out of 475171
- 459795 string characters out of 5767094
- 937123 words of memory out of 5000000
- 47480 multiletter control sequences out of 15000+600000
+ 24906 strings out of 475171
+ 459922 string characters out of 5767094
+ 937126 words of memory out of 5000000
+ 47484 multiletter control sequences out of 15000+600000
  564834 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,126p,553b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,126p,553b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on NovProgress.pdf (12 pages, 6823299 bytes).
+Output written on NovProgress.pdf (13 pages, 6832185 bytes).
 PDF statistics:
- 186 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

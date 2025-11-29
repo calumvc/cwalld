@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex NovProgress"] 1764433589.07088 "NovProgress.aux" "NovProgress.bbl" "NovProgress" 1764433590.07136 0
+["bibtex NovProgress"] 1764445437.71309 "NovProgress.aux" "NovProgress.bbl" "NovProgress" 1764445438.70049 0
   "./bibliography.bib" 1764433182.6909 10274 307f1773d158ad9bfd971e9855f570dc ""
   "/usr/share/texmf-dist/bibtex/bst/base/abbrv.bst" 1755987285 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "NovProgress.aux" 1764433590.0207 2699 99524af45fa027299748108633040ddb "pdflatex"
+  "NovProgress.aux" 1764445438.65407 3248 a648d129f35717f1b0563689eb44bd9e "pdflatex"
   (generated)
   "NovProgress.bbl"
   "NovProgress.blg"
   (rewritten before read)
-["pdflatex"] 1764433589.08124 "NovProgress.tex" "NovProgress.pdf" "NovProgress" 1764433590.07149 0
+["pdflatex"] 1764445437.72284 "NovProgress.tex" "NovProgress.pdf" "NovProgress" 1764445438.7006 0
   "/home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk" 1763208601.25858 11620 3cbf2b3f995303f0e13a46e09befc419 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1755987285 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1755987285 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -163,11 +163,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1755987285 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1763208085 30070 2c390b00126b1036e8876b6c3ea4d747 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763208525 2008249 265ed4606330620e620552290fd7743e ""
-  "NovProgress.aux" 1764433590.0207 2699 99524af45fa027299748108633040ddb "pdflatex"
-  "NovProgress.bbl" 1764433589.07769 689 2023d11c1e88d8e44d0ceeee2e04792e "bibtex NovProgress"
-  "NovProgress.out" 1764433590.02135 2118 a93aa69ee52e8cf25d0d8c91b2c4928b "pdflatex"
-  "NovProgress.tex" 1764433586.92472 14223 23974c28b3458e2100047de4b44dec85 ""
-  "NovProgress.toc" 1764433590.02135 1046 ab0a78a7a995519a9c6808f3db68f350 "pdflatex"
+  "NovProgress.aux" 1764445438.65407 3248 a648d129f35717f1b0563689eb44bd9e "pdflatex"
+  "NovProgress.bbl" 1764445437.72053 689 2023d11c1e88d8e44d0ceeee2e04792e "bibtex NovProgress"
+  "NovProgress.out" 1764445438.65452 2985 bbc1429fe5b3bfa07a8fc407c910870d "pdflatex"
+  "NovProgress.tex" 1764445434.75958 17407 2b992f4ae3a43af5de453569f53fbb2e ""
+  "NovProgress.toc" 1764445438.65452 1431 5be0a148b56ff30fb7b2b1797552aec6 "pdflatex"
   "figs/SELinux_diagram.jpg" 1764018097.38726 2921823 2fe48b100099b29c27c9821ac162babb ""
   "figs/chinese_wall_diagram.jpg" 1764018084.6735 2936997 500c577c2bc5d05839fa2530eb434416 ""
   "figs/ganttchart.png" 1764347229.27888 63752 f79987bf3597230357cf566ef39800c7 ""

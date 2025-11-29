@@ -57,8 +57,6 @@
 \setstretch{1.2} % 1.5 line spacing. 
 
 
-
-
 %--------------------------------
 % Tables of contents.
 %--------------------------------
@@ -128,12 +126,66 @@ approximately 5 pages
 \clearpage
 
 \section{Project Specification}
-approximately 2 pages
+
+\subsection{Functional and Non-Functional Requirements}
+Functional Requirements of the Chinese Wall daemon (\verb_cwalld_): 
+\begin{itemize}
+  \item \verb_cwalld_ must run as a daemon in the userspace of the computer until terminated
+  \item \verb_cwalld_ must monitor read and write actions on all subjects on the system
+  \item \verb_cwalld_ must identify \verb_CoI_ triggers to act upon
+  \item \verb_cwalld_ must create a policy module that will prevent the \verb_CoI_ from being breached
+  \item \verb_cwalld_ must install the policy on the machine
+  \item \verb_cwalld_ will write to a log file documenting policies it installs
+\end{itemize}
+
+Non-Functional Requirements
+\begin{itemize}
+  \item \verb_cwalld_ will only be controllable by the admin
+  \item \verb_cwalld_ will handle memory in a threadsafe and careful manner such to avoid concurrency issues and memory leaks
+  \item \verb_cwalld_ must not significantly impact performance of the system
+\end{itemize}
+
+\subsection{Technology Selection: C Programming Language}
+
+The Chinese Wall security daemon will be implemented in \verb_C_, elected for its suitability for kernel and system-level programming. The main reasons for this choice are documented below
+
+\begin{itemize}
+  \item \textbf{System Program Status}: \verb_C_ has been the \textit{de-facto} standard language for operating systems programming since its origin in the 1970s, with major kernels including Linux, Windows NT and freeBSD
+    being predominantly written in \verb_C_.
+
+  \item \textbf{Low-level Precision}: \verb_C_ is a language that allows the developer incredible freedom, including the potential to manipulate memory directly, and interact with core parts of the system. The daemon requires
+    direct interaction with system calls and process management, which \verb_C_ provides natively.
+
+  \item \textbf{Performance}: \verb_C_ is a compiled language with minute overhead, ensuring that the daemon introduces minimal latency to the system.
+
+  \item \textbf{Familiarity}: I have prior experience with \verb_C_, developing several low level projects with it, courtesy of CS210.
+\end{itemize}
+
+The use of \verb_C_ introduces some challenges however, listed below
+
+\begin{itemize}
+  \item \textbf{Memory Management}: Given \verb_C_ grants the developer power to manipulate memory, it must be managed with disciplined design practices. If memory is not managed perfectly it can lead to
+    memory leaks and buffer overflows, that will build up and completely eliminate the daemon's viability.
+
+  \item \textbf{Concurrency}: System daemon tasks inherently involve concurrency, as such practices such as mutex locks and semaphores must be considered to prevent race conditions, and the daemon must follow
+    thread-safe design patterns.
+\end{itemize}
+
+\subsection{Library Usage}
 
 
+\subsection{Other Language Avenues}
 
+Other languages that were considered include:
 
-
+\begin{itemize}
+  \item \textbf{Rust}: \verb_Rust_ is hailed for its type safety and security, while also compiling to near C-level speed, making it a great choice for daemon development, however, the steep learning curve makes it 
+    a difficult choice.
+  \item \textbf{Go}: \verb_Go_ is a modern, slightly higher level alternative to \verb_C_, with excellent concurrent integration with its Goroutines, but the garbage collection introduces latency
+    and an indirect method of interaction with SELinux libraries leave it in the shadow of \verb_C_.
+  \item \textbf{Python}: While recent developments with \verb_Python 3.14_ have removed the global interpreter lock that prevented true multithreading, it remains an interpreted language that cannot match the 
+    speed and minimal overhead of compiled languages such as \verb_C_.
+\end{itemize}
 
 
 
@@ -153,7 +205,7 @@ in figure: \ref{redhat} in the appendix.
 
 Once Red Hat was running, it was time to get into the terminal.
 The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. The plan for this phase involves scoping out the capabilities of SELinux's security
-system. So far, I have spent time completing a static Chinese Wall implementation. This involves a case where a user, called foo is unable to access a resource that another user called bar, has created, with foo
+system. So far, I have spent time working on a static implementation of a Chinese Wall. This involves a case where a user, called foo is unable to access a resource that another user called bar, has created, with foo
 and bar both having the same base privileges. In a UNIX environment, this can easily be implemented with the chmod (change moderation) command, however the dynamic Chinese Wall must be created with SELinux security 
 labels for properly enforced security. In pursuit of the static wall and pushing the limits of SELinux, I have learnt many things about SELinux systems, including:
 \begin{itemize}
@@ -165,7 +217,7 @@ labels for properly enforced security. In pursuit of the static wall and pushing
 
 Currently, I am just shy of completing the static wall. The policy modules are installed, and now just the subject label needs to be changed for the user for the policy to work.
 
-The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in C. This daemon will survey the system and modify security modules, designating the denial to the security server,
+The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in \verb_C_. This daemon will survey the system and modify security modules, designating the denial to the security server,
 but effectively marking the subjects to deny. 
 
 The final phase is simply analysing challenges that arose from creation of the wall. The main challenge so far has been a lack of documentation. While the Red Hat docs are well-written and detailed, they only describe
@@ -180,7 +232,6 @@ A Gantt chart was constructed to depict the project timeline:
   \caption{Project Gantt chart}
 \end{figure}
 
-
 \clearpage
 
 \section{Approach to Development}
@@ -190,7 +241,7 @@ A Gantt chart was constructed to depict the project timeline:
 As mentioned earlier, the project has 3 phases. Each phase will refer to a different style of development methodology.
 The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. This phase is agile, as the needs of the phase will constantly be revisited 
 and analysed. It will allow me to alter the functional and non-functional requirements of the daemon as I scope the SELinux environment out. 
-The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as cwalld. This phase will follow the waterfall principle. By this phase, the daemon will have 
+The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as \verb_cwalld_. This phase will follow the waterfall principle. By this phase, the daemon will have 
 a set of defined requirements, and all focus will be on developing the daemon to meet those ends. Regardless of phase 2's success, there will be enough time to approach phase 3. Phase 3 will delve into the reasoning behind the lack 
 of Chinese Wall development in SELinux.
 
@@ -225,10 +276,6 @@ must be able to:
 \end{itemize}
 
 \subsection{Implementation and Technology ideas}
-
-The plan is to create a system daemon in C to run in the background and handle the dynamic policy changes. C was chosen to write the daemon, as it is the standard for kernel and OS level programming. C is a very
-low level language, even deeming that the programmer must allocate the memory in the heap for variables, it is also a language I have knowledge of, previously using it in CS210. Rust 
-is another viable alternative, but due to a lack of documentation (extensive, but nothing like C) and learning curve, it is less attractive for this use case.
 
 \subsection{Testing and Evaluation plans}
 
