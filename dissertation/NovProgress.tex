@@ -10,6 +10,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{enumitem}
+\usepackage{multicol}
 
 
 %--------------------------------
@@ -76,7 +77,7 @@
 
 \section{Aims and Objectives}
 
-The aim of this project is to understand, define and implement a Chinese Wall Security policy system in Security Enhanced Linux (SELinux).
+The aim of this project is to understand, define and implement the Chinese Wall security model in Security Enhanced Linux (SELinux).
 As a Chinese Wall in SELinux has never been documented before, this project will document the creation and challenges of implementing the dynamic model in the generally static SELinux environment.
 As such, the objectives include:
 
@@ -94,20 +95,23 @@ As such, the objectives include:
   \item Analyze the difficulties that arose from development and conclude why research in this area has been lacklustre
 \end{enumerate}
 
-As this implementation is new ground, it must also be considered that it is not possible to implement. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
-completion of the closest possible implementation is the main priority of the project. The basis for the Chinese Wall (Brewer Nash) policy is well defined, but not every angle is explored in the original paper.
-As such, I will have a definition for the policy based on other papers and my understanding of what will be achievable with SELinux.
+As this implementation is new ground, it must also be considered that a perfect Chinese Wall model in SELinux is not possible and/or very challenging. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
+completion of the closest possible implementation is the main priority of the project. The basis for the Chinese Wall (Brewer Nash) policy is well-defined, but not every angle is explored in the original paper.
+As such, I will also make a clear definition Chinese Wall policy that the security system will have.
 
 \clearpage
 
 \section{Summary of Related Work}
-\subsection{Chinese Wall policy in cloud computing}
 
-The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_1989} is a security model that prevents information from conflicts of interest (\verb_CoI_) groups being spread. 
-As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down" \cite{bell_secure_1973}, the Chinese Wall model allows for information flow freely until a subject (process) attempts to read
-from a \verb_CoI_ object (piece of information), then dynamically revokes their write access.
-Chinese Walls are commonly used in the financial sector, such that even the financial conduct authority states that steps should be taken to manage conflicts of interests such as Chinese Walls being
-put in place 
+\subsection{Chinese Wall policy groundwork}
+The Chinese Wall Security Model - or Brewer and Nash model \cite{brewer_chinese_1989} - is a security model that prevents information from conflicts of interest (\verb_CoI_) groups being spread. 
+As opposed to the Bell LaPadula (BLP) model, which enforces "no read up, no write down" \cite{bell_secure_1973}, the Chinese Wall model allows for information flow freely until a subject (e.g. a user or process) attempts to read
+from a \verb_CoI_ object (piece of information). Upon this access, the system dynamically revokes their read and write permissions to other objects in the \verb_CoI_ group,
+creating a "wall" inbetween them. This aims to prevent any 
+information flow that violates the Chinese Wall policy. The Brewer Nash model provides a mathematical format that is based on the larger Chinese Wall policy, a pillar of compliance in the financial sector.
+Regulatory bodies like the UK's Financial conduct authority states that steps should be taken to manage conflicts of interests such as Chinese Walls being put in place.
+
+\subsection{Chinese Wall policy in cloud computing}
 The Chinese Wall model has also been successfully implemented in a cloud computing context \cite{tsai_practical_2011}. 
 In this case,
 there are many Virtual Machines (VMs) running on one system, with the virtual machine monitor, or "hypervisor" acting as the delegating force of the computers hardware. Each virtual machine is a seperate operating system, commonly 
@@ -128,7 +132,7 @@ approximately 5 pages
 \section{Project Specification}
 
 \subsection{Functional and Non-Functional Requirements}
-Functional Requirements of the Chinese Wall daemon (\verb_cwalld_): 
+Functional Requirements: 
 \begin{itemize}
   \item \verb_cwalld_ must run as a daemon in the userspace of the computer until terminated
   \item \verb_cwalld_ must monitor read and write actions on all subjects on the system
@@ -138,7 +142,7 @@ Functional Requirements of the Chinese Wall daemon (\verb_cwalld_):
   \item \verb_cwalld_ will write to a log file documenting policies it installs
 \end{itemize}
 
-Non-Functional Requirements
+Non-Functional Requirements:
 \begin{itemize}
   \item \verb_cwalld_ will only be controllable by the admin
   \item \verb_cwalld_ will handle memory in a threadsafe and careful manner such to avoid concurrency issues and memory leaks
@@ -170,9 +174,6 @@ The use of \verb_C_ introduces some challenges however, listed below
   \item \textbf{Concurrency}: System daemon tasks inherently involve concurrency, as such practices such as mutex locks and semaphores must be considered to prevent race conditions, and the daemon must follow
     thread-safe design patterns.
 \end{itemize}
-
-\subsection{Library Usage}
-
 
 \subsection{Other Language Avenues}
 
@@ -250,12 +251,13 @@ of Chinese Wall development in SELinux.
 The design of the Chinese Wall security policy is such that once a subject reads from an object that is related to a conflict of interest group, their write access to other objects within that conflict of interest
 is revoked. This prevents information from one object to reach a competitor. 
 
+% FIXME: MERMAID DIAGRAMS
 \begin{figure}[h!]
   \centering
   \begin{minipage}{0.45\textwidth}
     \centering
     \includegraphics[height=1\textwidth, angle=90]{figs/SELinux_diagram.jpg}
-    \captionof{figure}{SELinux Diagram}  % Requires caption package
+    \captionof{figure}{SELinux Diagram}
   \end{minipage}
   \hfill
   \begin{minipage}{0.45\textwidth}
@@ -266,16 +268,28 @@ is revoked. This prevents information from one object to reach a competitor.
 \end{figure}
 
 SELinux is designed such that only subjects can only access objects if they have matching labels. In standard SELinux, these labels are all static and are only changed by the user under unique circumstances.
-Allowing dynamic policies would involve having type enforcement (.te) files edited and installed live, along with the labels of subjects to be edited live. This is where a system daemon is required. The daemon
-must be able to:
-\begin{itemize}
-  \item Run in the background surveying processes along with objects they access
-  \item Identify when a subject reads from an object in a CoI group
-  \item Create and assign a different label to the subject 
-  \item Create and install a policy module that will revoke writing access to the object in question
-\end{itemize}
+Allowing dynamic policies would involve having type enforcement (.te) files edited and installed live based on the labels of the subjects. This is where the Chinese Wall daemon is required.
 
 \subsection{Implementation and Technology ideas}
+
+The base language C comes completely fresh. As such, there will be usages of common C libraries, ranging from the standard library, daemon infrastructure, SELinux core, process monitoring
+and system operations. As development for the daemon is yet to start, not every library that will be used has been planned, but an accurate estimation can be made below:
+
+\begin{multicols}{2}
+  \begin{itemize} % TODO: FINISH THIS SECTION
+    \item selinux.h
+    \item context.h 
+    \item avc.h
+    \item label.h
+  \end{itemize}
+  \columnbreak
+  \begin{itemize}
+    \item Whoa
+    \item it 
+    \item works
+    \item
+  \end{itemize}
+\end{multicols}
 
 \subsection{Testing and Evaluation plans}
 

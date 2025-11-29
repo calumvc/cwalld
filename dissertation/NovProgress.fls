@@ -246,6 +246,8 @@ INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/subcaption.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT ./NovProgress.aux
 INPUT ./NovProgress.aux

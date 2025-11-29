@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  29 NOV 2025 19:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  29 NOV 2025 22:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -511,27 +511,96 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box68
 \enit@count@id=\count327
 \enitdp@description=\count328
+) (/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count329
+\mult@box=\box69
+\multicol@leftmargin=\dimen280
+\c@unbalance=\count330
+\c@collectmore=\count331
+\doublecol@number=\count332
+\multicoltolerance=\count333
+\multicolpretolerance=\count334
+\full@width=\dimen281
+\page@free=\dimen282
+\premulticols=\dimen283
+\postmulticols=\dimen284
+\multicolsep=\skip76
+\multicolbaselineskip=\skip77
+\partial@page=\box70
+\last@line=\box71
+\mc@boxedresult=\box72
+\maxbalancingoverflow=\dimen285
+\mult@rightbox=\box73
+\mult@grightbox=\box74
+\mult@firstbox=\box75
+\mult@gfirstbox=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\c@minrows=\count335
+\c@columnbadness=\count336
+\c@finalcolumnbadness=\count337
+\last@try=\dimen286
+\multicolovershoot=\dimen287
+\multicolundershoot=\dimen288
+\mult@nat@firstbox=\box113
+\colbreak@box=\box114
+\mc@col@check@num=\count338
 ) (./NovProgress.aux)
 \openout1 = `NovProgress.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -569,16 +638,16 @@ LaTeX Font Info:    ... okay on input line 22.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count329
-\scratchdimen=\dimen280
-\scratchbox=\box69
-\nofMPsegments=\count330
-\nofMParguments=\count331
+\scratchcounter=\count339
+\scratchdimen=\dimen289
+\scratchbox=\box115
+\nofMPsegments=\count340
+\nofMParguments=\count341
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count332
-\MPscratchDim=\dimen281
-\MPnumerator=\count333
-\makeMPintoPDFobject=\count334
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen290
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
 \everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -586,18 +655,18 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 22.
+Package hyperref Info: Link coloring ON on input line 23.
  (./NovProgress.out) (./NovProgress.out)
 \@outlinefile=\write4
 \openout4 = `NovProgress.out'.
 
-\c@lstlisting=\count335
+\c@lstlisting=\count345
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 <./images/strath_fullcolour.png, id=71, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
-Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 35.
+Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 36.
 (pdftex.def)             Requested size: 116.49718pt x 84.5544pt.
 
 
@@ -624,7 +693,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.101 \clearpage
+l.102 \clearpage
                  [1
 
 ]
@@ -635,7 +704,7 @@ l.101 \clearpage
 
 [3]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 153.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 157.
 
 
 [4
@@ -650,7 +719,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 <figs/ganttchart.png, id=146, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
-Package pdftex.def Info: figs/ganttchart.png  used on input line 231.
+Package pdftex.def Info: figs/ganttchart.png  used on input line 232.
 (pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
 
 
@@ -658,12 +727,12 @@ Package pdftex.def Info: figs/ganttchart.png  used on input line 231.
 <figs/SELinux_diagram.jpg, id=154, 3035.34pt x 4047.12pt>
 File: figs/SELinux_diagram.jpg Graphic file (type jpg)
 <use figs/SELinux_diagram.jpg>
-Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 257.
+Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 259.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 <figs/chinese_wall_diagram.jpg, id=155, 3035.34pt x 4047.12pt>
 File: figs/chinese_wall_diagram.jpg Graphic file (type jpg)
 <use figs/chinese_wall_diagram.jpg>
-Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 263.
+Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 265.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 
 
@@ -681,7 +750,7 @@ Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 263.
 <figs/specs.png, id=170, 770.88pt x 338.26375pt>
 File: figs/specs.png Graphic file (type png)
 <use figs/specs.png>
-Package pdftex.def Info: figs/specs.png  used on input line 307.
+Package pdftex.def Info: figs/specs.png  used on input line 321.
 (pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
 
 
@@ -693,18 +762,18 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `NovProgress.out' has not changed.
-(rerunfilecheck)             Checksum: BBC1429FE5B3BFA07A8FC407C910870D;2985.
+(rerunfilecheck)             Checksum: 5EE6AE85EBAA775672DDE4ADBCD15412;3076.
  ) 
 Here is how much of TeX's memory you used:
- 24906 strings out of 475171
- 459922 string characters out of 5767094
- 937126 words of memory out of 5000000
- 47484 multiletter control sequences out of 15000+600000
+ 25045 strings out of 475171
+ 462228 string characters out of 5767094
+ 942215 words of memory out of 5000000
+ 47620 multiletter control sequences out of 15000+600000
  564834 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,126p,553b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,11n,126p,553b,553s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on NovProgress.pdf (13 pages, 6832185 bytes).
+Output written on NovProgress.pdf (13 pages, 6832618 bytes).
 PDF statistics:
  212 PDF objects out of 1000 (max. 8388607)
  179 compressed objects within 2 object streams
