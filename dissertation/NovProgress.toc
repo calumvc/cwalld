@@ -5,8 +5,8 @@
 \contentsline {subsection}{\numberline {1.3}Opening Notes}{1}{subsection.1.3}%
 \contentsline {section}{\numberline {2}Summary of Related Work}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Chinese Wall Model Origin}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Security Enhanced Linux}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Chinese Wall Model in System Security}{3}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.2}Security Enhanced Linux}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Chinese Wall Model in System Security}{4}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Project Specification}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Functional and Non-Functional Requirements}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Technology Selection: C Programming Language}{5}{subsection.3.2}%

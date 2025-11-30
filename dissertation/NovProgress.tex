@@ -99,8 +99,7 @@ As such, the objectives include:
 
 \subsection{Opening Notes}
 As this implementation is new ground, it must also be considered that a perfect Chinese Wall model in SELinux is not possible and/or very challenging. The analysis stage will examine the results regardless of if the Chinese Wall is achieved, but
-completion of the closest possible implementation is the main priority of the project. The basis for the Chinese Wall (Brewer Nash) policy is well-defined, but not every angle is explored in the original paper.
-As such, I will also make a clear definition Chinese Wall policy that the security system will have.
+completion of the closest possible implementation is the main priority of the project. This means that this paper may be a proof of concept rather than full implementation.
 
 \clearpage
 
@@ -115,32 +114,42 @@ creating a "wall" in-between them. Consider the following scenario:
 A data server stores information on Banks A and B, and Oil Company A and B. These are in \verb_CoI_ groups with their respective counterpart. If a user approaches the dataset, they are initially able to access
 any object. As far as the system knows, this user is free as they have no prior knowledge of either companies. Suppose the user has read from Bank A, the situation develops - the user now possesses
 information that, deemed by the Chinese Wall, should not be allowed to reach Bank B, as they are conflicting with Bank A. This is where the wall revokes the write access from the user with regards to Bank B.
-Now information \textit{cannot} flow from Bank A to B. 
+Now information \textit{cannot} flow from Bank A to B. The user is still able to access either Oil Company object. This presents a flaw with the Chinese Wall model, if companies A and B are still in conflict,
+information could still travel to Oil Company B. This flaw will however not be addressed in this paper, as it is focused solely on the implementation of the Wall.
+
+\begin{itemize}
+  \item \textbf{BN Read Rule}: Subject \verb_S_ can read object \verb_O_ only if \verb_O_ is in the same Company Dataset \verb_(CD)_ as an object already read by \verb_S_, or if \verb_O's_ \verb_(CD)_ is in a 
+    different Conflict of Interest \verb_(CoI)_ group from all \verb_CDs_ of objects already read by \verb_S_.
+  \item \textbf{BN Write Rule}: Subject \verb_S_ can write to an object \verb_O_ only if \verb_S_ can read \verb_O_ \textbf{and} all objects \verb_O'_ read by \verb_S_ are in the same \verb_CD_ as \verb_O_.
+
+\end{itemize}
+
 
 This aims to prevent any 
 information flow that violates the Chinese Wall policy. The Brewer Nash model provides a mathematical format that is based on the larger Chinese Wall policy, a pillar of compliance in the financial sector.
 Chinese Walls are a common practice that should theoretically and practically prevent misuse of probable information leakage in banks \cite{herzel_chinese_1978} and other financial management firms.
 After the Brewer Nash model was communicated, another paper was published once again by Brewer and Nash, but also TY Lin, who presented them with potential improvements on their model \cite{lin_chinese_1989},
 leading to the Aggressive Chinese Wall. This idea, trying to disprove the assumption that the conflict of interest is an equivalent relation, has been accepted into the mainstream since it was
-proposed. This is the type of implementation the 1997 UNIX proof believed in \cite{foley_building_1997}, illustrating the possibility of its creation in UNIX.
+proposed. This is the type of implementation the 1997 UNIX proof believed in \cite{foley_building_1997}, illustrating the possibility of its creation in UNIX. Such proofs in UNIX lead it to be assumed to
+theoretically be possible in Linux and SELinux. This proof indicates there is research, but there is a lack of documented attempts to specifically implement it into the UNIX or adjacent kernel.
 
 \subsection{Security Enhanced Linux}
-Security Enhanced Linux implements a mandatory access control system extended of the classic
+Security Enhanced Linux implements a Mandatory Access Control (MAC) system extended of the classic
 Discretionary Access Control (DAC) system that UNIX based systems use. DAC is defined such that objects and their privileges are managed by whoever made them, and the root user can access and 
-control anything. DAC in UNIX leverages the \verb_chmod_ (change moderation) command, allowing read, write and execute access of objects to be edited for the 3 main groups subjects can belong to. DAC brings about great
+control anything. DAC in UNIX leverages the \verb_chmod_ (change mode) command, allowing read, write and execute access of objects to be edited for the 3 main groups subjects can belong to. DAC brings about great
 flexibility, but this can spiral to privilege control issues. It is known to be difficult to measure the security of the DAC model, and in some cases it is undecidable \cite{fan_mandatory_2009}. 
-Mandatory Access Control (MAC) is the other model that shares the spotlight with DAC in system security. It uses labels such that only subjects of 
-the same label can perform operations on the object. For instance, an object of type \verb|httpd_t| can only be operated on by a subject of type \verb|httpd_t| and not \verb|sshd_t|. This provides strong mitigation against
+MAC is the other model that shares the spotlight with DAC in system security. It uses labels such that only subjects of 
+the same label can perform operations on the object, as defined by policies installed on the system.
+Labels are devised in the form \verb|user_u:role_r:type_t:c0|
+For instance, a base policy may be that an object of type \verb|httpd_t| can only be operated on by a subject of 
+type \verb|httpd_t| and not \verb|sshd_t|. This provides strong mitigation against
 broken access control damages, as subjects can only access objects that they should, and are unable to change the policy controls. For this reason SELinux is adopted by many distributions of Linux, including Red Hat,
 Fedora, CentOS and even mobile operating system giant Android. SELinux is based off of the Flux Advanced Security Kernel (FLASK) security architecture for flexible
 nondiscretionary access controls, where the architecture is split into policy enforcement and policy decision-making. 
 SELinux's origin can be attributed to the National Security Agency's Trusted UNIX (TRUSIX) Working Group, working together to publish a Rainbow Book (A series of Computer Security standards and guidelines
 by the United States Government), and created a second (unpublished) book that included a formal SELinux model and associated evaluation evidence prototype. SELinux was a demonstration that mandatory access
-control was viable and could be added to the Linux kernel, and so it was merged into the mainline kernel in the 2.6 series of the kernel.
-
-
-A key component is the active vector cache (AVC) to cache policy decisions made by the 
-security server, minimizing the overhead created by SELinux. 
+control was viable and could be added to the Linux kernel, and so it was merged into the mainline kernel in the 2.6 series of the kernel. Linux was able to adopt this because of its derivation from UNIX, Linux
+being an open source alternative to the UNIX that was locked down by AT&T. Linus Torvalds combined his Linux kernel with the GNU system tools to create GNU/Linux, leading to what we now know as Linux.
 
 \subsection{Chinese Wall Model in System Security}
 Cloud computing is an avenue that has had a successful Chinese Wall model implementation \cite{tsai_practical_2011}. 
@@ -151,13 +160,12 @@ VM spreading to the whole system. This is where the Chinese Wall was
 created, to eliminate the possibility of inter-VM attacks from competitors. The security model was implemented on the Kernel-base Virtual Machine (KVM) level.
 Once a VM is loaded onto a machine, other the Wall prevents other VMs in \verb_CoI_ groups from running on that machine. 
 
-The Chinese Wall model has successfully been implemented in workflow management systems. Workflow Management Systems (WfMS) are intrinsically network-based applications, potentially hosting multiple conflicting
+The Chinese Wall model has also successfully been implemented in workflow management systems. Workflow Management Systems (WfMS) are intrinsically network-based applications, potentially hosting multiple conflicting
 sources of information. As such, a secure WfMS must implement security features, specifically targeting information confidentiality as a main point of effort. The Chinese Wall security model can be leveraged
 to prevent conflict of interest leakage. A Chinese Wall was implemented using role-based access control (RBAC) to enforce, and Java to handle the Chinese Wall logic \cite{hsiao_implementing_2010}. The paper
 mentions that RBAC is unable to implement general cases of the Chinese Wall, as it has issues implementing the BN read rule in dynamic contexts.
 
 
-approximately 5 pages
 \clearpage
 
 \section{Project Specification}
@@ -247,14 +255,14 @@ labels for properly enforced security. In pursuit of the static wall and pushing
   \item Creating and installing SELinux type enforcement files
 \end{itemize}
 
-Currently, I am just shy of completing the static wall. The policy modules are installed, and now just the subject label needs to be changed for the user for the policy to work.
+At this point, a base static wall has been completed. I began by attempting to enforce the wall on a user basis, preventing a real Linux user from accessing objects they were in conflict with.
 It is very difficult to adapt the type of specifically the user, using a process rather than a standard system running subject. As such, the Chinese Wall may only be able to enforce
 its protection on a process level and not a system user level.
 
 \subsection{Phase 2: Achieving a dynamic Chinese Wall security model}
 The plan for the second phase primarily involves creation of the Chinese Wall daemon, written in \verb_C_. This daemon will survey the system and modify security modules, designating the denial to the security server.
-This will be the longest phase, including daemon development, along with testing. Phase 2 will also potentially venture into Kernel level engineering, as a Chinese Wall will require atomic operations to deny subjects
-based on their history.
+This will be the longest phase, including daemon development, along with testing. Phase 2 will also likely venture into Kernel level engineering, as a Chinese Wall will require atomic operations to deny subjects
+based on their history, and installing policy modules is a system-wide operation that will not be able to done freely by a daemon.
 
 \subsection{Phase 3: Analysing the journey to making the Chinese Wall model in SELinux}
 The final phase is simply analysing challenges that arose from creation of the wall. The main challenge so far has been a lack of documentation. While the Red Hat docs are well-written and detailed, they only describe
@@ -309,23 +317,7 @@ Allowing dynamic policies would involve having type enforcement (.te) files edit
 \subsection{Implementation and Technology ideas}
 
 The base language C comes completely fresh. As such, there will be usages of common C libraries, ranging from the standard library, daemon infrastructure, SELinux core, process monitoring
-and system operations. As development for the daemon is yet to start, not every library that will be used has been planned, but an accurate estimation can be made below:
-
-\begin{multicols}{2}
-  \begin{itemize} % TODO: FINISH THIS SECTION
-    \item selinux.h
-    \item context.h 
-    \item avc.h
-    \item label.h
-  \end{itemize}
-  \columnbreak
-  \begin{itemize}
-    \item Whoa
-    \item it 
-    \item works
-    \item
-  \end{itemize}
-\end{multicols}
+and system operations. The project will likely also involve kernel programming, which is notoriously difficult. This will be evaluated once that stage is reached.
 
 \subsection{Testing and Evaluation plans}
 

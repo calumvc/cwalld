@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  30 NOV 2025 19:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  30 NOV 2025 22:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -693,17 +693,28 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.105 \clearpage
+l.104 \clearpage
                  [1
 
 ]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 118.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 117.
 
 
 [2
 
 ]
+./NovProgress.tex:152: Misplaced alignment tab character &.
+l.152 ...e to the UNIX that was locked down by AT&
+                                                  T. Linus Torvalds combined...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+
 
 [3]
 
@@ -721,7 +732,7 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 <figs/ganttchart.png, id=191, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
-Package pdftex.def Info: figs/ganttchart.png  used on input line 268.
+Package pdftex.def Info: figs/ganttchart.png  used on input line 276.
 (pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
 
 
@@ -735,12 +746,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <figs/SELinux_diagram.jpg, id=202, 3035.34pt x 4047.12pt>
 File: figs/SELinux_diagram.jpg Graphic file (type jpg)
 <use figs/SELinux_diagram.jpg>
-Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 295.
+Package pdftex.def Info: figs/SELinux_diagram.jpg  used on input line 303.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 <figs/chinese_wall_diagram.jpg, id=203, 3035.34pt x 4047.12pt>
 File: figs/chinese_wall_diagram.jpg Graphic file (type jpg)
 <use figs/chinese_wall_diagram.jpg>
-Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 301.
+Package pdftex.def Info: figs/chinese_wall_diagram.jpg  used on input line 309.
 (pdftex.def)             Requested size: 153.62851pt x 204.85846pt.
 
 
@@ -763,7 +774,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 37--40
 <figs/specs.png, id=219, 770.88pt x 338.26375pt>
 File: figs/specs.png Graphic file (type png)
 <use figs/specs.png>
-Package pdftex.def Info: figs/specs.png  used on input line 357.
+Package pdftex.def Info: figs/specs.png  used on input line 349.
 (pdftex.def)             Requested size: 455.24411pt x 199.75969pt.
 
 
@@ -778,15 +789,15 @@ Package rerunfilecheck Info: File `NovProgress.out' has not changed.
 (rerunfilecheck)             Checksum: EB26A558F973EC6FDF68775F6822EA91;4544.
  ) 
 Here is how much of TeX's memory you used:
- 25068 strings out of 475171
- 462629 string characters out of 5767094
+ 25066 strings out of 475171
+ 462567 string characters out of 5767094
  944431 words of memory out of 5000000
- 47630 multiletter control sequences out of 15000+600000
+ 47628 multiletter control sequences out of 15000+600000
  564834 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,11n,126p,553b,551s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on NovProgress.pdf (15 pages, 6839590 bytes).
+Output written on NovProgress.pdf (15 pages, 6841877 bytes).
 PDF statistics:
  263 PDF objects out of 1000 (max. 8388607)
  227 compressed objects within 3 object streams
