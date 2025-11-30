@@ -3,49 +3,61 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: NovProgress.aux
 The style file: abbrv.bst
 Database file #1: bibliography.bib
+Repeated entry---line 164 of file bibliography.bib
+ : @inproceedings{lin_chinese_1989
+ :                                ,
+I'm skipping whatever remains of this entry
 Warning--empty journal in bell_secure_1973
 Warning--empty year in bell_secure_1973
 Warning--empty year in brewer_chinese_1989
+Warning--empty year in fan_mandatory_2009
+Warning--empty journal in foley_building_1997
+Warning--empty year in foley_building_1997
+Warning--empty journal in herzel_chinese_1978
+Warning--empty year in herzel_chinese_1978
+Warning--empty year in hsiao_implementing_2010
+Warning--empty booktitle in lin_chinese_1989
+Warning--empty year in lin_chinese_1989
 Warning--empty year in tsai_practical_2011
-You've used 3 entries,
+You've used 8 entries,
             2118 wiz_defined-function locations,
-            512 strings with 4257 characters,
-and the built_in function-call counts, 1203 in all, are:
-= -- 115
-> -- 54
-< -- 2
-+ -- 23
-- -- 18
-* -- 79
-:= -- 188
-add.period$ -- 10
-call.type$ -- 3
-change.case$ -- 18
+            541 strings with 5128 characters,
+and the built_in function-call counts, 3758 in all, are:
+= -- 383
+> -- 117
+< -- 6
++ -- 50
+- -- 38
+* -- 272
+:= -- 538
+add.period$ -- 29
+call.type$ -- 8
+change.case$ -- 43
 chr.to.int$ -- 0
-cite$ -- 7
-duplicate$ -- 52
-empty$ -- 94
-format.name$ -- 18
-if$ -- 258
+cite$ -- 20
+duplicate$ -- 142
+empty$ -- 324
+format.name$ -- 38
+if$ -- 821
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 3
-newline$ -- 18
-num.names$ -- 6
-pop$ -- 30
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 46
+num.names$ -- 16
+pop$ -- 71
 preamble$ -- 1
-purify$ -- 15
+purify$ -- 35
 quote$ -- 0
-skip$ -- 39
+skip$ -- 109
 stack$ -- 0
-substring$ -- 65
-swap$ -- 18
-text.length$ -- 2
+substring$ -- 403
+swap$ -- 51
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 4
-while$ -- 12
-width$ -- 4
-write$ -- 32
-(There were 4 warnings)
+type$ -- 32
+warning$ -- 12
+while$ -- 35
+width$ -- 9
+write$ -- 87
+(There was 1 error message)
