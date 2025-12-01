@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex NovProgress"] 1764532335.88585 "NovProgress.aux" "NovProgress.bbl" "NovProgress" 1764540397.63923 2
+["bibtex NovProgress"] 1764584837.63037 "NovProgress.aux" "NovProgress.bbl" "NovProgress" 1764584982.14432 2
   "./bibliography.bib" 1764530087.71934 18174 f9f1a5475432542593540f5cfe40864c ""
   "/usr/share/texmf-dist/bibtex/bst/base/abbrv.bst" 1755987285 20329 b5fed53e10044d0f8112183785c759b1 ""
-  "NovProgress.aux" 1764540397.39299 4440 c507f4c328b854149d903185080097c2 "pdflatex"
+  "NovProgress.aux" 1764584982.097 4165 26e3fef646e1767a234e77559af493da "pdflatex"
   (generated)
   "NovProgress.bbl"
   "NovProgress.blg"
   (rewritten before read)
-["pdflatex"] 1764540394.91332 "NovProgress.tex" "NovProgress.pdf" "NovProgress" 1764540397.63956 2
+["pdflatex"] 1764584981.12698 "NovProgress.tex" "NovProgress.pdf" "NovProgress" 1764584982.14457 2
   "/home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk" 1763208601.25858 11620 3cbf2b3f995303f0e13a46e09befc419 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm" 1755987285 1536 f0fa079cdc83a6ffeda21e42352cf1ea ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1755987285 1528 abec98dbc43e172678c11b3b9031252a ""
@@ -164,13 +164,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1755987285 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1763208085 30070 2c390b00126b1036e8876b6c3ea4d747 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763208525 2008249 265ed4606330620e620552290fd7743e ""
-  "NovProgress.aux" 1764540397.39299 4440 c507f4c328b854149d903185080097c2 "pdflatex"
-  "NovProgress.bbl" 1764532335.90494 1803 15d8af860d7859843731a73c645046a1 "bibtex NovProgress"
-  "NovProgress.out" 1764540397.39537 4544 eb26a558f973ec6fdf68775f6822ea91 "pdflatex"
-  "NovProgress.tex" 1764540394.12804 22778 faae871447ed01bea2a515e9e0118883 ""
-  "NovProgress.toc" 1764540397.39537 2055 e99767ec3fda8bfd81b22237370a49ef "pdflatex"
-  "figs/SELinux_diagram.jpg" 1764018097.38726 2921823 2fe48b100099b29c27c9821ac162babb ""
-  "figs/chinese_wall_diagram.jpg" 1764018084.6735 2936997 500c577c2bc5d05839fa2530eb434416 ""
+  "NovProgress.aux" 1764584982.097 4165 26e3fef646e1767a234e77559af493da "pdflatex"
+  "NovProgress.bbl" 1764584837.63716 1803 15d8af860d7859843731a73c645046a1 "bibtex NovProgress"
+  "NovProgress.out" 1764584982.09765 4544 eb26a558f973ec6fdf68775f6822ea91 "pdflatex"
+  "NovProgress.tex" 1764584980.56187 22356 4dd5a405bcd330ef40e46b116f1b3099 ""
+  "NovProgress.toc" 1764584982.09765 2055 686c9fc40bbddda65b1af3e0774ab58c "pdflatex"
   "figs/ganttchart.png" 1764347229.27888 63752 f79987bf3597230357cf566ef39800c7 ""
   "figs/specs.png" 1764182858.6034 98248 7302c702f7e02d0a589fe7d0e3a0c667 ""
   "images/strath_fullcolour.png" 1635529802 845771 7391e64cbd78bad8412cf5d5173cbb5a ""

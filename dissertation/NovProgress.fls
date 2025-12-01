@@ -301,16 +301,6 @@ INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
-INPUT ./figs/SELinux_diagram.jpg
-INPUT ./figs/SELinux_diagram.jpg
-INPUT ./figs/SELinux_diagram.jpg
-INPUT ./figs/SELinux_diagram.jpg
-INPUT ./figs/SELinux_diagram.jpg
-INPUT ./figs/chinese_wall_diagram.jpg
-INPUT ./figs/chinese_wall_diagram.jpg
-INPUT ./figs/chinese_wall_diagram.jpg
-INPUT ./figs/chinese_wall_diagram.jpg
-INPUT ./figs/chinese_wall_diagram.jpg
 INPUT ./NovProgress.bbl
 INPUT ./NovProgress.bbl
 INPUT NovProgress.bbl
