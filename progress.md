@@ -91,7 +91,7 @@ neverallow bar_u foo_secret_t:file { create read write getattr unlink setattr };
 # checkmodule would not work at all to compile the file so 
 # figure out i had to use 
 $# sepolicy generate --init /home/testgrounds/secret_access # new folder secret_access
-$# make -f /usr/share/selinux/devel/include/Makefile my_secret_access.pp
+$# make -f /usr/share/selinux/devel/Makefile my_secret_access.pp
 # Policy is working!
 
 # turns out you cant have users in definitions like that, only processes, the neverallow and allow notation is for things of _t and not _u

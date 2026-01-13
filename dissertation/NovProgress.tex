@@ -94,7 +94,7 @@ As such, the objectives include:
   \item Creating a static implementation of the policy in SELinux
   \item Creating a daemon that is capable of monitoring subjects and the objects they access
   \item Adapting the daemon to dynamically update labels to achieve the complete Chinese Wall Security model
-  \item Analyze the difficulties that arose from development and conclude why research in this area has been lacklustre
+  \item Analyse the difficulties that arose from development and conclude why research in this area has been lacklustre
 \end{enumerate}
 
 \subsection{Opening Notes}
@@ -235,7 +235,7 @@ The project has 3 main phases.
 \begin{itemize}
   \item \textbf{Phase 1}. Developing a static Chinese Wall in SELinux
   \item \textbf{Phase 2}. Achieving a dynamic Chinese Wall security model
-  \item \textbf{Phase 3}. Analyzing the journey of the project and concluding why it has been void of attention
+  \item \textbf{Phase 3}. Analysing the journey of the project and concluding why it has been void of attention
 \end{itemize}
 
 The setup for the first phase involves setting up an environment that can run SELinux. I have chosen Red Hat as the Linux distribution for this end. Red Hat Enterprise Linux (RHEL) is a popular SELinux distribution 
@@ -286,7 +286,7 @@ A Gantt chart was constructed to depict the project timeline:
 As mentioned earlier, the project has 3 phases. Each phase will refer to a different style of development methodology.
 The first phase is based on researching and understanding the capabilities of SELinux, and the completion of a static Chinese Wall. This phase is agile, as the needs of the phase will constantly be revisited 
 and analysed. It will allow me to alter the functional and non-functional requirements of the daemon as I scope the SELinux environment out. 
-The second phase will oversee the development process of the Chinese Wall daemon, introduced to the world as \verb_cwalld_. This phase will follow the waterfall principle. By this phase, the daemon will have 
+The second phase will oversee the development process of the Chinese Wall daemon \verb_cwalld_. This phase will follow the waterfall principle. By this phase, the daemon will have 
 a set of defined requirements, and all focus will be on developing the daemon to meet those ends. Regardless of phase 2's success, there will be enough time to approach phase 3. Phase 3 will delve into the reasoning behind the lack 
 of Chinese Wall development in SELinux.
 
@@ -295,7 +295,7 @@ of Chinese Wall development in SELinux.
 The design of the Chinese Wall security policy is such that once a subject reads from an object that is related to a conflict of interest group, their write access to other objects within that conflict of interest
 is revoked. This prevents information from one object to reach a competitor. 
 
-SELinux is designed such that only subjects can only access objects if they have matching labels. In standard SELinux, these labels are all static and are only changed by the user under unique circumstances.
+SELinux is designed such that only subjects can only access objects if the policy allows its labels to. In standard SELinux, these labels are all static and are only changed by the user under unique circumstances.
 Allowing dynamic policies would involve having type enforcement (.te) files edited and installed live based on the labels of the subjects. This is where the Chinese Wall daemon is required.
 
 \subsection{Implementation and Technology ideas}
