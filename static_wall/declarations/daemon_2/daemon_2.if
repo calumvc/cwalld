@@ -1,0 +1,40 @@
+
+## <summary>policy for daemon_2</summary>
+
+########################################
+## <summary>
+##	Execute daemon_2_exec_t in the daemon_2 domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`daemon_2_domtrans',`
+	gen_require(`
+		type daemon_2_t, daemon_2_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, daemon_2_exec_t, daemon_2_t)
+')
+
+######################################
+## <summary>
+##	Execute daemon_2 in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`daemon_2_exec',`
+	gen_require(`
+		type daemon_2_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, daemon_2_exec_t)
+')

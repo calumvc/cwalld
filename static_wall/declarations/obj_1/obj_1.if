@@ -1,0 +1,40 @@
+
+## <summary>policy for obj_1</summary>
+
+########################################
+## <summary>
+##	Execute obj_1_exec_t in the obj_1 domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`obj_1_domtrans',`
+	gen_require(`
+		type obj_1_t, obj_1_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, obj_1_exec_t, obj_1_t)
+')
+
+######################################
+## <summary>
+##	Execute obj_1 in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`obj_1_exec',`
+	gen_require(`
+		type obj_1_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, obj_1_exec_t)
+')
