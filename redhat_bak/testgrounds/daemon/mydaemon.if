@@ -1,0 +1,40 @@
+
+## <summary>policy for mydaemon</summary>
+
+########################################
+## <summary>
+##	Execute mydaemon_exec_t in the mydaemon domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`mydaemon_domtrans',`
+	gen_require(`
+		type mydaemon_t, mydaemon_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, mydaemon_exec_t, mydaemon_t)
+')
+
+######################################
+## <summary>
+##	Execute mydaemon in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`mydaemon_exec',`
+	gen_require(`
+		type mydaemon_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, mydaemon_exec_t)
+')

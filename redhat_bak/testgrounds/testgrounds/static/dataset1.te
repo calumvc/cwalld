@@ -1,0 +1,25 @@
+policy_module(dataset1, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type dataset1_t;
+type dataset1_exec_t;
+init_daemon_domain(dataset1_t, dataset1_exec_t)
+
+permissive dataset1_t;
+
+########################################
+#
+# dataset1 local policy
+#
+allow dataset1_t self:fifo_file rw_fifo_file_perms;
+allow dataset1_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(dataset1_t)
+
+files_read_etc_files(dataset1_t)
+
+miscfiles_read_localization(dataset1_t)

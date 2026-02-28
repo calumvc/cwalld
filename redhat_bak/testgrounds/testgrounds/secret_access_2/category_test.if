@@ -1,0 +1,40 @@
+
+## <summary>policy for category_test</summary>
+
+########################################
+## <summary>
+##	Execute category_test_exec_t in the category_test domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`category_test_domtrans',`
+	gen_require(`
+		type category_test_t, category_test_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, category_test_exec_t, category_test_t)
+')
+
+######################################
+## <summary>
+##	Execute category_test in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`category_test_exec',`
+	gen_require(`
+		type category_test_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, category_test_exec_t)
+')

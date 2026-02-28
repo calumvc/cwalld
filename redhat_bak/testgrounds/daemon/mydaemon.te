@@ -1,0 +1,27 @@
+policy_module(mydaemon, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type mydaemon_t;
+type mydaemon_exec_t;
+type var_log_t;
+init_daemon_domain(mydaemon_t, mydaemon_exec_t)
+
+permissive mydaemon_t;
+
+########################################
+#
+# mydaemon local policy
+#
+allow mydaemon_t self:fifo_file rw_fifo_file_perms;
+allow mydaemon_t self:unix_stream_socket create_stream_socket_perms;
+allow mydaemon_t var_log_t:file { open write getattr };
+
+domain_use_interactive_fds(mydaemon_t)
+
+files_read_etc_files(mydaemon_t)
+
+miscfiles_read_localization(mydaemon_t)

@@ -3,6 +3,7 @@ package utils
 import (
 	"fmt"
 	"log"
+	"os/exec"
 )
 
 type Subject struct {
@@ -57,4 +58,14 @@ func CheckErr(err error, important bool) {
 			log.Println(err) 
 		}
 	}
+}
+
+func GetOS() string {
+	cmd := exec.Command("cat", "/etc/os-release", "|", "grep", "Red Hat")
+
+	out, err := cmd.CombinedOutput()
+	CheckErr(err, true)
+	println(out)
+
+	return ""
 }

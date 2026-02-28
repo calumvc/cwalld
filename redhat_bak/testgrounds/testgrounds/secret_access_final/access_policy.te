@@ -1,0 +1,28 @@
+policy_module(access_policy, 1.0);
+
+require{
+  type user_t;
+  type secret_file_t;
+  type user_home_dir_t;
+  type sshd_t;
+  class dir { search };
+}
+
+type foo_t;
+domain_type(foo_t)
+
+type foo_shell_t;
+files_type(foo_shell_t)
+
+type_transition user_t foo_shell_t: process foo_t;
+allow user_t foo_t : process transition;
+allow foo_t foo_shell_t : file entrypoint;
+
+allow foo_t secret_file_t:file { read write getattr open };
+
+allow sshd_t user_home_dir_t:dir search;
+allow sshd_t foo_shell_t:file { read getattr execute };
+
+allow user_t foo_shell_t:file { read write getattr execute open };
+
+allow user_t foo_t : process { transition sigchld setrlimit rlimitinh siginh noatsecure };

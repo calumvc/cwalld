@@ -1,0 +1,11 @@
+
+module final_session_fix 1.0;
+
+require {
+	type user_tmp_t;
+	type init_t;
+	class lnk_file { create rename unlink };
+}
+
+#============= init_t ==============
+allow init_t user_tmp_t:lnk_file { create rename unlink };

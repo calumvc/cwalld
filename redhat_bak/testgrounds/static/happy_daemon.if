@@ -1,0 +1,40 @@
+
+## <summary>policy for happy_daemon</summary>
+
+########################################
+## <summary>
+##	Execute happy_daemon_exec_t in the happy_daemon domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`happy_daemon_domtrans',`
+	gen_require(`
+		type happy_daemon_t, happy_daemon_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, happy_daemon_exec_t, happy_daemon_t)
+')
+
+######################################
+## <summary>
+##	Execute happy_daemon in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`happy_daemon_exec',`
+	gen_require(`
+		type happy_daemon_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, happy_daemon_exec_t)
+')

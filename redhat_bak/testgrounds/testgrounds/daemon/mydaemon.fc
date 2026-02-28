@@ -1,0 +1,1 @@
+/usr/local/bin/mydaemon		--	gen_context(system_u:object_r:mydaemon_exec_t,s0)

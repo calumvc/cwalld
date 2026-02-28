@@ -25,6 +25,8 @@ func TailAuditd(DIR string, subjects *[]utils.Subject, audits *[]utils.Audit) {
 	go func() {
 		for line := range t.Lines { // auditd has 2 parts, the syscall and path, we are going to combine them into a struct
 
+			// log.Println(line.Text)
+
 			if strings.Contains(line.Text, "cwalld"){ // this is the syscall part, containing pid, operation and subject name
 
 				regex := regexp.MustCompile(`\bpid=(\d+)`) // regex to catch pid
