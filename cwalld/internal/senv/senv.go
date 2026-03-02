@@ -1,10 +1,14 @@
-package senv 
+package senv
 
 import (
 	"cwalld/internal/utils"
 	"fmt"
 	"os"
 	"os/exec"
+	"path/filepath"
+	"regexp"
+
+	"github.com/opencontainers/selinux/go-selinux"
 )
 
 func Setup(DIR string) { // make sure audit is configured
@@ -12,7 +16,13 @@ func Setup(DIR string) { // make sure audit is configured
 
 	setupAuditd(DIR)
 
-	scanCOI(DIR)
+	labels := &[]string{}
+
+	scanCOI(DIR, labels)
+
+	for i := range *labels {
+		println((*labels)[i])
+	}
 
 	setupSEmodules()
 }
@@ -32,12 +42,31 @@ func setupAuditd(DIR string){
 	println("-- Audit Rule Successfully Added --")
 }
 
-func scanCOI(DIR string) {
+func scanCOI(DIR string, labels *[]string) {
+	filepath.Walk(DIR, func(file_path string, info os.FileInfo, err error) error {
+		res, err := selinux.FileLabel(file_path)
 
+		regex := regexp.MustCompile(`r:([^:]+)`)
+		label := regex.FindStringSubmatch(res)
+		// fmt.Printf("File %s has label %s\n", file_path, label[1])
+
+		dupe := false
+		for i := range *labels {
+			if (*labels)[i] == label[1] {
+				dupe = true
+			}
+		}
+		
+		if !dupe {
+			*labels = append(*labels, label[1])
+		}
+
+		return err
+	})
 }
 
 func setupSEmodules(){
-	sepolicy_path := "/var/lib/cwalld/"
+	sepolicy_path := "/var/lib/cwalld/" // path to write the se policy files to be installed
 
 	err := os.MkdirAll(sepolicy_path, 0755)
 	utils.CheckErr(err, true)

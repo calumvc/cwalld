@@ -74,6 +74,6 @@ func GetOS() string {
 	return os_type
 }
 
-func GetArg() string {
-	return os.Args[1]
+func GetArgs() []string {
+	return os.Args[1:]
 }

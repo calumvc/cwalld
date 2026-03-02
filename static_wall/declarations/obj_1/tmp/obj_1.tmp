@@ -133,10 +133,12 @@
 
 
 
-#line 237
 
 
-#line 272
+#line 241
+
+
+#line 276
 
 #line 1 "/usr/share/selinux/devel/include/support/file_patterns.spt"
 #
@@ -1001,7 +1003,6 @@
 
 
 
-
 #
 # (Un)named Sockets (sock_file)
 #
@@ -1063,9 +1064,8 @@
 #
 # Anonymous inode files (anon_inode)
 #
-#line 289
+#line 288
 
-#line 294
 
 
 ########################################
@@ -1260,6 +1260,8 @@
 #line 1
 	class netrom_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
 #line 1
+	class bridge_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
 	class atmpvc_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
 #line 1
 	class x25_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
@@ -1277,6 +1279,10 @@
 	class pppox_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
 #line 1
 	class llc_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class ib_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
+#line 1
+	class mpls_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
 #line 1
 	class can_socket { ioctl read write create getattr setattr lock relabelfrom relabelto append map bind connect listen accept getopt setopt shutdown recvfrom sendto recv_msg send_msg name_bind };
 #line 1
@@ -1317,8 +1323,6 @@
 	class perf_event { open cpu kernel tracepoint read write };
 #line 1
 	class io_uring { override_creds sqpoll cmd };
-#line 1
-	class user_namespace { create };
 #line 1
 
 #line 1

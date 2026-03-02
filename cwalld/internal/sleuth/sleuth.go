@@ -13,7 +13,11 @@ import (
 )
 
 
-func TailAuditd(DIR string, subjects *[]utils.Subject, audits *[]utils.Audit) {
+func TailAuditd(DIR string) {
+
+	subjects := &[]utils.Subject{}
+	audits := &[]utils.Audit{}
+
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
 		Follow: true,
 		Location: &tail.SeekInfo{ Offset: 0, Whence: io.SeekEnd },}) // we only wanna know what happens after we start running the daemon
@@ -24,8 +28,6 @@ func TailAuditd(DIR string, subjects *[]utils.Subject, audits *[]utils.Audit) {
 	
 	go func() {
 		for line := range t.Lines { // auditd has 2 parts, the syscall and path, we are going to combine them into a struct
-
-			// log.Println(line.Text)
 
 			if strings.Contains(line.Text, "cwalld"){ // this is the syscall part, containing pid, operation and subject name
 

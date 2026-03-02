@@ -1,0 +1,28 @@
+policy_module(martians, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type martians_t;
+type martians_exec_t;
+init_daemon_domain(martians_t, martians_exec_t)
+
+permissive martians_t;
+
+########################################
+#
+# martians local policy
+#
+allow martians_t self:fifo_file rw_fifo_file_perms;
+allow martians_t self:unix_stream_socket create_stream_socket_perms;
+
+files_type(martians_t)
+files_type(martians_exec_t)
+
+domain_use_interactive_fds(martians_t)
+
+files_read_etc_files(martians_t)
+
+miscfiles_read_localization(martians_t)

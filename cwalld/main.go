@@ -6,20 +6,17 @@ import (
 	"cwalld/internal/utils"
 )
 
-var (
-	subjects = []utils.Subject{}
-	audits = []utils.Audit{}
-)
-
 func main() {
-	DIR := "/home/cal/testgrounds/static_wall" // TODO: accept this from cli when I make it
+	DIR := "/home/cal/testgrounds/surveillance"
 
-	arg := utils.GetArg()
+	args := utils.GetArgs()
 
-	if arg == "init" {
+	if args[0] == "init" {
+		// initialize(args[1]) // uncomment when i want to accept from cli
 		initialize(DIR)
 	} else 
-	if arg == "enforce" { 
+	if args[0] == "enforce" { 
+		// enforce(args[1])
 		enforce(DIR)
 	} else {
 		println("Unsupported argument, try 'init' or 'enforce'")
@@ -38,7 +35,7 @@ func initialize(DIR string) {
 func enforce(DIR string) {
 	println("############## 中國長城 Online ##############")
 
-	go sleuth.TailAuditd(DIR, &subjects, &audits) // follow auditd updates in subprocess
+	go sleuth.TailAuditd(DIR) // follow auditd updates in subprocess
 
 	<-make(chan struct{}) // infinite loop
 }
