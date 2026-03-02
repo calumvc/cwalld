@@ -1,9 +1,9 @@
 package main
 
 import (
-	// "cwalld/senv"
-	// "cwalld/sleuth"
-	"cwalld/utils"
+	"cwalld/internal/senv"
+	"cwalld/internal/sleuth"
+	"cwalld/internal/utils"
 )
 
 var (
@@ -12,15 +12,33 @@ var (
 )
 
 func main() {
+	DIR := "/home/cal/testgrounds/static_wall" // TODO: accept this from cli when I make it
+
+	arg := utils.GetArg()
+
+	if arg == "init" {
+		initialize(DIR)
+	} else 
+	if arg == "enforce" { 
+		enforce(DIR)
+	} else {
+		println("Unsupported argument, try 'init' or 'enforce'")
+	}
+
+	// os_type := utils.GetOS();
+
+}
+
+func initialize(DIR string) {
+	senv.Setup(DIR)
+
+	println("Chinese Wall Initialized")
+}
+
+func enforce(DIR string) {
 	println("############## 中國長城 Online ##############")
 
-	// DIR := "/home/testgrounds/static_wall" // TODO: accept this from cli when I make it
-
-	utils.GetOS();
-
-	// senv.Setup(DIR)
-
-	// go sleuth.TailAuditd(DIR, &subjects, &audits) // follow auditd updates in subprocess
+	go sleuth.TailAuditd(DIR, &subjects, &audits) // follow auditd updates in subprocess
 
 	<-make(chan struct{}) // infinite loop
 }

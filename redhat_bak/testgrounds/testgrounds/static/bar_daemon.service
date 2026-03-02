@@ -1,9 +1,0 @@
-[Unit]
-Description=Bar's daemon
-
-[Service]
-Type=simple
-ExecStart=/usr/local/bin/bar_daemon
-
-[Install]
-WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+
+[Unit]
+Description=Daemon4
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/daemon_4
+
+[Install]
+WantedBy=multi-user.target
