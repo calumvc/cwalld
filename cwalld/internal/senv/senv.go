@@ -18,7 +18,7 @@ func Setup(DIR string) { // make sure audit is configured
 
 	labels := &[]string{}
 
-	scanCOI(DIR, labels)
+	scanLabels(DIR, labels)
 
 	for i := range *labels {
 		println((*labels)[i])
@@ -42,7 +42,7 @@ func setupAuditd(DIR string){
 	println("-- Audit Rule Successfully Added --")
 }
 
-func scanCOI(DIR string, labels *[]string) {
+func scanLabels(DIR string, labels *[]string) {
 	filepath.Walk(DIR, func(file_path string, info os.FileInfo, err error) error {
 		res, err := selinux.FileLabel(file_path)
 
@@ -76,8 +76,4 @@ func setupSEmodules(){
 	utils.CheckErr(err, true)
 
 	println("-- SEmodules Successfully Added -- ")
-}
-
-func activateSEmodules(){
-
 }

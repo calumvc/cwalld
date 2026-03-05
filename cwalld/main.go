@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	DIR := "/home/cal/testgrounds/surveillance"
+	DIR := "/home/cal/testgrounds/"
 
 	args := utils.GetArgs()
 
@@ -21,9 +21,6 @@ func main() {
 	} else {
 		println("Unsupported argument, try 'init' or 'enforce'")
 	}
-
-	// os_type := utils.GetOS();
-
 }
 
 func initialize(DIR string) {

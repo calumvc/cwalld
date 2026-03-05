@@ -36,5 +36,11 @@ int main(void){
     sleep(5);
     fclose(f);
     sleep(2);
+
+    f = fopen("/home/cal/testgrounds/static_wall/obj1", "w"); // denied
+    sleep(5);
+    fclose(f);
+    sleep(2);
+
   }
 }

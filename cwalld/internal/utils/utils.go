@@ -9,7 +9,9 @@ import (
 
 type Subject struct {
 	Pid string 
-	Name string }
+	Name string
+}
+
 type Audit struct {
 	Id string
 	Subject *Subject
@@ -19,7 +21,8 @@ type Audit struct {
 
 type Operation int8
 
-const ( Unknown Operation = iota
+const ( 
+	Unknown Operation = iota
 	Read
 	Write
 	ReadWrite
