@@ -1,0 +1,10 @@
+
+[Unit]
+Description=alpha_civild
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/alpha_civild
+
+[Install]
+WantedBy=multi-user.target

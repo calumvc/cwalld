@@ -1,0 +1,40 @@
+
+## <summary>policy for beta_faction</summary>
+
+########################################
+## <summary>
+##	Execute beta_faction_exec_t in the beta_faction domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`beta_faction_domtrans',`
+	gen_require(`
+		type beta_faction_t, beta_faction_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, beta_faction_exec_t, beta_faction_t)
+')
+
+######################################
+## <summary>
+##	Execute beta_faction in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`beta_faction_exec',`
+	gen_require(`
+		type beta_faction_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, beta_faction_exec_t)
+')

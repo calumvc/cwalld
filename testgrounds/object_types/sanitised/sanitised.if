@@ -1,0 +1,40 @@
+
+## <summary>policy for sanitised</summary>
+
+########################################
+## <summary>
+##	Execute sanitised_exec_t in the sanitised domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`sanitised_domtrans',`
+	gen_require(`
+		type sanitised_t, sanitised_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, sanitised_exec_t, sanitised_t)
+')
+
+######################################
+## <summary>
+##	Execute sanitised in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`sanitised_exec',`
+	gen_require(`
+		type sanitised_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, sanitised_exec_t)
+')

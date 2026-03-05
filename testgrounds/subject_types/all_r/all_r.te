@@ -1,0 +1,25 @@
+policy_module(all_r, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type all_r_t;
+type all_r_exec_t;
+init_daemon_domain(all_r_t, all_r_exec_t)
+
+permissive all_r_t;
+
+########################################
+#
+# all_r local policy
+#
+allow all_r_t self:fifo_file rw_fifo_file_perms;
+allow all_r_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(all_r_t)
+
+files_read_etc_files(all_r_t)
+
+miscfiles_read_localization(all_r_t)

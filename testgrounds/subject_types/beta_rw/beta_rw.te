@@ -1,0 +1,25 @@
+policy_module(beta_rw, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type beta_rw_t;
+type beta_rw_exec_t;
+init_daemon_domain(beta_rw_t, beta_rw_exec_t)
+
+permissive beta_rw_t;
+
+########################################
+#
+# beta_rw local policy
+#
+allow beta_rw_t self:fifo_file rw_fifo_file_perms;
+allow beta_rw_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(beta_rw_t)
+
+files_read_etc_files(beta_rw_t)
+
+miscfiles_read_localization(beta_rw_t)

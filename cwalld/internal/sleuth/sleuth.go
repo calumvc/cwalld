@@ -26,7 +26,7 @@ func TailAuditd(DIR string) {
 
 	utils.CheckErr(err, true)
 	
-	go func() {
+	go func() { // run this part concurrently
 		for line := range t.Lines { // auditd has 2 parts, the syscall and path, we are going to combine them into a struct
 
 			if strings.Contains(line.Text, "cwalld"){ // this is the syscall part, containing pid, operation and subject name

@@ -1,0 +1,40 @@
+
+## <summary>policy for beta_rw_all_r</summary>
+
+########################################
+## <summary>
+##	Execute beta_rw_all_r_exec_t in the beta_rw_all_r domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`beta_rw_all_r_domtrans',`
+	gen_require(`
+		type beta_rw_all_r_t, beta_rw_all_r_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, beta_rw_all_r_exec_t, beta_rw_all_r_t)
+')
+
+######################################
+## <summary>
+##	Execute beta_rw_all_r in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`beta_rw_all_r_exec',`
+	gen_require(`
+		type beta_rw_all_r_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, beta_rw_all_r_exec_t)
+')

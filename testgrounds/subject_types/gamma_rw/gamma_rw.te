@@ -1,0 +1,25 @@
+policy_module(gamma_rw, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type gamma_rw_t;
+type gamma_rw_exec_t;
+init_daemon_domain(gamma_rw_t, gamma_rw_exec_t)
+
+permissive gamma_rw_t;
+
+########################################
+#
+# gamma_rw local policy
+#
+allow gamma_rw_t self:fifo_file rw_fifo_file_perms;
+allow gamma_rw_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(gamma_rw_t)
+
+files_read_etc_files(gamma_rw_t)
+
+miscfiles_read_localization(gamma_rw_t)

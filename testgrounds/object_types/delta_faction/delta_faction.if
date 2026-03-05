@@ -1,0 +1,40 @@
+
+## <summary>policy for delta_faction</summary>
+
+########################################
+## <summary>
+##	Execute delta_faction_exec_t in the delta_faction domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`delta_faction_domtrans',`
+	gen_require(`
+		type delta_faction_t, delta_faction_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, delta_faction_exec_t, delta_faction_t)
+')
+
+######################################
+## <summary>
+##	Execute delta_faction in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`delta_faction_exec',`
+	gen_require(`
+		type delta_faction_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, delta_faction_exec_t)
+')

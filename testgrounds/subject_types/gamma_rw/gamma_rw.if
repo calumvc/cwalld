@@ -1,0 +1,40 @@
+
+## <summary>policy for gamma_rw</summary>
+
+########################################
+## <summary>
+##	Execute gamma_rw_exec_t in the gamma_rw domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`gamma_rw_domtrans',`
+	gen_require(`
+		type gamma_rw_t, gamma_rw_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, gamma_rw_exec_t, gamma_rw_t)
+')
+
+######################################
+## <summary>
+##	Execute gamma_rw in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`gamma_rw_exec',`
+	gen_require(`
+		type gamma_rw_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, gamma_rw_exec_t)
+')

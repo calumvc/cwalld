@@ -1,0 +1,25 @@
+policy_module(alpha_rw_all_r, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type alpha_rw_all_r_t;
+type alpha_rw_all_r_exec_t;
+init_daemon_domain(alpha_rw_all_r_t, alpha_rw_all_r_exec_t)
+
+permissive alpha_rw_all_r_t;
+
+########################################
+#
+# alpha_rw_all_r local policy
+#
+allow alpha_rw_all_r_t self:fifo_file rw_fifo_file_perms;
+allow alpha_rw_all_r_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(alpha_rw_all_r_t)
+
+files_read_etc_files(alpha_rw_all_r_t)
+
+miscfiles_read_localization(alpha_rw_all_r_t)

@@ -1,0 +1,40 @@
+
+## <summary>policy for delta_rw</summary>
+
+########################################
+## <summary>
+##	Execute delta_rw_exec_t in the delta_rw domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`delta_rw_domtrans',`
+	gen_require(`
+		type delta_rw_t, delta_rw_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, delta_rw_exec_t, delta_rw_t)
+')
+
+######################################
+## <summary>
+##	Execute delta_rw in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`delta_rw_exec',`
+	gen_require(`
+		type delta_rw_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, delta_rw_exec_t)
+')

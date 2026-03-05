@@ -1,0 +1,28 @@
+policy_module(beta_faction, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type beta_faction_t;
+type beta_faction_exec_t;
+init_daemon_domain(beta_faction_t, beta_faction_exec_t)
+
+permissive beta_faction_t;
+
+########################################
+#
+# beta_faction local policy
+#
+allow beta_faction_t self:fifo_file rw_fifo_file_perms;
+allow beta_faction_t self:unix_stream_socket create_stream_socket_perms;
+
+files_type(beta_faction_t)
+files_type(beta_faction_exec_t)
+
+domain_use_interactive_fds(beta_faction_t)
+
+files_read_etc_files(beta_faction_t)
+
+miscfiles_read_localization(beta_faction_t)
