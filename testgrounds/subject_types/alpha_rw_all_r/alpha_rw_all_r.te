@@ -7,6 +7,17 @@ policy_module(alpha_rw_all_r, 1.0.0)
 
 type alpha_rw_all_r_t;
 type alpha_rw_all_r_exec_t;
+
+require {
+	type alpha_faction_t;
+	type beta_faction_t;
+	type gamma_faction_t;
+	type delta_faction_t;
+	type sanitised_t;
+	type user_home_t;
+	type user_home_dir_t;
+}
+
 init_daemon_domain(alpha_rw_all_r_t, alpha_rw_all_r_exec_t)
 
 permissive alpha_rw_all_r_t;
@@ -14,7 +25,7 @@ permissive alpha_rw_all_r_t;
 ########################################
 #
 # alpha_rw_all_r local policy
-#
+
 allow alpha_rw_all_r_t self:fifo_file rw_fifo_file_perms;
 allow alpha_rw_all_r_t self:unix_stream_socket create_stream_socket_perms;
 
@@ -23,3 +34,15 @@ domain_use_interactive_fds(alpha_rw_all_r_t)
 files_read_etc_files(alpha_rw_all_r_t)
 
 miscfiles_read_localization(alpha_rw_all_r_t)
+
+# cwalld rules
+allow alpha_rw_all_r_t alpha_faction_t:file { read write getattr open };
+allow alpha_rw_all_r_t beta_faction_t:file { read getattr open };
+allow alpha_rw_all_r_t gamma_faction_t:file { read getattr open };
+allow alpha_rw_all_r_t delta_faction_t:file { read getattr open };
+allow alpha_rw_all_r_t sanitised_t:file { read getattr open };
+
+# navigational rules
+allow alpha_rw_all_r_t user_home_t:dir { search read open };
+list_dirs_pattern(alpha_rw_all_r_t, user_home_dir_t, alpha_faction_t);
+read_files_pattern(alpha_rw_all_r_t, user_home_dir_t, alpha_faction_t);

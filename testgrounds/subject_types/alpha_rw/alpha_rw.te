@@ -38,3 +38,5 @@ allow alpha_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies
 allow alpha_rw_t user_home_t:dir { search read open };
+list_dirs_pattern(alpha_rw_t, user_home_dir_t, alpha_faction_t);
+read_files_pattern(alpha_rw_t, user_home_dir_t, alpha_faction_t);

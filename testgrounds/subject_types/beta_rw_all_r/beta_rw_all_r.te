@@ -7,6 +7,16 @@ policy_module(beta_rw_all_r, 1.0.0)
 
 type beta_rw_all_r_t;
 type beta_rw_all_r_exec_t;
+
+require {
+	type alpha_faction_t;
+	type beta_faction_t;
+	type gamma_faction_t;
+	type delta_faction_t;
+	type sanitised_t;
+	type user_home_t;
+}
+
 init_daemon_domain(beta_rw_all_r_t, beta_rw_all_r_exec_t)
 
 permissive beta_rw_all_r_t;
@@ -23,3 +33,13 @@ domain_use_interactive_fds(beta_rw_all_r_t)
 files_read_etc_files(beta_rw_all_r_t)
 
 miscfiles_read_localization(beta_rw_all_r_t)
+
+# cwalld rules
+allow beta_rw_all_r_t beta_faction_t:file { read write getattr open };
+allow beta_rw_all_r_t alpha_faction_t:file { read getattr open };
+allow beta_rw_all_r_t gamma_faction_t:file { read getattr open };
+allow beta_rw_all_r_t delta_faction_t:file { read getattr open };
+allow beta_rw_all_r_t sanitised_t:file { read getattr open };
+
+# navigational rules
+allow beta_rw_all_r_t user_home_t:dir { search read open };

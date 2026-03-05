@@ -35,5 +35,10 @@ int main(void){
     fclose(f);
     sleep(1);
 
+    f = fopen("/home/cal/testgrounds/objects/zone_4/beta_plans", "r"); // denied
+    sleep(3);
+    fclose(f);
+    sleep(1);
+
   }
 }

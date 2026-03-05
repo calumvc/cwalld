@@ -44,8 +44,8 @@ make -f /usr/share/selinux/devel/Makefile all_r.pp || exit
 
 # Generate a man page of the installed module
 sepolicy manpage -p . -d all_r_t
-# Fixing the file context on /home/cal/testgrounds/types/all_r
-/sbin/restorecon -F -R -v /home/cal/testgrounds/types/all_r
+# Fixing the file context on /home/cal/testgrounds/subject_types/all_r
+/sbin/restorecon -F -R -v /home/cal/testgrounds/subject_types/all_r
 # Generate a rpm package for the newly generated policy
 
 pwd=$(pwd)

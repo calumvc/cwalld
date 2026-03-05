@@ -2,7 +2,7 @@
 
 
 %define relabel_files() \
-restorecon -R /home/cal/testgrounds/types/gamma_rw_all_r; \
+restorecon -R /home/cal/testgrounds/subject_types/gamma_rw_all_r; \
 
 %define selinux_policyver 38.1.65-1
 

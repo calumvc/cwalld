@@ -30,7 +30,7 @@ SELinux alpha_rw policy is very flexible allowing users to setup their alpha_rw 
 The following process types are defined for alpha_rw:
 
 .EX
-.B alpha_rw_t
+.B alpha_rw_t, alpha_rw_all_r_t
 .EE
 .PP
 Note:
@@ -145,6 +145,14 @@ SELinux alpha_rw policy is very flexible allowing users to setup their alpha_rw 
 
 .EX
 .PP
+.B alpha_rw_all_r_exec_t
+.EE
+
+- Set files with the alpha_rw_all_r_exec_t type, if you want to transition an executable to the alpha_rw_all_r_t domain.
+
+
+.EX
+.PP
 .B alpha_rw_exec_t
 .EE
 
@@ -180,4 +188,4 @@ This manual page was auto-generated using
 .B "sepolicy manpage".
 
 .SH "SEE ALSO"
-selinux(8), alpha_rw(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8)
+selinux(8), alpha_rw(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8), alpha_rw_all_r_selinux(8), alpha_rw_all_r_selinux(8)

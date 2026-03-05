@@ -4022,3 +4022,17 @@ allow alpha_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies
 allow alpha_rw_t user_home_t:dir { search read open };
+
+#line 41
+	allow alpha_rw_t user_home_dir_t:dir { getattr search open };
+#line 41
+	allow alpha_rw_t alpha_faction_t:dir { getattr search open read lock ioctl };
+#line 41
+;
+
+#line 42
+	allow alpha_rw_t user_home_dir_t:dir { getattr search open };
+#line 42
+	allow alpha_rw_t alpha_faction_t:file { open { getattr read ioctl lock } };
+#line 42
+;
