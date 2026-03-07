@@ -15,8 +15,12 @@ type Subject struct {
 type Audit struct {
 	Id string
 	Subject *Subject
-	Directory string
+	Object string
 	Operation Operation 
+}
+
+type Denial struct {
+	Subject *Subject
 }
 
 type Operation int8
@@ -30,11 +34,12 @@ const (
 )
 
 func (s *Subject) ToString() {
-	fmt.Printf("New Subject Registered\npid=%s\tcomm=%s\n", s.Pid, s.Name)
+	fmt.Printf("New Subject Registered:\tpid=%s\tcomm=%s\n", s.Pid, s.Name)
 }
 
 func (a *Audit) ToString() {
-	fmt.Printf("New Audit Registered\nid=%s\tsubject=%s\tpath=%s\toperation=%s\n", a.Id, a.Subject.Pid, a.Directory, a.Operation.ToString())
+	// fmt.Printf("id=%s\tsubject=%s\toperation=%s\tobject=%s\n", a.Id, a.Subject.Name, a.Operation.ToString(), a.Object)
+	fmt.Printf("subject=%s\toperation=%s\tobject=%s\n", a.Subject.Name, a.Operation.ToString(), a.Object)
 }
 
 func (o Operation) ToString() string {
@@ -51,13 +56,13 @@ func (o Operation) ToString() string {
 	return "Unknown"
 }
 
-func CheckErr(err error, important bool) {
+func LogDenial(s string, op string, obj string) { // operation here is just text because its reprented in string form by AVC already
+	fmt.Printf("<!DENIAL!>:\tsubject=%s\toperation=%s\tobject=%s\n", s, op, obj)
+}
+
+func CheckErr(err error) {
 	if err != nil {
-		if important { 
-			log.Fatal(err) 
-		} else { 
-			log.Println(err) 
-		}
+		log.Fatal(err) 
 	}
 }
 
@@ -67,7 +72,7 @@ func GetOS() string {
 
 	out, err := exec.Command("bash", "-c", cmd).Output()
 
-	CheckErr(err, true)
+	CheckErr(err)
 	if len(out) != 0 {
 		os_type = "Red Hat"
 	} else {
