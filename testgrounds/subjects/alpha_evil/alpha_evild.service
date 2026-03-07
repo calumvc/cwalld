@@ -1,0 +1,10 @@
+
+[Unit]
+Description=alpha_evild
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/alpha_evild
+
+[Install]
+WantedBy=multi-user.target

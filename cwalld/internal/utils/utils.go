@@ -34,7 +34,7 @@ func (s *Subject) ToString() {
 }
 
 func (a *Audit) ToString() {
-	fmt.Printf("New Audit Registered\nid=%s\tsubject=%s\tpath=%s\topertation=%s\n", a.Id, a.Subject.Pid, a.Directory, a.Operation.ToString())
+	fmt.Printf("New Audit Registered\nid=%s\tsubject=%s\tpath=%s\toperation=%s\n", a.Id, a.Subject.Pid, a.Directory, a.Operation.ToString())
 }
 
 func (o Operation) ToString() string {

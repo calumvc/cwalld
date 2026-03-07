@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	DIR := "/home/cal/testgrounds/"
+	DIR := "/home/testgrounds/"
 
 	args := utils.GetArgs()
 

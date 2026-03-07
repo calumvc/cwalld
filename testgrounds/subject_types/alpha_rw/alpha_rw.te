@@ -12,12 +12,9 @@ require {
 	type alpha_faction_t;
 	type sanitised_t;
 	type user_home_t;
-	type user_home_dir_t;
 }
 
 init_daemon_domain(alpha_rw_t, alpha_rw_exec_t)
-
-permissive alpha_rw_t;
 
 ########################################
 #
@@ -37,6 +34,4 @@ allow alpha_rw_t alpha_faction_t:file { read write getattr open };
 allow alpha_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies
-allow alpha_rw_t user_home_t:dir { search read open };
-list_dirs_pattern(alpha_rw_t, user_home_dir_t, alpha_faction_t);
-read_files_pattern(alpha_rw_t, user_home_dir_t, alpha_faction_t);
+allow alpha_rw_t user_home_t:dir { search read open write add_name };
