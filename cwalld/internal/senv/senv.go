@@ -24,7 +24,7 @@ func Setup(DIR string) { // make sure audit is configured
 		println(labels[i])
 	}
 
-	setupSEmodules()
+	// setupSEmodules()
 }
 
 func setupAuditd(DIR string){
@@ -39,7 +39,7 @@ func setupAuditd(DIR string){
 	err = cmd.Run()
 	utils.CheckErr(err)
 
-	cmd = exec.Command("sudo sh -c 'echo 0 > /sys/fs/selinux/avc/cache_threshold'") // this will let us see repeats in the cache and therefore stop every single denial
+	cmd = exec.Command("sudo", "sh", "-c", "echo 0 > /sys/fs/selinux/avc/cache_threshold") // this will let us see repeats in the cache and therefore stop every single denial
 	err = cmd.Run()
 	utils.CheckErr(err)
 

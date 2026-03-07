@@ -12,11 +12,14 @@ import (
 	"golang.org/x/sys/unix"
 )
 
+type State struct{
+	subjects []utils.Subject
+	audits []utils.Audit
+}
 
 func TailAuditd(DIR string) {
 
-	subjects := []utils.Subject{}
-	audits := []utils.Audit{}
+	state := State{}
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
 		Follow: true,
@@ -30,15 +33,15 @@ func TailAuditd(DIR string) {
 		for line := range t.Lines { // auditd has 2 parts, the syscall and path, we are going to combine them into a struct
 
 			if strings.Contains(line.Text, "cwalld"){ // this is the syscall part, containing pid, operation and subject name
-				subjects, audits = track_subject(subjects, audits, line.Text)
+				state.track_subject(line.Text)
 			}
 
 			if strings.Contains(line.Text, DIR){ // this is the path line, containing the affected object path
-				audits = track_object(audits, line.Text)
+				state.track_object(line.Text)
 			}
 
 			if strings.Contains(line.Text, "denied") {
-				track_avc(subjects, line.Text)
+				state.track_avc(line.Text)
 			}
 		}
 	}()
@@ -46,7 +49,7 @@ func TailAuditd(DIR string) {
 	<-make(chan struct{})
 }
 
-func track_subject(subjects []utils.Subject, audits []utils.Audit, line string) ([]utils.Subject, []utils.Audit) {
+func (state *State) track_subject(line string) {
 	regex := regexp.MustCompile(`\bpid=(\d+)`) // regex to catch pid
 	pid := regex.FindStringSubmatch(line)[1] // pid[0] = "pid=..." pid[1] = "..."
 	
@@ -80,9 +83,9 @@ func track_subject(subjects []utils.Subject, audits []utils.Audit, line string) 
 
 	var subject *utils.Subject
 	
-	for i := range subjects { // if subject is already accounted for
-		if subjects[i].Pid == pid {
-			subject = &subjects[i]
+	for _, s := range state.subjects { // if subject is already accounted for
+		if s.Pid == pid {
+			subject = &s
 			break
 		}
 	}
@@ -90,34 +93,30 @@ func track_subject(subjects []utils.Subject, audits []utils.Audit, line string) 
 	if subject == nil { // add it to the global list of subjects if not
 		subject = &utils.Subject{ Pid: pid, Name: subject_name }
 		subject.ToString()
-		subjects = append(subjects, *subject)
+		state.subjects = append(state.subjects, *subject)
 	}
 
 	audit := utils.Audit{ Id: audit_id, Subject: subject, Object: "", Operation: op } // create new audit - only half complete so far
-	audits = append(audits, audit)
-
-	return subjects, audits
+	state.audits = append(state.audits, audit)
 }
 
-func track_object(audits []utils.Audit, line string) []utils.Audit {
+func (state *State) track_object(line string) {
 	regex := regexp.MustCompile(`\bmsg=audit\((([^)]+))`)
 	audit_id := regex.FindStringSubmatch(line)[1]
 
 	regex = regexp.MustCompile(`\bname="([^"]+)"`)
 	object := regex.FindStringSubmatch(line)[1]
 
-	for _, a := range audits {
+	for _, a := range state.audits {
 		if a.Id == audit_id {
 			a.Object = object 
 			a.ToString()
 			break
 		}
 	}
-
-	return audits
 }
 
-func track_avc(subjects []utils.Subject, line string) {
+func (state *State) track_avc(line string) {
 	regex := regexp.MustCompile(`\{ ([^ }]+)`)
 	operation := regex.FindStringSubmatch(line)[1]
 
@@ -127,9 +126,9 @@ func track_avc(subjects []utils.Subject, line string) {
 	regex = regexp.MustCompile(`\bname="([^"]+)"`)
 	object := regex.FindStringSubmatch(line)[1]
 	
-	for i := range subjects {
-		if subjects[i].Pid == pid {
-			utils.LogDenial(subjects[i].Name, operation, object)
+	for _, s := range state.subjects {
+		if s.Pid == pid {
+			utils.LogDenial(s.Name, operation, object)
 			break
 		}
 	}
