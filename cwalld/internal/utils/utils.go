@@ -10,17 +10,19 @@ import (
 type Subject struct {
 	Pid string 
 	Name string
+	Label string
 }
 
 type Audit struct {
 	Id string
 	Subject *Subject
-	Object string
+	Object *Object
 	Operation Operation 
 }
 
-type Denial struct {
-	Subject *Subject
+type Object struct {
+	Name string
+	Label string
 }
 
 type Operation int8
@@ -34,12 +36,14 @@ const (
 )
 
 func (s *Subject) ToString() {
-	fmt.Printf("New Subject Registered:\tpid=%s\tcomm=%s\n", s.Pid, s.Name)
+	fmt.Printf("New Subject Registered:\tpid=%s\tcomm=%s\tlabel=%s\n\n", s.Pid, s.Name, s.Label)
 }
 
 func (a *Audit) ToString() {
-	// fmt.Printf("id=%s\tsubject=%s\toperation=%s\tobject=%s\n", a.Id, a.Subject.Name, a.Operation.ToString(), a.Object)
-	fmt.Printf("subject=%s\toperation=%s\tobject=%s\n", a.Subject.Name, a.Operation.ToString(), a.Object)
+	// fmt.Printf("id=%s\tsubject=%s\toperation=%s\tobject=%s\n\n", a.Id, a.Subject.Name, a.Operation.ToString(), a.Object)
+	// if a.Subject.Name != "setroubleshootd" {
+		fmt.Printf("subject=%s : %s\toperation=%s\tobject=%s : %s\n\n", a.Subject.Name, a.Subject.Label, a.Operation.ToString(), a.Object.Name, a.Object.Label)
+	// }
 }
 
 func (o Operation) ToString() string {
@@ -57,13 +61,20 @@ func (o Operation) ToString() string {
 }
 
 func LogDenial(s string, op string, obj string) { // operation here is just text because its reprented in string form by AVC already
-	fmt.Printf("<!DENIAL!>:\tsubject=%s\toperation=%s\tobject=%s\n", s, op, obj)
+	fmt.Printf("<!DENIAL!>:\t%s\tattempted { %s }\ton %s\n\n", s, op, obj)
 }
 
 func CheckErr(err error) {
 	if err != nil {
 		log.Fatal(err) 
 	}
+}
+
+func RegexErr(s []string, regex_type string) string {
+	if s == nil {
+		log.Fatal("Regex failed on ", regex_type)
+	}
+	return s[1]
 }
 
 func GetOS() string {

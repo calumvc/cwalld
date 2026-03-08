@@ -18,7 +18,7 @@ func Setup(DIR string) { // make sure audit is configured
 
 	labels := []string{}
 
-	scanLabels(DIR, labels)
+	// scanLabels(DIR, labels)
 
 	for i := range labels {
 		println(labels[i])
@@ -52,7 +52,7 @@ func scanLabels(DIR string, labels []string) {
 
 		regex := regexp.MustCompile(`r:([^:]+)`)
 		label := regex.FindStringSubmatch(res)
-		// fmt.Printf("File %s has label %s\n", file_path, label[1])
+		fmt.Printf("File %s has label %s\n", file_path, label[1])
 
 		dupe := false
 		for i := range labels { 
