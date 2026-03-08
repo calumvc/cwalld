@@ -1,7 +1,11 @@
 package sleuth
 
 import (
+	"cwalld/internal/audit"
+	"cwalld/internal/object"
+	"cwalld/internal/subject"
 	"cwalld/internal/utils"
+	"fmt"
 	"io"
 	"log"
 	"regexp"
@@ -14,11 +18,11 @@ import (
 )
 
 type State struct {
-	subjects []utils.Subject
-	audits []utils.Audit
+	subjects []subject.Subject
+	audits []audit.Audit
 }
 
-type regex_result struct {
+type regexResult struct {
 	pid string
 	name string
 	label string
@@ -39,20 +43,20 @@ func TailAuditd(DIR string) {
 	// println("-- tailing --\n")
 	
 	go func() { // run this part concurrently
-		for line := range t.Lines { // auditd has 2 parts, the syscall and path, we are going to combine them into a struct
+		for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
 
 			// log.Println(line)
 
 			if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
-				state.track_subject(line.Text)
+				state.trackSubject(line.Text)
 			}
 
 			if strings.Contains(line.Text, DIR) { // this is the path line, containing the affected object path
-				state.track_object(line.Text)
+				state.trackObject(line.Text)
 			}
 
 			if strings.Contains(line.Text, "denied") { // this inclues avc denials
-				state.track_avc(line.Text)
+				state.trackAVC(line.Text)
 			}
 		}
 	}()
@@ -60,7 +64,7 @@ func TailAuditd(DIR string) {
 	<-make(chan struct{})
 }
 
-func (state *State) track_subject(line string) {
+func (state *State) trackSubject(line string) {
 	// log.Println(line)
 	regexes := regexer(line)
 	if regexes.name == "setroubleshootd" { return }
@@ -86,26 +90,26 @@ func (state *State) track_subject(line string) {
 		op = utils.Read
 	}
 
-	var subject *utils.Subject
+	var sjct *subject.Subject
 	
 	for _, s := range state.subjects { // if subject is already accounted for
 		if s.Pid == regexes.pid {
-			subject = &s
+			sjct = &s
 			break
 		}
 	}
 
-	if subject == nil { // add it to the global list of subjects if not
-		subject = &utils.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label }
-		subject.ToString()
-		state.subjects = append(state.subjects, *subject)
+	if sjct == nil { // add it to the global list of subjects if not
+		sjct = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label }
+		sjct.ToString()
+		state.subjects = append(state.subjects, *sjct)
 	}
 
-	audit := utils.Audit{ Id: regexes.audit_id, Subject: subject, Object: nil, Operation: op } // create new audit - only half complete so far
+	audit := audit.Audit{ Id: regexes.audit_id, Subject: sjct, Object: nil, Operation: op } // create new audit - only half complete so far
 	state.audits = append(state.audits, audit)
 }
 
-func (state *State) track_object(line string) {
+func (state *State) trackObject(line string) {
 	regex := regexp.MustCompile(`\bmsg=audit\((([^)]+))`)
 	audit_id := regex.FindStringSubmatch(line)[1]
 
@@ -123,14 +127,16 @@ func (state *State) track_object(line string) {
 
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			state.audits[i].Object = &utils.Object{ Name: object_path, Label: object_label } 
+			state.audits[i].Object = &object.Object{ Name: object_path, Label: object_label } 
 			state.audits[i].ToString()
+			// state.audits[i].Subject.
+
 			break
 		}
 	}
 }
 
-func (state *State) track_avc(line string) {
+func (state *State) trackAVC(line string) {
 	regex := regexp.MustCompile(`\{ ([^ }]+)`)
 	operation := regex.FindStringSubmatch(line)[1]
 
@@ -142,14 +148,18 @@ func (state *State) track_avc(line string) {
 	
 	for _, s := range state.subjects {
 		if s.Pid == pid {
-			utils.LogDenial(s.Name, operation, object)
+			logDenial(s.Name, operation, object)
 			break
 		}
 	}
 }
 
-func regexer(line string) regex_result {
-	s := regex_result{}
+func logDenial(s string, op string, obj string) { // operation here is just text because its reprented in string form by AVC already
+	fmt.Printf("<!DENIAL!>:\t%s\tattempted { %s }\ton %s\n\n", s, op, obj)
+}
+
+func regexer(line string) regexResult {
+	s := regexResult{}
 
 	regex := regexp.MustCompile(`\bpid=(\d+)`) // regex to catch pid
 	regex_pid := regex.FindStringSubmatch(line) // pid[0] = "pid=..." pid[1] = "..."
