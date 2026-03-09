@@ -4,7 +4,7 @@ import (
 	"cwalld/internal/object"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
-	"fmt"
+	// "fmt"
 )
 
 type Audit struct {
@@ -12,8 +12,9 @@ type Audit struct {
 	Subject *subject.Subject
 	Object *object.Object
 	Operation utils.Operation 
+	Success bool
 }
 
 func (a *Audit) ToString() {
-	fmt.Printf("subject=%s : %s\toperation=%s\tobject=%s : %s\n\n", a.Subject.Name, a.Subject.Label, a.Operation.ToString(), a.Object.Name, a.Object.Label)
+	// fmt.Printf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s\n\n", a.Subject.Name, a.Subject.Label, a.Operation.ToString(), a.Success, a.Object.Name, a.Object.Label)
 }

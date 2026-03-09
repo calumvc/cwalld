@@ -7,7 +7,7 @@ import (
 	"cwalld/internal/utils"
 	"fmt"
 	"io"
-	"log"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -51,11 +51,11 @@ func TailAuditd(DIR string) {
 				state.trackSubject(line.Text)
 			}
 
-			if strings.Contains(line.Text, DIR) { // this is the path line, containing the affected object path
+			if strings.Contains(line.Text, DIR) && strings.Contains(line.Text, "PATH") { // this is the path line, containing the affected object path
 				state.trackObject(line.Text)
 			}
 
-			if strings.Contains(line.Text, "denied") { // this inclues avc denials
+			if strings.Contains(line.Text, "AVC") {//&& strings.Contains(line.Text, "path"){ // this inclues avc denials
 				state.trackAVC(line.Text)
 			}
 		}
@@ -64,13 +64,31 @@ func TailAuditd(DIR string) {
 	<-make(chan struct{})
 }
 
-func (state *State) trackSubject(line string) {
-	// log.Println(line)
+func (state *State) trackSubject(line string) { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before
 	regexes := regexer(line)
-	if regexes.name == "setroubleshootd" { return }
+	if regexes.name == "setroubleshootd" { return } // this guy is annoying
 
+	var subj *subject.Subject
+	
+	for _, s := range state.subjects { // if subject is already registered
+		if s.Pid == regexes.pid {
+			subj = &s
+			break
+		}
+	}
+
+	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid))
+	utils.CheckErr(err)
+
+	if subj == nil { // add it to the global list of subjects if not
+		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
+		state.subjects = append(state.subjects, *subj)
+		subj.ToString()
+	}
+
+	success := true
 	if regexes.success == "no" {
-		log.Println("AVC Denial Succesful")
+		success = false
 	}
 
 	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal, into straight binary, which is read as an int64 but actually is just straight flags 
@@ -90,22 +108,7 @@ func (state *State) trackSubject(line string) {
 		op = utils.Read
 	}
 
-	var sjct *subject.Subject
-	
-	for _, s := range state.subjects { // if subject is already accounted for
-		if s.Pid == regexes.pid {
-			sjct = &s
-			break
-		}
-	}
-
-	if sjct == nil { // add it to the global list of subjects if not
-		sjct = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label }
-		sjct.ToString()
-		state.subjects = append(state.subjects, *sjct)
-	}
-
-	audit := audit.Audit{ Id: regexes.audit_id, Subject: sjct, Object: nil, Operation: op } // create new audit - only half complete so far
+	audit := audit.Audit{ Id: regexes.audit_id, Subject: subj, Object: nil, Operation: op, Success: success } // create new audit - only half complete so far
 	state.audits = append(state.audits, audit)
 }
 
@@ -120,16 +123,24 @@ func (state *State) trackObject(line string) {
 	}
 
 	regex = regexp.MustCompile(`\bname="([^"]+)"`)
-	object_path := regex.FindStringSubmatch(line)[1]
+	regex_object_path := regex.FindStringSubmatch(line)
+	object_path := utils.RegexErr(regex_object_path, "object name")
 
 	object_label, err := selinux.FileLabel(object_path)
 	utils.CheckErr(err)
 
+	regex = regexp.MustCompile(`r:([^:]+)`)
+	regex_label_type := regex.FindStringSubmatch(object_label)
+	label_type := utils.RegexErr(regex_label_type, "label type")
+
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			state.audits[i].Object = &object.Object{ Name: object_path, Label: object_label } 
+			state.audits[i].Object = &object.Object{ Name: object_path, Label: label_type } 
 			state.audits[i].ToString()
-			// state.audits[i].Subject.
+
+			if state.audits[i].Success == true { // if it succesfully read/wrote, then alter the label as necessary
+				state.audits[i].Subject.AlterLabel(state.audits[i].Object.Label)
+			}
 
 			break
 		}
@@ -138,14 +149,17 @@ func (state *State) trackObject(line string) {
 
 func (state *State) trackAVC(line string) {
 	regex := regexp.MustCompile(`\{ ([^ }]+)`)
-	operation := regex.FindStringSubmatch(line)[1]
+	regex_operation := regex.FindStringSubmatch(line)
+	operation := utils.RegexErr(regex_operation, "Operation")
 
 	regex = regexp.MustCompile(`\bpid=(\d+)`)
-	pid := regex.FindStringSubmatch(line)[1]
+	regex_pid := regex.FindStringSubmatch(line)
+	pid := utils.RegexErr(regex_pid, "Pid")
 
 	regex = regexp.MustCompile(`\bname="([^"]+)"`)
-	object := regex.FindStringSubmatch(line)[1]
-	
+	regex_object := regex.FindStringSubmatch(line)
+	object := utils.RegexErr(regex_object, "Object")
+
 	for _, s := range state.subjects {
 		if s.Pid == pid {
 			logDenial(s.Name, operation, object)

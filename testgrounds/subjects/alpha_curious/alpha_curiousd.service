@@ -1,0 +1,10 @@
+
+[Unit]
+Description=alpha_curiousd
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/alpha_curiousd
+
+[Install]
+WantedBy=multi-user.target

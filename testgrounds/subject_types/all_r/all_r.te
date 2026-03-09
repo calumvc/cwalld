@@ -20,8 +20,6 @@ require {
 
 init_daemon_domain(all_r_t, all_r_exec_t)
 
-permissive all_r_t;
-
 ########################################
 #
 # all_r local policy
@@ -43,4 +41,4 @@ allow all_r_t delta_faction_t:file { read getattr open };
 allow all_r_t sanitised_t:file { read getattr open };
 
 # navigational policies
-allow all_r_t user_home_t:dir { search read open };
+allow all_r_t user_home_t:dir { search read open write add_name };
