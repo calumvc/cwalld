@@ -1,0 +1,41 @@
+policy_module(alpha_gamma_r, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type alpha_gamma_r_t;
+type alpha_gamma_r_exec_t;
+
+require {
+  type alpha_t;
+  type gamma_t;
+  type sanitised_t;
+  type user_home_t;
+}
+
+init_daemon_domain(alpha_gamma_r_t, alpha_gamma_r_exec_t)
+
+permissive alpha_gamma_r_t;
+
+########################################
+#
+# alpha_gamma_r local policy
+#
+allow alpha_gamma_r_t self:fifo_file rw_fifo_file_perms;
+allow alpha_gamma_r_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(alpha_gamma_r_t)
+
+files_read_etc_files(alpha_gamma_r_t)
+
+miscfiles_read_localization(alpha_gamma_r_t)
+
+# cwalld policies
+allow alpha_gamma_r_t alpha_t:file { read getattr open };
+allow alpha_gamma_r_t gamma_t:file { read getattr open };
+allow alpha_gamma_r_t sanitised_t:file { read getattr open };
+
+# navigational policies
+allow alpha_gamma_r_t user_home_t:dir { search read open write add_name };

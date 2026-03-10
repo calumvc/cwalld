@@ -9,12 +9,14 @@ type alpha_rw_t;
 type alpha_rw_exec_t;
 
 require {
-	type alpha_faction_t;
-	type sanitised_t;
-	type user_home_t;
+  type alpha_t;
+  type sanitised_t;
+  type user_home_t;
 }
 
 init_daemon_domain(alpha_rw_t, alpha_rw_exec_t)
+
+permissive alpha_rw_t;
 
 ########################################
 #
@@ -30,7 +32,7 @@ files_read_etc_files(alpha_rw_t)
 miscfiles_read_localization(alpha_rw_t)
 
 # cwalld policies
-allow alpha_rw_t alpha_faction_t:file { read write getattr open };
+allow alpha_rw_t alpha_t:file { read write getattr open };
 allow alpha_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies

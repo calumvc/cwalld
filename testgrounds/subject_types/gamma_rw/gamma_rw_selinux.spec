@@ -2,7 +2,7 @@
 
 
 %define relabel_files() \
-restorecon -R /home/cal/testgrounds/subject_types/gamma_rw; \
+restorecon -R /home/testgrounds/subject_types/gamma_rw; \
 
 %define selinux_policyver 38.1.65-1
 
@@ -70,6 +70,6 @@ exit 0
 
 
 %changelog
-* Thu Mar  5 2026 YOUR NAME <YOUR@EMAILADDRESS> 1.0-1
+* Tue Mar 10 2026 YOUR NAME <YOUR@EMAILADDRESS> 1.0-1
 - Initial version
 

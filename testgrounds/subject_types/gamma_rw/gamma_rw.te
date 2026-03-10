@@ -9,9 +9,9 @@ type gamma_rw_t;
 type gamma_rw_exec_t;
 
 require {
-	type gamma_faction_t;
-	type sanitised_t;
-	type user_home_t;
+  type gamma_t;
+  type sanitised_t;
+  type user_home_t;
 }
 
 init_daemon_domain(gamma_rw_t, gamma_rw_exec_t)
@@ -31,9 +31,9 @@ files_read_etc_files(gamma_rw_t)
 
 miscfiles_read_localization(gamma_rw_t)
 
-# cwalld rules
-allow gamma_rw_t gamma_faction_t:file { read write getattr open };
+# cwalld policies
+allow gamma_rw_t gamma_t:file { read write getattr open };
 allow gamma_rw_t sanitised_t:file { read getattr open };
 
-# navigational rules
-allow gamma_rw_t user_home_t:dir { search read open };
+# navigational policies
+allow gamma_rw_t user_home_t:dir { search read open write add_name };

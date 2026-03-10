@@ -139,7 +139,7 @@ func (state *State) trackObject(line string) {
 			state.audits[i].ToString()
 
 			if state.audits[i].Success == true { // if it succesfully read/wrote, then alter the label as necessary
-				state.audits[i].Subject.AlterLabel(state.audits[i].Object.Label)
+				state.audits[i].Subject.AlterLabel(label_type, state.audits[i].Operation)
 			}
 
 			break

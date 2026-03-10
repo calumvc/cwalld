@@ -1,4 +1,4 @@
-.TH  "beta_rw_selinux"  "8"  "26-03-05" "beta_rw" "SELinux Policy beta_rw"
+.TH  "beta_rw_selinux"  "8"  "26-03-10" "beta_rw" "SELinux Policy beta_rw"
 .SH "NAME"
 beta_rw_selinux \- Security Enhanced Linux Policy for the beta_rw processes
 .SH "DESCRIPTION"
@@ -18,7 +18,7 @@ The beta_rw_t SELinux type can be entered via the \fBbeta_rw_exec_t\fP file type
 
 The default entrypoint paths for the beta_rw_t domain are the following:
 
-/home/cal/testgrounds/subject_types/beta_rw
+/home/testgrounds/subject_types/beta_rw
 .SH PROCESS TYPES
 SELinux defines process types (domains) for each process running on the system
 .PP
@@ -62,7 +62,7 @@ If you want to allow all domains to execute in fips_mode, you must turn on the f
 The SELinux process type beta_rw_t can manage files labeled with the following file types.  The paths listed are the default paths for these file types.  Note the processes UID still need to have DAC permissions.
 
 .br
-.B beta_faction_t
+.B beta_t
 
 
 .br

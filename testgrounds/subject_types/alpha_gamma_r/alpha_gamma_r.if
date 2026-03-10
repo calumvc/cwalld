@@ -1,0 +1,40 @@
+
+## <summary>policy for alpha_gamma_r</summary>
+
+########################################
+## <summary>
+##	Execute alpha_gamma_r_exec_t in the alpha_gamma_r domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`alpha_gamma_r_domtrans',`
+	gen_require(`
+		type alpha_gamma_r_t, alpha_gamma_r_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, alpha_gamma_r_exec_t, alpha_gamma_r_t)
+')
+
+######################################
+## <summary>
+##	Execute alpha_gamma_r in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`alpha_gamma_r_exec',`
+	gen_require(`
+		type alpha_gamma_r_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, alpha_gamma_r_exec_t)
+')

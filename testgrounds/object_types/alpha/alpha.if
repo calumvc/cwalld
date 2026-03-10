@@ -1,0 +1,40 @@
+
+## <summary>policy for alpha</summary>
+
+########################################
+## <summary>
+##	Execute alpha_exec_t in the alpha domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`alpha_domtrans',`
+	gen_require(`
+		type alpha_t, alpha_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, alpha_exec_t, alpha_t)
+')
+
+######################################
+## <summary>
+##	Execute alpha in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`alpha_exec',`
+	gen_require(`
+		type alpha_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, alpha_exec_t)
+')

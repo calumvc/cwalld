@@ -3404,10 +3404,10 @@ category c1023;
 type beta_rw_t;
 type beta_rw_exec_t;
 
-require { 
-	type beta_faction_t;
-	type sanitised_t;
-	type user_home_t;
+require {
+  type beta_t;
+  type sanitised_t;
+  type user_home_t;
 }
 
  	 	
@@ -4016,8 +4016,8 @@ allow beta_rw_t self:unix_stream_socket { { create { ioctl read getattr lock wri
  	
 
 # cwalld rules
-allow beta_rw_t beta_faction_t:file { read write getattr open };
+allow beta_rw_t beta_t:file { read write getattr open };
 allow beta_rw_t sanitised_t:file { read getattr open };
 
-# navigational rules
-allow beta_rw_t user_home_t:dir { search read open };
+# navigational policies
+allow beta_rw_t user_home_t:dir { search read open write add_name };

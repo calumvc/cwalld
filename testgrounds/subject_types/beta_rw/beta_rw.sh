@@ -44,8 +44,8 @@ make -f /usr/share/selinux/devel/Makefile beta_rw.pp || exit
 
 # Generate a man page of the installed module
 sepolicy manpage -p . -d beta_rw_t
-# Fixing the file context on /home/cal/testgrounds/subject_types/beta_rw
-/sbin/restorecon -F -R -v /home/cal/testgrounds/subject_types/beta_rw
+# Fixing the file context on /home/testgrounds/subject_types/beta_rw
+/sbin/restorecon -F -R -v /home/testgrounds/subject_types/beta_rw
 # Generate a rpm package for the newly generated policy
 
 pwd=$(pwd)

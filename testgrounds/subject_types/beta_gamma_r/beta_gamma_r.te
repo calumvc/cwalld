@@ -1,0 +1,41 @@
+policy_module(beta_gamma_r, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type beta_gamma_r_t;
+type beta_gamma_r_exec_t;
+
+require { 
+  type beta_t;
+  type gamma_t;
+  type sanitised_t;
+  type user_home_t;
+}
+
+init_daemon_domain(beta_gamma_r_t, beta_gamma_r_exec_t)
+
+permissive beta_gamma_r_t;
+
+########################################
+#
+# beta_gamma_r local policy
+#
+allow beta_gamma_r_t self:fifo_file rw_fifo_file_perms;
+allow beta_gamma_r_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(beta_gamma_r_t)
+
+files_read_etc_files(beta_gamma_r_t)
+
+miscfiles_read_localization(beta_gamma_r_t)
+
+# cwalld policies
+allow beta_gamma_r_t beta_t:file { read getattr open };
+allow beta_gamma_r_t gamma_t:file { read getattr open };
+allow beta_gamma_r_t sanitised_t:file { read getattr open };
+
+# navigational policies
+allow beta_gamma_r_t user_home_t:dir { search read open write add_name };

@@ -1,0 +1,40 @@
+
+## <summary>policy for beta</summary>
+
+########################################
+## <summary>
+##	Execute beta_exec_t in the beta domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`beta_domtrans',`
+	gen_require(`
+		type beta_t, beta_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, beta_exec_t, beta_t)
+')
+
+######################################
+## <summary>
+##	Execute beta in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`beta_exec',`
+	gen_require(`
+		type beta_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, beta_exec_t)
+')

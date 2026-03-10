@@ -1,0 +1,43 @@
+policy_module(pub, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+type pub_t;
+type pub_exec_t;
+
+require {
+  type alpha_t;
+  type beta_t;
+  type gamma_t;
+  type sanitised_t;
+  type user_home_t;
+}
+
+init_daemon_domain(pub_t, pub_exec_t)
+
+permissive pub_t;
+
+########################################
+#
+# pub local policy
+#
+allow pub_t self:fifo_file rw_fifo_file_perms;
+allow pub_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(pub_t)
+
+files_read_etc_files(pub_t)
+
+miscfiles_read_localization(pub_t)
+
+# cwalld policies
+allow pub_t alpha_t:file { read write getattr open };
+allow pub_t beta_t:file { read write getattr open };
+allow pub_t gamma_t:file { read write getattr open };
+allow pub_t sanitised_t:file { read write getattr open };
+
+# navigational rules
+allow pub_t user_home_t:dir { search read open add_name write };
+
