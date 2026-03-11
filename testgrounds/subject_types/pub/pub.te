@@ -17,8 +17,6 @@ require {
 
 init_daemon_domain(pub_t, pub_exec_t)
 
-permissive pub_t;
-
 ########################################
 #
 # pub local policy

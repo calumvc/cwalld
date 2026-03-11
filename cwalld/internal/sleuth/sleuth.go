@@ -55,7 +55,7 @@ func TailAuditd(DIR string) {
 				state.trackObject(line.Text)
 			}
 
-			if strings.Contains(line.Text, "AVC") {//&& strings.Contains(line.Text, "path"){ // this inclues avc denials
+			if strings.Contains(line.Text, "AVC") { //&& strings.Contains(line.Text, "path"){ // this inclues avc denials
 				state.trackAVC(line.Text)
 			}
 		}
@@ -148,17 +148,27 @@ func (state *State) trackObject(line string) {
 }
 
 func (state *State) trackAVC(line string) {
+	println(line)
 	regex := regexp.MustCompile(`\{ ([^ }]+)`)
 	regex_operation := regex.FindStringSubmatch(line)
 	operation := utils.RegexErr(regex_operation, "Operation")
+	
+	var object string
+
+	if strings.Contains(line, "name") {
+		regex = regexp.MustCompile(`\bname="([^"]+)"`)
+		regex_object := regex.FindStringSubmatch(line)
+		object = utils.RegexErr(regex_object, "Object")
+	} else
+	if strings.Contains(line, "path") {
+		regex = regexp.MustCompile(`\bpath="([^"]+)"`)
+		regex_object := regex.FindStringSubmatch(line)
+		object = utils.RegexErr(regex_object, "Object")
+	}
 
 	regex = regexp.MustCompile(`\bpid=(\d+)`)
 	regex_pid := regex.FindStringSubmatch(line)
 	pid := utils.RegexErr(regex_pid, "Pid")
-
-	regex = regexp.MustCompile(`\bname="([^"]+)"`)
-	regex_object := regex.FindStringSubmatch(line)
-	object := utils.RegexErr(regex_object, "Object")
 
 	for _, s := range state.subjects {
 		if s.Pid == pid {

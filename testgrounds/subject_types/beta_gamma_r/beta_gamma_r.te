@@ -17,8 +17,6 @@ require {
 
 init_daemon_domain(beta_gamma_r_t, beta_gamma_r_exec_t)
 
-permissive beta_gamma_r_t;
-
 ########################################
 #
 # beta_gamma_r local policy

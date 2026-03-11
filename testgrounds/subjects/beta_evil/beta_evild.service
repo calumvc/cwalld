@@ -1,10 +1,10 @@
 
 [Unit]
-Description=alpha_evild
+Description=beta_evild
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/alpha_evild
+ExecStart=/usr/local/bin/beta_evild
 
 [Install]
 WantedBy=multi-user.target

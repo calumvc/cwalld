@@ -16,8 +16,6 @@ require {
 
 init_daemon_domain(alpha_rw_t, alpha_rw_exec_t)
 
-permissive alpha_rw_t;
-
 ########################################
 #
 # alpha_rw local policy

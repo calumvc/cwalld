@@ -1,0 +1,10 @@
+
+[Unit]
+Description=beta_civild
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/beta_civild
+
+[Install]
+WantedBy=multi-user.target

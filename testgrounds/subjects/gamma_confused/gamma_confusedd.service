@@ -1,0 +1,10 @@
+
+[Unit]
+Description=gamma_confusedd
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gamma_confusedd
+
+[Install]
+WantedBy=multi-user.target

@@ -17,8 +17,6 @@ require {
 
 init_daemon_domain(alpha_gamma_r_t, alpha_gamma_r_exec_t)
 
-permissive alpha_gamma_r_t;
-
 ########################################
 #
 # alpha_gamma_r local policy

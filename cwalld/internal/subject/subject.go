@@ -12,14 +12,10 @@ type Subject struct {
 	Entrypoint string
 }
 
-type CoI struct {
-	A string
- 	B string
-}
-
-type Conflicts []CoI
-
-var conflicts = Conflicts{ 
+var conflicts = [][]int8{
+	{1, 0}, // alpha
+	{1, 0}, // beta
+	{0, 0}, // gamma
 }
 
 func (s *Subject) ToString() {
@@ -30,7 +26,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 	fmt.Printf("Considering subject %s { %s } on object %s\n\n", s.Label, op.ToString(), l)
 }
 
-func (conflicts Conflicts) inConflict(a string, b string) bool {
+func inConflict(a string, b string) bool {
 	for _, c := range conflicts {
 		if (c.A == a && c.B == b) || (c.B == a && c.A == b){
 			return true

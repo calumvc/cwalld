@@ -3734,8 +3734,6 @@ require {
 #line 17
  	
 
-permissive gamma_rw_t;
-
 ########################################
 #
 # gamma_rw local policy
@@ -3744,275 +3742,275 @@ allow gamma_rw_t self:fifo_file { open { getattr read write append ioctl lock } 
 allow gamma_rw_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
 
  	 	
-#line 28
+#line 26
 ##### begin domain_use_interactive_fds(gamma_rw_t) depth: 1
-#line 28
+#line 26
  	
-#line 28
+#line 26
 	
-#line 28
+#line 26
 	
-#line 28
+#line 26
 		require {
-#line 28
+#line 26
 			
-#line 28
+#line 26
 		attribute privfd;
-#line 28
+#line 26
 	
-#line 28
+#line 26
 		} # end require
-#line 28
+#line 26
 	
-#line 28
+#line 26
 
-#line 28
+#line 26
 
-#line 28
+#line 26
 	allow gamma_rw_t privfd:fd use;
-#line 28
+#line 26
 
-#line 28
+#line 26
 	 	
-#line 28
+#line 26
 ##### end domain_use_interactive_fds(gamma_rw_t) depth: 0
+#line 26
+ 	
+
+ 	 	
+#line 28
+##### begin files_read_etc_files(gamma_rw_t) depth: 1
+#line 28
+ 	
+#line 28
+	
+#line 28
+	
+#line 28
+		require {
+#line 28
+			
+#line 28
+		type etc_t;
+#line 28
+	
+#line 28
+		} # end require
+#line 28
+	
+#line 28
+
+#line 28
+
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
+#line 28
+	
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open };
+#line 28
+	allow gamma_rw_t etc_t:file { open { getattr read ioctl lock } };
+#line 28
+
+#line 28
+	
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open };
+#line 28
+	allow gamma_rw_t etc_t:lnk_file { getattr read };
+#line 28
+
+#line 28
+	 	 	
+#line 28
+##### begin files_read_etc_runtime_files(gamma_rw_t) depth: 2
+#line 28
+ 	
+#line 28
+	
+#line 28
+	
+#line 28
+		require {
+#line 28
+			
+#line 28
+		type etc_t, etc_runtime_t;
+#line 28
+	
+#line 28
+		} # end require
+#line 28
+	
+#line 28
+
+#line 28
+
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
+#line 28
+	
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open };
+#line 28
+	allow gamma_rw_t etc_runtime_t:file { open { getattr read ioctl lock } };
+#line 28
+
+#line 28
+	
+#line 28
+	allow gamma_rw_t etc_t:dir { getattr search open };
+#line 28
+	allow gamma_rw_t etc_runtime_t:lnk_file { getattr read };
+#line 28
+
+#line 28
+
+#line 28
+	 	
+#line 28
+##### end files_read_etc_runtime_files(gamma_rw_t) depth: 1
+#line 28
+ 	
+#line 28
+
+#line 28
+	 	
+#line 28
+##### end files_read_etc_files(gamma_rw_t) depth: 0
 #line 28
  	
 
  	 	
 #line 30
-##### begin files_read_etc_files(gamma_rw_t) depth: 1
-#line 30
- 	
-#line 30
-	
-#line 30
-	
-#line 30
-		require {
-#line 30
-			
-#line 30
-		type etc_t;
-#line 30
-	
-#line 30
-		} # end require
-#line 30
-	
-#line 30
-
-#line 30
-
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
-#line 30
-	
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 30
-	allow gamma_rw_t etc_t:file { open { getattr read ioctl lock } };
-#line 30
-
-#line 30
-	
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 30
-	allow gamma_rw_t etc_t:lnk_file { getattr read };
-#line 30
-
-#line 30
-	 	 	
-#line 30
-##### begin files_read_etc_runtime_files(gamma_rw_t) depth: 2
-#line 30
- 	
-#line 30
-	
-#line 30
-	
-#line 30
-		require {
-#line 30
-			
-#line 30
-		type etc_t, etc_runtime_t;
-#line 30
-	
-#line 30
-		} # end require
-#line 30
-	
-#line 30
-
-#line 30
-
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
-#line 30
-	
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 30
-	allow gamma_rw_t etc_runtime_t:file { open { getattr read ioctl lock } };
-#line 30
-
-#line 30
-	
-#line 30
-	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 30
-	allow gamma_rw_t etc_runtime_t:lnk_file { getattr read };
-#line 30
-
-#line 30
-
-#line 30
-	 	
-#line 30
-##### end files_read_etc_runtime_files(gamma_rw_t) depth: 1
-#line 30
- 	
-#line 30
-
-#line 30
-	 	
-#line 30
-##### end files_read_etc_files(gamma_rw_t) depth: 0
-#line 30
- 	
-
- 	 	
-#line 32
 ##### begin miscfiles_read_localization(gamma_rw_t) depth: 1
-#line 32
+#line 30
  	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		require {
-#line 32
+#line 30
 			
-#line 32
+#line 30
 		type locale_t;
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		} # end require
-#line 32
+#line 30
 	
-#line 32
+#line 30
 
-#line 32
+#line 30
 
-#line 32
+#line 30
 	 	 	
-#line 32
+#line 30
 ##### begin files_read_etc_symlinks(gamma_rw_t) depth: 2
-#line 32
+#line 30
  	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		require {
-#line 32
+#line 30
 			
-#line 32
+#line 30
 		type etc_t;
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		} # end require
-#line 32
+#line 30
 	
-#line 32
+#line 30
 
-#line 32
+#line 30
 
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 32
+#line 30
 	allow gamma_rw_t etc_t:lnk_file { getattr read };
-#line 32
+#line 30
 
-#line 32
+#line 30
 
-#line 32
+#line 30
 	 	
-#line 32
+#line 30
 ##### end files_read_etc_symlinks(gamma_rw_t) depth: 1
-#line 32
+#line 30
  	
-#line 32
+#line 30
 	 	 	
-#line 32
+#line 30
 ##### begin files_search_usr(gamma_rw_t) depth: 2
-#line 32
+#line 30
  	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		require {
-#line 32
+#line 30
 			
-#line 32
+#line 30
 		type usr_t;
-#line 32
+#line 30
 	
-#line 32
+#line 30
 		} # end require
-#line 32
+#line 30
 	
-#line 32
+#line 30
 
-#line 32
+#line 30
 
-#line 32
+#line 30
 	allow gamma_rw_t usr_t:dir { getattr search open };
-#line 32
+#line 30
 
-#line 32
+#line 30
 	 	
-#line 32
+#line 30
 ##### end files_search_usr(gamma_rw_t) depth: 1
-#line 32
+#line 30
  	
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:dir { getattr search open read lock ioctl };
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:dir { getattr search open };
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:file { open { getattr read ioctl lock } };
-#line 32
+#line 30
 
-#line 32
+#line 30
 	
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:dir { getattr search open };
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:lnk_file { getattr read };
-#line 32
+#line 30
 
-#line 32
+#line 30
 	allow gamma_rw_t locale_t:file map;
-#line 32
+#line 30
 
-#line 32
+#line 30
 	 	
-#line 32
+#line 30
 ##### end miscfiles_read_localization(gamma_rw_t) depth: 0
-#line 32
+#line 30
  	
 
 # cwalld policies

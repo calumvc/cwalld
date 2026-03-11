@@ -3735,8 +3735,6 @@ require {
 #line 18
  	
 
-permissive pub_t;
-
 ########################################
 #
 # pub local policy
@@ -3745,275 +3743,275 @@ allow pub_t self:fifo_file { open { getattr read write append ioctl lock } };
 allow pub_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
 
  	 	
-#line 29
+#line 27
 ##### begin domain_use_interactive_fds(pub_t) depth: 1
-#line 29
+#line 27
  	
-#line 29
+#line 27
 	
-#line 29
+#line 27
 	
-#line 29
+#line 27
 		require {
-#line 29
+#line 27
 			
-#line 29
+#line 27
 		attribute privfd;
-#line 29
+#line 27
 	
-#line 29
+#line 27
 		} # end require
-#line 29
+#line 27
 	
-#line 29
+#line 27
 
-#line 29
+#line 27
 
-#line 29
+#line 27
 	allow pub_t privfd:fd use;
-#line 29
+#line 27
 
-#line 29
+#line 27
 	 	
-#line 29
+#line 27
 ##### end domain_use_interactive_fds(pub_t) depth: 0
+#line 27
+ 	
+
+ 	 	
+#line 29
+##### begin files_read_etc_files(pub_t) depth: 1
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type etc_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow pub_t etc_t:dir { getattr search open read lock ioctl };
+#line 29
+	
+#line 29
+	allow pub_t etc_t:dir { getattr search open };
+#line 29
+	allow pub_t etc_t:file { open { getattr read ioctl lock } };
+#line 29
+
+#line 29
+	
+#line 29
+	allow pub_t etc_t:dir { getattr search open };
+#line 29
+	allow pub_t etc_t:lnk_file { getattr read };
+#line 29
+
+#line 29
+	 	 	
+#line 29
+##### begin files_read_etc_runtime_files(pub_t) depth: 2
+#line 29
+ 	
+#line 29
+	
+#line 29
+	
+#line 29
+		require {
+#line 29
+			
+#line 29
+		type etc_t, etc_runtime_t;
+#line 29
+	
+#line 29
+		} # end require
+#line 29
+	
+#line 29
+
+#line 29
+
+#line 29
+	allow pub_t etc_t:dir { getattr search open read lock ioctl };
+#line 29
+	
+#line 29
+	allow pub_t etc_t:dir { getattr search open };
+#line 29
+	allow pub_t etc_runtime_t:file { open { getattr read ioctl lock } };
+#line 29
+
+#line 29
+	
+#line 29
+	allow pub_t etc_t:dir { getattr search open };
+#line 29
+	allow pub_t etc_runtime_t:lnk_file { getattr read };
+#line 29
+
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_read_etc_runtime_files(pub_t) depth: 1
+#line 29
+ 	
+#line 29
+
+#line 29
+	 	
+#line 29
+##### end files_read_etc_files(pub_t) depth: 0
 #line 29
  	
 
  	 	
 #line 31
-##### begin files_read_etc_files(pub_t) depth: 1
-#line 31
- 	
-#line 31
-	
-#line 31
-	
-#line 31
-		require {
-#line 31
-			
-#line 31
-		type etc_t;
-#line 31
-	
-#line 31
-		} # end require
-#line 31
-	
-#line 31
-
-#line 31
-
-#line 31
-	allow pub_t etc_t:dir { getattr search open read lock ioctl };
-#line 31
-	
-#line 31
-	allow pub_t etc_t:dir { getattr search open };
-#line 31
-	allow pub_t etc_t:file { open { getattr read ioctl lock } };
-#line 31
-
-#line 31
-	
-#line 31
-	allow pub_t etc_t:dir { getattr search open };
-#line 31
-	allow pub_t etc_t:lnk_file { getattr read };
-#line 31
-
-#line 31
-	 	 	
-#line 31
-##### begin files_read_etc_runtime_files(pub_t) depth: 2
-#line 31
- 	
-#line 31
-	
-#line 31
-	
-#line 31
-		require {
-#line 31
-			
-#line 31
-		type etc_t, etc_runtime_t;
-#line 31
-	
-#line 31
-		} # end require
-#line 31
-	
-#line 31
-
-#line 31
-
-#line 31
-	allow pub_t etc_t:dir { getattr search open read lock ioctl };
-#line 31
-	
-#line 31
-	allow pub_t etc_t:dir { getattr search open };
-#line 31
-	allow pub_t etc_runtime_t:file { open { getattr read ioctl lock } };
-#line 31
-
-#line 31
-	
-#line 31
-	allow pub_t etc_t:dir { getattr search open };
-#line 31
-	allow pub_t etc_runtime_t:lnk_file { getattr read };
-#line 31
-
-#line 31
-
-#line 31
-	 	
-#line 31
-##### end files_read_etc_runtime_files(pub_t) depth: 1
-#line 31
- 	
-#line 31
-
-#line 31
-	 	
-#line 31
-##### end files_read_etc_files(pub_t) depth: 0
-#line 31
- 	
-
- 	 	
-#line 33
 ##### begin miscfiles_read_localization(pub_t) depth: 1
-#line 33
+#line 31
  	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		require {
-#line 33
+#line 31
 			
-#line 33
+#line 31
 		type locale_t;
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		} # end require
-#line 33
+#line 31
 	
-#line 33
+#line 31
 
-#line 33
+#line 31
 
-#line 33
+#line 31
 	 	 	
-#line 33
+#line 31
 ##### begin files_read_etc_symlinks(pub_t) depth: 2
-#line 33
+#line 31
  	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		require {
-#line 33
+#line 31
 			
-#line 33
+#line 31
 		type etc_t;
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		} # end require
-#line 33
+#line 31
 	
-#line 33
+#line 31
 
-#line 33
+#line 31
 
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	allow pub_t etc_t:dir { getattr search open };
-#line 33
+#line 31
 	allow pub_t etc_t:lnk_file { getattr read };
-#line 33
+#line 31
 
-#line 33
+#line 31
 
-#line 33
+#line 31
 	 	
-#line 33
+#line 31
 ##### end files_read_etc_symlinks(pub_t) depth: 1
-#line 33
+#line 31
  	
-#line 33
+#line 31
 	 	 	
-#line 33
+#line 31
 ##### begin files_search_usr(pub_t) depth: 2
-#line 33
+#line 31
  	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		require {
-#line 33
+#line 31
 			
-#line 33
+#line 31
 		type usr_t;
-#line 33
+#line 31
 	
-#line 33
+#line 31
 		} # end require
-#line 33
+#line 31
 	
-#line 33
+#line 31
 
-#line 33
+#line 31
 
-#line 33
+#line 31
 	allow pub_t usr_t:dir { getattr search open };
-#line 33
+#line 31
 
-#line 33
+#line 31
 	 	
-#line 33
+#line 31
 ##### end files_search_usr(pub_t) depth: 1
-#line 33
+#line 31
  	
-#line 33
+#line 31
 	allow pub_t locale_t:dir { getattr search open read lock ioctl };
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	allow pub_t locale_t:dir { getattr search open };
-#line 33
+#line 31
 	allow pub_t locale_t:file { open { getattr read ioctl lock } };
-#line 33
+#line 31
 
-#line 33
+#line 31
 	
-#line 33
+#line 31
 	allow pub_t locale_t:dir { getattr search open };
-#line 33
+#line 31
 	allow pub_t locale_t:lnk_file { getattr read };
-#line 33
+#line 31
 
-#line 33
+#line 31
 	allow pub_t locale_t:file map;
-#line 33
+#line 31
 
-#line 33
+#line 31
 	 	
-#line 33
+#line 31
 ##### end miscfiles_read_localization(pub_t) depth: 0
-#line 33
+#line 31
  	
 
 # cwalld policies

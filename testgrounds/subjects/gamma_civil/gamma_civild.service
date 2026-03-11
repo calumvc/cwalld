@@ -1,0 +1,10 @@
+
+[Unit]
+Description=gamma_civild
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/gamma_civild
+
+[Install]
+WantedBy=multi-user.target
