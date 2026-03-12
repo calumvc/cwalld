@@ -32,6 +32,7 @@ type regexResult struct {
 }
 
 func TailAuditd(DIR string) {
+	println("Chinese Wall Enforcing")
 	state := State{}
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
@@ -74,6 +75,10 @@ func (state *State) trackSubject(line string) { // we will track details about t
 		if s.Pid == regexes.pid {
 			subj = &s
 			break
+		} else
+		if s.Name == regexes.name {
+			subj = &s
+			fmt.Printf("%s changed label to %s\n", s.Name, s.Label)
 		}
 	}
 
@@ -148,7 +153,6 @@ func (state *State) trackObject(line string) {
 }
 
 func (state *State) trackAVC(line string) {
-	println(line)
 	regex := regexp.MustCompile(`\{ ([^ }]+)`)
 	regex_operation := regex.FindStringSubmatch(line)
 	operation := utils.RegexErr(regex_operation, "Operation")

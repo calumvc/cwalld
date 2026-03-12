@@ -1,0 +1,42 @@
+policy_module(cwalld, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type cwalld_t;
+type cwalld_exec_t;
+
+require {
+  type user_home_t;
+}
+
+init_daemon_domain(cwalld_t, cwalld_exec_t)
+
+permissive cwalld_t;
+
+type cwalld_var_lib_t;
+files_type(cwalld_var_lib_t)
+
+########################################
+#
+# cwalld local policy
+#
+allow cwalld_t self:fifo_file rw_fifo_file_perms;
+allow cwalld_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(cwalld_t, cwalld_var_lib_t, cwalld_var_lib_t)
+manage_files_pattern(cwalld_t, cwalld_var_lib_t, cwalld_var_lib_t)
+manage_lnk_files_pattern(cwalld_t, cwalld_var_lib_t, cwalld_var_lib_t)
+files_var_lib_filetrans(cwalld_t, cwalld_var_lib_t, { dir file lnk_file })
+
+domain_use_interactive_fds(cwalld_t)
+
+files_read_etc_files(cwalld_t)
+
+miscfiles_read_localization(cwalld_t)
+
+# navigational rules
+allow cwalld_t user_home_t:dir { search read add_name write open };
+allow cwalld_t file_type:file { relabelto relabelfrom };
