@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/hpcloud/tail"
+)
+
+func main(){
+	t, err := tail.TailFile("/var/log/cwalld/cwalld.log", tail.Config{
+		Follow: true,
+	})
+
+	if err != nil { 
+		fmt.Print(err)
+		os.Exit(1)
+	}
+
+	for line := range t.Lines {
+		fmt.Println(line.Text)
+	}
+}

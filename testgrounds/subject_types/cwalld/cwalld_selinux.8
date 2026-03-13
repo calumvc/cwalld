@@ -1,4 +1,4 @@
-.TH  "cwalld_selinux"  "8"  "26-03-12" "cwalld" "SELinux Policy cwalld"
+.TH  "cwalld_selinux"  "8"  "26-03-13" "cwalld" "SELinux Policy cwalld"
 .SH "NAME"
 cwalld_selinux \- Security Enhanced Linux Policy for the cwalld processes
 .SH "DESCRIPTION"
@@ -18,7 +18,7 @@ The cwalld_t SELinux type can be entered via the \fBcwalld_exec_t\fP file type.
 
 The default entrypoint paths for the cwalld_t domain are the following:
 
-/home/testgrounds/subject_types/cwalld
+
 .SH PROCESS TYPES
 SELinux defines process types (domains) for each process running on the system
 .PP
@@ -118,12 +118,6 @@ The SELinux process type cwalld_t can manage files labeled with the following fi
 .br
 
 .br
-.B cwalld_var_lib_t
-
-	/var/lib/cwalld(/.*)?
-.br
-
-.br
 .B root_t
 
 	/sysroot/ostree/deploy/.*-atomic/deploy(/.*)?
@@ -133,52 +127,49 @@ The SELinux process type cwalld_t can manage files labeled with the following fi
 	/initrd
 .br
 
-.SH FILE CONTEXTS
-SELinux requires files to have an extended attribute to define the file type.
-.PP
-You can see the context of a file using the \fB\-Z\fP option to \fBls\bP
-.PP
-Policy governs the access confined processes have to these files.
-SELinux cwalld policy is very flexible allowing users to setup their cwalld processes in as secure a method as possible.
-.PP
-
-.PP
-.B STANDARD FILE CONTEXT
-
-SELinux defines the file context types for the cwalld, if you wanted to
-store files with these types in a different paths, you need to execute the semanage command to specify alternate labeling and then use restorecon to put the labels on disk.
-
-.B semanage fcontext -a -t cwalld_var_lib_t '/srv/mycwalld_content(/.*)?'
 .br
-.B restorecon -R -v /srv/mycwalld_content
+.B var_log_t
 
-Note: SELinux often uses regular expressions to specify labels that match multiple files.
-
-.I The following file types are defined for cwalld:
-
-
-.EX
-.PP
-.B cwalld_exec_t
-.EE
-
-- Set files with the cwalld_exec_t type, if you want to transition an executable to the cwalld_t domain.
-
-
-.EX
-.PP
-.B cwalld_var_lib_t
-.EE
-
-- Set files with the cwalld_var_lib_t type, if you want to store the cwalld files under the /var/lib directory.
-
-
-.PP
-Note: File context can be temporarily modified with the chcon command.  If you want to permanently change the file context you need to use the
-.B semanage fcontext
-command.  This will modify the SELinux labeling database.  You will need to use
-.B restorecon
-to apply the labels.
+	/var/log/.*
+.br
+	/nsr/logs(/.*)?
+.br
+	/var/webmin(/.*)?
+.br
+	/var/log/secure[^/]*
+.br
+	/opt/zimbra/log(/.*)?
+.br
+	/var/log/maillog[^/]*
+.br
+	/var/log/spooler[^/]*
+.br
+	/var/log/messages[^/]*
+.br
+	/usr/centreon/log(/.*)?
+.br
+	/var/spool/rsyslog(/.*)?
+.br
+	/var/axfrdns/log/main(/.*)?
+.br
+	/var/spool/bacula/log(/.*)?
+.br
+	/var/tinydns/log/main(/.*)?
+.br
+	/var/dnscache/log/main(/.*)?
+.br
+	/var/stockmaniac/templates_cache(/.*)?
+.br
+	/opt/Symantec/scspagent/IDS/system(/.*)?
+.br
+	/var/log
+.br
+	/var/log/dmesg
+.br
+	/var/log/syslog
+.br
+	/var/named/chroot/var/log
+.br
 
 .SH "COMMANDS"
 .B semanage fcontext

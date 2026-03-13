@@ -1,0 +1,47 @@
+
+module cwalld 1.0;
+
+require {
+	type cwalld_t;
+	type cwalld_exec_t;
+	type var_log_t;
+	type setroubleshootd_t;
+	type init_t;
+	type alpha_rw_t;
+	type unconfined_service_t;
+	type unconfined_t;
+	type sanitised_t;
+	class file { getattr read relabelto };
+	class capability dac_override;
+	class dir { search write };
+}
+
+#============= cwalld_t ==============
+allow cwalld_t alpha_rw_t:dir search;
+allow cwalld_t alpha_rw_t:file read;
+
+#!!!! This avc is allowed in the current policy
+allow cwalld_t sanitised_t:file getattr;
+
+#!!!! This avc is allowed in the current policy
+allow cwalld_t self:capability dac_override;
+allow cwalld_t unconfined_service_t:file relabelto;
+
+#!!!! This avc is allowed in the current policy
+allow cwalld_t var_log_t:dir write;
+
+#============= init_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow init_t cwalld_exec_t:file getattr;
+
+#============= setroubleshootd_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow setroubleshootd_t cwalld_exec_t:file getattr;
+
+#============= unconfined_t ==============
+
+#!!!! This avc is allowed in the current policy
+allow unconfined_t cwalld_exec_t:file getattr;
+allow unconfined_t unconfined_service_t:file relabelto;

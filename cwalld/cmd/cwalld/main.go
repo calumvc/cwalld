@@ -12,11 +12,9 @@ func main() {
 	args := utils.GetArgs()
 
 	if args[0] == "init" {
-		// initialize(args[1]) // uncomment when i want to accept from cli
 		initialize(DIR)
 	} else 
 	if args[0] == "enforce" { 
-		// enforce(args[1])
 		enforce(DIR)
 	} else {
 		println("Unsupported argument, try 'init' or 'enforce'")

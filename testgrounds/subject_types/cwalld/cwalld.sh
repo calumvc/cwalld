@@ -46,8 +46,8 @@ make -f /usr/share/selinux/devel/Makefile cwalld.pp || exit
 sepolicy manpage -p . -d cwalld_t
 # Fixing the file context on /home/testgrounds/subject_types/cwalld
 /sbin/restorecon -F -R -v /home/testgrounds/subject_types/cwalld
-# Fixing the file context on /var/lib/cwalld
-/sbin/restorecon -F -R -v /var/lib/cwalld
+# Fixing the file context on /var/log/cwalld
+/sbin/restorecon -F -R -v /var/log/cwalld
 # Generate a rpm package for the newly generated policy
 
 pwd=$(pwd)

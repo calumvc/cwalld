@@ -1101,7 +1101,7 @@
 
 
 
-#line 417272 "tmp/all_interfaces.conf"
+#line 417247 "tmp/all_interfaces.conf"
 
 #line 1 "cwalld.te"
 
@@ -3396,725 +3396,404 @@ category c1023;
 #line 1
 
 
-########################################
-#
-# Declarations
-#
-
 type cwalld_t;
 type cwalld_exec_t;
 
 require {
-  type user_home_t;
+	type proc_t;
+	type alpha_t;
+	type sysfs_t;
+	type bin_t;
+	type unconfined_t;
+	type system_dbusd_t;
+	type system_dbusd_var_run_t;
+	type unconfined_service_t;
+	type init_t;
+	type systemd_unit_file_t;
+	type alpha_rw_exec_t;
+	type unlabeled_t;
+	type auditd_log_t;
+	type cgroup_t;
+	type user_home_t;
+  type var_log_t;
+  type sanitised_t;
+	class process getattr;
+	class capability { dac_read_search sys_admin sys_ptrace };
+	class file { append execute execute_no_trans getattr map open read relabelfrom relabelto watch };
+	class dir { getattr search };
+	class lnk_file read;
+	class filesystem mount;
+	class sock_file write;
+	class unix_stream_socket connectto;
+	class dbus send_msg;
+	class service start;
 }
 
  	 	
-#line 15
+#line 36
 ##### begin init_daemon_domain(cwalld_t,cwalld_exec_t) depth: 1
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		attribute direct_run_init, direct_init, direct_init_entry;
-#line 15
+#line 36
 		type init_t;
-#line 15
+#line 36
 		role system_r;
-#line 15
+#line 36
 		attribute daemon;
-#line 15
+#line 36
 		attribute initrc_transition_domain;
-#line 15
+#line 36
 		attribute initrc_domain;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_t daemon;
-#line 15
+#line 36
 	typeattribute cwalld_exec_t direct_init_entry;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin domain_type(cwalld_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	# start with basic domain
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin domain_base_type(cwalld_t) depth: 3
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		attribute domain;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_t domain;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end domain_base_type(cwalld_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	# Only way to get corenet_unlabeled packets disabled to work
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin corenet_all_recvfrom_unlabeled(cwalld_t) depth: 3
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
                 attribute corenet_unlabeled_type;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_t corenet_unlabeled_type;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end corenet_all_recvfrom_unlabeled(cwalld_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end domain_type(cwalld_t) depth: 1
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin domain_entry_file(cwalld_t,cwalld_exec_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		attribute entry_type;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	allow cwalld_t cwalld_exec_t:file entrypoint;
-#line 15
+#line 36
 	allow cwalld_t cwalld_exec_t:file { { getattr open map read execute ioctl } ioctl lock };
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_exec_t entry_type;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin corecmd_executable_file(cwalld_exec_t) depth: 3
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		attribute exec_type;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_exec_t exec_type;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	 	
-#line 15
+#line 36
 ##### begin files_type(cwalld_exec_t) depth: 4
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	typeattribute cwalld_exec_t file_type, non_security_file_type, non_auth_file_type;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end files_type(cwalld_exec_t) depth: 3
-#line 15
+#line 36
  	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end corecmd_executable_file(cwalld_exec_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	#optional_policy(`
-#line 15
+#line 36
 	#	unconfined_exec_typebounds(cwalld_exec_t)
-#line 15
+#line 36
 	#')
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end domain_entry_file(cwalld_t,cwalld_exec_t) depth: 1
-#line 15
+#line 36
  	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	type_transition initrc_domain cwalld_exec_t:process cwalld_t;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	optional {
-#line 15
+#line 36
 		
-#line 15
+#line 36
 		 	 	
-#line 15
+#line 36
 ##### begin systemd_connectto_socket_proxyd_unix_sockets(cwalld_t) depth: 2
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		require {
-#line 15
+#line 36
 			
-#line 15
+#line 36
 		type systemd_socket_proxyd_t;
-#line 15
+#line 36
 	
-#line 15
+#line 36
 		} # end require
-#line 15
+#line 36
 	
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	allow cwalld_t systemd_socket_proxyd_t:unix_stream_socket connectto;
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end systemd_connectto_socket_proxyd_unix_sockets(cwalld_t) depth: 1
-#line 15
+#line 36
  	
-#line 15
+#line 36
 	
-#line 15
+#line 36
 	} # end optional
-#line 15
+#line 36
 
-#line 15
+#line 36
 
-#line 15
+#line 36
 	 	
-#line 15
+#line 36
 ##### end init_daemon_domain(cwalld_t,cwalld_exec_t) depth: 0
-#line 15
- 	
-
-permissive cwalld_t;
-
-type cwalld_var_lib_t;
- 	 	
-#line 20
-##### begin files_type(cwalld_var_lib_t) depth: 1
-#line 20
- 	
-#line 20
-	
-#line 20
-	
-#line 20
-		require {
-#line 20
-			
-#line 20
-		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 20
-	
-#line 20
-		} # end require
-#line 20
-	
-#line 20
-
-#line 20
-
-#line 20
-	typeattribute cwalld_var_lib_t file_type, non_security_file_type, non_auth_file_type;
-#line 20
-
-#line 20
-	 	
-#line 20
-##### end files_type(cwalld_var_lib_t) depth: 0
-#line 20
- 	
-
-########################################
-#
-# cwalld local policy
-#
-allow cwalld_t self:fifo_file { open { getattr read write append ioctl lock } };
-allow cwalld_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
-
-
-#line 29
-	allow cwalld_t cwalld_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
-#line 29
-	allow cwalld_t cwalld_var_lib_t:dir { create open getattr setattr read write link unlink rename search add_name remove_name reparent rmdir lock ioctl watch watch_reads };
-#line 29
-
-
-#line 30
-	allow cwalld_t cwalld_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
-#line 30
-	allow cwalld_t cwalld_var_lib_t:file { create open getattr setattr read write append rename link unlink ioctl lock watch watch_reads };
-#line 30
-
-
-#line 31
-	allow cwalld_t cwalld_var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
-#line 31
-	allow cwalld_t cwalld_var_lib_t:lnk_file { create getattr setattr read write append rename link unlink ioctl lock watch watch_reads };
-#line 31
-
- 	 	
-#line 32
-##### begin files_var_lib_filetrans(cwalld_t,cwalld_var_lib_t,{ dir file lnk_file }) depth: 1
-#line 32
- 	
-#line 32
-	
-#line 32
-	
-#line 32
-		require {
-#line 32
-			
-#line 32
-		type var_t, var_lib_t;
-#line 32
-	
-#line 32
-		} # end require
-#line 32
-	
-#line 32
-
-#line 32
-
-#line 32
-	allow cwalld_t var_t:dir { getattr search open };
-#line 32
-	
-#line 32
-	allow cwalld_t var_lib_t:dir { open read getattr lock search ioctl add_name remove_name write };
-#line 32
-	type_transition cwalld_t var_lib_t:{ dir file lnk_file } cwalld_var_lib_t ;
-#line 32
-
-#line 32
-
-#line 32
-	 	
-#line 32
-##### end files_var_lib_filetrans(cwalld_t,cwalld_var_lib_t,{ dir file lnk_file }) depth: 0
-#line 32
- 	
-
- 	 	
-#line 34
-##### begin domain_use_interactive_fds(cwalld_t) depth: 1
-#line 34
- 	
-#line 34
-	
-#line 34
-	
-#line 34
-		require {
-#line 34
-			
-#line 34
-		attribute privfd;
-#line 34
-	
-#line 34
-		} # end require
-#line 34
-	
-#line 34
-
-#line 34
-
-#line 34
-	allow cwalld_t privfd:fd use;
-#line 34
-
-#line 34
-	 	
-#line 34
-##### end domain_use_interactive_fds(cwalld_t) depth: 0
-#line 34
- 	
-
- 	 	
-#line 36
-##### begin files_read_etc_files(cwalld_t) depth: 1
-#line 36
- 	
-#line 36
-	
-#line 36
-	
-#line 36
-		require {
-#line 36
-			
-#line 36
-		type etc_t;
-#line 36
-	
-#line 36
-		} # end require
-#line 36
-	
-#line 36
-
-#line 36
-
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open read lock ioctl };
-#line 36
-	
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open };
-#line 36
-	allow cwalld_t etc_t:file { open { getattr read ioctl lock } };
-#line 36
-
-#line 36
-	
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open };
-#line 36
-	allow cwalld_t etc_t:lnk_file { getattr read };
-#line 36
-
-#line 36
-	 	 	
-#line 36
-##### begin files_read_etc_runtime_files(cwalld_t) depth: 2
-#line 36
- 	
-#line 36
-	
-#line 36
-	
-#line 36
-		require {
-#line 36
-			
-#line 36
-		type etc_t, etc_runtime_t;
-#line 36
-	
-#line 36
-		} # end require
-#line 36
-	
-#line 36
-
-#line 36
-
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open read lock ioctl };
-#line 36
-	
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open };
-#line 36
-	allow cwalld_t etc_runtime_t:file { open { getattr read ioctl lock } };
-#line 36
-
-#line 36
-	
-#line 36
-	allow cwalld_t etc_t:dir { getattr search open };
-#line 36
-	allow cwalld_t etc_runtime_t:lnk_file { getattr read };
-#line 36
-
-#line 36
-
-#line 36
-	 	
-#line 36
-##### end files_read_etc_runtime_files(cwalld_t) depth: 1
-#line 36
- 	
-#line 36
-
-#line 36
-	 	
-#line 36
-##### end files_read_etc_files(cwalld_t) depth: 0
 #line 36
  	
 
- 	 	
-#line 38
-##### begin miscfiles_read_localization(cwalld_t) depth: 1
-#line 38
- 	
-#line 38
-	
-#line 38
-	
-#line 38
-		require {
-#line 38
-			
-#line 38
-		type locale_t;
-#line 38
-	
-#line 38
-		} # end require
-#line 38
-	
-#line 38
+#============= cwalld_t ==============
+allow cwalld_t auditd_log_t:dir search;
+allow cwalld_t auditd_log_t:file { getattr open read watch };
+allow cwalld_t bin_t:file relabelfrom;
+allow cwalld_t cgroup_t:dir search;
+allow cwalld_t cgroup_t:file { open read };
+allow cwalld_t init_t:dbus send_msg;
+allow cwalld_t proc_t:filesystem mount;
+allow cwalld_t self:capability { dac_read_search dac_override sys_admin sys_ptrace };
+allow cwalld_t self:process getattr;
+allow cwalld_t sysfs_t:file { open read };
+allow cwalld_t system_dbusd_t:dbus send_msg;
+allow cwalld_t system_dbusd_t:unix_stream_socket connectto;
+allow cwalld_t system_dbusd_var_run_t:dir search;
+allow cwalld_t system_dbusd_var_run_t:sock_file write;
+allow cwalld_t systemd_unit_file_t:service start;
+allow cwalld_t var_log_t:dir { write add_name };
+allow cwalld_t var_log_t:file { create write open getattr setattr };
+allow cwalld_t unconfined_service_t:dir search;
+allow cwalld_t unconfined_service_t:file { open read };
+allow cwalld_t unconfined_service_t:lnk_file read;
+allow cwalld_t unconfined_service_t:process getattr;
+allow cwalld_t unconfined_t:dir search;
+allow cwalld_t unconfined_t:file { open read };
+allow cwalld_t unconfined_t:lnk_file read;
+allow cwalld_t unconfined_t:process getattr;
+allow cwalld_t user_home_t:dir { getattr search };
 
-#line 38
+allow cwalld_t file_type:file { relabelto relabelfrom setattr getattr };
+allow cwalld_t file_type:dir { relabelto relabelfrom setattr getattr };
+allow cwalld_t file_type:lnk_file { relabelto relabelfrom setattr getattr };
+allow unconfined_t cwalld_exec_t:file { read execute open getattr };
+allow cwalld_t domain:file { read open getattr };
+allow cwalld_t domain:dir { search getattr };
+allow cwalld_t domain:lnk_file read;
+allow cwalld_t domain:process getattr;
 
-#line 38
-	 	 	
-#line 38
-##### begin files_read_etc_symlinks(cwalld_t) depth: 2
-#line 38
- 	
-#line 38
-	
-#line 38
-	
-#line 38
-		require {
-#line 38
-			
-#line 38
-		type etc_t;
-#line 38
-	
-#line 38
-		} # end require
-#line 38
-	
-#line 38
+#============= init_t ==============
+allow init_t auditd_log_t:file { open read watch };
+allow init_t cwalld_t:dbus send_msg;
+allow init_t unlabeled_t:file { append execute execute_no_trans };
 
-#line 38
-
-#line 38
-	
-#line 38
-	allow cwalld_t etc_t:dir { getattr search open };
-#line 38
-	allow cwalld_t etc_t:lnk_file { getattr read };
-#line 38
-
-#line 38
-
-#line 38
-	 	
-#line 38
-##### end files_read_etc_symlinks(cwalld_t) depth: 1
-#line 38
- 	
-#line 38
-	 	 	
-#line 38
-##### begin files_search_usr(cwalld_t) depth: 2
-#line 38
- 	
-#line 38
-	
-#line 38
-	
-#line 38
-		require {
-#line 38
-			
-#line 38
-		type usr_t;
-#line 38
-	
-#line 38
-		} # end require
-#line 38
-	
-#line 38
-
-#line 38
-
-#line 38
-	allow cwalld_t usr_t:dir { getattr search open };
-#line 38
-
-#line 38
-	 	
-#line 38
-##### end files_search_usr(cwalld_t) depth: 1
-#line 38
- 	
-#line 38
-	allow cwalld_t locale_t:dir { getattr search open read lock ioctl };
-#line 38
-	
-#line 38
-	allow cwalld_t locale_t:dir { getattr search open };
-#line 38
-	allow cwalld_t locale_t:file { open { getattr read ioctl lock } };
-#line 38
-
-#line 38
-	
-#line 38
-	allow cwalld_t locale_t:dir { getattr search open };
-#line 38
-	allow cwalld_t locale_t:lnk_file { getattr read };
-#line 38
-
-#line 38
-	allow cwalld_t locale_t:file map;
-#line 38
-
-#line 38
-	 	
-#line 38
-##### end miscfiles_read_localization(cwalld_t) depth: 0
-#line 38
- 	
-
-# navigational rules
-allow cwalld_t user_home_t:dir { search read add_name write open };
-allow cwalld_t file_type:file { relabelto relabelfrom };
+#!!!! This avc can be allowed using the boolean 'domain_can_mmap_files'
+allow init_t unlabeled_t:file map;

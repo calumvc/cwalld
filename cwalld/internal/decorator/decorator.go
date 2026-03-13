@@ -26,6 +26,9 @@ func DecorateAndLog(s string, log_type string) {
 		case "relabelcode" : {
 			new_s = fmt.Sprintf("Daemon restart successful: %s\n", s)
 		}
+		case "error" : {
+			new_s = fmt.Sprintf("ERROR: %s\n", s)
+		}
 	}
 
 	logger.Log(new_s)

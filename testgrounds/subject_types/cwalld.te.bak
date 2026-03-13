@@ -1,0 +1,78 @@
+
+policy_module(cwalld, 1.0.0)
+
+type cwalld_t;
+type cwalld_exec_t;
+
+require {
+	type proc_t;
+	type alpha_t;
+	type sysfs_t;
+	type bin_t;
+	type unconfined_t;
+	type system_dbusd_t;
+	type system_dbusd_var_run_t;
+	type unconfined_service_t;
+	type init_t;
+	type systemd_unit_file_t;
+	type alpha_rw_exec_t;
+	type unlabeled_t;
+	type auditd_log_t;
+	type cgroup_t;
+	type user_home_t;
+  type var_log_t;
+  type sanitised_t;
+	class process getattr;
+	class capability { dac_read_search sys_admin sys_ptrace };
+	class file { append execute execute_no_trans getattr map open read relabelfrom relabelto watch };
+	class dir { getattr search };
+	class lnk_file read;
+	class filesystem mount;
+	class sock_file write;
+	class unix_stream_socket connectto;
+	class dbus send_msg;
+	class service start;
+}
+
+init_daemon_domain(cwalld_t, cwalld_exec_t)
+
+#============= cwalld_t ==============
+allow cwalld_t auditd_log_t:dir search;
+allow cwalld_t auditd_log_t:file { getattr open read watch };
+allow cwalld_t bin_t:file relabelfrom;
+allow cwalld_t cgroup_t:dir search;
+allow cwalld_t cgroup_t:file { open read };
+allow cwalld_t init_t:dbus send_msg;
+allow cwalld_t proc_t:filesystem mount;
+allow cwalld_t self:capability { dac_read_search dac_override sys_admin sys_ptrace };
+allow cwalld_t self:process getattr;
+allow cwalld_t sysfs_t:file { open read };
+allow cwalld_t system_dbusd_t:dbus send_msg;
+allow cwalld_t system_dbusd_t:unix_stream_socket connectto;
+allow cwalld_t system_dbusd_var_run_t:dir search;
+allow cwalld_t system_dbusd_var_run_t:sock_file write;
+allow cwalld_t systemd_unit_file_t:service start;
+allow cwalld_t var_log_t:dir { write add_name };
+allow cwalld_t var_log_t:file { create write open getattr setattr };
+allow cwalld_t unconfined_service_t:dir search;
+allow cwalld_t unconfined_service_t:file { open read };
+allow cwalld_t unconfined_service_t:lnk_file read;
+allow cwalld_t unconfined_service_t:process getattr;
+allow cwalld_t unconfined_t:dir search;
+allow cwalld_t unconfined_t:file { open read };
+allow cwalld_t unconfined_t:lnk_file read;
+allow cwalld_t unconfined_t:process getattr;
+allow cwalld_t user_home_t:dir { getattr search };
+
+allow cwalld_t file_type:file { relabelto relabelfrom setattr getattr };
+allow cwalld_t file_type:dir { setattr getattr };
+allow cwalld_t file_type:lnk_file { setattr getattr };
+allow unconfined_t cwalld_exec_t:file { read execute open getattr };
+
+#============= init_t ==============
+allow init_t auditd_log_t:file { open read watch };
+allow init_t cwalld_t:dbus send_msg;
+allow init_t unlabeled_t:file { append execute execute_no_trans };
+
+#!!!! This avc can be allowed using the boolean 'domain_can_mmap_files'
+allow init_t unlabeled_t:file map;

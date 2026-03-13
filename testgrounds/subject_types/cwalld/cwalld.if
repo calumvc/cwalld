@@ -38,10 +38,29 @@ interface(`cwalld_exec',`
 	corecmd_search_bin($1)
 	can_exec($1, cwalld_exec_t)
 ')
+########################################
+## <summary>
+##	Read cwalld's log files.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+## <rolecap/>
+#
+interface(`cwalld_read_log',`
+	gen_require(`
+		type cwalld_log_t;
+	')
+
+	logging_search_logs($1)
+	read_files_pattern($1, cwalld_log_t, cwalld_log_t)
+')
 
 ########################################
 ## <summary>
-##	Search cwalld lib directories.
+##	Append to cwalld log files.
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -49,18 +68,18 @@ interface(`cwalld_exec',`
 ##	</summary>
 ## </param>
 #
-interface(`cwalld_search_lib',`
+interface(`cwalld_append_log',`
 	gen_require(`
-		type cwalld_var_lib_t;
+		type cwalld_log_t;
 	')
 
-	allow $1 cwalld_var_lib_t:dir search_dir_perms;
-	files_search_var_lib($1)
+	logging_search_logs($1)
+	append_files_pattern($1, cwalld_log_t, cwalld_log_t)
 ')
 
 ########################################
 ## <summary>
-##	Read cwalld lib files.
+##	Manage cwalld log files
 ## </summary>
 ## <param name="domain">
 ##	<summary>
@@ -68,53 +87,16 @@ interface(`cwalld_search_lib',`
 ##	</summary>
 ## </param>
 #
-interface(`cwalld_read_lib_files',`
+interface(`cwalld_manage_log',`
 	gen_require(`
-		type cwalld_var_lib_t;
+		type cwalld_log_t;
 	')
 
-	files_search_var_lib($1)
-	read_files_pattern($1, cwalld_var_lib_t, cwalld_var_lib_t)
+	logging_search_logs($1)
+	manage_dirs_pattern($1, cwalld_log_t, cwalld_log_t)
+	manage_files_pattern($1, cwalld_log_t, cwalld_log_t)
+	manage_lnk_files_pattern($1, cwalld_log_t, cwalld_log_t)
 ')
-
-########################################
-## <summary>
-##	Manage cwalld lib files.
-## </summary>
-## <param name="domain">
-##	<summary>
-##	Domain allowed access.
-##	</summary>
-## </param>
-#
-interface(`cwalld_manage_lib_files',`
-	gen_require(`
-		type cwalld_var_lib_t;
-	')
-
-	files_search_var_lib($1)
-	manage_files_pattern($1, cwalld_var_lib_t, cwalld_var_lib_t)
-')
-
-########################################
-## <summary>
-##	Manage cwalld lib directories.
-## </summary>
-## <param name="domain">
-##	<summary>
-##	Domain allowed access.
-##	</summary>
-## </param>
-#
-interface(`cwalld_manage_lib_dirs',`
-	gen_require(`
-		type cwalld_var_lib_t;
-	')
-
-	files_search_var_lib($1)
-	manage_dirs_pattern($1, cwalld_var_lib_t, cwalld_var_lib_t)
-')
-
 
 ########################################
 ## <summary>
@@ -136,7 +118,7 @@ interface(`cwalld_manage_lib_dirs',`
 interface(`cwalld_admin',`
 	gen_require(`
 		type cwalld_t;
-		type cwalld_var_lib_t;
+		type cwalld_log_t;
 	')
 
 	allow $1 cwalld_t:process { signal_perms };
@@ -146,8 +128,8 @@ interface(`cwalld_admin',`
         allow $1 cwalld_t:process ptrace;
     ')
 
-	files_search_var_lib($1)
-	admin_pattern($1, cwalld_var_lib_t)
+	logging_search_logs($1)
+	admin_pattern($1, cwalld_log_t)
 	optional_policy(`
 		systemd_passwd_agent_exec($1)
 		systemd_read_fifo_file_passwd_run($1)

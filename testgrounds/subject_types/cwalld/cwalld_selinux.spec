@@ -3,7 +3,7 @@
 
 %define relabel_files() \
 restorecon -R /home/testgrounds/subject_types/cwalld; \
-restorecon -R /var/lib/cwalld; \
+restorecon -R /var/log/cwalld; \
 
 %define selinux_policyver 38.1.65-1
 
@@ -71,6 +71,6 @@ exit 0
 
 
 %changelog
-* Thu Mar 12 2026 YOUR NAME <YOUR@EMAILADDRESS> 1.0-1
+* Fri Mar 13 2026 YOUR NAME <YOUR@EMAILADDRESS> 1.0-1
 - Initial version
 

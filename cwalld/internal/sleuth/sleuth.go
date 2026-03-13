@@ -43,6 +43,7 @@ func TailAuditd(DIR string) {
 
 	go func() { // run this part concurrently
 		for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
+			if strings.Contains(line.Text, "setroubleshootd") { return } // ignore this guy
 
 			if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
 				state.trackSubject(line.Text)
@@ -61,9 +62,10 @@ func TailAuditd(DIR string) {
 	<-make(chan struct{}) // infinite loop
 }
 
-func (state *State) trackSubject(line string) { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before
+func (state *State) trackSubject(line string) { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before 
 	regexes := regexer(line)
-	if regexes.name == "setroubleshootd" { return } // this guy is annoying
+
+	if regexes.name == "cwalld-enforce" { return }
 
 	var subj *subject.Subject
 	seen := false // this is so we can see when a process comes back with a new pid
@@ -74,7 +76,6 @@ func (state *State) trackSubject(line string) { // we will track details about t
 			break
 		} else
 		if s.Name == regexes.name { // if weve seen the process before but it got restarted - likely because of a label change
-			fmt.Printf("sname -> %s spid -> %s name -> %s pid -> %s", s.Name, s.Pid, regexes.name, regexes.pid)
 			state.subjects[i].Pid = regexes.pid // update pid so we match it correctly when it comes back
 			state.subjects[i].Label = regexes.label 
 			seen = true
@@ -128,7 +129,7 @@ func (state *State) trackObject(line string) {
 
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			if state.audits[i].Subject.Name == "cwalld" { return } // dont track cwalld 
+			if state.audits[i].Subject.Name == "cwalld-enforce" { return } // dont track cwalld 
 		}
 	}
 
