@@ -2,6 +2,7 @@ package sleuth
 
 import (
 	"cwalld/internal/audit"
+	"cwalld/internal/decorator"
 	"cwalld/internal/object"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
@@ -32,7 +33,6 @@ type regexResult struct {
 }
 
 func TailAuditd(DIR string) {
-	println("Chinese Wall Enforcing")
 	state := State{}
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
@@ -41,12 +41,8 @@ func TailAuditd(DIR string) {
 
 	utils.CheckErr(err)
 
-	// println("-- tailing --\n")
-	
 	go func() { // run this part concurrently
 		for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
-
-			// log.Println(line)
 
 			if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
 				state.trackSubject(line.Text)
@@ -62,7 +58,7 @@ func TailAuditd(DIR string) {
 		}
 	}()
 	
-	<-make(chan struct{})
+	<-make(chan struct{}) // infinite loop
 }
 
 func (state *State) trackSubject(line string) { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before
@@ -70,33 +66,42 @@ func (state *State) trackSubject(line string) { // we will track details about t
 	if regexes.name == "setroubleshootd" { return } // this guy is annoying
 
 	var subj *subject.Subject
+	seen := false // this is so we can see when a process comes back with a new pid
 	
-	for _, s := range state.subjects { // if subject is already registered
+	for i, s := range state.subjects { // if subject is already registered
 		if s.Pid == regexes.pid {
 			subj = &s
 			break
 		} else
-		if s.Name == regexes.name {
-			subj = &s
-			fmt.Printf("%s changed label to %s\n", s.Name, s.Label)
+		if s.Name == regexes.name { // if weve seen the process before but it got restarted - likely because of a label change
+			fmt.Printf("sname -> %s spid -> %s name -> %s pid -> %s", s.Name, s.Pid, regexes.name, regexes.pid)
+			state.subjects[i].Pid = regexes.pid // update pid so we match it correctly when it comes back
+			state.subjects[i].Label = regexes.label 
+			seen = true
+			break
 		}
 	}
 
-	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid))
+	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid)) // get the entrypoint of the subject so we can alter its label later
 	utils.CheckErr(err)
 
 	if subj == nil { // add it to the global list of subjects if not
 		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
 		state.subjects = append(state.subjects, *subj)
-		subj.ToString()
+		if seen != true {
+			subj.ToString()
+		} else {
+			decorator.DecorateAndLog(fmt.Sprintf("%s under label %s", subj.Name, subj.Label), "reregister")
+			seen = false
+		}
 	}
 
 	success := true
-	if regexes.success == "no" {
+	if regexes.success == "no" { // if the process fails its still audited so we can notify from that
 		success = false
 	}
 
-	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal, into straight binary, which is read as an int64 but actually is just straight flags 
+	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal into binary, which is read as an int64 but actually is just straight flags of syscalls
 	utils.CheckErr(err)
 
 	var op utils.Operation
@@ -176,14 +181,11 @@ func (state *State) trackAVC(line string) {
 
 	for _, s := range state.subjects {
 		if s.Pid == pid {
-			logDenial(s.Name, operation, object)
+			line := fmt.Sprintf("%s\tattempted { %s }\ton %s", s.Name, operation, object)
+			decorator.DecorateAndLog(line, "denial")
 			break
 		}
 	}
-}
-
-func logDenial(s string, op string, obj string) { // operation here is just text because its reprented in string form by AVC already
-	fmt.Printf("<!DENIAL!>:\t%s\tattempted { %s }\ton %s\n\n", s, op, obj)
 }
 
 func regexer(line string) regexResult {

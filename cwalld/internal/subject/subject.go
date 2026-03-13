@@ -2,6 +2,7 @@ package subject
 
 import (
 	"context"
+	"cwalld/internal/decorator"
 	"cwalld/internal/utils"
 	"fmt"
 
@@ -16,26 +17,12 @@ type Subject struct {
 	Entrypoint string
 }
 
-var conflicts = [][]int8{
-	{1, 0}, // alpha
-	{1, 0}, // beta
-	{0, 0}, // gamma
-}
-
-type faction int8
-
-const (
-	alpha faction = iota
-	beta
-	gamma
-)
-
 func (s *Subject) ToString() {
-	fmt.Printf("New Subject Registered:\tpid=%s\tcomm=%s\tlabel=%s\tentrypoint=%s\n\n", s.Pid, s.Name, s.Label, s.Entrypoint)
+	line := fmt.Sprintf("pid=%s\tcomm=%s\tlabel=%s\tentrypoint=%s", s.Pid, s.Name, s.Label, s.Entrypoint)
+	decorator.DecorateAndLog(line, "register")
 }
 
 func (s *Subject) AlterLabel(l string, op utils.Operation) {
-	// fmt.Printf("Considering subject %s { %s } on object %s\n\n", s.Label, op.ToString(), l)
 	label_change := false
 	if s.Label == "unconfined_service_t" || s.Label == "init_t" {
 		if op.ToString() == "Read" || op.ToString() == "ReadWrite" {
@@ -80,11 +67,14 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 	}
 }
 
-func (s *Subject) restart_subject() { // subject needs to be restarted to take the necessary label
-	fmt.Printf("attempting to alter %s %s", s.Entrypoint, s.Label)
+func (s *Subject) restart_subject() { // subject needs to be restarted to actually get its new label
 	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
-	fmt.Println("relabelled to %s", label)
-	selinux.Chcon(s.Entrypoint, label, false)
+	line := fmt.Sprintf("%s to %s", s.Name, s.Label)
+
+	err := selinux.Chcon(s.Entrypoint, label, false)
+	utils.CheckErr(err)
+
+	decorator.DecorateAndLog(line, "relabel")
 
 	conn, err := dbus.NewSystemConnectionContext(context.Background())
 	utils.CheckErr(err)
@@ -92,6 +82,6 @@ func (s *Subject) restart_subject() { // subject needs to be restarted to take t
 	response_channel := make(chan string, 1)
 	conn.RestartUnitContext(context.Background(), fmt.Sprintf("%s.service", s.Name), "replace", response_channel)
 	result := <- response_channel
-	println(result)
-
+	decorator.DecorateAndLog(result, "relabelcode")
+	conn.Close()
 }

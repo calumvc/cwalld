@@ -1,9 +1,8 @@
 package utils
 
 import (
-	"log"
+	"cwalld/internal/logger"
 	"os"
-	"os/exec"
 )
 
 type Operation int8
@@ -32,31 +31,17 @@ func (o Operation) ToString() string {
 
 func CheckErr(err error) {
 	if err != nil {
-		log.Fatal(err) 
+		logger.Log(err.Error())
+		os.Exit(1)
 	}
 }
 
 func RegexErr(s []string, regex_type string) string {
 	if s == nil {
-		log.Fatal("Regex failed on ", regex_type)
+		logger.Log("Regex failed on " + regex_type)
+		os.Exit(1)
 	}
 	return s[1]
-}
-
-func GetOS() string {
-	os_type := ""
-	cmd := "cat /etc/os-release | grep 'Red Hat'"
-
-	out, err := exec.Command("bash", "-c", cmd).Output()
-
-	CheckErr(err)
-	if len(out) != 0 {
-		os_type = "Red Hat"
-	} else {
-		os_type = "Arch"
-	}
-
-	return os_type
 }
 
 func GetArgs() []string {
