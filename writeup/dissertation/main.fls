@@ -217,6 +217,8 @@ INPUT /usr/share/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/share/texmf-dist/tex/latex/listings/listings.cfg
 INPUT /usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texmf-dist/tex/latex/setspace/setspace.sty
+INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/txtbabel.def
@@ -293,6 +295,7 @@ INPUT ./sections/introduction.tex
 INPUT ./sections/introduction.tex
 INPUT ./sections/introduction.tex
 INPUT sections/introduction.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT ./sections/background-literature.tex
 INPUT ./sections/background-literature.tex
@@ -304,13 +307,22 @@ INPUT ./sections/process.tex
 INPUT ./sections/process.tex
 INPUT ./sections/process.tex
 INPUT sections/process.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
+INPUT ./figs/ganttchart.png
+INPUT ./figs/ganttchart.png
+INPUT ./figs/ganttchart.png
+INPUT ./figs/ganttchart.png
+INPUT ./figs/ganttchart.png
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT sections/design.tex
+INPUT ./figs/UML.png
+INPUT ./figs/UML.png
+INPUT ./figs/UML.png
+INPUT ./figs/UML.png
+INPUT ./figs/UML.png
 INPUT ./sections/product.tex
 INPUT ./sections/product.tex
 INPUT ./sections/product.tex
@@ -357,4 +369,5 @@ INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb
+INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
