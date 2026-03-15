@@ -4,7 +4,7 @@ Description=cwalld-enforce
 [Service]
 Type=simple
 User=root
-ExecStart=/usr/local/bin/cwalld-enforce
+ExecStart=/usr/local/sbin/cwalld-enforce
 
 [Install]
 WantedBy=multi-user.target
