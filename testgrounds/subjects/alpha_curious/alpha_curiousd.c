@@ -10,8 +10,9 @@ FILE *f;
 int main(void){
   while(1){
 
+    sleep(1);
     f = fopen("/home/testgrounds/objects/alpha_logs", "r"); // allowed - should have label unconfined_service_t / alpha_rw_t
-    sleep(3);
+    sleep(5);
     if (f != NULL) {
       fclose(f);
     }

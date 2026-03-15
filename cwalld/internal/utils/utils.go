@@ -31,7 +31,7 @@ func (o Operation) ToString() string {
 
 func CheckErr(err error) {
 	if err != nil {
-		logger.Log(err.Error())
+		logger.Log(("ERROR:\t" + err.Error()))
 		os.Exit(1)
 	}
 }

@@ -6,6 +6,11 @@ type cwalld_exec_t;
 require {
 	type proc_t;
 	type alpha_t;
+  type beta_t;
+  type gamma_t;
+  type alpha_rw_exec_t;
+  type beta_rw_exec_t;
+  type gamma_rw_exec_t;
 	type sysfs_t;
 	type bin_t;
 	type unconfined_t;
@@ -14,7 +19,6 @@ require {
 	type unconfined_service_t;
 	type init_t;
 	type systemd_unit_file_t;
-	type alpha_rw_exec_t;
 	type unlabeled_t;
 	type auditd_log_t;
 	type cgroup_t;
@@ -39,6 +43,9 @@ init_daemon_domain(cwalld_t, cwalld_exec_t)
 allow cwalld_t auditd_log_t:dir search;
 allow cwalld_t auditd_log_t:file { getattr open read watch };
 allow cwalld_t bin_t:file relabelfrom;
+allow cwalld_t alpha_rw_exec_t:file relabelfrom;
+allow cwalld_t beta_rw_exec_t:file relabelfrom;
+allow cwalld_t gamma_rw_exec_t:file relabelfrom;
 allow cwalld_t cgroup_t:dir search;
 allow cwalld_t cgroup_t:file { open read };
 allow cwalld_t init_t:dbus send_msg;
@@ -54,7 +61,7 @@ allow cwalld_t systemd_unit_file_t:service start;
 allow cwalld_t var_log_t:dir { write add_name };
 allow cwalld_t var_log_t:file { create write open getattr setattr };
 allow cwalld_t unconfined_service_t:dir search;
-allow cwalld_t unconfined_service_t:file { open read };
+allow cwalld_t unconfined_service_t:file { open read relabelfrom relabelto };
 allow cwalld_t unconfined_service_t:lnk_file read;
 allow cwalld_t unconfined_service_t:process getattr;
 allow cwalld_t unconfined_t:dir search;

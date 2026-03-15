@@ -3408,330 +3408,332 @@ require {
   type gamma_t;
   type sanitised_t;
   type user_home_t;
+  type alpha_t;
+  type beta_t;
 }
 
  	 	
-#line 17
+#line 19
 ##### begin init_daemon_domain(gamma_rw_t,gamma_rw_exec_t) depth: 1
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		attribute direct_run_init, direct_init, direct_init_entry;
-#line 17
+#line 19
 		type init_t;
-#line 17
+#line 19
 		role system_r;
-#line 17
+#line 19
 		attribute daemon;
-#line 17
+#line 19
 		attribute initrc_transition_domain;
-#line 17
+#line 19
 		attribute initrc_domain;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_t daemon;
-#line 17
+#line 19
 	typeattribute gamma_rw_exec_t direct_init_entry;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin domain_type(gamma_rw_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	# start with basic domain
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin domain_base_type(gamma_rw_t) depth: 3
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		attribute domain;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_t domain;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end domain_base_type(gamma_rw_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	# Only way to get corenet_unlabeled packets disabled to work
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin corenet_all_recvfrom_unlabeled(gamma_rw_t) depth: 3
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
                 attribute corenet_unlabeled_type;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_t corenet_unlabeled_type;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end corenet_all_recvfrom_unlabeled(gamma_rw_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end domain_type(gamma_rw_t) depth: 1
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin domain_entry_file(gamma_rw_t,gamma_rw_exec_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		attribute entry_type;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	allow gamma_rw_t gamma_rw_exec_t:file entrypoint;
-#line 17
+#line 19
 	allow gamma_rw_t gamma_rw_exec_t:file { { getattr open map read execute ioctl } ioctl lock };
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_exec_t entry_type;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin corecmd_executable_file(gamma_rw_exec_t) depth: 3
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		attribute exec_type;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_exec_t exec_type;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	 	
-#line 17
+#line 19
 ##### begin files_type(gamma_rw_exec_t) depth: 4
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	typeattribute gamma_rw_exec_t file_type, non_security_file_type, non_auth_file_type;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end files_type(gamma_rw_exec_t) depth: 3
-#line 17
+#line 19
  	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end corecmd_executable_file(gamma_rw_exec_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	#optional_policy(`
-#line 17
+#line 19
 	#	unconfined_exec_typebounds(gamma_rw_exec_t)
-#line 17
+#line 19
 	#')
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end domain_entry_file(gamma_rw_t,gamma_rw_exec_t) depth: 1
-#line 17
+#line 19
  	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	type_transition initrc_domain gamma_rw_exec_t:process gamma_rw_t;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	optional {
-#line 17
+#line 19
 		
-#line 17
+#line 19
 		 	 	
-#line 17
+#line 19
 ##### begin systemd_connectto_socket_proxyd_unix_sockets(gamma_rw_t) depth: 2
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		require {
-#line 17
+#line 19
 			
-#line 17
+#line 19
 		type systemd_socket_proxyd_t;
-#line 17
+#line 19
 	
-#line 17
+#line 19
 		} # end require
-#line 17
+#line 19
 	
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	allow gamma_rw_t systemd_socket_proxyd_t:unix_stream_socket connectto;
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end systemd_connectto_socket_proxyd_unix_sockets(gamma_rw_t) depth: 1
-#line 17
+#line 19
  	
-#line 17
+#line 19
 	
-#line 17
+#line 19
 	} # end optional
-#line 17
+#line 19
 
-#line 17
+#line 19
 
-#line 17
+#line 19
 	 	
-#line 17
+#line 19
 ##### end init_daemon_domain(gamma_rw_t,gamma_rw_exec_t) depth: 0
-#line 17
+#line 19
  	
 
 ########################################
@@ -3742,280 +3744,282 @@ allow gamma_rw_t self:fifo_file { open { getattr read write append ioctl lock } 
 allow gamma_rw_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
 
  	 	
-#line 26
+#line 28
 ##### begin domain_use_interactive_fds(gamma_rw_t) depth: 1
-#line 26
+#line 28
  	
-#line 26
+#line 28
 	
-#line 26
+#line 28
 	
-#line 26
+#line 28
 		require {
-#line 26
+#line 28
 			
-#line 26
+#line 28
 		attribute privfd;
-#line 26
+#line 28
 	
-#line 26
+#line 28
 		} # end require
-#line 26
+#line 28
 	
-#line 26
+#line 28
 
-#line 26
+#line 28
 
-#line 26
+#line 28
 	allow gamma_rw_t privfd:fd use;
-#line 26
+#line 28
 
-#line 26
+#line 28
 	 	
-#line 26
+#line 28
 ##### end domain_use_interactive_fds(gamma_rw_t) depth: 0
-#line 26
+#line 28
  	
 
  	 	
-#line 28
+#line 30
 ##### begin files_read_etc_files(gamma_rw_t) depth: 1
-#line 28
+#line 30
  	
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	
-#line 28
+#line 30
 		require {
-#line 28
+#line 30
 			
-#line 28
+#line 30
 		type etc_t;
-#line 28
+#line 30
 	
-#line 28
+#line 30
 		} # end require
-#line 28
+#line 30
 	
-#line 28
+#line 30
 
-#line 28
+#line 30
 
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:file { open { getattr read ioctl lock } };
-#line 28
+#line 30
 
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:lnk_file { getattr read };
-#line 28
+#line 30
 
-#line 28
+#line 30
 	 	 	
-#line 28
+#line 30
 ##### begin files_read_etc_runtime_files(gamma_rw_t) depth: 2
-#line 28
+#line 30
  	
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	
-#line 28
+#line 30
 		require {
-#line 28
+#line 30
 			
-#line 28
+#line 30
 		type etc_t, etc_runtime_t;
-#line 28
+#line 30
 	
-#line 28
+#line 30
 		} # end require
-#line 28
+#line 30
 	
-#line 28
+#line 30
 
-#line 28
+#line 30
 
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open read lock ioctl };
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 28
+#line 30
 	allow gamma_rw_t etc_runtime_t:file { open { getattr read ioctl lock } };
-#line 28
+#line 30
 
-#line 28
+#line 30
 	
-#line 28
+#line 30
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 28
+#line 30
 	allow gamma_rw_t etc_runtime_t:lnk_file { getattr read };
-#line 28
+#line 30
 
-#line 28
+#line 30
 
-#line 28
+#line 30
 	 	
-#line 28
+#line 30
 ##### end files_read_etc_runtime_files(gamma_rw_t) depth: 1
-#line 28
+#line 30
  	
-#line 28
+#line 30
 
-#line 28
+#line 30
 	 	
-#line 28
+#line 30
 ##### end files_read_etc_files(gamma_rw_t) depth: 0
-#line 28
+#line 30
  	
 
  	 	
-#line 30
+#line 32
 ##### begin miscfiles_read_localization(gamma_rw_t) depth: 1
-#line 30
+#line 32
  	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		require {
-#line 30
+#line 32
 			
-#line 30
+#line 32
 		type locale_t;
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		} # end require
-#line 30
+#line 32
 	
-#line 30
+#line 32
 
-#line 30
+#line 32
 
-#line 30
+#line 32
 	 	 	
-#line 30
+#line 32
 ##### begin files_read_etc_symlinks(gamma_rw_t) depth: 2
-#line 30
+#line 32
  	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		require {
-#line 30
+#line 32
 			
-#line 30
+#line 32
 		type etc_t;
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		} # end require
-#line 30
+#line 32
 	
-#line 30
+#line 32
 
-#line 30
+#line 32
 
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	allow gamma_rw_t etc_t:dir { getattr search open };
-#line 30
+#line 32
 	allow gamma_rw_t etc_t:lnk_file { getattr read };
-#line 30
+#line 32
 
-#line 30
+#line 32
 
-#line 30
+#line 32
 	 	
-#line 30
+#line 32
 ##### end files_read_etc_symlinks(gamma_rw_t) depth: 1
-#line 30
+#line 32
  	
-#line 30
+#line 32
 	 	 	
-#line 30
+#line 32
 ##### begin files_search_usr(gamma_rw_t) depth: 2
-#line 30
+#line 32
  	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		require {
-#line 30
+#line 32
 			
-#line 30
+#line 32
 		type usr_t;
-#line 30
+#line 32
 	
-#line 30
+#line 32
 		} # end require
-#line 30
+#line 32
 	
-#line 30
+#line 32
 
-#line 30
+#line 32
 
-#line 30
+#line 32
 	allow gamma_rw_t usr_t:dir { getattr search open };
-#line 30
+#line 32
 
-#line 30
+#line 32
 	 	
-#line 30
+#line 32
 ##### end files_search_usr(gamma_rw_t) depth: 1
-#line 30
+#line 32
  	
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:dir { getattr search open read lock ioctl };
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:dir { getattr search open };
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:file { open { getattr read ioctl lock } };
-#line 30
+#line 32
 
-#line 30
+#line 32
 	
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:dir { getattr search open };
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:lnk_file { getattr read };
-#line 30
+#line 32
 
-#line 30
+#line 32
 	allow gamma_rw_t locale_t:file map;
-#line 30
+#line 32
 
-#line 30
+#line 32
 	 	
-#line 30
+#line 32
 ##### end miscfiles_read_localization(gamma_rw_t) depth: 0
-#line 30
+#line 32
  	
 
 # cwalld policies
 allow gamma_rw_t gamma_t:file { read write getattr open };
 allow gamma_rw_t sanitised_t:file { read getattr open };
+allow gamma_rw_t alpha_t:file { read getattr open };
+allow gamma_rw_t beta_t:file { read getattr open };
 
 # navigational policies
 allow gamma_rw_t user_home_t:dir { search read open write add_name };

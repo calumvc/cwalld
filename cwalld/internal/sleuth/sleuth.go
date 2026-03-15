@@ -13,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hpcloud/tail"
+	"github.com/nxadm/tail"
 	"github.com/opencontainers/selinux/go-selinux"
 	"golang.org/x/sys/unix"
 )
@@ -23,7 +23,7 @@ type State struct {
 	audits []audit.Audit
 }
 
-type regexResult struct {
+type regexResult struct { // just used to more easily seperate regex logic from main logic
 	pid string
 	name string
 	label string
@@ -37,35 +37,35 @@ func TailAuditd(DIR string) {
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
 		Follow: true,
+		Poll: true,
+		ReOpen: true, // this will follow the file
 		Location: &tail.SeekInfo{ Offset: 0, Whence: io.SeekEnd }}) // we only wanna know what happens after we start running the daemon
 
 	utils.CheckErr(err)
 
-	go func() { // run this part concurrently
-		for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
-			if strings.Contains(line.Text, "setroubleshootd") { return } // ignore this guy
+	for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
+		if strings.Contains(line.Text, "setroubleshootd") { continue } // ignore this guy
 
-			if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
-				state.trackSubject(line.Text)
-			}
+		utils.CheckErr(line.Err)
 
-			if strings.Contains(line.Text, DIR) && strings.Contains(line.Text, "PATH") { // this is the path line, containing the affected object path
-				state.trackObject(line.Text)
-			}
-
-			if strings.Contains(line.Text, "AVC") { //&& strings.Contains(line.Text, "path"){ // this inclues avc denials
-				state.trackAVC(line.Text)
-			}
+		if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
+			state.trackSubject(line.Text)
 		}
-	}()
-	
-	<-make(chan struct{}) // infinite loop
+
+		if strings.Contains(line.Text, DIR) && strings.Contains(line.Text, "PATH") { // this is the path line, containing the affected object path
+			state.trackObject(line.Text)
+		}
+
+		if strings.Contains(line.Text, "AVC") { //&& strings.Contains(line.Text, "path"){ // this inclues avc denials
+			state.trackAVC(line.Text)
+		}
+	}
 }
 
 func (state *State) trackSubject(line string) { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before 
 	regexes := regexer(line)
 
-	if regexes.name == "cwalld-enforce" { return }
+	if regexes.name == "cwalld-enforce" { return } // if we log ourselves we will start an infinite loop
 
 	var subj *subject.Subject
 	seen := false // this is so we can see when a process comes back with a new pid
@@ -92,7 +92,7 @@ func (state *State) trackSubject(line string) { // we will track details about t
 		if seen != true {
 			subj.ToString()
 		} else {
-			decorator.DecorateAndLog(fmt.Sprintf("%s under label %s", subj.Name, subj.Label), "reregister")
+			decorator.DecorateAndLog(fmt.Sprintf("%s under label %s", subj.Name, subj.Label), "reregister") // log that we found it with a new label
 			seen = false
 		}
 	}
@@ -119,7 +119,7 @@ func (state *State) trackSubject(line string) { // we will track details about t
 		op = utils.Read
 	}
 
-	audit := audit.Audit{ Id: regexes.audit_id, Subject: subj, Object: nil, Operation: op, Success: success } // create new audit - only half complete so far
+	audit := audit.Audit{ Id: regexes.audit_id, Subject: subj, Object: nil, Operation: op, Success: success } // create new audit - will finish it in trackObject
 	state.audits = append(state.audits, audit)
 }
 

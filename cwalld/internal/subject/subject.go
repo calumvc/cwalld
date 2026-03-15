@@ -26,17 +26,19 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 	label_change := false
 	if s.Label == "unconfined_service_t" || s.Label == "init_t" {
 		if op.ToString() == "Read" || op.ToString() == "ReadWrite" {
-			label_change = true
 
 			switch l {
 				case "alpha_t" : {
 					s.Label = "alpha_rw_exec_t"
+					label_change = true
 				}
 				case "beta_t" : {
 					s.Label = "beta_rw_exec_t"
+					label_change = true
 				}
 				case "gamma_t" : {
 					s.Label = "gamma_rw_exec_t"
+					label_change = true
 				}
 			}
 		}
@@ -69,7 +71,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 
 func (s *Subject) restart_subject() { // subject needs to be restarted to actually get its new label
 	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
-	line := fmt.Sprintf("%s to %s", s.Name, s.Label)
+	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
 
 	err := selinux.Chcon(s.Entrypoint, label, false)
 	utils.CheckErr(err)
