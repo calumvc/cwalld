@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.11.15)  11 DEC 2025 01:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2026.1.6)  15 MAR 2026 15:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -540,7 +540,7 @@ Package hyperref Info: Link coloring ON on input line 17.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count327
-<./images/strath_fullcolour.png, id=111, 582.4962pt x 422.7795pt>
+<./images/strath_fullcolour.png, id=159, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
 Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 30.
@@ -562,11 +562,11 @@ l.79 \clearpage
 
 ] (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 5.
+(Font)              <10.95> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 5.
+(Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 5.
+(Font)              <6> on input line 3.
 )
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -575,9 +575,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 [2
 
-] (./sections/introduction.tex
+]
+
+[3] (./sections/introduction.tex
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 12.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 21.
 )
 
 
@@ -589,7 +591,7 @@ l.91 \clearpage
 
 ] (./sections/background-literature.tex
 
-LaTeX Warning: Citation `turing1950computing' on page 2 undefined on input line 11.
+LaTeX Warning: Citation `turing1950computing' on page 2 undefined on input line 21.
 
 )
 
@@ -611,23 +613,29 @@ Underfull \hbox (badness 1062) in paragraph at lines 41--42
 
 )
 
-[4]
+[4] (./sections/design.tex)
 
-[5] (./sections/product.tex)
+[5
+
+] (./sections/product.tex)
 
 [6
 
-] (./sections/results.tex)
+] (./sections/testing.tex)
 
 [7
 
-] (./sections/reflection.tex)
+] (./sections/results.tex)
 
 [8
 
-] (./sections/conclusion.tex)
+] (./sections/reflection.tex)
 
 [9
+
+] (./sections/conclusion.tex)
+
+[10
 
 ] (./main.bbl
 
@@ -635,21 +643,21 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
 
-[10
+[11
 
 ] (./sections/appendix.tex
 
-[11
+[12
 
 ]
-<figs/marking.png, id=226, 533.995pt x 486.31688pt>
+<figs/marking.png, id=293, 533.995pt x 486.31688pt>
 File: figs/marking.png Graphic file (type png)
 <use figs/marking.png>
 Package pdftex.def Info: figs/marking.png  used on input line 28.
 (pdftex.def)             Requested size: 455.24411pt x 414.61053pt.
 )
 
-[12
+[13
 
  <./figs/marking.png>] (./main.aux)
  ***********
@@ -664,21 +672,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0F146056D4CC5205FFCE1C6554C219C1;3570.
+(rerunfilecheck)             Checksum: 87DDD7166CE06406586FDC934CE95B78;5379.
  ) 
 Here is how much of TeX's memory you used:
- 23099 strings out of 475171
- 426372 string characters out of 5767094
- 906211 words of memory out of 5000000
- 45660 multiletter control sequences out of 15000+600000
+ 23141 strings out of 475171
+ 427082 string characters out of 5767096
+ 910293 words of memory out of 5000000
+ 45684 multiletter control sequences out of 15000+600000
  564834 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,11n,126p,546b,508s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (16 pages, 939095 bytes).
+Output written on main.pdf (18 pages, 943326 bytes).
 PDF statistics:
- 274 PDF objects out of 1000 (max. 8388607)
- 238 compressed objects within 3 object streams
- 52 named destinations out of 1000 (max. 500000)
- 231 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 304 compressed objects within 4 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 327 words of extra memory for PDF output out of 10000 (max. 10000000)
 

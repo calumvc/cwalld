@@ -1,4 +1,4 @@
-PWD /home/cal/strathclyde/CS408/cs408-cwalld/dissertation
+PWD /home/cal/strathclyde/CS408/cs408-cwalld/writeup/dissertation
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT main.tex
@@ -306,11 +306,21 @@ INPUT ./sections/process.tex
 INPUT sections/process.tex
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
+INPUT ./sections/design.tex
+INPUT ./sections/design.tex
+INPUT ./sections/design.tex
+INPUT ./sections/design.tex
+INPUT sections/design.tex
 INPUT ./sections/product.tex
 INPUT ./sections/product.tex
 INPUT ./sections/product.tex
 INPUT ./sections/product.tex
 INPUT sections/product.tex
+INPUT ./sections/testing.tex
+INPUT ./sections/testing.tex
+INPUT ./sections/testing.tex
+INPUT ./sections/testing.tex
+INPUT sections/testing.tex
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex

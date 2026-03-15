@@ -1,1 +1,0 @@
-/usr/local/bin/bar_daemon		--	gen_context(system_u:object_r:bar_daemon_exec_t,s0)
