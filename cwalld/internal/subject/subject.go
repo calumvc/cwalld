@@ -30,8 +30,7 @@ func (s *Subject) ReLog() {
 func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	label_change := false
 	if s.Label == "unconfined_service_t" || s.Label == "init_t" {
-		if op.ToString() == "Read" || op.ToString() == "ReadWrite" {
-
+		if op.String() == "Read" || op.String() == "ReadWrite" {
 			switch l {
 				case "alpha_t" : {
 					s.Label = "alpha_rw_exec_t"
@@ -49,22 +48,22 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 		}
 	}
 
-	if s.Label == "alpha_rw_t" && l == "gamma_t" && (op.ToString() == "Read" || op.ToString() == "ReadWrite") {
+	if s.Label == "alpha_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
 		label_change = true
 		s.Label = "alpha_gamma_r_exec_t"
 	}
 
-	if s.Label == "beta_rw_t" && l == "gamma_t" && (op.ToString() == "Read" || op.ToString() == "ReadWrite") {
+	if s.Label == "beta_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
 		label_change = true
 		s.Label = "beta_gamma_r_exec_t"
 	}
 
-	if s.Label == "gamma_rw_t" && l == "alpha_t" && (op.ToString() == "Read" || op.ToString() == "ReadWrite") {
+	if s.Label == "gamma_rw_t" && l == "alpha_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
 		label_change = true
 		s.Label = "alpha_gamma_r_exec_t"
 	}
 
-	if s.Label == "gamma_rw_t" && l == "beta_t" && (op.ToString() == "Read" || op.ToString() == "ReadWrite") {
+	if s.Label == "gamma_rw_t" && l == "beta_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
 		label_change = true
 		s.Label = "beta_gamma_r_exec_t"
 	}

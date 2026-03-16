@@ -16,6 +16,6 @@ type Audit struct {
 }
 
 func (a *Audit) Log() {
-	line := fmt.Sprintf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s", a.Subject.Name, a.Subject.Label, a.Operation.ToString(), a.Success, a.Object.Name, a.Object.Label)
+	line := fmt.Sprintf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s", a.Subject.Name, a.Subject.Label, a.Operation.String(), a.Success, a.Object.Name, a.Object.Label)
 	decorator.DecorateAndLog(line, decorator.Audit)
 }

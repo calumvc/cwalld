@@ -19,7 +19,7 @@ type Object struct {
 	Label string
 }
 
-func (o Operation) ToString() string {
+func (o Operation) String() string {
 	switch o {
 	case Read:
 		return "Read"

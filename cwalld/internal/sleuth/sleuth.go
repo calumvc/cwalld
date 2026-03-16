@@ -36,7 +36,7 @@ func TailAuditd(DIR string) error {
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
 		Follow: true,
-		Poll: true,
+		Poll: false,
 		ReOpen: true, // this will follow the file
 		Location: &tail.SeekInfo{ Offset: 0, Whence: io.SeekEnd }}) // we only wanna know what happens after we start running the daemon
 

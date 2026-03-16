@@ -41,6 +41,8 @@ func DecorateAndLog(s string, d Decor) {
 		case Error: {
 			line = fmt.Sprintf("ERROR: %s\n", s)
 		}
+	default:
+		line = "ERROR: Decorator bad argument"
 	}
 
 	logger.Log(line)
