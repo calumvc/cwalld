@@ -1,13 +1,16 @@
 package main
 
 import (
+	"cwalld/internal/decorator"
 	"cwalld/internal/sleuth"
 )
 
 func main() {
 	DIR := "/home/testgrounds/"
 
-	go sleuth.TailAuditd(DIR) // follow auditd updates in subprocess
+	err := sleuth.TailAuditd(DIR) // follow auditd updates in subprocess
 
-	<-make(chan struct{}) // infinite loop
+	if err != nil {
+		decorator.DecorateAndLog(err.Error(), decorator.Error)
+	}
 }

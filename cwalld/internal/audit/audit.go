@@ -15,7 +15,7 @@ type Audit struct {
 	Success bool
 }
 
-func (a *Audit) ToString() {
+func (a *Audit) Log() {
 	line := fmt.Sprintf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s", a.Subject.Name, a.Subject.Label, a.Operation.ToString(), a.Success, a.Object.Name, a.Object.Label)
-	decorator.DecorateAndLog(line, "audit")
+	decorator.DecorateAndLog(line, decorator.Audit)
 }

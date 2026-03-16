@@ -17,12 +17,17 @@ type Subject struct {
 	Entrypoint string
 }
 
-func (s *Subject) ToString() {
+func (s *Subject) Log() {
 	line := fmt.Sprintf("pid=%s\tcomm=%s\tlabel=%s\tentrypoint=%s", s.Pid, s.Name, s.Label, s.Entrypoint)
-	decorator.DecorateAndLog(line, "register")
+	decorator.DecorateAndLog(line, decorator.Register)
 }
 
-func (s *Subject) AlterLabel(l string, op utils.Operation) {
+func (s *Subject) ReLog() {
+	line := fmt.Sprintf("%s under label %s", s.Name, s.Label)
+	decorator.DecorateAndLog(line, decorator.Reregister)
+}
+
+func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	label_change := false
 	if s.Label == "unconfined_service_t" || s.Label == "init_t" {
 		if op.ToString() == "Read" || op.ToString() == "ReadWrite" {
@@ -65,25 +70,38 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 	}
 
 	if label_change {
-		s.restartSubject()
+		err := s.restartSubject()
+		if err != nil {
+			return err
+		}
 	}
+
+	return nil
 }
 
-func (s *Subject) restartSubject() { // subject needs to be restarted to actually get its new label
+func (s *Subject) restartSubject() error { // subject needs to be restarted to actually get its new label
 	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
 	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
 
 	err := selinux.Chcon(s.Entrypoint, label, false)
-	utils.CheckErr(err)
 
-	decorator.DecorateAndLog(line, "relabel")
+	if err != nil {
+		return err
+	}
+
+	decorator.DecorateAndLog(line, decorator.Audit)
 
 	conn, err := dbus.NewSystemConnectionContext(context.Background())
-	utils.CheckErr(err)
+
+	if err != nil {
+		return err
+	}
 
 	response_channel := make(chan string, 1)
 	conn.RestartUnitContext(context.Background(), fmt.Sprintf("%s.service", s.Name), "replace", response_channel)
 	result := <- response_channel
-	decorator.DecorateAndLog(result, "relabelcode")
+	decorator.DecorateAndLog(result, decorator.Dbus)
 	conn.Close()
+
+	return nil
 }

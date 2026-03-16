@@ -13,7 +13,7 @@ func main(){
 	})
 
 	if err != nil { 
-		fmt.Print(err)
+		fmt.Print(err.Error())
 		os.Exit(1)
 	}
 

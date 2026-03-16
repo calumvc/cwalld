@@ -1,8 +1,7 @@
 package utils
 
 import (
-	"cwalld/internal/logger"
-	"os"
+	"errors"
 )
 
 type Operation int8
@@ -34,17 +33,9 @@ func (o Operation) ToString() string {
 	return "Unknown"
 }
 
-func CheckErr(err error) {
-	if err != nil {
-		logger.Log(("ERROR:\t" + err.Error()))
-		os.Exit(1)
-	}
-}
-
-func RegexErr(s []string, regex_type string) string {
+func RegexErr(s []string, regex_type string) (string, error) {
 	if s == nil {
-		logger.Log("Regex failed on " + regex_type)
-		os.Exit(1)
+		return "", errors.New("Regex failed on " + regex_type)
 	}
-	return s[1]
+	return s[1], nil
 }

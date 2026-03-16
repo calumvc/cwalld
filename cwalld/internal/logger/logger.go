@@ -15,6 +15,7 @@ func init() { // this runs once before Log ever is called
 	var err error // have to make this since log_file variable already exists
 	os.MkdirAll("/var/log/cwalld/", 0644)
 	log_file, err = os.OpenFile("/var/log/cwalld/cwalld.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0744)
+
 	if err != nil { 
 		Log(err.Error())
 		os.Exit(1)
