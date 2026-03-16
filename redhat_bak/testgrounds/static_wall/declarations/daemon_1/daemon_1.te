@@ -1,0 +1,46 @@
+policy_module(daemon_1, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type daemon_1_t;
+type daemon_1_exec_t;
+require {
+  type obj_1_t;
+  type obj_2_t;
+  type obj_3_t;
+  type user_home_t;
+  type user_home_dir_t;
+}
+
+init_daemon_domain(daemon_1_t, daemon_1_exec_t)
+
+permissive daemon_1_t;
+
+########################################
+#
+# daemon_1 local policy
+#
+allow daemon_1_t self:fifo_file rw_fifo_file_perms;
+allow daemon_1_t self:unix_stream_socket create_stream_socket_perms;
+
+# static wall policies
+allow daemon_1_t obj_1_t:file { read write open getattr };
+neverallow daemon_1_t obj_2_t:file { read getattr open write };
+allow daemon_1_t obj_3_t:file { read getattr open };
+neverallow daemon_1_t obj_3_t:file { write };
+
+# directory navigation policies
+allow daemon_1_t user_home_t:dir { search read open };
+list_dirs_pattern(daemon_1_t, user_home_dir_t, obj_1_t);
+read_files_pattern(daemon_1_t, user_home_dir_t, obj_1_t);
+list_dirs_pattern(daemon_1_t, user_home_dir_t, obj_3_t);
+read_files_pattern(daemon_1_t, user_home_dir_t, obj_3_t);
+
+domain_use_interactive_fds(daemon_1_t)
+
+files_read_etc_files(daemon_1_t)
+
+miscfiles_read_localization(daemon_1_t)

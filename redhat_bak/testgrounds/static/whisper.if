@@ -1,0 +1,40 @@
+
+## <summary>policy for whisper</summary>
+
+########################################
+## <summary>
+##	Execute whisper_exec_t in the whisper domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`whisper_domtrans',`
+	gen_require(`
+		type whisper_t, whisper_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, whisper_exec_t, whisper_t)
+')
+
+######################################
+## <summary>
+##	Execute whisper in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`whisper_exec',`
+	gen_require(`
+		type whisper_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, whisper_exec_t)
+')

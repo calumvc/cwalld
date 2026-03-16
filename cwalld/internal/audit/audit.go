@@ -2,6 +2,7 @@ package audit
 
 import (
 	"cwalld/internal/decorator"
+	"cwalld/internal/object"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
 	"fmt"
@@ -10,7 +11,7 @@ import (
 type Audit struct {
 	Id string
 	Subject *subject.Subject
-	Object *utils.Object
+	Object *object.Object
 	Operation utils.Operation 
 	Success bool
 }

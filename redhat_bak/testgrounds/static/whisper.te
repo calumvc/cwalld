@@ -1,0 +1,25 @@
+policy_module(whisper, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type whisper_t;
+type whisper_exec_t;
+init_daemon_domain(whisper_t, whisper_exec_t)
+
+permissive whisper_t;
+
+########################################
+#
+# whisper local policy
+#
+allow whisper_t self:fifo_file rw_fifo_file_perms;
+allow whisper_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(whisper_t)
+
+files_read_etc_files(whisper_t)
+
+miscfiles_read_localization(whisper_t)

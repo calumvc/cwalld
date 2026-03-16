@@ -3,6 +3,7 @@ package sleuth
 import (
 	"cwalld/internal/audit"
 	"cwalld/internal/decorator"
+	"cwalld/internal/object"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
 	"fmt"
@@ -12,7 +13,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/nxadm/tail"
+	"github.com/hpcloud/tail"
 	"github.com/opencontainers/selinux/go-selinux"
 	"golang.org/x/sys/unix"
 )
@@ -145,7 +146,7 @@ func (state *State) trackObject(line string) {
 
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			state.audits[i].Object = &utils.Object{ Name: object_path, Label: label_type } 
+			state.audits[i].Object = &object.Object{ Name: object_path, Label: label_type } 
 			state.audits[i].ToString()
 
 			if state.audits[i].Success == true { // if it succesfully read/wrote, then alter the label as necessary

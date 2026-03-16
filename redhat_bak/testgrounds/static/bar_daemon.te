@@ -1,0 +1,27 @@
+policy_module(bar_daemon, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type bar_daemon_t;
+type bar_daemon_exec_t;
+type secret_t;
+init_daemon_domain(bar_daemon_t, bar_daemon_exec_t)
+
+permissive bar_daemon_t;
+
+########################################
+#
+# bar_daemon local policy
+#
+allow bar_daemon_t self:fifo_file rw_fifo_file_perms;
+allow bar_daemon_t self:unix_stream_socket create_stream_socket_perms;
+neverallow bar_daemon_t secret_t:file { read open getattr };
+
+domain_use_interactive_fds(bar_daemon_t)
+
+files_read_etc_files(bar_daemon_t)
+
+miscfiles_read_localization(bar_daemon_t)

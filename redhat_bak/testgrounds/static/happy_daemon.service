@@ -1,0 +1,10 @@
+
+[Unit]
+Description=Happy daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/happy_daemon
+
+[Install]
+WantedBy=multi-user.target

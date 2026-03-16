@@ -15,11 +15,6 @@ const (
 	Metadata
 )
 
-type Object struct {
-	Name string
-	Label string
-}
-
 func (o Operation) ToString() string {
 	switch o {
 	case Read:
@@ -47,4 +42,8 @@ func RegexErr(s []string, regex_type string) string {
 		os.Exit(1)
 	}
 	return s[1]
+}
+
+func GetArgs() []string {
+	return os.Args[1:]
 }

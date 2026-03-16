@@ -1,0 +1,21 @@
+policy_module(user_rbac, 1.0)
+
+require {
+  type user_t;
+  type secret_file_t;
+  class process { transition };
+  class file { read open getattr entrypoint execute };
+}
+
+type foo_user_t;
+type bar_user_t;
+
+type foo_reader_t;
+
+allow user_t foo_user_t:process transition
+allow user_t bar_user_t:process transition
+
+role user_r types foo_user_t;
+role user_r types bar_user_t;
+
+allow foo_user_t secret_file_t:file { read open getattr };

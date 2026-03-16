@@ -1,0 +1,25 @@
+policy_module(obj_2, 1.0.0)
+
+########################################
+#
+# Declarations
+#
+
+type obj_2_t;
+type obj_2_exec_t;
+init_daemon_domain(obj_2_t, obj_2_exec_t)
+
+permissive obj_2_t;
+
+########################################
+#
+# obj_2 local policy
+#
+allow obj_2_t self:fifo_file rw_fifo_file_perms;
+allow obj_2_t self:unix_stream_socket create_stream_socket_perms;
+
+domain_use_interactive_fds(obj_2_t)
+
+files_read_etc_files(obj_2_t)
+
+miscfiles_read_localization(obj_2_t)

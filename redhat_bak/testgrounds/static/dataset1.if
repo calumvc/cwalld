@@ -1,0 +1,40 @@
+
+## <summary>policy for dataset1</summary>
+
+########################################
+## <summary>
+##	Execute dataset1_exec_t in the dataset1 domain.
+## </summary>
+## <param name="domain">
+## <summary>
+##	Domain allowed to transition.
+## </summary>
+## </param>
+#
+interface(`dataset1_domtrans',`
+	gen_require(`
+		type dataset1_t, dataset1_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	domtrans_pattern($1, dataset1_exec_t, dataset1_t)
+')
+
+######################################
+## <summary>
+##	Execute dataset1 in the caller domain.
+## </summary>
+## <param name="domain">
+##	<summary>
+##	Domain allowed access.
+##	</summary>
+## </param>
+#
+interface(`dataset1_exec',`
+	gen_require(`
+		type dataset1_exec_t;
+	')
+
+	corecmd_search_bin($1)
+	can_exec($1, dataset1_exec_t)
+')

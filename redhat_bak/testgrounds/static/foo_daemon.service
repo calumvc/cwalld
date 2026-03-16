@@ -1,0 +1,9 @@
+[Unit]
+Description=Foo's daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/foo_daemon
+
+[Install]
+WantedBy=multi-user.target
