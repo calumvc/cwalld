@@ -5,9 +5,6 @@ type cwalld_exec_t;
 
 require {
 	type proc_t;
-	type alpha_t;
-  type beta_t;
-  type gamma_t;
   type alpha_rw_exec_t;
   type beta_rw_exec_t;
   type gamma_rw_exec_t;
@@ -43,9 +40,6 @@ init_daemon_domain(cwalld_t, cwalld_exec_t)
 allow cwalld_t auditd_log_t:dir search;
 allow cwalld_t auditd_log_t:file { getattr open read watch };
 allow cwalld_t bin_t:file relabelfrom;
-allow cwalld_t alpha_rw_exec_t:file relabelfrom;
-allow cwalld_t beta_rw_exec_t:file relabelfrom;
-allow cwalld_t gamma_rw_exec_t:file relabelfrom;
 allow cwalld_t cgroup_t:dir search;
 allow cwalld_t cgroup_t:file { open read };
 allow cwalld_t init_t:dbus send_msg;
