@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hpcloud/tail"
+	"github.com/nxadm/tail"
 )
 
 func main(){

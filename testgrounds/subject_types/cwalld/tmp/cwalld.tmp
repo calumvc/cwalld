@@ -3401,6 +3401,9 @@ type cwalld_exec_t;
 
 require {
 	type proc_t;
+	type alpha_t;
+  type beta_t;
+  type gamma_t;
   type alpha_rw_exec_t;
   type beta_rw_exec_t;
   type gamma_rw_exec_t;
@@ -3412,6 +3415,7 @@ require {
 	type unconfined_service_t;
 	type init_t;
 	type systemd_unit_file_t;
+	type alpha_rw_exec_t;
 	type unlabeled_t;
 	type auditd_log_t;
 	type cgroup_t;
@@ -3431,333 +3435,336 @@ require {
 }
 
  	 	
-#line 37
+#line 41
 ##### begin init_daemon_domain(cwalld_t,cwalld_exec_t) depth: 1
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		attribute direct_run_init, direct_init, direct_init_entry;
-#line 37
+#line 41
 		type init_t;
-#line 37
+#line 41
 		role system_r;
-#line 37
+#line 41
 		attribute daemon;
-#line 37
+#line 41
 		attribute initrc_transition_domain;
-#line 37
+#line 41
 		attribute initrc_domain;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_t daemon;
-#line 37
+#line 41
 	typeattribute cwalld_exec_t direct_init_entry;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin domain_type(cwalld_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	# start with basic domain
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin domain_base_type(cwalld_t) depth: 3
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		attribute domain;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_t domain;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end domain_base_type(cwalld_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	# Only way to get corenet_unlabeled packets disabled to work
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin corenet_all_recvfrom_unlabeled(cwalld_t) depth: 3
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
                 attribute corenet_unlabeled_type;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_t corenet_unlabeled_type;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end corenet_all_recvfrom_unlabeled(cwalld_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end domain_type(cwalld_t) depth: 1
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin domain_entry_file(cwalld_t,cwalld_exec_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		attribute entry_type;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	allow cwalld_t cwalld_exec_t:file entrypoint;
-#line 37
+#line 41
 	allow cwalld_t cwalld_exec_t:file { { getattr open map read execute ioctl } ioctl lock };
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_exec_t entry_type;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin corecmd_executable_file(cwalld_exec_t) depth: 3
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		attribute exec_type;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_exec_t exec_type;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	 	
-#line 37
+#line 41
 ##### begin files_type(cwalld_exec_t) depth: 4
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	typeattribute cwalld_exec_t file_type, non_security_file_type, non_auth_file_type;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end files_type(cwalld_exec_t) depth: 3
-#line 37
+#line 41
  	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end corecmd_executable_file(cwalld_exec_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	#optional_policy(`
-#line 37
+#line 41
 	#	unconfined_exec_typebounds(cwalld_exec_t)
-#line 37
+#line 41
 	#')
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end domain_entry_file(cwalld_t,cwalld_exec_t) depth: 1
-#line 37
+#line 41
  	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	type_transition initrc_domain cwalld_exec_t:process cwalld_t;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	optional {
-#line 37
+#line 41
 		
-#line 37
+#line 41
 		 	 	
-#line 37
+#line 41
 ##### begin systemd_connectto_socket_proxyd_unix_sockets(cwalld_t) depth: 2
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		require {
-#line 37
+#line 41
 			
-#line 37
+#line 41
 		type systemd_socket_proxyd_t;
-#line 37
+#line 41
 	
-#line 37
+#line 41
 		} # end require
-#line 37
+#line 41
 	
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	allow cwalld_t systemd_socket_proxyd_t:unix_stream_socket connectto;
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end systemd_connectto_socket_proxyd_unix_sockets(cwalld_t) depth: 1
-#line 37
+#line 41
  	
-#line 37
+#line 41
 	
-#line 37
+#line 41
 	} # end optional
-#line 37
+#line 41
 
-#line 37
+#line 41
 
-#line 37
+#line 41
 	 	
-#line 37
+#line 41
 ##### end init_daemon_domain(cwalld_t,cwalld_exec_t) depth: 0
-#line 37
+#line 41
  	
 
 #============= cwalld_t ==============
 allow cwalld_t auditd_log_t:dir search;
 allow cwalld_t auditd_log_t:file { getattr open read watch };
 allow cwalld_t bin_t:file relabelfrom;
+allow cwalld_t alpha_rw_exec_t:file relabelfrom;
+allow cwalld_t beta_rw_exec_t:file relabelfrom;
+allow cwalld_t gamma_rw_exec_t:file relabelfrom;
 allow cwalld_t cgroup_t:dir search;
 allow cwalld_t cgroup_t:file { open read };
 allow cwalld_t init_t:dbus send_msg;

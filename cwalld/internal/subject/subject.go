@@ -65,11 +65,11 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) {
 	}
 
 	if label_change {
-		s.restart_subject()
+		s.restartSubject()
 	}
 }
 
-func (s *Subject) restart_subject() { // subject needs to be restarted to actually get its new label
+func (s *Subject) restartSubject() { // subject needs to be restarted to actually get its new label
 	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
 	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
 
