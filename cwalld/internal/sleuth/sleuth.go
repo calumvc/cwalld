@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hpcloud/tail"
+	"github.com/nxadm/tail"
 	"github.com/opencontainers/selinux/go-selinux"
 	"golang.org/x/sys/unix"
 )

@@ -4,13 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hpcloud/tail"
+	"github.com/nxadm/tail"
 )
 
 func main(){
-	t, err := tail.TailFile("/var/log/cwalld/cwalld.log", tail.Config{
-		Follow: true,
-	})
+	t, err := tail.TailFile("/var/log/cwalld/cwalld.log", tail.Config{})
 
 	if err != nil { 
 		fmt.Print(err.Error())
