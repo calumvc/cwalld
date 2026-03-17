@@ -17,20 +17,18 @@ type Subject struct {
 	Entrypoint string
 }
 
-func (s *Subject) Log() {
-	line := fmt.Sprintf("pid=%s\tcomm=%s\tlabel=%s\tentrypoint=%s", s.Pid, s.Name, s.Label, s.Entrypoint)
-	decorator.DecorateAndLog(line, decorator.Register)
+func (s *Subject) String() string { // log when we find a new subject
+	return fmt.Sprintf("pid=%s\tcomm=%s\tlabel=%s\tentrypoint=%s", s.Pid, s.Name, s.Label, s.Entrypoint)
 }
 
-func (s *Subject) ReLog() {
-	line := fmt.Sprintf("%s under label %s", s.Name, s.Label)
-	decorator.DecorateAndLog(line, decorator.Reregister)
+func (s *Subject) ReString() string { // relog when we find an old subject with new properties
+	return fmt.Sprintf("%s under label %s", s.Name, s.Label)
 }
 
 func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	label_change := false
-	if s.Label == "unconfined_service_t" || s.Label == "init_t" {
-		if op.String() == "Read" || op.String() == "ReadWrite" {
+	if s.Label == "unconfined_service_t" || s.Label == "init_t" { // if the subject hasn't been restricted yet
+		if op.String() == "Read" || op.String() == "ReadWrite" { // if they read from an object, align them with it
 			switch l {
 				case "alpha_t" : {
 					s.Label = "alpha_rw_exec_t"
@@ -78,7 +76,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	return nil
 }
 
-func (s *Subject) restartSubject() error { // subject needs to be restarted to actually get its new label
+func (s *Subject) restartSubject() error { // subject needs to be restarted to actually get its new label from entrypoint
 	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
 	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
 

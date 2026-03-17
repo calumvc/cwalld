@@ -7,7 +7,6 @@ import (
 	"cwalld/internal/utils"
 	"fmt"
 	"io"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -29,6 +28,7 @@ type regexResult struct { // just used to more easily seperate regex logic from 
 	audit_id string
 	success string
 	operation string
+	entrypoint string
 }
 
 func TailAuditd(DIR string) error {
@@ -96,19 +96,17 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		}
 	}
 
-	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid)) // get the entrypoint of the subject so we can alter its label later
-
 	if err != nil {
 		return err
 	}
 
 	if subj == nil { // add it to the global list of subjects if not
-		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
+		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: regexes.entrypoint }
 		state.subjects = append(state.subjects, *subj)
 		if seen != true {
-			subj.Log()
+			decorator.DecorateAndLog(subj.String(), decorator.Register)
 		} else {
-			subj.ReLog()
+			decorator.DecorateAndLog(subj.ReString(), decorator.Reregister)
 			seen = false
 		}
 	}
@@ -179,7 +177,7 @@ func (state *State) trackObject(line string) error {
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
 			state.audits[i].Object = &utils.Object{ Name: object_path, Label: label_type } 
-			state.audits[i].Log()
+			decorator.DecorateAndLog(state.audits[i].String(), decorator.Audit)
 
 			if state.audits[i].Success == true { // if it succesfully read/wrote, then alter the label as necessary
 				state.audits[i].Subject.AlterLabel(label_type, state.audits[i].Operation)
@@ -310,11 +308,21 @@ func regexer(line string) (*regexResult, error) {
 	regex_operation := regex.FindStringSubmatch(line)
 	operation, err := utils.RegexErr(regex_operation, "operation")
 
+	s.operation = operation
+
 	if err != nil {
 		return nil, err
 	}
 
-	s.operation = operation
+	regex = regexp.MustCompile(`\bproctitle="([^"]+)"`)
+	regex_proctitle := regex.FindStringSubmatch(line)
+	proctitle, err := utils.RegexErr(regex_proctitle, "proctitle")
+
+	if err != nil { 
+		return nil, err
+	}
+
+	s.entrypoint = proctitle
 
 	return &s, nil
 }

@@ -1,7 +1,6 @@
 package audit
 
 import (
-	"cwalld/internal/decorator"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
 	"fmt"
@@ -15,7 +14,6 @@ type Audit struct {
 	Success bool
 }
 
-func (a *Audit) Log() {
-	line := fmt.Sprintf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s", a.Subject.Name, a.Subject.Label, a.Operation.String(), a.Success, a.Object.Name, a.Object.Label)
-	decorator.DecorateAndLog(line, decorator.Audit)
+func (a *Audit) String() string {
+	return fmt.Sprintf("subject=%s : %s\toperation=%s : %t\tobject=%s : %s", a.Subject.Name, a.Subject.Label, a.Operation.String(), a.Success, a.Object.Name, a.Object.Label)
 }

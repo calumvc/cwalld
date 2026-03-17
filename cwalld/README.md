@@ -21,7 +21,7 @@ sudo ./example.sh
 ```
 
 ### 3. Build Executables
-From cwalld dir
+from `cwalld/`
 ```
 go build ./cmd/cwalld/cwalld-init
 go build ./cmd/cwalld/cwalld-tail
@@ -52,7 +52,10 @@ sudo restorecon -v /usr/local/sbin/cwalld-enforce
 
 ### 5. Run & Tail
 We need SELinux to be on `Enforcing`, so run `sudo getenforce`
-If `Enforcing`, we're ready to go. If `Permissive`, run `sudo setenforce 1` and check again
+
+If `Enforcing`, we're ready to go. 
+
+If `Permissive`, run `sudo setenforce 1` and check again
 
 from `cwalld/`
 ```
