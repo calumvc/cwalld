@@ -296,6 +296,8 @@ INPUT ./sections/background-literature.tex
 INPUT ./sections/background-literature.tex
 INPUT ./sections/background-literature.tex
 INPUT sections/background-literature.tex
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
 INPUT ./sections/process.tex
 INPUT ./sections/process.tex
 INPUT ./sections/process.tex
@@ -306,7 +308,6 @@ INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
 INPUT ./figs/ganttchart.png
-INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
@@ -332,7 +333,6 @@ INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 INPUT ./sections/results.tex
 INPUT sections/results.tex
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmssi10.tfm
 INPUT ./sections/reflection.tex
 INPUT ./sections/reflection.tex
 INPUT ./sections/reflection.tex

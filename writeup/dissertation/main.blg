@@ -4,48 +4,60 @@ The top-level auxiliary file: main.aux
 The style file: abbrv.bst
 Database file #1: bibliography.bib
 Warning--entry type for "noauthor_red_nodate" isn't style-file defined
---line 196 of file bibliography.bib
+--line 184 of file bibliography.bib
 Warning--I didn't find a database entry for "turing1950computing"
 Warning--to sort, need author or key in noauthor_red_nodate
-You've used 1 entry,
+Warning--empty journal in bell_secure_1973
+Warning--empty year in bell_secure_1973
+Warning--empty year in brewer_chinese_1989
+Warning--empty year in fan_mandatory_2009
+Warning--empty journal in foley_building_1997
+Warning--empty year in foley_building_1997
+Warning--empty journal in herzel_chinese_1978
+Warning--empty year in herzel_chinese_1978
+Warning--empty year in hsiao_implementing_2010
+Warning--empty booktitle in lin_chinese_1989
+Warning--empty year in lin_chinese_1989
+Warning--empty year in tsai_practical_2011
+You've used 9 entries,
             2118 wiz_defined-function locations,
-            500 strings with 3806 characters,
-and the built_in function-call counts, 168 in all, are:
-= -- 12
-> -- 1
-< -- 0
-+ -- 1
-- -- 0
-* -- 7
-:= -- 23
-add.period$ -- 1
-call.type$ -- 1
-change.case$ -- 3
+            544 strings with 5211 characters,
+and the built_in function-call counts, 3906 in all, are:
+= -- 395
+> -- 118
+< -- 6
++ -- 51
+- -- 38
+* -- 277
+:= -- 552
+add.period$ -- 30
+call.type$ -- 9
+change.case$ -- 46
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 7
-empty$ -- 24
-format.name$ -- 0
-if$ -- 38
+cite$ -- 22
+duplicate$ -- 149
+empty$ -- 347
+format.name$ -- 38
+if$ -- 858
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 6
-num.names$ -- 0
-pop$ -- 8
+int.to.str$ -- 9
+missing$ -- 8
+newline$ -- 49
+num.names$ -- 16
+pop$ -- 79
 preamble$ -- 1
-purify$ -- 2
+purify$ -- 37
 quote$ -- 0
-skip$ -- 10
+skip$ -- 119
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
-text.length$ -- 0
+substring$ -- 408
+swap$ -- 52
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 1
-while$ -- 0
-width$ -- 2
-write$ -- 7
-(There were 3 warnings)
+type$ -- 36
+warning$ -- 13
+while$ -- 35
+width$ -- 10
+write$ -- 92
+(There were 15 warnings)
