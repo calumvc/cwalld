@@ -7,6 +7,7 @@ import (
 	"cwalld/internal/utils"
 	"fmt"
 	"io"
+	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -28,7 +29,6 @@ type regexResult struct { // just used to more easily seperate regex logic from 
 	audit_id string
 	success string
 	operation string
-	entrypoint string
 }
 
 func TailAuditd(DIR string) error {
@@ -53,7 +53,6 @@ func TailAuditd(DIR string) error {
 				return err
 			}
 		}
-
 		if strings.Contains(line.Text, DIR) && strings.Contains(line.Text, "PATH") { // this is the path line, containing the affected object path
 			err := state.trackObject(line.Text)
 			if err != nil {
@@ -96,12 +95,10 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		}
 	}
 
-	if err != nil {
-		return err
-	}
+	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid)) // get the entrypoint of the subject
 
 	if subj == nil { // add it to the global list of subjects if not
-		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: regexes.entrypoint }
+		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
 		state.subjects = append(state.subjects, *subj)
 		if seen != true {
 			decorator.DecorateAndLog(subj.String(), decorator.Register)
@@ -313,16 +310,6 @@ func regexer(line string) (*regexResult, error) {
 	if err != nil {
 		return nil, err
 	}
-
-	regex = regexp.MustCompile(`\bproctitle="([^"]+)"`)
-	regex_proctitle := regex.FindStringSubmatch(line)
-	proctitle, err := utils.RegexErr(regex_proctitle, "proctitle")
-
-	if err != nil { 
-		return nil, err
-	}
-
-	s.entrypoint = proctitle
 
 	return &s, nil
 }

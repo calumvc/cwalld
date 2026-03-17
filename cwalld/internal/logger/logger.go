@@ -15,7 +15,7 @@ func init() { // this runs once before Log ever is called
 	log_file, err = os.OpenFile("/var/log/cwalld/cwalld.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0744)
 
 	if err != nil { 
-		Log(err.Error())
+		fmt.Println("Error opening log:", err.Error())
 		os.Exit(1)
 	}
 
