@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  17 MAR 2026 15:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  17 MAR 2026 21:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -550,7 +550,7 @@ Package hyperref Info: Link coloring ON on input line 19.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count342
-<./images/strath_fullcolour.png, id=167, 582.4962pt x 422.7795pt>
+<./images/strath_fullcolour.png, id=147, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
 Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 32.
@@ -571,49 +571,53 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
- [2
-
-])
+)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [3] (./sections/introduction.tex
+ [2
+
+] (./sections/introduction.tex
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29   \item U
+l.30   \item U
               nderstand the principles of: [1
 
 ]) [2] (./sections/background-literature.tex
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 19.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 23.
  [3
 
-]
-./sections/background-literature.tex:70: Misplaced alignment tab character &.
-l.70 ...ve to the UNIX that was locked down by AT&
-                                                  T. Linus Torvalds combined...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+] [4] [5]
+<figs/selinux.png, id=264, 613.29124pt x 283.0575pt>
+File: figs/selinux.png Graphic file (type png)
+<use figs/selinux.png>
+Package pdftex.def Info: figs/selinux.png  used on input line 123.
+(pdftex.def)             Requested size: 364.19667pt x 168.09088pt.
+ [6 <./figs/selinux.png>]
 
-[4]
+LaTeX Warning: Citation `noauthor_red_nodate2' on page 7 undefined on input line 144.
 
-LaTeX Warning: Citation `turing1950computing' on page 5 undefined on input line 101.
+<figs/redhat.png, id=275, 889.3225pt x 712.6625pt>
+File: figs/redhat.png Graphic file (type png)
+<use figs/redhat.png>
+Package pdftex.def Info: figs/redhat.png  used on input line 148.
+(pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
+[7 <./figs/redhat.png>]
 
-[5]) [6] (./sections/process.tex
-<figs/ganttchart.png, id=292, 1033.8625pt x 634.37pt>
+LaTeX Warning: Citation `turing1950computing' on page 8 undefined on input line 168.
+
+) [8] (./sections/process.tex
+<figs/ganttchart.png, id=291, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
 Package pdftex.def Info: figs/ganttchart.png  used on input line 19.
 (pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
- [7
+ [9
 
- <./figs/ganttchart.png>] [8] [9]) [10] (./sections/design.tex
-<figs/UML.png, id=315, 1165.35374pt x 1064.97874pt>
+ <./figs/ganttchart.png>] [10] [11]) [12] (./sections/design.tex
+<figs/UML.png, id=314, 1165.35374pt x 1064.97874pt>
 File: figs/UML.png Graphic file (type png)
 <use figs/UML.png>
 Package pdftex.def Info: figs/UML.png  used on input line 13.
@@ -622,17 +626,17 @@ Package pdftex.def Info: figs/UML.png  used on input line 13.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [11
+) [13
 
-] [12 <./figs/UML.png>] (./sections/product.tex) [13
+] [14 <./figs/UML.png>] (./sections/product.tex) [15
 
-] (./sections/testing.tex) [14
+] (./sections/testing.tex) [16
 
-] (./sections/results.tex) [15
+] (./sections/results.tex) [17
 
-] (./sections/reflection.tex) [16
+] (./sections/reflection.tex) [18
 
-] (./sections/conclusion.tex) [17
+] (./sections/conclusion.tex) [19
 
 ] (./main.bbl
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 4.
@@ -644,13 +648,26 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              for symbol `textbar' on input line 4.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--43
+./main.bbl:7: LaTeX Error: Unicode character ​ (U+200B)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 ​
+       can the internet exist without linux? {\textbar} {ZDNET}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--50
 []\OT1/cmss/m/n/10.95 T. Y. Lin.  Chinese wall security policy-an aggressive model.  pages
  []
 
-) [18
+) [20
 
-] (./sections/appendix.tex [19
+] (./sections/appendix.tex [21
 
 ]
 <figs/marking.png, id=364, 533.995pt x 486.31688pt>
@@ -658,7 +675,7 @@ File: figs/marking.png Graphic file (type png)
 <use figs/marking.png>
 Package pdftex.def Info: figs/marking.png  used on input line 28.
 (pdftex.def)             Requested size: 455.24411pt x 414.61053pt.
-) [20
+) [22
 
  <./figs/marking.png>] (./main.aux)
  ***********
@@ -672,22 +689,28 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EC8EE83379AA69E51E670401FDDA8C40;5915.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 74D5EE9736CFF1FABB628CAEAF131569;4707
+(rerunfilecheck)             After:  B8528C52FF1C847F09FA54D7D586CDAD;4702.
  ) 
 Here is how much of TeX's memory you used:
- 23532 strings out of 469515
- 433273 string characters out of 5470807
- 933272 words of memory out of 5000000
- 51703 multiletter control sequences out of 15000+600000
+ 23556 strings out of 469515
+ 433676 string characters out of 5470807
+ 932431 words of memory out of 5000000
+ 51717 multiletter control sequences out of 15000+600000
  633718 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,11n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (25 pages, 1092684 bytes).
+Output written on main.pdf (26 pages, 1281668 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 373 compressed objects within 4 object streams
- 93 named destinations out of 1000 (max. 500000)
- 353 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 426 PDF objects out of 1000 (max. 8388607)
+ 369 compressed objects within 4 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 
