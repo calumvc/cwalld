@@ -5,6 +5,7 @@ import (
 	"cwalld/internal/decorator"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -96,6 +97,10 @@ func (state *State) trackSubject(line string) error { // we will track details a
 	}
 
 	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid)) // get the entrypoint of the subject
+
+	if err != nil {
+		return err
+	}
 
 	if subj == nil { // add it to the global list of subjects if not
 		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
@@ -269,6 +274,10 @@ func regexer(line string) (*regexResult, error) {
 
 	if err != nil {
 		return nil, err
+	}
+
+	if label == "" {
+		return nil, errors.New(fmt.Sprintf("Process label invalid, because process with pid: %d doesnt exist", intpid))
 	}
 
 	regex = regexp.MustCompile(`r:([^:]+)`)

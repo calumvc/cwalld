@@ -1,0 +1,10 @@
+
+[Unit]
+Description=cwalldtestd
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cwalldtestd
+
+[Install]
+WantedBy=multi-user.target
