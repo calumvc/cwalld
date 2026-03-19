@@ -7,9 +7,26 @@ import (
 	"fmt"
 	"os/exec"
 	"reflect"
+	"strconv"
 	"strings"
 	"testing"
+
+	"github.com/opencontainers/selinux/go-selinux"
 )
+
+func TestSetup(t *testing.T) {
+	cmd := exec.Command("sudo", "chcon", "-t", "bin_t", "/usr/local/bin/cwalldtestd")
+	err := cmd.Run()
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
+	cmd = exec.Command("sudo", "systemctl", "restart", "cwalldtestd.service")
+	err = cmd.Run()
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+}
 
 func TestTrackSubject(t *testing.T) { // this should be the same for any time its ran
 	state := State{}
@@ -26,11 +43,11 @@ func TestTrackSubject(t *testing.T) { // this should be the same for any time it
 	expected_subj := subject.Subject{
 		Pid: pid,
 		Name: "cwalldtestd",
-		Label: "alpha_rw_t",
+		Label: "unconfined_service_t",
 		Entrypoint: "/usr/local/bin/cwalldtestd",
 	}
 
-	line := fmt.Sprintf("type=SYSCALL msg=audit(1773872750.325:248): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=402018 a2=0 a3=0 items=1 ppid=1 pid=%s auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"cwalldtestd\" exe=\"/usr/local/bin/cwalldtestd\" subj=system_u:system_r:alpha_rw_t:s0 key=\"cwalld\"", pid)
+	line := fmt.Sprintf("type=SYSCALL msg=audit(1773872750.325:248): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=402018 a2=0 a3=0 items=1 ppid=1 pid=%s auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"cwalldtestd\" exe=\"/usr/local/bin/cwalldtestd\" subj=system_u:system_r:unconfined_service_t:s0 key=\"cwalld\"", pid)
 	err = state.trackSubject(line)
 
 	if err != nil {
@@ -54,11 +71,19 @@ func TestTrackSubject(t *testing.T) { // this should be the same for any time it
 	}
 }
 
-func TestTrackObject(t *testing.T) { // a test where it shouldnt change the label
+func TestTrackObjectLabelChange(t *testing.T) { // a test where it should change the label
 	cmd := exec.Command("pgrep", "cwalldtestd")
 	response, err := cmd.CombinedOutput()
 
 	pid := strings.TrimSpace(string(response))
+
+	intpid, err := strconv.Atoi(pid)
+
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
+	old_label, err := selinux.PidLabel(intpid)
 
 	if err != nil {
 		t.Errorf("Error: %s", err.Error())
@@ -69,13 +94,13 @@ func TestTrackObject(t *testing.T) { // a test where it shouldnt change the labe
 			{
 				Pid: pid,
 				Name: "cwalldtestd",
-				Label: "alpha_rw_t",
+				Label: "unconfined_service_t",
 				Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 		},
 	}
 
-	state.audits = append(state.audits, audit.Audit{ // this part should already exist in it because of trackSubject is ran before it
+	state.audits = append(state.audits, audit.Audit{
 		Id: "1773872750.325:248",
 		Subject: &state.subjects[0],
 		Object: nil,
@@ -101,9 +126,32 @@ func TestTrackObject(t *testing.T) { // a test where it shouldnt change the labe
 	if !reflect.DeepEqual(state.audits[0], expected_audit) {
 		t.Errorf("expected %s got %s", expected_audit.String(), state.audits[0].String())
 	}
+
+	cmd = exec.Command("pgrep", "cwalldtestd")
+	response, err = cmd.CombinedOutput()
+
+	pid = strings.TrimSpace(string(response))
+
+	intpid, err = strconv.Atoi(pid)
+
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
+	new_label, err := selinux.PidLabel(intpid)
+
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
+	expected_old := "system_u:system_r:unconfined_service_t:s0"
+	expected_new := "system_u:system_r:alpha_rw_t:s0"
+	if old_label != expected_old  && new_label != expected_new {
+		t.Errorf("expected old %s new %s got old %s new %s", expected_old, expected_new, old_label, new_label)
+	}
 }
 
-func TestTrackObject2(t *testing.T) { // a test where it should change the label
+func TestTrackObjectNoLabelChange(t *testing.T) { // a test where it shouldnt change the label
 	cmd := exec.Command("pgrep", "cwalldtestd")
 	response, err := cmd.CombinedOutput()
 
@@ -118,13 +166,13 @@ func TestTrackObject2(t *testing.T) { // a test where it should change the label
 			{
 				Pid: pid,
 				Name: "cwalldtestd",
-				Label: "unconfined_service_t",
+				Label: "alpha_rw_t",
 				Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 		},
 	}
 
-	state.audits = append(state.audits, audit.Audit{
+	state.audits = append(state.audits, audit.Audit{ // this part should already exist in it because of trackSubject is ran before it
 		Id: "1773872750.325:248",
 		Subject: &state.subjects[0],
 		Object: nil,
