@@ -5,7 +5,7 @@
 \contentsline {subsection}{\numberline {1.3}Report Format}{2}{subsection.1.3}%
 \contentsline {section}{\numberline {2}Background Research}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}The Chinese Wall Policy}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Security-Enhanced Linux}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Security-Enhanced Linux}{6}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Specification}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Methodology}{9}{subsection.3.1}%
 \contentsline {subsubsection}{\numberline {3.1.1}Agile}{9}{subsubsection.3.1.1}%
@@ -36,7 +36,4 @@
 \contentsline {subsection}{\numberline {8.5}Future Work}{18}{subsection.8.5}%
 \contentsline {section}{\numberline {9}Conclusion}{19}{section.9}%
 \contentsline {section}{\numberline {A}Appendix}{21}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}Ethical Approval Form}{21}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Participant Information Sheet }{21}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Consent Form }{21}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Marking Scheme}{22}{subsection.A.4}%
+\contentsline {subsection}{\numberline {A.1}Marking Scheme}{22}{subsection.A.1}%

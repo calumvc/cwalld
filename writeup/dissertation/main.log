@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  17 MAR 2026 21:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  19 MAR 2026 22:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -457,39 +457,30 @@ Package babel Info: Importing font and identification data for nil
  (/usr/share/texmf-dist/tex/generic/babel/nil.ldf
 Language: nil 2026/02/14 v26.3 Nil language
 \l@nil=\language4
-)) (/usr/share/texmf-dist/tex/latex/lipsum/lipsum.sty (/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2026-01-19 L3 programming layer (loader) 
- (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+)) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count332
-))
-Package: l3keys2e 2025-10-09 LaTeX2e option processing using LaTeX3 keys
-)
-Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
-\g__lipsum_par_int=\count333
-\l__lipsum_a_int=\count334
-\l__lipsum_b_int=\count335
- (/usr/share/texmf-dist/tex/latex/lipsum/lipsum.ltd.tex)) (./main.aux)
+) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -527,16 +518,16 @@ LaTeX Font Info:    ... okay on input line 19.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count336
+\scratchcounter=\count333
 \scratchdimen=\dimen277
 \scratchbox=\box69
-\nofMPsegments=\count337
-\nofMParguments=\count338
+\nofMPsegments=\count334
+\nofMParguments=\count335
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count339
+\MPscratchCnt=\count336
 \MPscratchDim=\dimen278
-\MPnumerator=\count340
-\makeMPintoPDFobject=\count341
+\MPnumerator=\count337
+\makeMPintoPDFobject=\count338
 \everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -544,16 +535,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 19.
+Package hyperref Info: Link coloring ON on input line 17.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-\c@lstlisting=\count342
-<./images/strath_fullcolour.png, id=147, 582.4962pt x 422.7795pt>
+\c@lstlisting=\count339
+<./images/strath_fullcolour.png, id=135, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
-Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 32.
+Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 30.
 (pdftex.def)             Requested size: 116.49718pt x 84.5544pt.
  [1
 
@@ -561,7 +552,7 @@ Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 32.
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \clearpage
+l.79 \clearpage
                 [1
 
 ] (./main.toc
@@ -578,38 +569,39 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [2
 
 ] (./sections/introduction.tex
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 14.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.30   \item U
               nderstand the principles of: [1
 
-]) [2] (./sections/background-literature.tex
-LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 23.
- [3
+]) [2] (./sections/background-literature.tex [3
 
-] [4] [5]
-<figs/selinux.png, id=264, 613.29124pt x 283.0575pt>
+] [4]
+
+LaTeX Warning: Citation `yu_security-awareness_2014' on page 5 undefined on input line 87.
+
+[5] [6]
+<figs/selinux.png, id=255, 613.29124pt x 283.0575pt>
 File: figs/selinux.png Graphic file (type png)
 <use figs/selinux.png>
-Package pdftex.def Info: figs/selinux.png  used on input line 123.
+Package pdftex.def Info: figs/selinux.png  used on input line 140.
 (pdftex.def)             Requested size: 364.19667pt x 168.09088pt.
- [6 <./figs/selinux.png>]
-
-LaTeX Warning: Citation `noauthor_red_nodate2' on page 7 undefined on input line 144.
-
-<figs/redhat.png, id=275, 889.3225pt x 712.6625pt>
+ [7 <./figs/selinux.png>]
+<figs/redhat.png, id=267, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
-Package pdftex.def Info: figs/redhat.png  used on input line 148.
+Package pdftex.def Info: figs/redhat.png  used on input line 169.
 (pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
-[7 <./figs/redhat.png>]
 
-LaTeX Warning: Citation `turing1950computing' on page 8 undefined on input line 168.
 
-) [8] (./sections/process.tex
-<figs/ganttchart.png, id=291, 1033.8625pt x 634.37pt>
+LaTeX Warning: Citation `turing1950computing' on page 8 undefined on input line 186.
+
+) [8 <./figs/redhat.png>] (./sections/process.tex
+<figs/ganttchart.png, id=280, 1033.8625pt x 634.37pt>
 File: figs/ganttchart.png Graphic file (type png)
 <use figs/ganttchart.png>
 Package pdftex.def Info: figs/ganttchart.png  used on input line 19.
@@ -617,10 +609,10 @@ Package pdftex.def Info: figs/ganttchart.png  used on input line 19.
  [9
 
  <./figs/ganttchart.png>] [10] [11]) [12] (./sections/design.tex
-<figs/UML.png, id=314, 1165.35374pt x 1064.97874pt>
+<figs/UML.png, id=302, 1165.35374pt x 1064.97874pt>
 File: figs/UML.png Graphic file (type png)
 <use figs/UML.png>
-Package pdftex.def Info: figs/UML.png  used on input line 13.
+Package pdftex.def Info: figs/UML.png  used on input line 15.
 (pdftex.def)             Requested size: 432.48051pt x 395.22223pt.
 
 
@@ -632,7 +624,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 ] (./sections/testing.tex) [16
 
-] (./sections/results.tex) [17
+] (./sections/results.tex
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 12.
+
+) [17
 
 ] (./sections/reflection.tex) [18
 
@@ -648,20 +645,20 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              for symbol `textbar' on input line 4.
 
 
-./main.bbl:7: LaTeX Error: Unicode character ​ (U+200B)
+./main.bbl:10: LaTeX Error: Unicode character ​ (U+200B)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.7 ​
-       can the internet exist without linux? {\textbar} {ZDNET}.
+l.10 ​
+        can the internet exist without linux? {\textbar} {ZDNET}.
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--50
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
 []\OT1/cmss/m/n/10.95 T. Y. Lin.  Chinese wall security policy-an aggressive model.  pages
  []
 
@@ -670,10 +667,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--50
 ] (./sections/appendix.tex [21
 
 ]
-<figs/marking.png, id=364, 533.995pt x 486.31688pt>
+<figs/marking.png, id=350, 533.995pt x 486.31688pt>
 File: figs/marking.png Graphic file (type png)
 <use figs/marking.png>
-Package pdftex.def Info: figs/marking.png  used on input line 28.
+Package pdftex.def Info: figs/marking.png  used on input line 14.
 (pdftex.def)             Requested size: 455.24411pt x 414.61053pt.
 ) [22
 
@@ -689,28 +686,22 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 74D5EE9736CFF1FABB628CAEAF131569;4707
-(rerunfilecheck)             After:  B8528C52FF1C847F09FA54D7D586CDAD;4702.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 3B9209E051ED5EEB99E1BB456E00124E;4184.
  ) 
 Here is how much of TeX's memory you used:
- 23556 strings out of 469515
- 433676 string characters out of 5470807
- 932431 words of memory out of 5000000
- 51717 multiletter control sequences out of 15000+600000
+ 23133 strings out of 469515
+ 423522 string characters out of 5470807
+ 835798 words of memory out of 5000000
+ 51309 multiletter control sequences out of 15000+600000
  633718 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,11n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (26 pages, 1281668 bytes).
+Output written on main.pdf (26 pages, 1285005 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 369 compressed objects within 4 object streams
- 103 named destinations out of 1000 (max. 500000)
- 323 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 411 PDF objects out of 1000 (max. 8388607)
+ 354 compressed objects within 4 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 299 words of extra memory for PDF output out of 10000 (max. 10000000)
 
