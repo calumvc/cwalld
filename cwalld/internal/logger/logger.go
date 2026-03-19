@@ -23,5 +23,6 @@ func init() { // this runs once before Log ever is called
 }
 
 func Log(s string) {
+	fmt.Println(s)
 	fmt.Fprintln(log_file, s)
 }

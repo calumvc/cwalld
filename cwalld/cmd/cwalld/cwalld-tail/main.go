@@ -8,7 +8,9 @@ import (
 )
 
 func main(){
-	t, err := tail.TailFile("/var/log/cwalld/cwalld.log", tail.Config{})
+	t, err := tail.TailFile("/var/log/cwalld/cwalld.log", tail.Config{
+		Follow: true,
+	})
 
 	if err != nil { 
 		fmt.Print(err.Error())
