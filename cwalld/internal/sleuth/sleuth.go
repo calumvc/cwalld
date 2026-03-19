@@ -5,7 +5,6 @@ import (
 	"cwalld/internal/decorator"
 	"cwalld/internal/subject"
 	"cwalld/internal/utils"
-	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -277,7 +276,8 @@ func regexer(line string) (*regexResult, error) {
 	}
 
 	if label == "" {
-		return nil, errors.New(fmt.Sprintf("Process label invalid, because process with pid: %d doesnt exist", intpid))
+		// return nil, errors.New(fmt.Sprintf("Process label invalid, because process with pid: %d doesnt exist", intpid))
+		return nil, fmt.Errorf("Process label invalid, because process with pid: %d doesnt exist", intpid)
 	}
 
 	regex = regexp.MustCompile(`r:([^:]+)`)

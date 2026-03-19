@@ -4,7 +4,7 @@
 A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by utilising Security Enhanced Linux's mandatory access control system
 
 ## Requirements
-- SELinux system (Red Hat / Fedora)
+- SELinux system (Red Hat / Fedora / ...)
 - Go 1.25.7+
 
 ## Installation
