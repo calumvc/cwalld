@@ -11,10 +11,6 @@ Warning--entry type for "noauthor_can_nodate" isn't style-file defined
 --line 219 of file bibliography.bib
 Warning--entry type for "james_85_2021" isn't style-file defined
 --line 233 of file bibliography.bib
-Repeated entry---line 261 of file bibliography.bib
- : @article{yu_security-awareness_2014
- :                                    ,
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "turing1950computing"
 Warning--to sort, need author or key in noauthor_red_nodate
 Warning--to sort, need author or key in noauthor_can_nodate
@@ -32,8 +28,8 @@ Warning--empty booktitle in lin_chinese_1989
 Warning--empty year in lin_chinese_1989
 Warning--empty year in sailer_building_2005
 Warning--empty year in tsai_practical_2011
-Warning--empty journal in yu_security-awareness_2014
-Warning--empty year in yu_security-awareness_2014
+Warning--empty journal in yu_security_awareness_2014
+Warning--empty year in yu_security_awareness_2014
 You've used 14 entries,
             2118 wiz_defined-function locations,
             563 strings with 6036 characters,
@@ -75,4 +71,4 @@ warning$ -- 18
 while$ -- 45
 width$ -- 16
 write$ -- 132
-(There was 1 error message)
+(There were 23 warnings)
