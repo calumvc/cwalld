@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  19 MAR 2026 23:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  20 MAR 2026 19:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,9 +435,15 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box68
 \enit@count@id=\count328
 \enitdp@description=\count329
+) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
+\multirow@colwidth=\skip70
+\multirow@cntb=\count330
+\multirow@dima=\skip71
+\bigstrutjot=\dimen276
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2026/02/14 v26.3 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
-\babel@savecnt=\count330
+\babel@savecnt=\count331
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding OT1) on input line 2078.
 LaTeX Encoding Info:    Redeclaring text command \IJ (encoding OT1) on input line 2080.
 LaTeX Encoding Info:    Redeclaring text command \ij (encoding T1) on input line 2082.
@@ -445,11 +451,11 @@ LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
-\U@D=\dimen276
+\U@D=\dimen277
 \l@unhyphenated=\language3
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
-\bbl@dirlevel=\count331
+\bbl@dirlevel=\count332
 Package babel Info: You haven't specified a language as a class or package
 (babel)             option. I'll load 'nil'. Reported on input line 4265.
 Package babel Info: Importing font and identification data for nil
@@ -459,28 +465,28 @@ Language: nil 2026/02/14 v26.3 Nil language
 \l@nil=\language4
 )) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count332
+\l__color_backend_stack_int=\count333
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -518,16 +524,16 @@ LaTeX Font Info:    ... okay on input line 17.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
-\scratchdimen=\dimen277
+\scratchcounter=\count334
+\scratchdimen=\dimen278
 \scratchbox=\box69
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\nofMPsegments=\count335
+\nofMParguments=\count336
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count336
-\MPscratchDim=\dimen278
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen279
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
 \everyMPtoPDFconversion=\toks37
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -535,16 +541,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 17.
+Package hyperref Info: Link coloring ON on input line 18.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-\c@lstlisting=\count339
-<./images/strath_fullcolour.png, id=139, 582.4962pt x 422.7795pt>
+\c@lstlisting=\count340
+<./images/strath_fullcolour.png, id=143, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
-Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 30.
+Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 31.
 (pdftex.def)             Requested size: 116.49718pt x 84.5544pt.
  [1
 
@@ -552,7 +558,7 @@ Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 30.
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 \clearpage
+l.80 \clearpage
                 [1
 
 ] (./main.toc
@@ -581,55 +587,60 @@ l.30   \item U
 ]) [2] (./sections/background-literature.tex [3
 
 ] [4] [5] [6]
-<figs/selinux.png, id=262, 613.29124pt x 283.0575pt>
+<figs/selinux.png, id=267, 613.29124pt x 283.0575pt>
 File: figs/selinux.png Graphic file (type png)
 <use figs/selinux.png>
-Package pdftex.def Info: figs/selinux.png  used on input line 141.
+Package pdftex.def Info: figs/selinux.png  used on input line 142.
 (pdftex.def)             Requested size: 364.19667pt x 168.09088pt.
  [7 <./figs/selinux.png>]
-<figs/redhat.png, id=274, 889.3225pt x 712.6625pt>
+<figs/redhat.png, id=279, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
-Package pdftex.def Info: figs/redhat.png  used on input line 170.
+Package pdftex.def Info: figs/redhat.png  used on input line 191.
 (pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
 
 
-LaTeX Warning: Citation `turing1950computing' on page 8 undefined on input line 187.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [8 <./figs/redhat.png>] [9] (./sections/process.tex
-<figs/ganttchart.png, id=292, 1033.8625pt x 634.37pt>
-File: figs/ganttchart.png Graphic file (type png)
-<use figs/ganttchart.png>
-Package pdftex.def Info: figs/ganttchart.png  used on input line 19.
-(pdftex.def)             Requested size: 432.48051pt x 265.3688pt.
- [10
+[8]
 
- <./figs/ganttchart.png>] [11] [12]) [13] (./sections/design.tex
-<figs/UML.png, id=314, 1165.35374pt x 1064.97874pt>
+LaTeX Warning: Citation `turing1950computing' on page 9 undefined on input line 208.
+
+) [9 <./figs/redhat.png>] (./sections/process.tex [10
+
+]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [11] [12] (./sections/design.tex
+<figs/UML.png, id=312, 1165.35374pt x 1064.97874pt>
 File: figs/UML.png Graphic file (type png)
 <use figs/UML.png>
-Package pdftex.def Info: figs/UML.png  used on input line 15.
+Package pdftex.def Info: figs/UML.png  used on input line 33.
 (pdftex.def)             Requested size: 432.48051pt x 395.22223pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [14
+[13
 
-] [15 <./figs/UML.png>] (./sections/product.tex) [16
+]) [14 <./figs/UML.png>] (./sections/product.tex) [15
 
-] (./sections/testing.tex) [17
+] (./sections/testing.tex) [16
 
 ] (./sections/results.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 12.
 
-) [18
+) [17
 
-] (./sections/reflection.tex) [19
+] (./sections/reflection.tex) [18
 
-] (./sections/conclusion.tex) [20
+] (./sections/conclusion.tex) [19
 
 ] (./main.bbl
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 4.
@@ -645,17 +656,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--53
 []\OT1/cmss/m/n/10.95 T. Y. Lin.  Chinese wall security policy-an aggressive model.  pages
  []
 
-) [21
+) [20
 
-] (./sections/appendix.tex [22
+] (./sections/appendix.tex [21
 
 ]
-<figs/marking.png, id=361, 533.995pt x 486.31688pt>
+<figs/marking.png, id=359, 533.995pt x 486.31688pt>
 File: figs/marking.png Graphic file (type png)
 <use figs/marking.png>
 Package pdftex.def Info: figs/marking.png  used on input line 14.
 (pdftex.def)             Requested size: 455.24411pt x 414.61053pt.
-) [23
+) [22
 
  <./figs/marking.png>] (./main.aux)
  ***********
@@ -670,21 +681,21 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EA31D3D1CD442F473B7E6A9217E1B40E;4437.
+(rerunfilecheck)             Checksum: 464FF32CC2C12DD0E6647887233EC182;4598.
  ) 
 Here is how much of TeX's memory you used:
- 23138 strings out of 469515
- 423630 string characters out of 5470807
- 835850 words of memory out of 5000000
- 51311 multiletter control sequences out of 15000+600000
+ 23204 strings out of 469515
+ 424752 string characters out of 5470807
+ 837507 words of memory out of 5000000
+ 51373 multiletter control sequences out of 15000+600000
  633718 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,11n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (27 pages, 1285918 bytes).
+Output written on main.pdf (26 pages, 1251358 bytes).
 PDF statistics:
- 423 PDF objects out of 1000 (max. 8388607)
- 365 compressed objects within 4 object streams
+ 421 PDF objects out of 1000 (max. 8388607)
+ 366 compressed objects within 4 object streams
  105 named destinations out of 1000 (max. 500000)
- 307 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 310 words of extra memory for PDF output out of 10000 (max. 10000000)
 

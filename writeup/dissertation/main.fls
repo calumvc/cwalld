@@ -213,6 +213,8 @@ INPUT /usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/share/texmf-dist/tex/latex/multirow/multirow.sty
+INPUT /usr/share/texmf-dist/tex/latex/multirow/multirow.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/babel.sty
 INPUT /usr/share/texmf-dist/tex/generic/babel/txtbabel.def
@@ -305,11 +307,6 @@ INPUT ./sections/process.tex
 INPUT ./sections/process.tex
 INPUT ./sections/process.tex
 INPUT sections/process.tex
-INPUT ./figs/ganttchart.png
-INPUT ./figs/ganttchart.png
-INPUT ./figs/ganttchart.png
-INPUT ./figs/ganttchart.png
-INPUT ./figs/ganttchart.png
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
 INPUT ./sections/design.tex
