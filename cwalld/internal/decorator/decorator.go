@@ -14,6 +14,7 @@ const (
 	Denial
 	Relabel
 	Dbus
+	Atomic
 	Error
 )
 
@@ -38,6 +39,9 @@ func DecorateAndLog(s string, d Decor) {
 		case Dbus: {
 			line = fmt.Sprintf("Daemon restart successful: %s\n", s)
 		}
+		case Atomic: {
+			line = fmt.Sprintf("Atomic process occured: %s\n", s)
+	}
 		case Error: {
 			line = fmt.Sprintf("ERROR: %s\n", s)
 		}

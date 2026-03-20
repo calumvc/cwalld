@@ -1,0 +1,10 @@
+
+[Unit]
+Description=cwalldspeedd
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/cwalldspeedd
+
+[Install]
+WantedBy=multi-user.target

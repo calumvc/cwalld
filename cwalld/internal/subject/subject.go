@@ -22,7 +22,7 @@ func (s *Subject) String() string { // log when we find a new subject
 }
 
 func (s *Subject) ReString() string { // relog when we find an old subject with new properties
-	return fmt.Sprintf("%s under label %s", s.Name, s.Label)
+	return fmt.Sprintf("%s under label %s and new pid %s", s.Name, s.Label, s.Pid)
 }
 
 func (s *Subject) AlterLabel(l string, op utils.Operation) error {

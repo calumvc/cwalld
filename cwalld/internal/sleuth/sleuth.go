@@ -74,7 +74,11 @@ func TailAuditd(DIR string) error {
 func (state *State) trackSubject(line string) error { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before 
 	regexes, err := regexer(line)
 	if err != nil {
-		return err
+		if err.Error() != "Atomic process" {
+			return err
+		}
+
+		return nil // we just wanna ignore atomic processes entirely
 	}
 
 	if regexes.name == "cwalld-enforce" { return nil } // if we log ourselves we will start an infinite loop
@@ -275,9 +279,10 @@ func regexer(line string) (*regexResult, error) {
 		return nil, err
 	}
 
-	if label == "" {
-		// return nil, errors.New(fmt.Sprintf("Process label invalid, because process with pid: %d doesnt exist", intpid))
-		return nil, fmt.Errorf("Process label invalid, because process with pid: %d doesnt exist", intpid)
+	if label == "" { // must be an atomic process (like cat), so we just ignore it
+		decorator.DecorateAndLog(subject_name, decorator.Atomic)
+		return nil, fmt.Errorf("Atomic process")
+		// return nil, fmt.Errorf("Process label invalid, process with pid: %d doesnt exist", intpid)
 	}
 
 	regex = regexp.MustCompile(`r:([^:]+)`)

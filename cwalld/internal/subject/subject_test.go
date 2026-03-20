@@ -41,7 +41,7 @@ func TestReString(t *testing.T) {
 				Label: "test_t",
 				Entrypoint: "subj/test",
 			},
-			want : "test under label test_t",
+			want : "test under label test_t and new pid 12312",
 		},
 	}
 
