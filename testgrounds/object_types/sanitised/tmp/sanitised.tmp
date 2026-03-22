@@ -3727,8 +3727,6 @@ type sanitised_exec_t;
 #line 10
  	
 
-permissive sanitised_t;
-
 ########################################
 #
 # sanitised local policy
@@ -3737,309 +3735,309 @@ allow sanitised_t self:fifo_file { open { getattr read write append ioctl lock }
 allow sanitised_t self:unix_stream_socket { { create { ioctl read getattr lock write setattr append bind connect getopt setopt shutdown } } listen accept };
 
  	 	
-#line 21
+#line 19
 ##### begin files_type(sanitised_t) depth: 1
-#line 21
+#line 19
  	
-#line 21
+#line 19
 	
-#line 21
+#line 19
 	
-#line 21
+#line 19
 		require {
-#line 21
+#line 19
 			
-#line 21
+#line 19
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 21
+#line 19
 	
-#line 21
+#line 19
 		} # end require
-#line 21
+#line 19
 	
-#line 21
+#line 19
 
-#line 21
+#line 19
 
-#line 21
+#line 19
 	typeattribute sanitised_t file_type, non_security_file_type, non_auth_file_type;
-#line 21
+#line 19
 
-#line 21
+#line 19
 	 	
-#line 21
+#line 19
 ##### end files_type(sanitised_t) depth: 0
+#line 19
+ 	
+
+ 	 	
+#line 21
+##### begin domain_use_interactive_fds(sanitised_t) depth: 1
+#line 21
+ 	
+#line 21
+	
+#line 21
+	
+#line 21
+		require {
+#line 21
+			
+#line 21
+		attribute privfd;
+#line 21
+	
+#line 21
+		} # end require
+#line 21
+	
+#line 21
+
+#line 21
+
+#line 21
+	allow sanitised_t privfd:fd use;
+#line 21
+
+#line 21
+	 	
+#line 21
+##### end domain_use_interactive_fds(sanitised_t) depth: 0
 #line 21
  	
 
  	 	
 #line 23
-##### begin domain_use_interactive_fds(sanitised_t) depth: 1
-#line 23
- 	
-#line 23
-	
-#line 23
-	
-#line 23
-		require {
-#line 23
-			
-#line 23
-		attribute privfd;
-#line 23
-	
-#line 23
-		} # end require
-#line 23
-	
-#line 23
-
-#line 23
-
-#line 23
-	allow sanitised_t privfd:fd use;
-#line 23
-
-#line 23
-	 	
-#line 23
-##### end domain_use_interactive_fds(sanitised_t) depth: 0
-#line 23
- 	
-
- 	 	
-#line 25
 ##### begin files_read_etc_files(sanitised_t) depth: 1
-#line 25
+#line 23
  	
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	
-#line 25
+#line 23
 		require {
-#line 25
+#line 23
 			
-#line 25
+#line 23
 		type etc_t;
-#line 25
+#line 23
 	
-#line 25
+#line 23
 		} # end require
-#line 25
+#line 23
 	
-#line 25
+#line 23
 
-#line 25
+#line 23
 
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open read lock ioctl };
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open };
-#line 25
+#line 23
 	allow sanitised_t etc_t:file { open { getattr read ioctl lock } };
-#line 25
+#line 23
 
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open };
-#line 25
+#line 23
 	allow sanitised_t etc_t:lnk_file { getattr read };
-#line 25
+#line 23
 
-#line 25
+#line 23
 	 	 	
-#line 25
+#line 23
 ##### begin files_read_etc_runtime_files(sanitised_t) depth: 2
-#line 25
+#line 23
  	
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	
-#line 25
+#line 23
 		require {
-#line 25
+#line 23
 			
-#line 25
+#line 23
 		type etc_t, etc_runtime_t;
-#line 25
+#line 23
 	
-#line 25
+#line 23
 		} # end require
-#line 25
+#line 23
 	
-#line 25
+#line 23
 
-#line 25
+#line 23
 
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open read lock ioctl };
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open };
-#line 25
+#line 23
 	allow sanitised_t etc_runtime_t:file { open { getattr read ioctl lock } };
-#line 25
+#line 23
 
-#line 25
+#line 23
 	
-#line 25
+#line 23
 	allow sanitised_t etc_t:dir { getattr search open };
-#line 25
+#line 23
 	allow sanitised_t etc_runtime_t:lnk_file { getattr read };
-#line 25
+#line 23
 
-#line 25
+#line 23
 
-#line 25
+#line 23
 	 	
-#line 25
+#line 23
 ##### end files_read_etc_runtime_files(sanitised_t) depth: 1
-#line 25
+#line 23
  	
-#line 25
+#line 23
 
-#line 25
+#line 23
 	 	
-#line 25
+#line 23
 ##### end files_read_etc_files(sanitised_t) depth: 0
-#line 25
+#line 23
  	
 
  	 	
-#line 27
+#line 25
 ##### begin miscfiles_read_localization(sanitised_t) depth: 1
-#line 27
+#line 25
  	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		require {
-#line 27
+#line 25
 			
-#line 27
+#line 25
 		type locale_t;
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		} # end require
-#line 27
+#line 25
 	
-#line 27
+#line 25
 
-#line 27
+#line 25
 
-#line 27
+#line 25
 	 	 	
-#line 27
+#line 25
 ##### begin files_read_etc_symlinks(sanitised_t) depth: 2
-#line 27
+#line 25
  	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		require {
-#line 27
+#line 25
 			
-#line 27
+#line 25
 		type etc_t;
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		} # end require
-#line 27
+#line 25
 	
-#line 27
+#line 25
 
-#line 27
+#line 25
 
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	allow sanitised_t etc_t:dir { getattr search open };
-#line 27
+#line 25
 	allow sanitised_t etc_t:lnk_file { getattr read };
-#line 27
+#line 25
 
-#line 27
+#line 25
 
-#line 27
+#line 25
 	 	
-#line 27
+#line 25
 ##### end files_read_etc_symlinks(sanitised_t) depth: 1
-#line 27
+#line 25
  	
-#line 27
+#line 25
 	 	 	
-#line 27
+#line 25
 ##### begin files_search_usr(sanitised_t) depth: 2
-#line 27
+#line 25
  	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		require {
-#line 27
+#line 25
 			
-#line 27
+#line 25
 		type usr_t;
-#line 27
+#line 25
 	
-#line 27
+#line 25
 		} # end require
-#line 27
+#line 25
 	
-#line 27
+#line 25
 
-#line 27
+#line 25
 
-#line 27
+#line 25
 	allow sanitised_t usr_t:dir { getattr search open };
-#line 27
+#line 25
 
-#line 27
+#line 25
 	 	
-#line 27
+#line 25
 ##### end files_search_usr(sanitised_t) depth: 1
-#line 27
+#line 25
  	
-#line 27
+#line 25
 	allow sanitised_t locale_t:dir { getattr search open read lock ioctl };
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	allow sanitised_t locale_t:dir { getattr search open };
-#line 27
+#line 25
 	allow sanitised_t locale_t:file { open { getattr read ioctl lock } };
-#line 27
+#line 25
 
-#line 27
+#line 25
 	
-#line 27
+#line 25
 	allow sanitised_t locale_t:dir { getattr search open };
-#line 27
+#line 25
 	allow sanitised_t locale_t:lnk_file { getattr read };
-#line 27
+#line 25
 
-#line 27
+#line 25
 	allow sanitised_t locale_t:file map;
-#line 27
+#line 25
 
-#line 27
+#line 25
 	 	
-#line 27
+#line 25
 ##### end miscfiles_read_localization(sanitised_t) depth: 0
-#line 27
+#line 25
  	

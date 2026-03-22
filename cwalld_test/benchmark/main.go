@@ -30,12 +30,12 @@ func main() {
 		println(err.Error())
 	}
 
-	MAX := 5000
+	MAX := 10000
 	timer := 0 // time is the amount of milliseconds that the daemon will sleep for on this run
 	for { // loop until we get it
 		newSpeedd(MAX - timer)
 
-		time.Sleep(time.Millisecond * 500)
+		time.Sleep(time.Millisecond * 1000)
 		
 		breach := checkBeta()
 

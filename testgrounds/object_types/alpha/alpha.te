@@ -9,8 +9,6 @@ type alpha_t;
 type alpha_exec_t;
 init_daemon_domain(alpha_t, alpha_exec_t)
 
-permissive alpha_t;
-
 ########################################
 #
 # alpha local policy

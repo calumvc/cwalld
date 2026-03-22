@@ -44,9 +44,9 @@ make -f /usr/share/selinux/devel/Makefile sanitised.pp || exit
 
 # Generate a man page of the installed module
 sepolicy manpage -p . -d sanitised_t
-# Fixing the file context on /home/cal/testgrounds/object_types/sanitised
-/sbin/restorecon -F -R -v /home/cal/testgrounds/object_types/sanitised
+# Fixing the file context on /home/testgrounds/object_types/sanitised
+/sbin/restorecon -F -R -v /home/testgrounds/object_types/sanitised
 # Generate a rpm package for the newly generated policy
 
-pwd=$(pwd)
+pwd=$(pwd) 
 rpmbuild --define "_sourcedir ${pwd}" --define "_specdir ${pwd}" --define "_builddir ${pwd}" --define "_srcrpmdir ${pwd}" --define "_rpmdir ${pwd}" --define "_buildrootdir ${pwd}/.build"  -ba sanitised_selinux.spec

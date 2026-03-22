@@ -1,4 +1,4 @@
-.TH  "beta_selinux"  "8"  "26-03-10" "beta" "SELinux Policy beta"
+.TH  "beta_selinux"  "8"  "26-03-22" "beta" "SELinux Policy beta"
 .SH "NAME"
 beta_selinux \- Security Enhanced Linux Policy for the beta processes
 .SH "DESCRIPTION"
@@ -30,7 +30,7 @@ SELinux beta policy is very flexible allowing users to setup their beta processe
 The following process types are defined for beta:
 
 .EX
-.B beta_t
+.B beta_t, beta_gamma_r_t, beta_rw_t
 .EE
 .PP
 Note:
@@ -161,6 +161,22 @@ Note: SELinux often uses regular expressions to specify labels that match multip
 
 .EX
 .PP
+.B beta_gamma_r_exec_t
+.EE
+
+- Set files with the beta_gamma_r_exec_t type, if you want to transition an executable to the beta_gamma_r_t domain.
+
+
+.EX
+.PP
+.B beta_rw_exec_t
+.EE
+
+- Set files with the beta_rw_exec_t type, if you want to transition an executable to the beta_rw_t domain.
+
+
+.EX
+.PP
 .B beta_t
 .EE
 
@@ -196,4 +212,4 @@ This manual page was auto-generated using
 .B "sepolicy manpage".
 
 .SH "SEE ALSO"
-selinux(8), beta(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8)
+selinux(8), beta(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8), beta_gamma_r_selinux(8), beta_gamma_r_selinux(8), beta_rw_selinux(8), beta_rw_selinux(8)

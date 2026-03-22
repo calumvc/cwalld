@@ -9,8 +9,6 @@ type sanitised_t;
 type sanitised_exec_t;
 init_daemon_domain(sanitised_t, sanitised_exec_t)
 
-permissive sanitised_t;
-
 ########################################
 #
 # sanitised local policy

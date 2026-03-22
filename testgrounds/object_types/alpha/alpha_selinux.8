@@ -1,4 +1,4 @@
-.TH  "alpha_selinux"  "8"  "26-03-10" "alpha" "SELinux Policy alpha"
+.TH  "alpha_selinux"  "8"  "26-03-22" "alpha" "SELinux Policy alpha"
 .SH "NAME"
 alpha_selinux \- Security Enhanced Linux Policy for the alpha processes
 .SH "DESCRIPTION"
@@ -30,7 +30,7 @@ SELinux alpha policy is very flexible allowing users to setup their alpha proces
 The following process types are defined for alpha:
 
 .EX
-.B alpha_t
+.B alpha_t, alpha_gamma_r_t, alpha_rw_t
 .EE
 .PP
 Note:
@@ -161,6 +161,22 @@ Note: SELinux often uses regular expressions to specify labels that match multip
 
 .EX
 .PP
+.B alpha_gamma_r_exec_t
+.EE
+
+- Set files with the alpha_gamma_r_exec_t type, if you want to transition an executable to the alpha_gamma_r_t domain.
+
+
+.EX
+.PP
+.B alpha_rw_exec_t
+.EE
+
+- Set files with the alpha_rw_exec_t type, if you want to transition an executable to the alpha_rw_t domain.
+
+
+.EX
+.PP
 .B alpha_t
 .EE
 
@@ -196,4 +212,4 @@ This manual page was auto-generated using
 .B "sepolicy manpage".
 
 .SH "SEE ALSO"
-selinux(8), alpha(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8)
+selinux(8), alpha(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8), alpha_gamma_r_selinux(8), alpha_gamma_r_selinux(8), alpha_rw_selinux(8), alpha_rw_selinux(8)

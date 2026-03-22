@@ -9,8 +9,6 @@ type beta_t;
 type beta_exec_t;
 init_daemon_domain(beta_t, beta_exec_t)
 
-permissive beta_t;
-
 ########################################
 #
 # beta local policy

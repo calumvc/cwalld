@@ -1,4 +1,4 @@
-.TH  "gamma_selinux"  "8"  "26-03-10" "gamma" "SELinux Policy gamma"
+.TH  "gamma_selinux"  "8"  "26-03-22" "gamma" "SELinux Policy gamma"
 .SH "NAME"
 gamma_selinux \- Security Enhanced Linux Policy for the gamma processes
 .SH "DESCRIPTION"
@@ -30,7 +30,7 @@ SELinux gamma policy is very flexible allowing users to setup their gamma proces
 The following process types are defined for gamma:
 
 .EX
-.B gamma_t
+.B gamma_t, gamma_rw_t
 .EE
 .PP
 Note:
@@ -161,6 +161,14 @@ Note: SELinux often uses regular expressions to specify labels that match multip
 
 .EX
 .PP
+.B gamma_rw_exec_t
+.EE
+
+- Set files with the gamma_rw_exec_t type, if you want to transition an executable to the gamma_rw_t domain.
+
+
+.EX
+.PP
 .B gamma_t
 .EE
 
@@ -196,4 +204,4 @@ This manual page was auto-generated using
 .B "sepolicy manpage".
 
 .SH "SEE ALSO"
-selinux(8), gamma(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8)
+selinux(8), gamma(8), semanage(8), restorecon(8), chcon(1), sepolicy(8), setsebool(8), gamma_rw_selinux(8), gamma_rw_selinux(8)

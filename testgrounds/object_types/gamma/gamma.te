@@ -9,8 +9,6 @@ type gamma_t;
 type gamma_exec_t;
 init_daemon_domain(gamma_t, gamma_exec_t)
 
-permissive gamma_t;
-
 ########################################
 #
 # gamma local policy
