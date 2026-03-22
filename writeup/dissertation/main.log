@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  20 MAR 2026 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  21 MAR 2026 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,12 +435,13 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box68
 \enit@count@id=\count328
 \enitdp@description=\count329
-) (/usr/share/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
-\multirow@colwidth=\skip70
-\multirow@cntb=\count330
-\multirow@dima=\skip71
-\bigstrutjot=\dimen276
+) (/usr/share/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen276
+\WF@size=\dimen277
+\c@WF@wrappedlines=\count330
+\WF@box=\box69
+\WF@everypar=\toks36
+Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2026/02/14 v26.3 The multilingual framework for LuaLaTeX, pdfLaTeX and XeLaTeX
 \babel@savecnt=\count331
@@ -451,7 +452,7 @@ LaTeX Encoding Info:    Redeclaring text command \IJ (encoding T1) on input line
 LaTeX Encoding Info:    Ignoring declaration for text command \ij (encoding ?) on input line 2084.
 LaTeX Encoding Info:    Ignoring declaration for text command \IJ (encoding ?) on input line 2086.
 LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) on input line 2111.
-\U@D=\dimen277
+\U@D=\dimen278
 \l@unhyphenated=\language3
  (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read3
@@ -525,16 +526,16 @@ LaTeX Font Info:    ... okay on input line 18.
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count334
-\scratchdimen=\dimen278
-\scratchbox=\box69
+\scratchdimen=\dimen279
+\scratchbox=\box70
 \nofMPsegments=\count335
 \nofMParguments=\count336
-\everyMPshowfont=\toks36
+\everyMPshowfont=\toks37
 \MPscratchCnt=\count337
-\MPscratchDim=\dimen279
+\MPscratchDim=\dimen280
 \MPnumerator=\count338
 \makeMPintoPDFobject=\count339
-\everyMPtoPDFconversion=\toks37
+\everyMPtoPDFconversion=\toks38
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -547,7 +548,7 @@ Package hyperref Info: Link coloring ON on input line 18.
 \openout4 = `main.out'.
 
 \c@lstlisting=\count340
-<./images/strath_fullcolour.png, id=143, 582.4962pt x 422.7795pt>
+<./images/strath_fullcolour.png, id=236, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
 Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 31.
@@ -568,45 +569,60 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 3.
-)
+ [2
+
+])
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [2
-
-] (./sections/introduction.tex
+ [3] (./sections/introduction.tex
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 14.
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 18.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30   \item U
+l.36   \item U
               nderstand the principles of: [1
 
-]) [2] (./sections/background-literature.tex [3
+]) [2] (./sections/background-literature.tex
+<figs/chinese-wall-topdown.png, id=346, 285.065pt x 166.6225pt>
+File: figs/chinese-wall-topdown.png Graphic file (type png)
+<use figs/chinese-wall-topdown.png>
+Package pdftex.def Info: figs/chinese-wall-topdown.png  used on input line 15.
+(pdftex.def)             Requested size: 182.09486pt x 106.43463pt.
+ [3
 
-] [4] [5] [6]
-<figs/selinux.png, id=267, 613.29124pt x 283.0575pt>
+ <./figs/chinese-wall-topdown.png>] [4]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 85.
+ [5] [6]
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <9> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 132.
+<figs/securitycontext.png, id=392, 1760.5775pt x 128.48pt>
+File: figs/securitycontext.png Graphic file (type png)
+<use figs/securitycontext.png>
+Package pdftex.def Info: figs/securitycontext.png  used on input line 136.
+(pdftex.def)             Requested size: 455.24411pt x 33.22168pt.
+ [7 <./figs/securitycontext.png>]
+<figs/selinux.png, id=401, 613.29124pt x 282.05376pt>
 File: figs/selinux.png Graphic file (type png)
 <use figs/selinux.png>
-Package pdftex.def Info: figs/selinux.png  used on input line 142.
-(pdftex.def)             Requested size: 364.19667pt x 168.09088pt.
- [7 <./figs/selinux.png>]
-<figs/redhat.png, id=279, 889.3225pt x 712.6625pt>
+Package pdftex.def Info: figs/selinux.png  used on input line 169.
+(pdftex.def)             Requested size: 364.19667pt x 167.49481pt.
+ [8 <./figs/selinux.png>]
+<figs/redhat.png, id=414, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
-Package pdftex.def Info: figs/redhat.png  used on input line 191.
+Package pdftex.def Info: figs/redhat.png  used on input line 221.
 (pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8]
-
-LaTeX Warning: Citation `turing1950computing' on page 9 undefined on input line 208.
-
-) [9 <./figs/redhat.png>] (./sections/process.tex [10
+[9]) [10 <./figs/redhat.png>] (./sections/process.tex [11
 
 ]
 
@@ -615,32 +631,32 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [11] [12] (./sections/design.tex
-<figs/UML.png, id=312, 1165.35374pt x 1064.97874pt>
+) [12] [13] (./sections/design.tex [14
+
+]
+<figs/UML.png, id=449, 1165.35374pt x 1064.97874pt>
 File: figs/UML.png Graphic file (type png)
 <use figs/UML.png>
-Package pdftex.def Info: figs/UML.png  used on input line 33.
-(pdftex.def)             Requested size: 432.48051pt x 395.22223pt.
+Package pdftex.def Info: figs/UML.png  used on input line 63.
+(pdftex.def)             Requested size: 455.24411pt x 416.02255pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[13
+) [15] [16 <./figs/UML.png>] (./sections/product.tex) [17
 
-]) [14 <./figs/UML.png>] (./sections/product.tex) [15
-
-] (./sections/testing.tex) [16
+] (./sections/testing.tex) [18
 
 ] (./sections/results.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 12.
 
-) [17
+) [19
 
-] (./sections/reflection.tex) [18
+] (./sections/reflection.tex) [20
 
-] (./sections/conclusion.tex) [19
+] (./sections/conclusion.tex) [21
 
 ] (./main.bbl
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 4.
@@ -656,17 +672,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--53
 []\OT1/cmss/m/n/10.95 T. Y. Lin.  Chinese wall security policy-an aggressive model.  pages
  []
 
-) [20
+) [22
 
-] (./sections/appendix.tex [21
+] (./sections/appendix.tex [23
 
 ]
-<figs/marking.png, id=359, 533.995pt x 486.31688pt>
+<figs/marking.png, id=495, 533.995pt x 486.31688pt>
 File: figs/marking.png Graphic file (type png)
 <use figs/marking.png>
 Package pdftex.def Info: figs/marking.png  used on input line 14.
 (pdftex.def)             Requested size: 455.24411pt x 414.61053pt.
-) [22
+) [24
 
  <./figs/marking.png>] (./main.aux)
  ***********
@@ -677,25 +693,28 @@ L3 programming layer <2026-01-19>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 464FF32CC2C12DD0E6647887233EC182;4598.
+(rerunfilecheck)             Checksum: 7FEC534860A3D21B845722E0AD4DA32E;8453.
  ) 
 Here is how much of TeX's memory you used:
- 23204 strings out of 469515
- 424752 string characters out of 5470807
- 837507 words of memory out of 5000000
- 51373 multiletter control sequences out of 15000+600000
- 633718 words of font info for 60 fonts, out of 8000000 for 9000
+ 23298 strings out of 469515
+ 426409 string characters out of 5470807
+ 841409 words of memory out of 5000000
+ 51438 multiletter control sequences out of 15000+600000
+ 635893 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,12n,108p,546b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
- </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (26 pages, 1251358 bytes).
+
+pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
+
+ </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (29 pages, 1356711 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 366 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
- 310 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 575 PDF objects out of 1000 (max. 8388607)
+ 505 compressed objects within 6 object streams
+ 128 named destinations out of 1000 (max. 500000)
+ 504 words of extra memory for PDF output out of 10000 (max. 10000000)
 

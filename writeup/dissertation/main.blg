@@ -11,7 +11,6 @@ Warning--entry type for "noauthor_can_nodate" isn't style-file defined
 --line 219 of file bibliography.bib
 Warning--entry type for "james_85_2021" isn't style-file defined
 --line 233 of file bibliography.bib
-Warning--I didn't find a database entry for "turing1950computing"
 Warning--to sort, need author or key in noauthor_red_nodate
 Warning--to sort, need author or key in noauthor_can_nodate
 Warning--to sort, need author or key in noauthor_red_nodate2
@@ -26,49 +25,53 @@ Warning--empty year in herzel_chinese_1978
 Warning--empty year in hsiao_implementing_2010
 Warning--empty booktitle in lin_chinese_1989
 Warning--empty year in lin_chinese_1989
+Warning--empty journal in loscocco_meeting_nodate
+Warning--empty year in loscocco_meeting_nodate
 Warning--empty year in sailer_building_2005
+Warning--empty journal in smalley_conguring_nodate
+Warning--empty year in smalley_conguring_nodate
 Warning--empty year in tsai_practical_2011
 Warning--empty journal in yu_security_awareness_2014
 Warning--empty year in yu_security_awareness_2014
-You've used 14 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            563 strings with 6036 characters,
-and the built_in function-call counts, 5577 in all, are:
-= -- 545
-> -- 203
+            568 strings with 6218 characters,
+and the built_in function-call counts, 6011 in all, are:
+= -- 582
+> -- 223
 < -- 7
-+ -- 87
-- -- 68
-* -- 389
-:= -- 794
-add.period$ -- 42
-call.type$ -- 14
-change.case$ -- 76
++ -- 95
+- -- 74
+* -- 415
+:= -- 872
+add.period$ -- 46
+call.type$ -- 16
+change.case$ -- 85
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 210
-empty$ -- 488
-format.name$ -- 68
-if$ -- 1219
+cite$ -- 38
+duplicate$ -- 230
+empty$ -- 522
+format.name$ -- 74
+if$ -- 1302
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 10
-newline$ -- 71
-num.names$ -- 22
-pop$ -- 128
+int.to.str$ -- 16
+missing$ -- 12
+newline$ -- 79
+num.names$ -- 26
+pop$ -- 145
 preamble$ -- 1
-purify$ -- 62
+purify$ -- 69
 quote$ -- 0
-skip$ -- 182
+skip$ -- 195
 stack$ -- 0
-substring$ -- 499
+substring$ -- 509
 swap$ -- 72
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
-warning$ -- 18
-while$ -- 45
-width$ -- 16
-write$ -- 132
-(There were 23 warnings)
+type$ -- 64
+warning$ -- 22
+while$ -- 49
+width$ -- 18
+write$ -- 146
+(There were 26 warnings)
