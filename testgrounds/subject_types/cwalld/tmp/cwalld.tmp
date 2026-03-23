@@ -3770,7 +3770,7 @@ allow cwalld_t system_dbusd_t:unix_stream_socket connectto;
 allow cwalld_t system_dbusd_var_run_t:dir search;
 allow cwalld_t system_dbusd_var_run_t:sock_file write;
 allow cwalld_t systemd_unit_file_t:service start;
-allow cwalld_t var_log_t:dir { write add_name };
+allow cwalld_t var_log_t:dir { create write add_name };
 allow cwalld_t var_log_t:file { create write open getattr setattr };
 allow cwalld_t unconfined_service_t:dir search;
 allow cwalld_t unconfined_service_t:file { open read relabelfrom relabelto };

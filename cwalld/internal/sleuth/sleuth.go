@@ -282,7 +282,6 @@ func regexer(line string) (*regexResult, error) {
 	if label == "" { // must be an atomic process (like cat), so we just ignore it
 		decorator.DecorateAndLog(subject_name, decorator.Atomic)
 		return nil, fmt.Errorf("Atomic process")
-		// return nil, fmt.Errorf("Process label invalid, process with pid: %d doesnt exist", intpid)
 	}
 
 	regex = regexp.MustCompile(`r:([^:]+)`)
