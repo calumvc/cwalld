@@ -53,27 +53,27 @@
 \contentsline {subsubsection}{\numberline {5.1.2}Packages}{20}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Version Control}{21}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Policy Modules}{21}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Internal Packages}{22}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Verification \& Validation}{23}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Testing Suite}{23}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Testing Constraints}{23}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Results \& Evaluation}{24}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Evaluation Process}{24}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Results of Evaluation}{24}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Returning to the Research Questions}{24}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}RQ1}{24}{subsubsection.7.3.1}%
-\contentsline {subsubsection}{\numberline {7.3.2}RQ2}{24}{subsubsection.7.3.2}%
-\contentsline {subsubsection}{\numberline {7.3.3}Objective 1}{24}{subsubsection.7.3.3}%
-\contentsline {subsubsection}{\numberline {7.3.4}Objective 2}{24}{subsubsection.7.3.4}%
-\contentsline {section}{\numberline {8}Discussion \& Reflection}{25}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Interpreting the Results}{25}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Reflection}{25}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Challenges}{25}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Limitations}{25}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Future Work}{25}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Conclusion}{26}{section.9}%
-\contentsline {section}{\numberline {A}Appendix}{28}{appendix.A}%
-\contentsline {subsection}{\numberline {A.1}cwalld design}{28}{subsection.A.1}%
-\contentsline {subsection}{\numberline {A.2}Policy Modules}{29}{subsection.A.2}%
-\contentsline {subsection}{\numberline {A.3}Red Hat}{31}{subsection.A.3}%
-\contentsline {subsection}{\numberline {A.4}Auditd logs}{32}{subsection.A.4}%
+\contentsline {subsection}{\numberline {5.4}Internal Packages}{23}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Verification \& Validation}{25}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Testing Suite}{25}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Testing Constraints}{25}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Results \& Evaluation}{26}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Evaluation Process}{26}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Results of Evaluation}{26}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Returning to the Research Questions}{26}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}RQ1}{26}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}RQ2}{26}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}Objective 1}{26}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}Objective 2}{26}{subsubsection.7.3.4}%
+\contentsline {section}{\numberline {8}Discussion \& Reflection}{27}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Interpreting the Results}{27}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Reflection}{27}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Challenges}{27}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Limitations}{27}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Future Work}{27}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Conclusion}{28}{section.9}%
+\contentsline {section}{\numberline {A}Appendix}{30}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}cwalld design}{30}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Policy Modules}{31}{subsection.A.2}%
+\contentsline {subsection}{\numberline {A.3}Red Hat}{33}{subsection.A.3}%
+\contentsline {subsection}{\numberline {A.4}Auditd logs}{34}{subsection.A.4}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  23 MAR 2026 19:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  23 MAR 2026 22:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -426,15 +426,27 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
         2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
 
-./strath-dissertation.sty:92: Package color Error: Argument `1.05098' not in range [0,1].
+./strath-dissertation.sty:122: Package keyval Error: function undefined.
 
-See the color package documentation for explanation.
+See the keyval package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.92 \definecolor{codecomment}{RGB}{150, 268, 173}
+l.122 }
+       
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./strath-dissertation.sty:122: Package keyval Error: typestyle undefined.
+
+See the keyval package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
-You're in trouble here.  Try typing  <return>  to proceed.
+l.122 }
+       
+Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ) (/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
@@ -756,19 +768,19 @@ File: lstlang2.sty 2025/11/14 1.11b listings language file
 ) (/usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 56.
- [21]) [22] (./sections/8-testing.tex) [23
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 54.
+ [21] [22]) [23] [24] (./sections/8-testing.tex) [25
 
 ] (./sections/9-results.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 12.
 
-) [24
+) [26
 
-] (./sections/A-reflection.tex) [25
+] (./sections/A-reflection.tex) [27
 
-] (./sections/B-conclusion.tex) [26
+] (./sections/B-conclusion.tex) [28
 
 ] (./main.bbl
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 7.
@@ -789,64 +801,70 @@ Underfull \hbox (badness 8019) in paragraph at lines 14--15
 \OT1/cmss/m/n/10.95 pp. 282,283,284,285,286,287,288,289--282,283,284,285,286,287,288,289, IEEE Computer
  []
 
-) [27
+) [29
 
 ] (./sections/C-appendix.tex
 File: figs/UML.pdf Graphic file (type pdf)
 <use figs/UML.pdf>
 Package pdftex.def Info: figs/UML.pdf  used on input line 8.
 (pdftex.def)             Requested size: 455.24411pt x 415.01968pt.
- [28
+ [30
 
 ]
-<figs/alpha_te.png, id=756, 2750.275pt x 2009.5075pt>
+<figs/alpha_te.png, id=799, 238.8925pt x 130.4875pt>
 File: figs/alpha_te.png Graphic file (type png)
 <use figs/alpha_te.png>
 Package pdftex.def Info: figs/alpha_te.png  used on input line 27.
-(pdftex.def)             Requested size: 455.24411pt x 332.62762pt.
- [29
+(pdftex.def)             Requested size: 455.24411pt x 248.67943pt.
+ [31
 
 
  <./figs/alpha_te.png (PNG copy)>]
-<figs/alpha_rw.png, id=762, 2057.6875pt x 2137.9875pt>
+<figs/alpha_rw.png, id=805, 684.5575pt x 616.3025pt>
 File: figs/alpha_rw.png Graphic file (type png)
 <use figs/alpha_rw.png>
 Package pdftex.def Info: figs/alpha_rw.png  used on input line 36.
-(pdftex.def)             Requested size: 455.24411pt x 473.00117pt.
- [30
+(pdftex.def)             Requested size: 455.24411pt x 409.86423pt.
+ [32
 
  <./figs/alpha_rw.png (PNG copy)>]
-<figs/redhat.png, id=768, 889.3225pt x 712.6625pt>
+<figs/redhat.png, id=812, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
 Package pdftex.def Info: figs/redhat.png  used on input line 47.
 (pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
-<figs/specs2.png, id=769, 3466.9525pt x 1624.0675pt>
+<figs/specs2.png, id=813, 3466.9525pt x 1624.0675pt>
 File: figs/specs2.png Graphic file (type png)
 <use figs/specs2.png>
 Package pdftex.def Info: figs/specs2.png  used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 213.24258pt.
- [31
+ [33
 
  <./figs/redhat.png> <./figs/specs2.png>]
-<figs/auditd_syscall.png, id=776, 2547.5175pt x 276.03125pt>
+<figs/auditd_syscall.png, id=820, 2547.5175pt x 276.03125pt>
 File: figs/auditd_syscall.png Graphic file (type png)
 <use figs/auditd_syscall.png>
 Package pdftex.def Info: figs/auditd_syscall.png  used on input line 67.
 (pdftex.def)             Requested size: 455.24411pt x 49.32545pt.
-<figs/auditd_path.png, id=777, 2547.5175pt x 222.8325pt>
+<figs/auditd_path.png, id=821, 2547.5175pt x 222.8325pt>
 File: figs/auditd_path.png Graphic file (type png)
 <use figs/auditd_path.png>
 Package pdftex.def Info: figs/auditd_path.png  used on input line 76.
 (pdftex.def)             Requested size: 455.24411pt x 39.8191pt.
-<figs/auditd_avc.png, id=778, 2556.55125pt x 211.79124pt>
+<figs/auditd_avc.png, id=822, 2556.55125pt x 211.79124pt>
 File: figs/auditd_avc.png Graphic file (type png)
 <use figs/auditd_avc.png>
 Package pdftex.def Info: figs/auditd_avc.png  used on input line 85.
 (pdftex.def)             Requested size: 455.24411pt x 37.71358pt.
-) [32
+ [34
 
- <./figs/auditd_syscall.png (PNG copy)> <./figs/auditd_path.png (PNG copy)> <./figs/auditd_avc.png (PNG copy)>] (./main.aux)
+ <./figs/auditd_syscall.png (PNG copy)> <./figs/auditd_path.png (PNG copy)> <./figs/auditd_avc.png (PNG copy)>] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+) [35
+
+] [36]) [37] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -859,13 +877,16 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 3942E36B04C2403BC758CED6024D49C1;11763.
  ) 
 Here is how much of TeX's memory you used:
- 25631 strings out of 469515
- 470596 string characters out of 5470807
- 1062421 words of memory out of 5000000
- 53652 multiletter control sequences out of 15000+600000
+ 25953 strings out of 469515
+ 475110 string characters out of 5470807
+ 1220766 words of memory out of 5000000
+ 53854 multiletter control sequences out of 15000+600000
  636366 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,108p,546b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,546b,2066s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
 
@@ -875,11 +896,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
- </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (37 pages, 2759658 bytes).
+ </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (42 pages, 2394536 bytes).
 PDF statistics:
- 884 PDF objects out of 1000 (max. 8388607)
- 778 compressed objects within 8 object streams
- 211 named destinations out of 1000 (max. 500000)
+ 1048 PDF objects out of 1200 (max. 8388607)
+ 933 compressed objects within 10 object streams
+ 327 named destinations out of 1000 (max. 500000)
  717 words of extra memory for PDF output out of 10000 (max. 10000000)
 

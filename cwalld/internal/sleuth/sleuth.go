@@ -35,9 +35,8 @@ func TailAuditd(DIR string) error {
 	state := State{}
 
 	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
-		Follow: true,
-		Poll: false,
-		ReOpen: true, // this will follow the file
+		Follow: true, // keep reading new lines
+		ReOpen: true, // follow & reopen new log rotations
 		Location: &tail.SeekInfo{ Offset: 0, Whence: io.SeekEnd }}) // we only wanna know what happens after we start running the daemon
 
 	if err != nil {
@@ -60,7 +59,7 @@ func TailAuditd(DIR string) error {
 			}
 		}
 
-		if strings.Contains(line.Text, "AVC") { //&& strings.Contains(line.Text, "path"){ // this inclues avc denials
+		if strings.Contains(line.Text, "AVC") { // this inclues avc denials
 			err := state.trackAVC(line.Text)
 			if err != nil {
 				return err
