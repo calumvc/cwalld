@@ -25,12 +25,6 @@ init_daemon_domain(gamma_rw_t, gamma_rw_exec_t)
 allow gamma_rw_t self:fifo_file rw_fifo_file_perms;
 allow gamma_rw_t self:unix_stream_socket create_stream_socket_perms;
 
-domain_use_interactive_fds(gamma_rw_t)
-
-files_read_etc_files(gamma_rw_t)
-
-miscfiles_read_localization(gamma_rw_t)
-
 # cwalld policies
 allow gamma_rw_t gamma_t:file { read write getattr open };
 allow gamma_rw_t alpha_t:file { read getattr open };

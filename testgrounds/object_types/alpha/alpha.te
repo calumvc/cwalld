@@ -1,25 +1,5 @@
-policy_module(alpha, 1.0.0)
-
-########################################
-#
-# Declarations
-#
+module alpha 1.0;
 
 type alpha_t;
-type alpha_exec_t;
-init_daemon_domain(alpha_t, alpha_exec_t)
-
-########################################
-#
-# alpha local policy
-#
-allow alpha_t self:fifo_file rw_fifo_file_perms;
-allow alpha_t self:unix_stream_socket create_stream_socket_perms;
 
 files_type(alpha_t)
-
-domain_use_interactive_fds(alpha_t)
-
-files_read_etc_files(alpha_t)
-
-miscfiles_read_localization(alpha_t)

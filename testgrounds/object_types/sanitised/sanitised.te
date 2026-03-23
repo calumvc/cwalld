@@ -1,25 +1,5 @@
-policy_module(sanitised, 1.0.0)
-
-########################################
-#
-# Declarations
-#
+module sanitised 1.0;
 
 type sanitised_t;
-type sanitised_exec_t;
-init_daemon_domain(sanitised_t, sanitised_exec_t)
-
-########################################
-#
-# sanitised local policy
-#
-allow sanitised_t self:fifo_file rw_fifo_file_perms;
-allow sanitised_t self:unix_stream_socket create_stream_socket_perms;
 
 files_type(sanitised_t)
-
-domain_use_interactive_fds(sanitised_t)
-
-files_read_etc_files(sanitised_t)
-
-miscfiles_read_localization(sanitised_t)

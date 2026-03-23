@@ -1,25 +1,5 @@
-policy_module(gamma, 1.0.0)
-
-########################################
-#
-# Declarations
-#
+module gamma 1.0;
 
 type gamma_t;
-type gamma_exec_t;
-init_daemon_domain(gamma_t, gamma_exec_t)
-
-########################################
-#
-# gamma local policy
-#
-allow gamma_t self:fifo_file rw_fifo_file_perms;
-allow gamma_t self:unix_stream_socket create_stream_socket_perms;
 
 files_type(gamma_t)
-
-domain_use_interactive_fds(gamma_t)
-
-files_read_etc_files(gamma_t)
-
-miscfiles_read_localization(gamma_t)

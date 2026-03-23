@@ -3400,7 +3400,7 @@ type cwalld_t;
 type cwalld_exec_t;
 
 require {
-	type proc_t;
+  type proc_t;
   type alpha_rw_exec_t;
   type beta_rw_exec_t;
   type gamma_rw_exec_t;
@@ -3794,7 +3794,3 @@ allow cwalld_t domain:process getattr;
 #============= init_t ==============
 allow init_t auditd_log_t:file { open read watch };
 allow init_t cwalld_t:dbus send_msg;
-allow init_t unlabeled_t:file { append execute execute_no_trans };
-
-#!!!! This avc can be allowed using the boolean 'domain_can_mmap_files'
-allow init_t unlabeled_t:file map;

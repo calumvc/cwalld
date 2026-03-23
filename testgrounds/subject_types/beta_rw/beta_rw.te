@@ -24,12 +24,6 @@ init_daemon_domain(beta_rw_t, beta_rw_exec_t)
 allow beta_rw_t self:fifo_file rw_fifo_file_perms;
 allow beta_rw_t self:unix_stream_socket create_stream_socket_perms;
 
-domain_use_interactive_fds(beta_rw_t)
-
-files_read_etc_files(beta_rw_t)
-
-miscfiles_read_localization(beta_rw_t)
-
 # cwalld rules
 allow beta_rw_t beta_t:file { read write getattr open };
 allow beta_rw_t gamma_t:file { read getattr open };

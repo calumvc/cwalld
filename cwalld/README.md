@@ -17,13 +17,13 @@ Run `unzip cwalld.zip`
 cd subject_types/ ... # for all folders
 sudo ./example.sh
 cd object_types/ ... # for all folders
-sudo ./example.sh
+sudo make -f /usr/share/selinux/devel/Makefile ___.te
+sudo semanage -i ___.pp
 ```
 
 ### 3. Build Executables
 from `cwalld/`
 ```
-go build ./cmd/cwalld/cwalld-init
 go build ./cmd/cwalld/cwalld-tail
 go build ./cmd/cwalld/cwalld-enforce
 
@@ -59,10 +59,10 @@ If `Permissive`, run `sudo setenforce 1` and check again
 
 from `cwalld/`
 ```
-sudo cwalld-init
+sudo go run ./cmd/cwalld/cwalld-init
 ```
 to initialise the auditd rule and change the AVC cache for denial logs
-Note: `cwalld-init` needs to be rerun every system reboot to change the cache rules
+running cwalld-init is persistant and should change audit rules forever on the system
 
 ```
 sudo systemctl start cwalld-enforce
