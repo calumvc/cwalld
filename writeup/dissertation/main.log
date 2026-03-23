@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  23 MAR 2026 16:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  23 MAR 2026 19:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -425,6 +425,18 @@ Package: listings 2025/11/14 1.11b (Carsten Heinz)
     but found:
         2025/11/14 1.11b (Carsten Heinz)
     so I'm assuming it got fixed.
+
+./strath-dissertation.sty:92: Package color Error: Argument `1.05098' not in range [0,1].
+
+See the color package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 \definecolor{codecomment}{RGB}{150, 268, 173}
+                                                  
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 ) (/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
 ) (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
@@ -617,7 +629,7 @@ Package hyperref Info: Link coloring ON on input line 20.
 \c@lstlisting=\count355
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<./images/strath_fullcolour.png, id=324, 582.4962pt x 422.7795pt>
+<./images/strath_fullcolour.png, id=320, 582.4962pt x 422.7795pt>
 File: ./images/strath_fullcolour.png Graphic file (type png)
 <use ./images/strath_fullcolour.png>
 Package pdftex.def Info: ./images/strath_fullcolour.png  used on input line 33.
@@ -655,7 +667,7 @@ l.35 \subsection
                 {Objectives} [1
 
 ]) [2] (./sections/4-literature-review.tex
-<figs/chinese-wall-topdown.pdf, id=458, 202.8378pt x 118.5228pt>
+<figs/chinese-wall-topdown.pdf, id=453, 202.8378pt x 118.5228pt>
 File: figs/chinese-wall-topdown.pdf Graphic file (type pdf)
 <use figs/chinese-wall-topdown.pdf>
 Package pdftex.def Info: figs/chinese-wall-topdown.pdf  used on input line 15.
@@ -663,7 +675,7 @@ Package pdftex.def Info: figs/chinese-wall-topdown.pdf  used on input line 15.
  [3
 
  <./figs/chinese-wall-topdown.pdf>]
-<figs/chinese-wall.pdf, id=474, 291.00719pt x 124.54529pt>
+<figs/chinese-wall.pdf, id=469, 291.00719pt x 124.54529pt>
 File: figs/chinese-wall.pdf Graphic file (type pdf)
 <use figs/chinese-wall.pdf>
 Package pdftex.def Info: figs/chinese-wall.pdf  used on input line 47.
@@ -676,13 +688,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [5] [6]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <9> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 148.
-<figs/securitycontext.png, id=522, 1760.5775pt x 128.48pt>
+<figs/securitycontext.png, id=517, 1760.5775pt x 128.48pt>
 File: figs/securitycontext.png Graphic file (type png)
 <use figs/securitycontext.png>
 Package pdftex.def Info: figs/securitycontext.png  used on input line 152.
 (pdftex.def)             Requested size: 455.24411pt x 33.22168pt.
  [7 <./figs/securitycontext.png>]
-<figs/selinux.pdf, id=533, 442.53331pt x 204.765pt>
+<figs/selinux.pdf, id=528, 442.53331pt x 204.765pt>
 File: figs/selinux.pdf Graphic file (type pdf)
 <use figs/selinux.pdf>
 Package pdftex.def Info: figs/selinux.pdf  used on input line 189.
@@ -707,7 +719,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [15
 
 ]
-<figs/alpha_beta_gamma_diagram.pdf, id=604, 207.65579pt x 99.2508pt>
+<figs/alpha_beta_gamma_diagram.pdf, id=599, 207.65579pt x 99.2508pt>
 File: figs/alpha_beta_gamma_diagram.pdf Graphic file (type pdf)
 <use figs/alpha_beta_gamma_diagram.pdf>
 Package pdftex.def Info: figs/alpha_beta_gamma_diagram.pdf  used on input line 64.
@@ -717,30 +729,35 @@ Overfull \hbox (23.41446pt too wide) in paragraph at lines 64--65
  [][] 
  []
 
-<figs/domain_transitions.pdf, id=605, 233.9139pt x 174.6525pt>
+<figs/domain_transitions.pdf, id=600, 233.9139pt x 174.6525pt>
 File: figs/domain_transitions.pdf Graphic file (type pdf)
 <use figs/domain_transitions.pdf>
-Package pdftex.def Info: figs/domain_transitions.pdf  used on input line 70.
+Package pdftex.def Info: figs/domain_transitions.pdf  used on input line 71.
 (pdftex.def)             Requested size: 154.86905pt x 115.63243pt.
 [16 <./figs/alpha_beta_gamma_diagram.pdf> <./figs/domain_transitions.pdf>]
-<figs/cwalld_flowchart.pdf, id=633, 637.42137pt x 463.7325pt>
+<figs/cwalld_flowchart.pdf, id=628, 637.42137pt x 463.7325pt>
 File: figs/cwalld_flowchart.pdf Graphic file (type pdf)
 <use figs/cwalld_flowchart.pdf>
-Package pdftex.def Info: figs/cwalld_flowchart.pdf  used on input line 130.
+Package pdftex.def Info: figs/cwalld_flowchart.pdf  used on input line 132.
 (pdftex.def)             Requested size: 318.66948pt x 231.83737pt.
  [17]
-<figs/UML.pdf, id=652, 818.09637pt x 745.82639pt>
+<figs/UML.pdf, id=647, 818.09637pt x 745.82639pt>
 File: figs/UML.pdf Graphic file (type pdf)
 <use figs/UML.pdf>
-Package pdftex.def Info: figs/UML.pdf  used on input line 142.
+Package pdftex.def Info: figs/UML.pdf  used on input line 144.
 (pdftex.def)             Requested size: 227.62206pt x 207.50984pt.
- [18 <./figs/cwalld_flowchart.pdf> <./figs/UML.pdf>] [19]) (./sections/7-product.tex [20
+ [18 <./figs/cwalld_flowchart.pdf> <./figs/UML.pdf>] [19]) (./sections/7-implementation.tex [20
 
 
-]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 53.
-) [21] [22] (./sections/8-testing.tex) [23
+] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+) (/usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 56.
+ [21]) [22] (./sections/8-testing.tex) [23
 
 ] (./sections/9-results.tex
 
@@ -782,7 +799,7 @@ Package pdftex.def Info: figs/UML.pdf  used on input line 8.
  [28
 
 ]
-<figs/alpha_te.png, id=742, 2750.275pt x 2009.5075pt>
+<figs/alpha_te.png, id=756, 2750.275pt x 2009.5075pt>
 File: figs/alpha_te.png Graphic file (type png)
 <use figs/alpha_te.png>
 Package pdftex.def Info: figs/alpha_te.png  used on input line 27.
@@ -791,7 +808,7 @@ Package pdftex.def Info: figs/alpha_te.png  used on input line 27.
 
 
  <./figs/alpha_te.png (PNG copy)>]
-<figs/alpha_rw.png, id=748, 2057.6875pt x 2137.9875pt>
+<figs/alpha_rw.png, id=762, 2057.6875pt x 2137.9875pt>
 File: figs/alpha_rw.png Graphic file (type png)
 <use figs/alpha_rw.png>
 Package pdftex.def Info: figs/alpha_rw.png  used on input line 36.
@@ -799,12 +816,12 @@ Package pdftex.def Info: figs/alpha_rw.png  used on input line 36.
  [30
 
  <./figs/alpha_rw.png (PNG copy)>]
-<figs/redhat.png, id=754, 889.3225pt x 712.6625pt>
+<figs/redhat.png, id=768, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
 Package pdftex.def Info: figs/redhat.png  used on input line 47.
 (pdftex.def)             Requested size: 227.62206pt x 182.40617pt.
-<figs/specs2.png, id=755, 3466.9525pt x 1624.0675pt>
+<figs/specs2.png, id=769, 3466.9525pt x 1624.0675pt>
 File: figs/specs2.png Graphic file (type png)
 <use figs/specs2.png>
 Package pdftex.def Info: figs/specs2.png  used on input line 56.
@@ -812,17 +829,17 @@ Package pdftex.def Info: figs/specs2.png  used on input line 56.
  [31
 
  <./figs/redhat.png> <./figs/specs2.png>]
-<figs/auditd_syscall.png, id=762, 2547.5175pt x 276.03125pt>
+<figs/auditd_syscall.png, id=776, 2547.5175pt x 276.03125pt>
 File: figs/auditd_syscall.png Graphic file (type png)
 <use figs/auditd_syscall.png>
 Package pdftex.def Info: figs/auditd_syscall.png  used on input line 67.
 (pdftex.def)             Requested size: 455.24411pt x 49.32545pt.
-<figs/auditd_path.png, id=763, 2547.5175pt x 222.8325pt>
+<figs/auditd_path.png, id=777, 2547.5175pt x 222.8325pt>
 File: figs/auditd_path.png Graphic file (type png)
 <use figs/auditd_path.png>
 Package pdftex.def Info: figs/auditd_path.png  used on input line 76.
 (pdftex.def)             Requested size: 455.24411pt x 39.8191pt.
-<figs/auditd_avc.png, id=764, 2556.55125pt x 211.79124pt>
+<figs/auditd_avc.png, id=778, 2556.55125pt x 211.79124pt>
 File: figs/auditd_avc.png Graphic file (type png)
 <use figs/auditd_avc.png>
 Package pdftex.def Info: figs/auditd_avc.png  used on input line 85.
@@ -839,16 +856,16 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7AA622F209F5C408CFC0AF1298367EEE;11886.
+(rerunfilecheck)             Checksum: 3942E36B04C2403BC758CED6024D49C1;11763.
  ) 
 Here is how much of TeX's memory you used:
- 25226 strings out of 469515
- 466570 string characters out of 5470807
- 876893 words of memory out of 5000000
- 53271 multiletter control sequences out of 15000+600000
- 636198 words of font info for 68 fonts, out of 8000000 for 9000
+ 25631 strings out of 469515
+ 470596 string characters out of 5470807
+ 1062421 words of memory out of 5000000
+ 53652 multiletter control sequences out of 15000+600000
+ 636366 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,108p,546b,555s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,546b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist, replaced by a fixed one
 
@@ -858,11 +875,11 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
- </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (37 pages, 2740412 bytes).
+ </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (37 pages, 2759658 bytes).
 PDF statistics:
- 859 PDF objects out of 1000 (max. 8388607)
- 757 compressed objects within 8 object streams
- 196 named destinations out of 1000 (max. 500000)
- 725 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 884 PDF objects out of 1000 (max. 8388607)
+ 778 compressed objects within 8 object streams
+ 211 named destinations out of 1000 (max. 500000)
+ 717 words of extra memory for PDF output out of 10000 (max. 10000000)
 
