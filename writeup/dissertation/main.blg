@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99e (TeX Live 2026/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-The style file: abbrv.bst
+The style file: ieeetr.bst
 Database file #1: bibliography.bib
 Warning--entry type for "noauthor_red_nodate" isn't style-file defined
 --line 184 of file bibliography.bib
@@ -11,72 +11,69 @@ Warning--entry type for "noauthor_can_nodate" isn't style-file defined
 --line 219 of file bibliography.bib
 Warning--entry type for "james_85_2021" isn't style-file defined
 --line 233 of file bibliography.bib
-Warning--to sort, need author or key in noauthor_red_nodate
-Warning--to sort, need author or key in noauthor_can_nodate
-Warning--to sort, need author or key in noauthor_red_nodate2
+Warning--empty year in brewer_chinese_1989
 Warning--empty journal in bell_secure_1973
 Warning--empty year in bell_secure_1973
-Warning--empty year in brewer_chinese_1989
-Warning--empty year in fan_mandatory_2009
-Warning--empty journal in foley_building_1997
-Warning--empty year in foley_building_1997
-Warning--empty journal in herzel_chinese_1978
-Warning--empty year in herzel_chinese_1978
-Warning--empty year in hsiao_implementing_2010
-Warning--empty year in khan_selinux_2011
-Warning--empty journal in koehler_linux_2001
-Warning--empty year in koehler_linux_2001
 Warning--empty booktitle in lin_chinese_1989
 Warning--empty year in lin_chinese_1989
-Warning--empty journal in loscocco_meeting_nodate
-Warning--empty year in loscocco_meeting_nodate
+Warning--empty journal in foley_building_1997
+Warning--empty year in foley_building_1997
+Warning--empty year in fan_mandatory_2009
 Warning--empty year in sailer_building_2005
-Warning--empty journal in sarna-starosta_policy_nodate
-Warning--empty year in sarna-starosta_policy_nodate
-Warning--empty journal in smalley_conguring_nodate
-Warning--empty year in smalley_conguring_nodate
 Warning--empty year in tsai_practical_2011
 Warning--empty journal in yu_security_awareness_2014
 Warning--empty year in yu_security_awareness_2014
+Warning--empty year in hsiao_implementing_2010
+Warning--empty journal in herzel_chinese_1978
+Warning--empty year in herzel_chinese_1978
+Warning--empty year in khan_selinux_2011
+Warning--empty journal in smalley_conguring_nodate
+Warning--empty year in smalley_conguring_nodate
+Warning--empty journal in loscocco_meeting_nodate
+Warning--empty year in loscocco_meeting_nodate
+Warning--empty journal in koehler_linux_2001
+Warning--empty year in koehler_linux_2001
+Warning--empty journal in sarna-starosta_policy_nodate
+Warning--empty year in sarna-starosta_policy_nodate
 You've used 19 entries,
-            2118 wiz_defined-function locations,
-            583 strings with 6647 characters,
-and the built_in function-call counts, 7066 in all, are:
-= -- 684
-> -- 266
-< -- 8
-+ -- 112
-- -- 88
-* -- 489
-:= -- 1035
-add.period$ -- 55
+            1876 wiz_defined-function locations,
+            562 strings with 6407 characters,
+and the built_in function-call counts, 5441 in all, are:
+= -- 524
+> -- 162
+< -- 0
++ -- 63
+- -- 44
+* -- 389
+:= -- 683
+add.period$ -- 18
 call.type$ -- 19
-change.case$ -- 101
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 274
-empty$ -- 607
-format.name$ -- 88
-if$ -- 1523
+cite$ -- 43
+duplicate$ -- 269
+empty$ -- 566
+format.name$ -- 44
+if$ -- 1316
 int.to.chr$ -- 0
 int.to.str$ -- 19
 missing$ -- 15
-newline$ -- 94
-num.names$ -- 32
-pop$ -- 171
+newline$ -- 67
+num.names$ -- 16
+pop$ -- 116
 preamble$ -- 1
-purify$ -- 82
+purify$ -- 0
 quote$ -- 0
-skip$ -- 227
+skip$ -- 209
 stack$ -- 0
-substring$ -- 581
-swap$ -- 83
-text.length$ -- 8
+substring$ -- 494
+swap$ -- 98
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
-warning$ -- 27
-while$ -- 60
+type$ -- 0
+warning$ -- 24
+while$ -- 47
 width$ -- 21
-write$ -- 174
-(There were 31 warnings)
+write$ -- 155
+(There were 28 warnings)
