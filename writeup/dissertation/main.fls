@@ -313,6 +313,11 @@ INPUT ./figs/chinese-wall-topdown.pdf
 INPUT ./figs/chinese-wall-topdown.pdf
 INPUT ./figs/chinese-wall-topdown.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcss1095.tfm
+INPUT ./figs/chinese-wall.pdf
+INPUT ./figs/chinese-wall.pdf
+INPUT ./figs/chinese-wall.pdf
+INPUT ./figs/chinese-wall.pdf
+INPUT ./figs/chinese-wall.pdf
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr9.tfm

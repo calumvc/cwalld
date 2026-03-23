@@ -23,55 +23,60 @@ Warning--empty year in foley_building_1997
 Warning--empty journal in herzel_chinese_1978
 Warning--empty year in herzel_chinese_1978
 Warning--empty year in hsiao_implementing_2010
+Warning--empty year in khan_selinux_2011
+Warning--empty journal in koehler_linux_2001
+Warning--empty year in koehler_linux_2001
 Warning--empty booktitle in lin_chinese_1989
 Warning--empty year in lin_chinese_1989
 Warning--empty journal in loscocco_meeting_nodate
 Warning--empty year in loscocco_meeting_nodate
 Warning--empty year in sailer_building_2005
+Warning--empty journal in sarna-starosta_policy_nodate
+Warning--empty year in sarna-starosta_policy_nodate
 Warning--empty journal in smalley_conguring_nodate
 Warning--empty year in smalley_conguring_nodate
 Warning--empty year in tsai_practical_2011
 Warning--empty journal in yu_security_awareness_2014
 Warning--empty year in yu_security_awareness_2014
-You've used 16 entries,
+You've used 19 entries,
             2118 wiz_defined-function locations,
-            568 strings with 6218 characters,
-and the built_in function-call counts, 6011 in all, are:
-= -- 582
-> -- 223
-< -- 7
-+ -- 95
-- -- 74
-* -- 415
-:= -- 872
-add.period$ -- 46
-call.type$ -- 16
-change.case$ -- 85
+            583 strings with 6647 characters,
+and the built_in function-call counts, 7066 in all, are:
+= -- 684
+> -- 266
+< -- 8
++ -- 112
+- -- 88
+* -- 489
+:= -- 1035
+add.period$ -- 55
+call.type$ -- 19
+change.case$ -- 101
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 230
-empty$ -- 522
-format.name$ -- 74
-if$ -- 1302
+cite$ -- 46
+duplicate$ -- 274
+empty$ -- 607
+format.name$ -- 88
+if$ -- 1523
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 12
-newline$ -- 79
-num.names$ -- 26
-pop$ -- 145
+int.to.str$ -- 19
+missing$ -- 15
+newline$ -- 94
+num.names$ -- 32
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 69
+purify$ -- 82
 quote$ -- 0
-skip$ -- 195
+skip$ -- 227
 stack$ -- 0
-substring$ -- 509
-swap$ -- 72
-text.length$ -- 7
+substring$ -- 581
+swap$ -- 83
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 22
-while$ -- 49
-width$ -- 18
-write$ -- 146
-(There were 26 warnings)
+type$ -- 76
+warning$ -- 27
+while$ -- 60
+width$ -- 21
+write$ -- 174
+(There were 31 warnings)
