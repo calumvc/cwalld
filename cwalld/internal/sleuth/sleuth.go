@@ -7,7 +7,6 @@ import (
 	"cwalld/internal/utils"
 	"fmt"
 	"io"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -29,6 +28,7 @@ type regexResult struct { // just used to more easily seperate regex logic from 
 	audit_id string
 	success string
 	operation string
+	entrypoint string
 }
 
 func TailAuditd(DIR string) error {
@@ -76,6 +76,7 @@ func TailAuditd(DIR string) error {
 
 func (state *State) trackSubject(line string) error { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before 
 	regexes, err := regexer(line)
+
 	if err != nil {
 		if err.Error() != "Atomic process" {
 			return err
@@ -102,15 +103,10 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		}
 	}
 
-	entrypoint, err := os.Readlink(fmt.Sprintf("/proc/%s/exe", regexes.pid)) // get the entrypoint of the subject
-
-	if err != nil {
-		return err
-	}
-
 	if subj == nil { // add it to the global list of subjects if not
-		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: entrypoint }
+		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: regexes.entrypoint }
 		state.subjects = append(state.subjects, *subj)
+
 		if seen != true {
 			decorator.DecorateAndLog(subj.String(), decorator.Register)
 		} else {
@@ -168,14 +164,8 @@ func (state *State) trackObject(line string) error {
 		return err
 	}
 
-	object_label, err := selinux.FileLabel(object_path)
-
-	if err != nil { 
-		return err
-	}
-
 	regex = regexp.MustCompile(`r:([^:]+)`)
-	regex_label_type := regex.FindStringSubmatch(object_label)
+	regex_label_type := regex.FindStringSubmatch(line)
 	label_type, err := utils.RegexErr(regex_label_type, "label type")
 
 	if err != nil {
@@ -185,6 +175,7 @@ func (state *State) trackObject(line string) error {
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
 			state.audits[i].Object = &utils.Object{ Name: object_path, Label: label_type } 
+
 			decorator.DecorateAndLog(state.audits[i].String(), decorator.Audit)
 
 			if state.audits[i].Success == true { // if it succesfully read/wrote, then alter the label as necessary
@@ -209,7 +200,7 @@ func (state *State) trackAVC(line string) error {
 	
 	var object string
 
-	if strings.Contains(line, "name") {
+	if strings.Contains(line, "name") { // auditd can return the object with 2 different names, the object itself or the whole path
 		regex = regexp.MustCompile(`\bname="([^"]+)"`)
 		regex_object := regex.FindStringSubmatch(line)
 		object, err = utils.RegexErr(regex_object, "Object")
@@ -217,6 +208,7 @@ func (state *State) trackAVC(line string) error {
 		if err != nil { 
 			return err
 		}
+
 	} else
 	if strings.Contains(line, "path") {
 		regex = regexp.MustCompile(`\bpath="([^"]+)"`)
@@ -236,7 +228,7 @@ func (state *State) trackAVC(line string) error {
 		return err 
 	}
 
-	for _, s := range state.subjects {
+	for _, s := range state.subjects { // find the subject that did it
 		if s.Pid == pid {
 			line := fmt.Sprintf("%s\tattempted { %s }\ton %s", s.Name, operation, object)
 			decorator.DecorateAndLog(line, decorator.Denial)
@@ -328,6 +320,12 @@ func regexer(line string) (*regexResult, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	regex = regexp.MustCompile(`\bexe="([^"]+)"`)
+	regex_entrypoint := regex.FindStringSubmatch(line)
+	entrypoint, err := utils.RegexErr(regex_entrypoint, "entrypoint")
+
+	s.entrypoint = entrypoint
 
 	return &s, nil
 }

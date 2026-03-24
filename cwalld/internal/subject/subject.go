@@ -27,7 +27,9 @@ func (s *Subject) ReString() string { // relog when we find an old subject with 
 
 func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	label_change := false
+
 	if s.Label == "unconfined_service_t" || s.Label == "init_t" { // if the subject hasn't been restricted yet
+
 		if op.String() == "Read" || op.String() == "ReadWrite" { // if they read from an object, align them with it
 			switch l {
 				case "alpha_t" : {
@@ -46,6 +48,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 		}
 	}
 
+	// then check regular labels, we dont need to worry about instantly changing it again because we set their label to the exec version and not the running one
 	if s.Label == "alpha_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
 		label_change = true
 		s.Label = "alpha_gamma_r_exec_t"
@@ -77,7 +80,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 }
 
 func (s *Subject) restartSubject() error { // subject needs to be restarted to actually get its new label from entrypoint
-	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label)
+	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label) // FIXME: before submission, get its actual surrounding label and put it back on :/
 	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
 
 	err := selinux.Chcon(s.Entrypoint, label, false)
@@ -94,7 +97,7 @@ func (s *Subject) restartSubject() error { // subject needs to be restarted to a
 		return err
 	}
 
-	response_channel := make(chan string, 1)
+	response_channel := make(chan string, 1) // function requires a response channel
 	conn.RestartUnitContext(context.Background(), fmt.Sprintf("%s.service", s.Name), "replace", response_channel)
 	result := <- response_channel
 	decorator.DecorateAndLog(result, decorator.Dbus)

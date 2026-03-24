@@ -33,7 +33,7 @@ func (o Operation) String() string {
 	return "Unknown"
 }
 
-func RegexErr(s []string, regex_type string) (string, error) {
+func RegexErr(s []string, regex_type string) (string, error) { // this is to streamline regex error checks and getting the exact variable from the slice
 	if s == nil {
 		return "", errors.New("Regex failed on " + regex_type)
 	}
