@@ -40,7 +40,7 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 
 	if label_type == "unconfined_service_t" || label_type == "init_t" { // if the subject hasn't been restricted yet
 
-		if op.String() == "Read" || op.String() == "ReadWrite" { // if they read from an object, align them with it
+		if op == utils.Read || op == utils.ReadWrite { // if they read from an object, align them with it
 			switch l {
 				case "alpha_t" : {
 					label_change = "alpha_rw_exec_t"
@@ -55,19 +55,19 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 		}
 	}
 
-	if label_type == "alpha_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+	if label_type == "alpha_rw_t" && l == "gamma_t" && (op == utils.Read || op == utils.ReadWrite) {
 		label_change = "alpha_gamma_r_exec_t"
 	}
 
-	if label_type == "beta_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+	if label_type == "beta_rw_t" && l == "gamma_t" && (op == utils.Read || op == utils.ReadWrite) {
 		label_change = "beta_gamma_r_exec_t"
 	}
 
-	if label_type == "gamma_rw_t" && l == "alpha_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+	if label_type == "gamma_rw_t" && l == "alpha_t" && (op == utils.Read || op == utils.ReadWrite) {
 		label_change = "alpha_gamma_r_exec_t"
 	}
 
-	if label_type == "gamma_rw_t" && l == "beta_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+	if label_type == "gamma_rw_t" && l == "beta_t" && (op == utils.Read || op == utils.ReadWrite) {
 		label_change = "beta_gamma_r_exec_t"
 	}
 
