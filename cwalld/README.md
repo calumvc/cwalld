@@ -24,7 +24,6 @@ sudo semanage -i ___.pp
 ### 3. Build Executables
 from `cwalld/`
 ```
-go build ./cmd/cwalld/cwalld-tail
 go build ./cmd/cwalld/cwalld-enforce
 
 sudo cp cwalld-enforce /usr/local/sbin
@@ -70,7 +69,7 @@ sudo systemctl start cwalld-enforce
 
 Run any desired subject with `sudo systemctl start exampled`
 
-`cwalld-enforce` writes to `/var/log/cwalld/cwalld.log`, so we can tail it and view updates from `cwalld/` with 
+`cwalld-enforce` writes to `/var/log/cwall/cwall.log`, so we can tail it and view updates from `cwalld/` with 
 ```
-sudo ./cwalld-tail
+sudo ./cmd/cwalld/cwalld-tail
 ```
