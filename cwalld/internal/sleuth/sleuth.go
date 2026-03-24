@@ -43,26 +43,28 @@ func TailAuditd(DIR string) error {
 		return err
 	}
 
-	for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
-		if strings.Contains(line.Text, "setroubleshootd") { continue } // ignore this guy
+	for line := range t.Lines { // infinite loop, processing each line 
+		text := line.Text
+		if strings.Contains(text, "setroubleshootd") { continue } // ignore this guy
 
-		decorator.DecorateAndLog(line.Text, decorator.Error)
+		decorator.DecorateAndLog(text, decorator.Error)
 
-		if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
-			err := state.trackSubject(line.Text)
-			if err != nil {
-				return err
-			}
-		}
-		if strings.Contains(line.Text, DIR) && strings.Contains(line.Text, "PATH") { // this is the path line, containing the affected object path
-			err := state.trackObject(line.Text)
+		if strings.Contains(text, "cwalld") && strings.Contains(text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
+			err := state.trackSubject(text)
 			if err != nil {
 				return err
 			}
 		}
 
-		if strings.Contains(line.Text, "AVC") { // this inclues avc denials
-			err := state.trackAVC(line.Text)
+		if strings.Contains(text, DIR) && strings.Contains(text, "PATH") { // this is the path line, containing the affected object path
+			err := state.trackObject(text)
+			if err != nil {
+				return err
+			}
+		}
+
+		if strings.Contains(text, "AVC") { // this inclues avc denials
+			err := state.trackAVC(text)
 			if err != nil {
 				return err
 			}
@@ -274,7 +276,9 @@ func regexer(line string) (*regexResult, error) {
 		return nil, err
 	}
 
-	label, err := selinux.PidLabel(intpid)
+	label, err := selinux.PidLabel(intpid) // this gets the subject label, the reason we use this
+																				 // and not just regex it, is because this also helps confirm
+																				 // if it's an atomic process or not (i.e. it's still running)
 
 	if err != nil {
 		return nil, err
