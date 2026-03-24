@@ -69,6 +69,20 @@ func TestTrackSubject(t *testing.T) { // this should be the same for any time it
 	if !reflect.DeepEqual(state.audits[0], expected_audit) {
 		t.Errorf("expected %s got %s", expected_audit.String(), state.audits[0].String())
 	}
+
+	err = state.trackSubject(line)
+
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
+	line = "type=SYSCALL msg=audit(1773872750.325:248): arch=c000003e syscall=257 success=yes exit=3 a0=ffffff9c a1=402018 a2=0 a3=0 items=1 ppid=1 pid=123141 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm=\"cwalldtestd\" exe=\"/usr/local/bin/cwalldtestd\" subj=system_u:system_r:unconfined_service_t:s0 key=\"cwalld\""
+	err = state.trackSubject(line)
+
+	if err != nil {
+		t.Errorf("Error: %s", err.Error())
+	}
+
 }
 
 func TestTrackObjectLabelChange(t *testing.T) { // a test where it should change the label
@@ -201,6 +215,23 @@ func TestTrackObjectNoLabelChange(t *testing.T) { // a test where it shouldnt ch
 }
 
 func TestTrackAVC(t *testing.T) {
+	state := State{
+		subjects: []subject.Subject{
+			{
+				Pid: "27926",
+				Name: "beta_evild",
+				Label: "system_u:system_r:beta_rw_t:s0",
+				Entrypoint: "/usr/local/bin/beta_evild",
+			},
+		},
+	}
 
+	line := "type=AVC msg=audit(1774377532.025:5148): avc:  denied  { read } for  pid=27926 comm=\"beta_evild\" name=\"alpha_logs\" dev=\"dm-0\" ino=58142854 scontext=system_u:system_r:beta_rw_t:s0 tcontext=unconfined_u:object_r:alpha_t:s0 tclass=file permissive=0"
+
+	err := state.trackAVC(line)
+
+	if err != nil{
+		t.Errorf("Error: %s", err.Error())
+	}
 }
 

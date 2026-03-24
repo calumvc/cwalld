@@ -100,9 +100,15 @@ func TestAlterLabelLayer2(t *testing.T) {
 	}
 
 	for _, c := range cases {
-
-		cmd := exec.Command("sudo", "chcon", "-t", "bin_t", "/usr/local/bin/cwalldtestd")
+		cmd := exec.Command("sudo", "systemctl", "stop", "cwalldtestd.service")
 		res, err := cmd.CombinedOutput()
+
+		if err != nil {
+			t.Errorf("Error: %s", err.Error())
+		}
+
+		cmd = exec.Command("sudo", "chcon", "-t", "bin_t", "/usr/local/bin/cwalldtestd")
+		res, err = cmd.CombinedOutput()
 
 		if err != nil {
 			t.Errorf("Error: %s", err.Error())
