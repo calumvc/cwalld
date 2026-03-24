@@ -46,6 +46,8 @@ func TailAuditd(DIR string) error {
 	for line := range t.Lines { // auditd has 3 parts, syscall, path and avc
 		if strings.Contains(line.Text, "setroubleshootd") { continue } // ignore this guy
 
+		decorator.DecorateAndLog(line.Text, decorator.Error)
+
 		if strings.Contains(line.Text, "cwalld") && strings.Contains(line.Text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
 			err := state.trackSubject(line.Text)
 			if err != nil {

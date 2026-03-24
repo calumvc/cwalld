@@ -13,7 +13,7 @@ int main(void){
     f = fopen("/home/testgrounds/objects/alpha_logs", "r");
     if (f != NULL) {
 
-      usleep(99980);
+      usleep(99550);
 
       FILE *out = fopen("/home/testgrounds/objects/beta_plans", "w");
       if (out != NULL) {

@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	cmd := exec.Command("sudo", "rm", "/var/log/cwalld/cwalld.log")
+	cmd := exec.Command("sudo", "rm", "/var/log/cwall/cwall.log")
 
 	res, err := cmd.CombinedOutput()
 
@@ -41,6 +41,10 @@ func main() {
 
 		if breach {
 			fmt.Printf("Time found: %d x 10^-5!", MAX - timer)
+			// cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service", "cwalld-enforce.service")
+			// res, _ := cmd.CombinedOutput()
+			// println(string(res))
+
 			os.Exit(1)
 		} else {
 			timer += 1
@@ -53,9 +57,9 @@ func newSpeedd(num int) {
 	cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service")
 
 	res, err := cmd.CombinedOutput()
-	res = res
+	// res = res
 
-	// println(string(res))
+	println(string(res))
 
 	if err != nil {
 		println(err.Error())
@@ -97,7 +101,7 @@ func newSpeedd(num int) {
 
 	res, err = cmd.CombinedOutput()
 
-	// println(string(res)) 
+	println(string(res)) 
 
 	if err != nil {
 		println(err.Error())
