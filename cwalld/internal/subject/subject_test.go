@@ -16,10 +16,10 @@ func TestString(t *testing.T) {
 			in: Subject{
 				Pid: "12312",
 				Name: "test",
-				Label: "test_t",
+				Label: "user_u:role_r:test_t:s0",
 				Entrypoint: "subj/test",
 			},
-			want : "pid=12312\tcomm=test\tlabel=test_t\tentrypoint=subj/test",
+			want : "pid=12312\tcomm=test\tlabel=user_u:role_r:test_t:s0\tentrypoint=subj/test",
 		},
 	}
 
@@ -41,10 +41,10 @@ func TestReString(t *testing.T) {
 			in: Subject{
 				Pid: "12312",
 				Name: "test",
-				Label: "test_t",
+				Label: "user_u:role_r:test_t:s0",
 				Entrypoint: "subj/test",
 			},
-			want : "test under label test_t and new pid 12312",
+			want : "test under label user_u:role_r:test_t:s0 and new pid 12312",
 		},
 	}
 
@@ -68,7 +68,7 @@ func TestAlterLabelLayer2(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "unconfined_service_t",
+					Label: "system_u:system_r:unconfined_service_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "alpha_t",
@@ -79,7 +79,7 @@ func TestAlterLabelLayer2(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "unconfined_service_t",
+					Label: "system_u:system_r:unconfined_service_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "beta_t",
@@ -90,7 +90,7 @@ func TestAlterLabelLayer2(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "unconfined_service_t",
+					Label: "system_u:system_r:unconfined_service_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "gamma_t",
@@ -176,7 +176,7 @@ func TestAlterLabelLayer3(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "alpha_rw_t",
+					Label: "system_u:system_r:alpha_rw_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "gamma_t",
@@ -189,7 +189,7 @@ func TestAlterLabelLayer3(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "beta_rw_t",
+					Label: "system_u:system_r:beta_rw_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "gamma_t",
@@ -202,7 +202,7 @@ func TestAlterLabelLayer3(t *testing.T) {
 			in: Subject{
 					Pid: "1",
 					Name: "cwalldtestd",
-					Label: "gamma_rw_t",
+					Label: "system_u:system_r:gamma_rw_t:s0",
 					Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 			in2: "alpha_t",

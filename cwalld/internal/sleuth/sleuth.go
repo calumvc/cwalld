@@ -281,15 +281,7 @@ func regexer(line string) (*regexResult, error) {
 		return nil, fmt.Errorf("Atomic process")
 	}
 
-	regex = regexp.MustCompile(`r:([^:]+)`)
-	regex_label_type := regex.FindStringSubmatch(label)
-	label_type, err := utils.RegexErr(regex_label_type, "label type")
-
-	if err != nil {
-		return nil, err
-	}
-
-	s.label = label_type
+	s.label = label
 
 	regex = regexp.MustCompile(`\bmsg=audit\(([^)]+)`) // regex to catch audit id to combine with other line
 	regex_audit_id := regex.FindStringSubmatch(line)

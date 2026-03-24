@@ -43,7 +43,7 @@ func TestTrackSubject(t *testing.T) { // this should be the same for any time it
 	expected_subj := subject.Subject{
 		Pid: pid,
 		Name: "cwalldtestd",
-		Label: "unconfined_service_t",
+		Label: "system_u:system_r:unconfined_service_t:s0",
 		Entrypoint: "/usr/local/bin/cwalldtestd",
 	}
 
@@ -94,7 +94,7 @@ func TestTrackObjectLabelChange(t *testing.T) { // a test where it should change
 			{
 				Pid: pid,
 				Name: "cwalldtestd",
-				Label: "unconfined_service_t",
+				Label: "system_u:system_r:unconfined_service_t:s0",
 				Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 		},
@@ -166,7 +166,7 @@ func TestTrackObjectNoLabelChange(t *testing.T) { // a test where it shouldnt ch
 			{
 				Pid: pid,
 				Name: "cwalldtestd",
-				Label: "alpha_rw_t",
+				Label: "system_u:system_r:alpha_rw_t:s0",
 				Entrypoint: "/usr/local/bin/cwalldtestd",
 			},
 		},

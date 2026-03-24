@@ -5,6 +5,8 @@ import (
 	"cwalld/internal/decorator"
 	"cwalld/internal/utils"
 	"fmt"
+	"regexp"
+	"strings"
 
 	"github.com/coreos/go-systemd/v22/dbus"
 	"github.com/opencontainers/selinux/go-selinux"
@@ -26,51 +28,51 @@ func (s *Subject) ReString() string { // relog when we find an old subject with 
 }
 
 func (s *Subject) AlterLabel(l string, op utils.Operation) error {
-	label_change := false
+	label_change := "false"
 
-	if s.Label == "unconfined_service_t" || s.Label == "init_t" { // if the subject hasn't been restricted yet
+	regex := regexp.MustCompile(`r:([^:]+)`)
+	regex_label_type := regex.FindStringSubmatch(s.Label)
+	label_type, err := utils.RegexErr(regex_label_type, "label type")
+
+	if err != nil {
+		return err
+	}
+
+	if label_type == "unconfined_service_t" || label_type == "init_t" { // if the subject hasn't been restricted yet
 
 		if op.String() == "Read" || op.String() == "ReadWrite" { // if they read from an object, align them with it
 			switch l {
 				case "alpha_t" : {
-					s.Label = "alpha_rw_exec_t"
-					label_change = true
+					label_change = "alpha_rw_exec_t"
 				}
 				case "beta_t" : {
-					s.Label = "beta_rw_exec_t"
-					label_change = true
+					label_change = "beta_rw_exec_t"
 				}
 				case "gamma_t" : {
-					s.Label = "gamma_rw_exec_t"
-					label_change = true
+					label_change = "gamma_rw_exec_t"
 				}
 			}
 		}
 	}
 
-	// then check regular labels, we dont need to worry about instantly changing it again because we set their label to the exec version and not the running one
-	if s.Label == "alpha_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
-		label_change = true
-		s.Label = "alpha_gamma_r_exec_t"
+	if label_type == "alpha_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+		label_change = "alpha_gamma_r_exec_t"
 	}
 
-	if s.Label == "beta_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
-		label_change = true
-		s.Label = "beta_gamma_r_exec_t"
+	if label_type == "beta_rw_t" && l == "gamma_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+		label_change = "beta_gamma_r_exec_t"
 	}
 
-	if s.Label == "gamma_rw_t" && l == "alpha_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
-		label_change = true
-		s.Label = "alpha_gamma_r_exec_t"
+	if label_type == "gamma_rw_t" && l == "alpha_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+		label_change = "alpha_gamma_r_exec_t"
 	}
 
-	if s.Label == "gamma_rw_t" && l == "beta_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
-		label_change = true
-		s.Label = "beta_gamma_r_exec_t"
+	if label_type == "gamma_rw_t" && l == "beta_t" && (op.String() == "Read" || op.String() == "ReadWrite") {
+		label_change = "beta_gamma_r_exec_t"
 	}
 
-	if label_change {
-		err := s.restartSubject()
+	if label_change != "false" {
+		err := s.restartSubject(label_change)
 		if err != nil {
 			return err
 		}
@@ -79,10 +81,13 @@ func (s *Subject) AlterLabel(l string, op utils.Operation) error {
 	return nil
 }
 
-func (s *Subject) restartSubject() error { // subject needs to be restarted to actually get its new label from entrypoint
-	label := fmt.Sprintf("system_u:object_r:%s:s0", s.Label) // FIXME: before submission, get its actual surrounding label and put it back on :/
-	line := fmt.Sprintf("attempting: %s to %s", s.Name, s.Label)
+func (s *Subject) restartSubject(new_label string) error { // subject needs to be restarted to actually get its new label from entrypoint
+	l_label := strings.Split(s.Label, "u:")
+	r_label := strings.Split(s.Label, "t:")
 
+	label := fmt.Sprintf("%s%s%s", l_label[0] + "u:object_r:", new_label, ":" + r_label[1]) // piece the label back together, it has to have object_r because its an object we're changing
+	line := fmt.Sprintf("attempting: %s to %s", s.Name, label)
+	
 	err := selinux.Chcon(s.Entrypoint, label, false)
 
 	if err != nil {
