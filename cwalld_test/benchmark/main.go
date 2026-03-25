@@ -1,15 +1,19 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"fmt"
 	"os"
 	"os/exec"
+	"strconv"
 	"strings"
 	"time"
 )
 
 func main() {
+
+	times := []int{}
 	cmd := exec.Command("sudo", "rm", "/var/log/cwall/cwall.log")
 
 	res, err := cmd.CombinedOutput()
@@ -26,26 +30,64 @@ func main() {
 	
 	println(string(res))
 
+	cmd = exec.Command("sudo", "sh", "-c", "sudo echo '' > /home/testgrounds/objects/beta_plans")
+	res, _ = cmd.CombinedOutput()
+	println(string(res))
+
 	if err != nil {
 		println(err.Error())
 	}
 
-	MAX := 10000
+	MAX := 400
 	timer := 0 // time is the amount of milliseconds that the daemon will sleep for on this run
+	breached := 0
 	for { // loop until we get it
 		newSpeedd(MAX - timer)
 
-		time.Sleep(time.Millisecond * 1000)
+		time.Sleep(time.Millisecond * 500)
 		
 		breach := checkBeta()
 
-		if breach {
-			fmt.Printf("Time found: %d x 10^-5!", MAX - timer)
-			// cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service", "cwalld-enforce.service")
-			// res, _ := cmd.CombinedOutput()
-			// println(string(res))
+		if breached > 0 && breach == false {
+			breached = 0
+		}
 
-			os.Exit(1)
+		if breach {
+			println("1 breach!")
+			times = append(times, MAX - timer)
+			if breached > 0 {
+				fmt.Printf("Time found: %d x 10^-5!", MAX - timer)
+				cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service")
+				_ = cmd.Run()
+
+				f, err := os.OpenFile("results.csv", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
+
+				if err != nil {
+					println(err.Error())
+				}
+
+				writer := bufio.NewWriter(f)
+
+				for t := range times {
+					writer.WriteString((strconv.Itoa(times[t]) + ","))
+				}
+
+				writer.Flush()
+
+				f.Close()
+				os.Exit(1)
+			}
+			cmd := exec.Command("sudo", "sh", "-c", "sudo echo '' > /home/testgrounds/objects/beta_plans")
+			res, _ := cmd.CombinedOutput()
+
+			println("Beta current contents below")
+			
+			cmd = exec.Command("sudo", "cat", "/home/testgrounds/objects/beta_plans")
+			res, err = cmd.CombinedOutput()
+
+			println(string(res))
+			breached++
+			breach = false
 		} else {
 			timer += 1
 		}

@@ -47,7 +47,7 @@ func TailAuditd(DIR string) error {
 		text := line.Text
 		if strings.Contains(text, "setroubleshootd") { continue } // ignore this guy
 
-		decorator.DecorateAndLog(text, decorator.Error)
+		// decorator.DecorateAndLog(text, decorator.Error)
 
 		if strings.Contains(text, "cwalld") && strings.Contains(text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
 			err := state.trackSubject(text)
@@ -273,6 +273,10 @@ func regexer(line string) (*regexResult, error) {
 																				 // if it's an atomic process or not (i.e. it's still running)
 
 	if err != nil {
+		if strings.Contains(err.Error(), "no such process") {
+			decorator.DecorateAndLog(subject_name, decorator.Atomic)
+			return nil, fmt.Errorf("Atomic process")
+		}
 		return nil, err
 	}
 
