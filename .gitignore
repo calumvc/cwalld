@@ -1,0 +1,15 @@
+
+# binaries
+cwalld-enforce
+cwalldtestd
+cwalldspeedd
+
+# latex artifacts
+*.aux
+*.bbl
+*.blg
+*.fbd_latexmk
+*.fls
+*.log
+*.out
+*.toc
