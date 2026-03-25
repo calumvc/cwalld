@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  25 MAR 2026 16:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.3.16)  25 MAR 2026 22:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -558,7 +558,11 @@ Package babel Info: Importing font and identification data for nil
  (/usr/share/texmf-dist/tex/generic/babel/nil.ldf
 Language: nil 2026/02/14 v26.3 Nil language
 \l@nil=\language4
-)) (./main.aux)
+)) (./main.aux
+
+LaTeX Warning: Label `tab:freq' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
@@ -675,11 +679,11 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <10.95> not available
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38   \item U
-              nderstand the principles of: [1
+l.36 \subsection
+                {Objectives} [1
 
 ]) [2] (./sections/4-literature-review.tex
-<figs/chinese-wall-topdown.pdf, id=468, 202.8378pt x 118.5228pt>
+<figs/chinese-wall-topdown.pdf, id=461, 202.8378pt x 118.5228pt>
 File: figs/chinese-wall-topdown.pdf Graphic file (type pdf)
 <use figs/chinese-wall-topdown.pdf>
 Package pdftex.def Info: figs/chinese-wall-topdown.pdf  used on input line 15.
@@ -687,7 +691,7 @@ Package pdftex.def Info: figs/chinese-wall-topdown.pdf  used on input line 15.
  [3
 
  <./figs/chinese-wall-topdown.pdf>]
-<figs/chinese-wall.pdf, id=484, 291.00719pt x 124.54529pt>
+<figs/chinese-wall.pdf, id=477, 291.00719pt x 124.54529pt>
 File: figs/chinese-wall.pdf Graphic file (type pdf)
 <use figs/chinese-wall.pdf>
 Package pdftex.def Info: figs/chinese-wall.pdf  used on input line 46.
@@ -700,17 +704,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [5] [6]
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <9> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 147.
-<figs/securitycontext.png, id=532, 1760.5775pt x 128.48pt>
+<figs/securitycontext.png, id=525, 1760.5775pt x 128.48pt>
 File: figs/securitycontext.png Graphic file (type png)
 <use figs/securitycontext.png>
 Package pdftex.def Info: figs/securitycontext.png  used on input line 151.
 (pdftex.def)             Requested size: 455.24411pt x 33.22168pt.
  [7 <./figs/securitycontext.png>]
-<figs/selinux.pdf, id=543, 442.53331pt x 204.765pt>
+<figs/selinux.pdf, id=537, 442.53331pt x 204.765pt>
 File: figs/selinux.pdf Graphic file (type pdf)
 <use figs/selinux.pdf>
 Package pdftex.def Info: figs/selinux.pdf  used on input line 188.
-(pdftex.def)             Requested size: 364.19667pt x 168.51764pt.
+(pdftex.def)             Requested size: 386.96027pt x 179.05019pt.
  [8 <./figs/selinux.pdf>] [9]) [10] (./sections/5-specification.tex [11
 
 ] [12]
@@ -731,7 +735,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [15
 
 ]
-<figs/alpha_beta_gamma_diagram.pdf, id=615, 207.65579pt x 99.2508pt>
+<figs/alpha_beta_gamma_diagram.pdf, id=610, 207.65579pt x 99.2508pt>
 File: figs/alpha_beta_gamma_diagram.pdf Graphic file (type pdf)
 <use figs/alpha_beta_gamma_diagram.pdf>
 Package pdftex.def Info: figs/alpha_beta_gamma_diagram.pdf  used on input line 64.
@@ -741,17 +745,17 @@ Overfull \hbox (23.41446pt too wide) in paragraph at lines 64--65
  [][] 
  []
 
-<figs/domain_transitions.pdf, id=616, 233.9139pt x 174.6525pt>
+<figs/domain_transitions.pdf, id=611, 233.9139pt x 174.6525pt>
 File: figs/domain_transitions.pdf Graphic file (type pdf)
 <use figs/domain_transitions.pdf>
 Package pdftex.def Info: figs/domain_transitions.pdf  used on input line 71.
 (pdftex.def)             Requested size: 154.86905pt x 115.63243pt.
 [16 <./figs/alpha_beta_gamma_diagram.pdf> <./figs/domain_transitions.pdf>] [17]
-<figs/UML.pdf, id=663, 826.04607pt x 745.82639pt>
+<figs/UML.pdf, id=658, 826.04607pt x 745.82639pt>
 File: figs/UML.pdf Graphic file (type pdf)
 <use figs/UML.pdf>
 Package pdftex.def Info: figs/UML.pdf  used on input line 145.
-(pdftex.def)             Requested size: 227.62206pt x 205.51826pt.
+(pdftex.def)             Requested size: 273.14923pt x 246.6242pt.
 
 Underfull \hbox (badness 1509) in paragraph at lines 166--168
 \OT1/cmss/m/n/10.95 The CWD \OT1/cmss/m/sl/10.95 Tail \OT1/cmss/m/n/10.95 binary should automatically tail and return every line that is logged in
@@ -764,30 +768,24 @@ Underfull \hbox (badness 1509) in paragraph at lines 166--168
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-)
-
-Package wrapfig Warning: Collision between wrapping environments on input line 72.
-
-[20] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+) [20] (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (/usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
 File: lstlang2.sty 2025/11/14 1.11b listings language file
 ) (/usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2025/11/14 1.11b listings language file
-) [21
+) [21] [22] [23]) [24] (./sections/8-testing.tex [25
 
-] [22] [23] [24]) [25] (./sections/8-testing.tex [26
-
-]) [27] (./sections/9-results.tex
+]) [26] (./sections/9-results.tex
 
 LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
 (Font)              using `OT1/cmss/bx/n' instead on input line 12.
 
-) [28
+) [27
 
-] (./sections/A-reflection.tex) [29
+] (./sections/A-reflection.tex) [28
 
-] (./sections/B-conclusion.tex) [30
+] (./sections/B-conclusion.tex) [29
 
 ] (./main.bbl
 LaTeX Font Info:    Trying to load font information for OMS+cmss on input line 7.
@@ -808,10 +806,10 @@ Underfull \hbox (badness 8019) in paragraph at lines 14--15
 \OT1/cmss/m/n/10.95 pp. 282,283,284,285,286,287,288,289--282,283,284,285,286,287,288,289, IEEE Computer
  []
 
-) [31
+[30
 
-] (./sections/C-appendix.tex
-<figs/cwalld_flowchart.pdf, id=870, 637.42137pt x 463.7325pt>
+]) [31] (./sections/C-appendix.tex
+<figs/cwalld_flowchart.pdf, id=850, 637.42137pt x 463.7325pt>
 File: figs/cwalld_flowchart.pdf Graphic file (type pdf)
 <use figs/cwalld_flowchart.pdf>
 Package pdftex.def Info: figs/cwalld_flowchart.pdf  used on input line 7.
@@ -826,12 +824,12 @@ Package pdftex.def Info: figs/UML.pdf  used on input line 19.
  [33
 
 ]
-<figs/redhat.png, id=892, 889.3225pt x 712.6625pt>
+<figs/redhat.png, id=872, 889.3225pt x 712.6625pt>
 File: figs/redhat.png Graphic file (type png)
 <use figs/redhat.png>
 Package pdftex.def Info: figs/redhat.png  used on input line 33.
 (pdftex.def)             Requested size: 250.38564pt x 200.64244pt.
-<figs/specs2.png, id=894, 3466.9525pt x 1624.0675pt>
+<figs/specs2.png, id=874, 3466.9525pt x 1624.0675pt>
 File: figs/specs2.png Graphic file (type png)
 <use figs/specs2.png>
 Package pdftex.def Info: figs/specs2.png  used on input line 45.
@@ -839,17 +837,17 @@ Package pdftex.def Info: figs/specs2.png  used on input line 45.
  [34
 
  <./figs/redhat.png> <./figs/specs2.png>]
-<figs/auditd_syscall.png, id=901, 2547.5175pt x 276.03125pt>
+<figs/auditd_syscall.png, id=881, 2547.5175pt x 276.03125pt>
 File: figs/auditd_syscall.png Graphic file (type png)
 <use figs/auditd_syscall.png>
 Package pdftex.def Info: figs/auditd_syscall.png  used on input line 56.
 (pdftex.def)             Requested size: 455.24411pt x 49.32545pt.
-<figs/auditd_path.png, id=902, 2547.5175pt x 222.8325pt>
+<figs/auditd_path.png, id=882, 2547.5175pt x 222.8325pt>
 File: figs/auditd_path.png Graphic file (type png)
 <use figs/auditd_path.png>
 Package pdftex.def Info: figs/auditd_path.png  used on input line 65.
 (pdftex.def)             Requested size: 455.24411pt x 39.8191pt.
-<figs/auditd_avc.png, id=903, 2556.55125pt x 211.79124pt>
+<figs/auditd_avc.png, id=883, 2556.55125pt x 211.79124pt>
 File: figs/auditd_avc.png Graphic file (type png)
 <use figs/auditd_avc.png>
 Package pdftex.def Info: figs/auditd_avc.png  used on input line 74.
@@ -863,12 +861,12 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on in
 ] [37
 
 ] [38] [39]
-<figs/before_int.png, id=1040, 443.6575pt x 143.53625pt>
+<figs/before_int.png, id=1020, 443.6575pt x 143.53625pt>
 File: figs/before_int.png Graphic file (type png)
 <use figs/before_int.png>
 Package pdftex.def Info: figs/before_int.png  used on input line 209.
 (pdftex.def)             Requested size: 455.24411pt x 147.28328pt.
-<figs/after_int.png, id=1041, 552.0625pt x 142.5325pt>
+<figs/after_int.png, id=1021, 552.0625pt x 142.5325pt>
 File: figs/after_int.png Graphic file (type png)
 <use figs/after_int.png>
 Package pdftex.def Info: figs/after_int.png  used on input line 216.
@@ -884,17 +882,23 @@ L3 programming layer <2026-01-19>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 618C4CD2A88F990D30A513CD5CE7B07D;12176.
  ) 
 Here is how much of TeX's memory you used:
- 26436 strings out of 469515
- 482803 string characters out of 5470807
- 1227699 words of memory out of 5000000
- 54196 multiletter control sequences out of 15000+600000
+ 26411 strings out of 469515
+ 482511 string characters out of 5470807
+ 1226871 words of memory out of 5000000
+ 54193 multiletter control sequences out of 15000+600000
  636366 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 99i,12n,108p,546b,2039s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,12n,108p,546b,2105s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{figure.caption.36} has been referenced but does not exist, replaced by a fixed one
+
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist, replaced by a fixed one
 
@@ -908,10 +912,10 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist,
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist, replaced by a fixed one
 
  </home/cal/.texlive/texmf-var/fonts/pk/ljfour/jknappen/ec/tcss1095.600pk></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (46 pages, 2373529 bytes).
+Output written on main.pdf (46 pages, 2373630 bytes).
 PDF statistics:
- 1245 PDF objects out of 1440 (max. 8388607)
- 1126 compressed objects within 12 object streams
- 468 named destinations out of 1000 (max. 500000)
+ 1222 PDF objects out of 1440 (max. 8388607)
+ 1103 compressed objects within 12 object streams
+ 446 named destinations out of 1000 (max. 500000)
  741 words of extra memory for PDF output out of 10000 (max. 10000000)
 
