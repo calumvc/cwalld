@@ -34,19 +34,17 @@ func DecorateAndLog(s string, d Decor) {
 			line = fmt.Sprintf("<!DENIAL!>:\t%s\t<!DENIAL!>\n", s)
 		}
 		case Relabel: {
-			line = fmt.Sprintf("|Relabel: %s\n", s)
+			line = fmt.Sprintf("|Relabel:\t%s\n", s)
 		}
 		case Dbus: {
-			line = fmt.Sprintf("Daemon restart successful: %s\n", s)
+			line = fmt.Sprintf("|Daemon restart successful:\t%s\n", s)
 		}
 		case Atomic: {
-			line = fmt.Sprintf("Atomic process occured: %s\n", s)
+			line = fmt.Sprintf("|Atomic process occured:\t%s\n", s)
 	}
 		case Error: {
-			line = fmt.Sprintf("ERROR: %s\n", s)
+			line = fmt.Sprintf("ERROR:\t%s\n", s)
 		}
-	default:
-		line = "ERROR: Decorator bad argument"
 	}
 
 	logger.Log(line)

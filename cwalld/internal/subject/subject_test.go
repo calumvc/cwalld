@@ -7,6 +7,14 @@ import (
 	"testing"
 )
 
+func TestSetup(t *testing.T) {
+		cmd := exec.Command("sudo", "systemctl", "stop", "cwalldtestd.service")
+		err := cmd.Run()
+		if err != nil {
+			t.Errorf("Error: %s", err.Error())
+		}
+}
+
 func TestString(t *testing.T) {
 	cases := []struct{
 		in Subject
@@ -101,28 +109,28 @@ func TestAlterLabelLayer2(t *testing.T) {
 
 	for _, c := range cases {
 		cmd := exec.Command("sudo", "systemctl", "stop", "cwalldtestd.service")
-		res, err := cmd.CombinedOutput()
+		err := cmd.Run()
 
 		if err != nil {
 			t.Errorf("Error: %s", err.Error())
 		}
 
 		cmd = exec.Command("sudo", "chcon", "-t", "bin_t", "/usr/local/bin/cwalldtestd")
-		res, err = cmd.CombinedOutput()
+		err = cmd.Run()
 
 		if err != nil {
 			t.Errorf("Error: %s", err.Error())
 		}
 
 		cmd = exec.Command("sudo", "systemctl", "start", "cwalldtestd")
-		res, err = cmd.CombinedOutput()
+		err = cmd.Run()
 
 		if err != nil {
 			t.Errorf("Error: %s", err.Error())
 		}
 
 		cmd = exec.Command("sudo", "ps", "-efZ")
-		res, err = cmd.CombinedOutput()
+		res, err := cmd.CombinedOutput()
 
 		correct := false
 		for line := range strings.SplitSeq(string(res), "\n") {
