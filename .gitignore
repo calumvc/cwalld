@@ -4,6 +4,9 @@ cwalld-enforce
 cwalldtestd
 cwalldspeedd
 
+# testing
+*.out
+
 # latex artifacts
 *.aux
 *.bbl
@@ -11,5 +14,4 @@ cwalldspeedd
 *.fbd_latexmk
 *.fls
 *.log
-*.out
 *.toc
