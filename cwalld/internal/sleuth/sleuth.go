@@ -46,6 +46,7 @@ func TailAuditd(DIR string) error {
 	for line := range t.Lines { // infinite loop, processing each line 
 		text := line.Text
 		if strings.Contains(text, "setroubleshootd") { continue } // ignore this guy
+		if strings.Contains(text, "cwalld-enforce") { continue } // if we log ourselves we will start an infinite loop
 
 		// decorator.DecorateAndLog(text, decorator.Error)
 
@@ -75,7 +76,7 @@ func TailAuditd(DIR string) error {
 }
 
 func (state *State) trackSubject(line string) error { // we will track details about the subject from this audit, creating details for a new subject if we havent seen it before 
-	regexes, err := regexer(line)
+	regexes, err := regexer(line) // abstract heavy regex logic
 
 	if err != nil {
 		if err.Error() != "Atomic process" {
@@ -85,14 +86,12 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		return nil // we just wanna ignore atomic processes entirely
 	}
 
-	if regexes.name == "cwalld-enforce" { return nil } // if we log ourselves we will start an infinite loop
-
 	var subj *subject.Subject
 	seen := false // this is so we can see when a process comes back with a new pid
 	
 	for i, s := range state.subjects { // if subject is already registered
 		if s.Pid == regexes.pid {
-			subj = &s
+			subj = &s // get the subject details from the state
 			break
 		} else
 		if s.Name == regexes.name { // if weve seen the process before but it got restarted - likely because of a label change
@@ -105,12 +104,12 @@ func (state *State) trackSubject(line string) error { // we will track details a
 
 	if subj == nil { // add it to the global list of subjects if not
 		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: regexes.entrypoint }
-		state.subjects = append(state.subjects, *subj)
+		state.subjects = append(state.subjects, *subj) 
 
 		if seen != true {
-			decorator.DecorateAndLog(subj.String(), decorator.Register)
+			decorator.DecorateAndLog(subj.String(), decorator.Register) // log the register
 		} else {
-			decorator.DecorateAndLog(subj.ReString(), decorator.Reregister)
+			decorator.DecorateAndLog(subj.ReString(), decorator.Reregister) // log the reregister
 			seen = false
 		}
 	}
@@ -120,7 +119,8 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		success = false
 	}
 
-	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal into binary, which is read as an int64 but actually is just straight flags of syscalls
+	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal into binary, 
+																														// which is read as an int64 but actually is just straight flags of syscalls
 
 	if err != nil { 
 		return err 
@@ -152,7 +152,7 @@ func (state *State) trackObject(line string) error {
 
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			if state.audits[i].Subject.Name == "cwalld-enforce" { return nil } // dont track cwalld 
+			if state.audits[i].Subject.Name == "cwalld-enforce" { return nil } // don't track cwalld 
 		}
 	}
 
