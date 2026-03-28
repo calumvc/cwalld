@@ -38,20 +38,20 @@ func main() {
 		println(err.Error())
 	}
 
-	MAX := 500
+	MAX := 123
 	timer := 0 // time is the amount of milliseconds that the daemon will sleep for on this run
 	breached := 0
 	for { // loop until we get it
 		newSpeedd(MAX - timer)
 
-		time.Sleep(time.Millisecond * 600)
+		time.Sleep(time.Millisecond * 300)
 		
 		breach := checkBeta()
 
 		if breach {
 			println("1 breach!")
 			times = append(times, MAX - timer)
-			if (MAX - timer) < 125 {
+			if (MAX - timer) < 1 {
 				fmt.Printf("Time found: %d x 10^-5!", MAX - timer)
 				cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service")
 				_ = cmd.Run()
