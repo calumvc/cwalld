@@ -38,5 +38,12 @@ int main(void){
       fclose(f);
     }
     sleep(1);
+
+    f = fopen("/home/testgrounds/objects/gamma_reports", "r"); // allowed - should now have label beta_gamma_r_t
+    sleep(5);
+    if (f != NULL) {
+      fclose(f);
+    }
+    sleep(1);
   }
 }

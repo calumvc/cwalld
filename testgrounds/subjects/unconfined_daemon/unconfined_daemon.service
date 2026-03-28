@@ -1,0 +1,10 @@
+
+[Unit]
+Description=unconfined_daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/unconfined_daemon
+
+[Install]
+WantedBy=multi-user.target
