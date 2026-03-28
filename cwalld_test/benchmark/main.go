@@ -44,14 +44,14 @@ func main() {
 	for { // loop until we get it
 		newSpeedd(MAX - timer)
 
-		time.Sleep(time.Millisecond * 500)
+		time.Sleep(time.Millisecond * 600)
 		
 		breach := checkBeta()
 
 		if breach {
 			println("1 breach!")
 			times = append(times, MAX - timer)
-			if (MAX - timer) < 150 {
+			if (MAX - timer) < 125 {
 				fmt.Printf("Time found: %d x 10^-5!", MAX - timer)
 				cmd := exec.Command("sudo", "systemctl", "stop", "cwalldspeedd.service")
 				_ = cmd.Run()
