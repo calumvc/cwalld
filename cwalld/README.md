@@ -6,19 +6,38 @@ A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by u
 ## Requirements
 - SELinux system (Red Hat / Fedora / ...)
 - Go 1.25.7+
+- policycoreutils-devel package
 
 ## Installation
+
+### 0. ssh reverse tunnel (optional)
+from host
+```sudo systemctl start sshd```
+from VM (10.0.2.2 is standard for VM to host ip)
+```ssh -R 2222:localhost:22 host_username@10.0.2.2``` 
+from host
+```ssh -p 2222 vm_username@localhost```
 
 ### 1. Unzip cwalld.zip 
 Run `unzip cwalld.zip`
 
-### 2. Install Policies
+### 2. Install Policies and Integration test daemons compilation
+The policy install script is currently tied to a testgrounds directory. 
+This also means that discretionary access controls don't interfere.
 ```
-cd subject_types/ ... # for all folders
-sudo ./example.sh
-cd object_types/ ... # for all folders
-sudo make -f /usr/share/selinux/devel/Makefile ___.te
-sudo semanage -i ___.pp
+sudo mkdir /home/testgrounds
+sudo chmod 755 /home/testgrounds
+sudo cp -r testgrounds /home/
+```
+
+Finally, run the policy install script (takes a minute)
+from `/home/testgrounds/`
+```
+sudo chmod +x policyinstall.sh
+sudo ./policyinstall.sh
+
+sudo chmod +x daemoninstall.sh
+sudo ./daemoninstall.sh
 ```
 
 ### 3. Build Executables
@@ -30,23 +49,13 @@ sudo cp cwalld-enforce /usr/local/sbin
 sudo cp cwalld-enforce.service /usr/lib/systemd/system
 sudo systemctl daemon-reload
 ```
-For all daemons you want for examples
-```
-cd subjects/ ... # for all folders
-gcc -o exampled exampled.c
-sudo cp example /usr/local/bin
-sudo cp example.service /usr/lib/systemd/system
-
-sudo systemctl daemon-reload
-```
 
 ### 4. Prepare Types
+
+from `home/testgrounds/`
 ```
-# change all daemon labels
-sudo chcon -t bin_t /usr/local/bin/*
-# fcontext and restorecon survive reboots, for cwalld-enforce
-sudo semanage fcontext -a -t cwalld_exec_t /usr/local/sbin/cwalld-enforce
-sudo restorecon -v /usr/local/sbin/cwalld-enforce
+sudo chmod +x labelinstall.sh
+sudo ./labelinstall.sh
 ```
 
 ### 5. Run & Tail
@@ -61,7 +70,7 @@ from `cwalld/`
 sudo go run ./cmd/cwalld/cwalld-init
 ```
 to initialise the auditd rule and change the AVC cache for denial logs
-running cwalld-init is persistant and should change audit rules forever on the system
+running cwalld-init is persistent and should change audit rules forever on the system
 
 ```
 sudo systemctl start cwalld-enforce
