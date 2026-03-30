@@ -1,7 +1,7 @@
 
 # Chinese Wall Security Daemon for SELinux
 
-A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by utilising Security Enhanced Linux's mandatory access control system
+A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by utilising Security Enhanced Linux's Mandatory Access Control system
 
 ## Requirements
 - SELinux system (Red Hat / Fedora / ...)
@@ -30,7 +30,7 @@ sudo chmod 755 /home/testgrounds
 sudo cp -r testgrounds /home/
 ```
 
-Finally, run the policy install script (takes a minute)
+Run the policy install script (takes a minute)
 from `/home/testgrounds/`
 ```
 sudo chmod +x policyinstall.sh
@@ -80,5 +80,5 @@ Run any desired subject with `sudo systemctl start exampled`
 
 `cwalld-enforce` writes to `/var/log/cwall/cwall.log`, so we can tail it and view updates from `cwalld/` with 
 ```
-sudo ./cmd/cwalld/cwalld-tail
+sudo go run ./cmd/cwalld/cwalld-tail
 ```
