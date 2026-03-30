@@ -48,8 +48,6 @@ func TailAuditd(DIR string) error {
 		if strings.Contains(text, "setroubleshootd") { continue } // ignore this guy
 		if strings.Contains(text, "cwalld-enforce") { continue } // if we log ourselves we will start an infinite loop
 
-		// decorator.DecorateAndLog(text, decorator.Error)
-
 		if strings.Contains(text, "cwalld") && strings.Contains(text, "SYSCALL") { // this is the syscall part, containing pid, operation and subject name
 			err := state.trackSubject(text)
 			if err != nil {
