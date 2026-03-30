@@ -34,7 +34,7 @@ type regexResult struct { // just used to more easily seperate regex logic from 
 func TailAuditd(DIR string) error {
 	state := State{}
 
-	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{ 
+	t, err := tail.TailFile("/var/log/audit/audit.log", tail.Config{
 		Follow: true, // keep reading new lines
 		ReOpen: true, // follow & reopen new log rotations
 		Location: &tail.SeekInfo{ Offset: 0, Whence: io.SeekEnd }}) // we only wanna know what happens after we start running the daemon
@@ -88,7 +88,7 @@ func (state *State) trackSubject(line string) error { // we will track details a
 
 	var subj *subject.Subject
 	seen := false // this is so we can see when a process comes back with a new pid
-	
+
 	for i, s := range state.subjects { // if subject is already registered
 		if s.Pid == regexes.pid {
 			subj = &s // get the subject details from the state
@@ -96,7 +96,7 @@ func (state *State) trackSubject(line string) error { // we will track details a
 		} else
 		if s.Name == regexes.name { // if weve seen the process before but it got restarted - likely because of a label change
 			state.subjects[i].Pid = regexes.pid // update pid so we match it correctly when it comes back
-			state.subjects[i].Label = regexes.label 
+			state.subjects[i].Label = regexes.label
 			seen = true
 			break
 		}
@@ -104,7 +104,7 @@ func (state *State) trackSubject(line string) error { // we will track details a
 
 	if subj == nil { // add it to the global list of subjects if not
 		subj = &subject.Subject{ Pid: regexes.pid, Name: regexes.name, Label: regexes.label, Entrypoint: regexes.entrypoint }
-		state.subjects = append(state.subjects, *subj) 
+		state.subjects = append(state.subjects, *subj)
 
 		if seen != true {
 			decorator.DecorateAndLog(subj.String(), decorator.Register) // log the register
@@ -122,18 +122,18 @@ func (state *State) trackSubject(line string) error { // we will track details a
 	flags, err := strconv.ParseInt(regexes.operation, 16, 64) // convert the string that is hexadecimal into binary, 
 																														// which is read as an int64 but actually is just straight flags of syscalls
 
-	if err != nil { 
-		return err 
+	if err != nil {
+		return err
 	}
 
 	var op utils.Operation
 
 	if flags & unix.O_RDWR != 0 { // and mask with the O_RDWR flag for both x86 and ARM architecture
 		op = utils.ReadWrite
-	} else 
+	} else
 	if flags & unix.O_PATH != 0 { // O_PATH is the only operation that declares read but doesnt actually read anything
 		op = utils.Metadata
-	} else 
+	} else
 	if flags & unix.O_APPEND != 0 || flags & unix.O_TRUNC != 0 || flags & unix.O_CREAT != 0 || flags & unix.O_WRONLY != 0 { // all of the operations that involve writes
 		op = utils.Write
 	} else { // if the write flag isnt on then it must be a read
@@ -159,7 +159,7 @@ func (state *State) trackObject(line string) error {
 	regex = regexp.MustCompile(`\bname="([^"]+)"`)
 	regex_object_path := regex.FindStringSubmatch(line)
 	object_path, err := utils.RegexErr(regex_object_path, "object name")
-	
+
 	if err != nil {
 		return err
 	}
@@ -174,7 +174,7 @@ func (state *State) trackObject(line string) error {
 
 	for i := range state.audits {
 		if state.audits[i].Id == audit_id {
-			state.audits[i].Object = &utils.Object{ Name: object_path, Label: label_type } 
+			state.audits[i].Object = &utils.Object{ Name: object_path, Label: label_type }
 
 			decorator.DecorateAndLog(state.audits[i].String(), decorator.Audit)
 
@@ -197,7 +197,7 @@ func (state *State) trackAVC(line string) error {
 	if err != nil {
 		return err
 	}
-	
+
 	var object string
 
 	if strings.Contains(line, "name") { // auditd can return the object with 2 different names, the object itself or the whole path
@@ -205,7 +205,7 @@ func (state *State) trackAVC(line string) error {
 		regex_object := regex.FindStringSubmatch(line)
 		object, err = utils.RegexErr(regex_object, "Object")
 
-		if err != nil { 
+		if err != nil {
 			return err
 		}
 
@@ -224,8 +224,8 @@ func (state *State) trackAVC(line string) error {
 	regex_pid := regex.FindStringSubmatch(line)
 	pid, err := utils.RegexErr(regex_pid, "Pid")
 
-	if err != nil { 
-		return err 
+	if err != nil {
+		return err
 	}
 
 	for _, s := range state.subjects { // find the subject that did it

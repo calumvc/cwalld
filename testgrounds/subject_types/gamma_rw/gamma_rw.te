@@ -14,6 +14,7 @@ require {
   type beta_t;
   type sanitised_t;
   type user_home_t;
+  type user_home_dir_t;
 }
 
 init_daemon_domain(gamma_rw_t, gamma_rw_exec_t)
@@ -33,3 +34,4 @@ allow gamma_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies
 allow gamma_rw_t user_home_t:dir { search read open write add_name };
+allow gamma_rw_t user_home_dir_t:dir { search read open write add_name };

@@ -3409,330 +3409,331 @@ require {
   type gamma_t;
   type sanitised_t;
   type user_home_t;
+  type user_home_dir_t;
 }
 
  	 	
-#line 18
+#line 19
 ##### begin init_daemon_domain(alpha_rw_t,alpha_rw_exec_t) depth: 1
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		attribute direct_run_init, direct_init, direct_init_entry;
-#line 18
+#line 19
 		type init_t;
-#line 18
+#line 19
 		role system_r;
-#line 18
+#line 19
 		attribute daemon;
-#line 18
+#line 19
 		attribute initrc_transition_domain;
-#line 18
+#line 19
 		attribute initrc_domain;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_t daemon;
-#line 18
+#line 19
 	typeattribute alpha_rw_exec_t direct_init_entry;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin domain_type(alpha_rw_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	# start with basic domain
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin domain_base_type(alpha_rw_t) depth: 3
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		attribute domain;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_t domain;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end domain_base_type(alpha_rw_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	# Only way to get corenet_unlabeled packets disabled to work
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin corenet_all_recvfrom_unlabeled(alpha_rw_t) depth: 3
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
                 attribute corenet_unlabeled_type;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_t corenet_unlabeled_type;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end corenet_all_recvfrom_unlabeled(alpha_rw_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end domain_type(alpha_rw_t) depth: 1
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin domain_entry_file(alpha_rw_t,alpha_rw_exec_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		attribute entry_type;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	allow alpha_rw_t alpha_rw_exec_t:file entrypoint;
-#line 18
+#line 19
 	allow alpha_rw_t alpha_rw_exec_t:file { { getattr open map read execute ioctl } ioctl lock };
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_exec_t entry_type;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin corecmd_executable_file(alpha_rw_exec_t) depth: 3
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		attribute exec_type;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_exec_t exec_type;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	 	
-#line 18
+#line 19
 ##### begin files_type(alpha_rw_exec_t) depth: 4
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		attribute file_type, non_security_file_type, non_auth_file_type;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	typeattribute alpha_rw_exec_t file_type, non_security_file_type, non_auth_file_type;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end files_type(alpha_rw_exec_t) depth: 3
-#line 18
+#line 19
  	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end corecmd_executable_file(alpha_rw_exec_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	#optional_policy(`
-#line 18
+#line 19
 	#	unconfined_exec_typebounds(alpha_rw_exec_t)
-#line 18
+#line 19
 	#')
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end domain_entry_file(alpha_rw_t,alpha_rw_exec_t) depth: 1
-#line 18
+#line 19
  	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	type_transition initrc_domain alpha_rw_exec_t:process alpha_rw_t;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	optional {
-#line 18
+#line 19
 		
-#line 18
+#line 19
 		 	 	
-#line 18
+#line 19
 ##### begin systemd_connectto_socket_proxyd_unix_sockets(alpha_rw_t) depth: 2
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		require {
-#line 18
+#line 19
 			
-#line 18
+#line 19
 		type systemd_socket_proxyd_t;
-#line 18
+#line 19
 	
-#line 18
+#line 19
 		} # end require
-#line 18
+#line 19
 	
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	allow alpha_rw_t systemd_socket_proxyd_t:unix_stream_socket connectto;
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end systemd_connectto_socket_proxyd_unix_sockets(alpha_rw_t) depth: 1
-#line 18
+#line 19
  	
-#line 18
+#line 19
 	
-#line 18
+#line 19
 	} # end optional
-#line 18
+#line 19
 
-#line 18
+#line 19
 
-#line 18
+#line 19
 	 	
-#line 18
+#line 19
 ##### end init_daemon_domain(alpha_rw_t,alpha_rw_exec_t) depth: 0
-#line 18
+#line 19
  	
 
 ########################################
@@ -3749,3 +3750,4 @@ allow alpha_rw_t sanitised_t:file { read getattr open };
 
 # navigational policies
 allow alpha_rw_t user_home_t:dir { search read open write add_name };
+allow alpha_rw_t user_home_dir_t:dir { search read open write add_name };

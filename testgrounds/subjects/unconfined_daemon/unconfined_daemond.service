@@ -1,0 +1,10 @@
+
+[Unit]
+Description=unconfined_daemond
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/unconfined_daemond
+
+[Install]
+WantedBy=multi-user.target
