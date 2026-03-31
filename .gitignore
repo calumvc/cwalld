@@ -4,6 +4,19 @@ cwalld-enforce
 cwalldtestd
 cwalldspeedd
 
+# test daemon binaries
+alpha_civild
+alpha_curiousd
+beta_civild
+beta_evild
+gamma_civild
+gamma_confusedd
+unconfined_daemond
+
+cwalldspeedd
+cwalldtestd
+
+
 # testing
 *.out
 

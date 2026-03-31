@@ -1,6 +1,8 @@
 
 # Chinese Wall Security Daemon for SELinux
 
+[Read the dissertation](./Enforcing%20the%20Chinese%20Wall%20Security%20Policy%20in%20Security-Enhanced%20Linux.pdf)
+
 A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by utilising Security Enhanced Linux's Mandatory Access Control system
 
 ## Requirements
@@ -12,10 +14,15 @@ A security daemon capable of enforcing the Chinese Wall (Brewer-Nash) Model by u
 
 ### 0. ssh reverse tunnel (optional)
 from host
+
 ```sudo systemctl start sshd```
+
 from VM (10.0.2.2 is standard for VM to host ip)
+
 ```ssh -R 2222:localhost:22 host_username@10.0.2.2``` 
+
 from host
+
 ```ssh -p 2222 vm_username@localhost```
 
 ### 1. Unzip cwalld.zip 
@@ -70,6 +77,7 @@ from `cwalld/`
 sudo go run ./cmd/cwalld/cwalld-init
 ```
 to initialise the auditd rule and change the AVC cache for denial logs
+
 running cwalld-init is persistent and should change audit rules forever on the system
 
 ```
