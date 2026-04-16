@@ -1,0 +1,3 @@
+*.src.rpm linguist-generated
+*.spec linguist-generated
+*.8 linguist-generated
